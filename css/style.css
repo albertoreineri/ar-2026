@@ -1,0 +1,151 @@
+/* =========================================================
+   Alberto Reineri — stile base
+   Font: Fraunces (titoli) + Inter (corpo), self-hosted, variable.
+   ========================================================= */
+
+/* ---- Font faces (variable, subset latin + latin-ext) ---- */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('../fonts/fraunces-variable.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 300 900;
+  font-display: swap;
+  src: url('../fonts/fraunces-variable-italic.woff2') format('woff2');
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/inter-variable.woff2') format('woff2');
+}
+
+/* ---- Variabili ---- */
+:root {
+  /* Colore */
+  --color-bg: #F7F4EC;
+  --color-bg-alt: #F1EADA;     /* variante leggermente più scura, per alternare sezioni senza bordi/ombre */
+  --color-pine: #2B3A2E;       /* verde pino: testo ed elementi principali */
+  --color-wood: #8B5E34;       /* legno/cuoio: accento unico */
+  --color-ink: #1A1A17;        /* quasi nero: contrasti forti */
+
+  --color-line: rgb(43 58 46 / 18%);   /* separatori sottili (pine a bassa opacità) */
+  --color-line-strong: rgb(43 58 46 / 32%);
+  --color-wood-soft: rgb(139 94 52 / 14%);
+
+  /* Font */
+  --font-serif: 'Fraunces', ui-serif, Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Scala tipografica fluida (min 375px – max 1440px) */
+  --step--1: clamp(0.875rem, 0.836rem + 0.19vw, 0.986rem);
+  --step-0:  clamp(1.0625rem, 1.006rem + 0.28vw, 1.222rem);
+  --step-1:  clamp(1.25rem, 1.16rem + 0.45vw, 1.5rem);
+  --step-2:  clamp(1.5rem, 1.36rem + 0.7vw, 1.9rem);
+  --step-3:  clamp(1.9rem, 1.66rem + 1.2vw, 2.5rem);
+  --step-4:  clamp(2.4rem, 1.98rem + 2.1vw, 3.4rem);
+  --step-5:  clamp(2.9rem, 2.2rem + 3.5vw, 4.5rem);
+
+  /* Spaziatura fluida */
+  --space-3xs: clamp(0.31rem, 0.29rem + 0.11vw, 0.38rem);
+  --space-2xs: clamp(0.56rem, 0.53rem + 0.17vw, 0.69rem);
+  --space-xs:  clamp(0.94rem, 0.88rem + 0.28vw, 1.13rem);
+  --space-s:   clamp(1.13rem, 1.02rem + 0.56vw, 1.5rem);
+  --space-m:   clamp(1.69rem, 1.53rem + 0.84vw, 2.25rem);
+  --space-l:   clamp(2.25rem, 2.03rem + 1.13vw, 3rem);
+  --space-xl:  clamp(3rem, 2.65rem + 1.69vw, 4.13rem);
+  --space-2xl: clamp(4rem, 3.5rem + 2.5vw, 5.63rem);
+  --space-3xl: clamp(5.5rem, 4.7rem + 4vw, 8rem);
+
+  /* Layout */
+  --content-max: 74rem;
+  --measure: 34rem; /* larghezza massima leggibile per paragrafi */
+  --border-radius: 3px; /* minimo, non arrotondamenti da SaaS */
+
+  color-scheme: light;
+}
+
+/* ---- Reset minimo ---- */
+*, *::before, *::after { box-sizing: border-box; }
+* { margin: 0; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--step-0);
+  line-height: 1.55;
+  color: var(--color-pine);
+  background: var(--color-bg);
+  font-synthesis: none;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+img, svg, video { display: block; max-width: 100%; }
+input, button, textarea, select { font: inherit; color: inherit; }
+a { color: inherit; }
+
+h1, h2, h3, h4 {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  line-height: 1.12;
+  text-wrap: balance;
+  color: var(--color-ink);
+}
+
+p { text-wrap: pretty; }
+
+ul, ol { list-style: none; padding: 0; }
+
+/* ---- Focus visibile ---- */
+:focus { outline: none; }
+:focus-visible {
+  outline: 2.5px solid var(--color-wood);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* ---- Movimento ridotto ---- */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---- Contenitore ---- */
+.wrap {
+  max-width: var(--content-max);
+  margin-inline: auto;
+  padding-inline: var(--space-m);
+}
+
+/* ---- Skip link (accessibilità) ---- */
+.skip-link {
+  position: absolute;
+  left: var(--space-s);
+  top: -3rem;
+  background: var(--color-ink);
+  color: var(--color-bg);
+  padding: var(--space-2xs) var(--space-s);
+  z-index: 100;
+  transition: top 0.15s ease;
+}
+.skip-link:focus-visible {
+  top: var(--space-s);
+}
+
+/* ---- Selezione testo ---- */
+::selection {
+  background: var(--color-wood);
+  color: var(--color-bg);
+}
