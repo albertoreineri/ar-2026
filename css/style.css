@@ -26,6 +26,13 @@
   src: url('../fonts/inter-variable.woff2') format('woff2');
 }
 
+/* ---- Proprietà animabile per il peso variabile del titolo hero ---- */
+@property --wght {
+  syntax: '<number>';
+  inherits: true;
+  initial-value: 560;
+}
+
 /* ---- Variabili ---- */
 :root {
   /* Colore */
@@ -148,4 +155,333 @@ ul, ol { list-style: none; padding: 0; }
 ::selection {
   background: var(--color-wood);
   color: var(--color-bg);
+}
+
+/* =========================================================
+   Header
+   ========================================================= */
+.site-header {
+  border-bottom: 1px solid var(--color-line);
+}
+
+.site-header__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: var(--space-s);
+  gap: var(--space-s);
+}
+
+.wordmark {
+  font-family: var(--font-serif);
+  font-weight: 600;
+  font-size: var(--step-1);
+  color: var(--color-ink);
+  text-decoration: none;
+}
+
+.header-cta {
+  font-size: var(--step--1);
+  color: var(--color-wood);
+  text-decoration: underline;
+  text-underline-offset: 0.25em;
+  text-decoration-thickness: 1px;
+  white-space: nowrap;
+  transition: color 0.15s ease;
+}
+.header-cta:hover { color: var(--color-ink); }
+
+/* =========================================================
+   Hero
+   ========================================================= */
+.hero {
+  position: relative;
+  overflow: clip;
+  min-height: min(88vh, 46rem);
+  display: flex;
+  align-items: center;
+  padding-block: var(--space-2xl);
+}
+
+.hero__wrap {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+}
+
+.hero__content {
+  max-width: 40rem;
+}
+
+.hero__title {
+  font-size: var(--step-5);
+  line-height: 1.06;
+  font-variation-settings: 'wght' var(--wght, 560);
+  will-change: font-variation-settings, transform;
+}
+
+.hero__lead {
+  font-size: var(--step-1);
+  color: var(--color-pine);
+  max-width: 30ch;
+  margin-top: var(--space-m);
+}
+
+.hero__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: var(--space-l);
+  font-size: var(--step-0);
+  font-weight: 500;
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 1.5px solid var(--color-wood);
+  padding-bottom: 0.15em;
+  transition: color 0.15s ease, border-color 0.15s ease, gap 0.2s ease;
+}
+.hero__cta:hover {
+  color: var(--color-wood);
+  gap: 0.75em;
+}
+
+.hero__topo {
+  position: absolute;
+  inset: 0;
+  left: 38%;
+  z-index: 0;
+  color: var(--color-wood);
+  opacity: 0.55;
+  pointer-events: none;
+}
+.hero__topo svg {
+  width: 100%;
+  height: 100%;
+}
+.hero__topo path {
+  stroke-width: 1.3;
+}
+
+@media (max-width: 55rem) {
+  .hero__topo {
+    left: 8%;
+    opacity: 0.3;
+  }
+  .hero { min-height: min(78vh, 38rem); }
+}
+
+/* =========================================================
+   Titoli di sezione
+   ========================================================= */
+.section-title {
+  font-size: var(--step-3);
+  margin-bottom: var(--space-l);
+  position: relative;
+  padding-bottom: var(--space-s);
+}
+.section-title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 3rem;
+  height: 2px;
+  background: var(--color-wood);
+}
+
+/* =========================================================
+   Servizi — righe orizzontali, non card
+   ========================================================= */
+.services {
+  background: var(--color-bg-alt);
+  padding-block: var(--space-2xl);
+}
+
+.services__list {
+  border-top: 1px solid var(--color-line);
+}
+
+.services__item {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(10rem, 16rem) 1fr;
+  align-items: baseline;
+  gap: var(--space-s) var(--space-m);
+  padding-block: var(--space-m);
+  border-bottom: 1px solid var(--color-line);
+  transition: background-color 0.2s ease;
+}
+.services__item:hover,
+.services__item:focus-within {
+  background: var(--color-wood-soft);
+}
+
+.services__mark {
+  align-self: stretch;
+  width: 3px;
+  background: var(--color-wood);
+  border-radius: 2px;
+}
+
+.services__name {
+  font-size: var(--step-1);
+  color: var(--color-ink);
+}
+
+.services__desc {
+  color: var(--color-pine);
+}
+
+@media (max-width: 40rem) {
+  .services__item {
+    grid-template-columns: 1rem 1fr;
+    grid-template-areas:
+      "mark name"
+      "mark desc";
+  }
+  .services__mark { grid-area: mark; }
+  .services__name { grid-area: name; }
+  .services__desc { grid-area: desc; }
+}
+
+/* =========================================================
+   Posso aiutarti a — enfasi forte, asimmetria leggera
+   ========================================================= */
+.help {
+  padding-block: var(--space-2xl);
+}
+
+.help__list {
+  max-width: 42rem;
+  margin-inline-start: clamp(0rem, 6vw, 4rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-m);
+}
+
+.help__item p {
+  font-size: var(--step-1);
+  color: var(--color-pine);
+}
+.help__item strong {
+  color: var(--color-ink);
+  font-weight: 600;
+}
+
+/* =========================================================
+   Testimonianze
+   ========================================================= */
+.testimonials {
+  background: var(--color-bg-alt);
+  padding-block: var(--space-2xl);
+}
+
+.testimonials__list {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-xl) var(--space-l);
+}
+
+.testimonials__item {
+  border-top: 2px solid var(--color-wood);
+  padding-top: var(--space-m);
+}
+
+.testimonials__quote {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--step-1);
+  color: var(--color-ink);
+  line-height: 1.35;
+}
+
+.testimonials__author {
+  margin-top: var(--space-s);
+  font-size: var(--step--1);
+  color: var(--color-wood);
+}
+
+@media (max-width: 55rem) {
+  .testimonials__list {
+    grid-template-columns: 1fr;
+    gap: var(--space-l);
+  }
+}
+
+/* =========================================================
+   Chi sono
+   ========================================================= */
+.about {
+  padding-block: var(--space-2xl);
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: minmax(7rem, 11rem) 1fr;
+  gap: var(--space-l);
+}
+
+.about__year {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--step-2);
+  line-height: 1.1;
+  color: var(--color-wood);
+}
+
+.about__text p + p { margin-top: var(--space-s); }
+
+.about__text p {
+  max-width: var(--measure);
+}
+
+@media (max-width: 40rem) {
+  .about__body { grid-template-columns: 1fr; }
+  .about__year { margin-bottom: var(--space-2xs); }
+}
+
+/* =========================================================
+   Contatti
+   ========================================================= */
+.contact {
+  padding-block: var(--space-3xl);
+}
+
+.contact__lead {
+  color: var(--color-pine);
+  max-width: 30ch;
+  margin-bottom: var(--space-m);
+}
+
+.contact__link {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: var(--step-3);
+  color: var(--color-ink);
+  text-decoration: none;
+  border-bottom: 2px solid var(--color-wood);
+  transition: color 0.15s ease;
+}
+.contact__link:hover { color: var(--color-wood); }
+
+/* =========================================================
+   Footer
+   ========================================================= */
+.site-footer {
+  border-top: 1px solid var(--color-line);
+  padding-block: var(--space-l);
+}
+
+.site-footer__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: var(--space-s);
+  font-size: var(--step--1);
+  color: var(--color-pine);
+}
+
+.site-footer a {
+  color: var(--color-wood);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
 }
