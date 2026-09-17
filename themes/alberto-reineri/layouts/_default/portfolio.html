@@ -1,0 +1,117 @@
+{{ define "main" }}
+
+<section class="page-hero wrap">
+  <div class="section-number reveal">Portfolio</div>
+  <h1 class="section-title reveal">Alcune cose<br>che ho costruito.</h1>
+  <p class="page-intro reveal">
+    Ogni progetto qui sotto parte da una chiacchierata, non da un preventivo
+    a pacchetto: capisco cosa serve davvero, poi decidiamo insieme se basta
+    WordPress o se conviene costruire su misura. E quando il sito va online
+    continuo a seguirlo, tra hosting, aggiornamenti e piccole
+    modifiche che servono nel tempo.
+  </p>
+</section>
+
+<section class="wrap">
+  <div class="projects">
+
+    <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/bikeitalia.jpg" | relURL }}')">
+        <span>BIKEITALIA</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>Editorial · Sviluppo &amp; gestione</span><span>01</span></div>
+        <h3>Bikeitalia</h3>
+        <p>
+          Ho costruito e gestisco nel tempo la piattaforma editoriale e commerciale
+          dedicata alla bicicletta: contenuti, servizi e un traffico importante
+          da tenere in piedi ogni giorno.
+        </p>
+        <a class="project-link" href="https://www.bikeitalia.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/dslegacy.jpg" | relURL }}')">
+        <span>DIRE STRAITS LEGACY</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>Musica · Sviluppo &amp; gestione</span><span>02</span></div>
+        <h3>Dire Straits Legacy</h3>
+        <p>
+          Il sito ufficiale della band nata dall'amore e dal rispetto per la musica dei Dire Straits, il progetto DSL
+          Dire Straits Legacy riunisce
+          sul palco alcuni degli artisti che hanno reso unico il leggendario sound della band britannica, insieme a
+          musicisti di livello internazionale.
+        </p>
+        <a class="project-link" href="https://dslegacy.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/alpenzu.jpg" | relURL }}')">
+        <span>ALPENZU</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>E-commerce · Valle d'Aosta</span><span>03</span></div>
+        <h3>Alpenzu</h3>
+        <p>
+          E-commerce per i prodotti tipici della Valle d'Aosta.
+          Alpenzu è nata nel 2001 ad Arnad con l’obiettivo di valorizzare il territorio attraverso ricette tradizionali di famiglia. Il nome si ispira a un villaggio Walser sopra Gressoney, simbolo di autenticità.
+        </p>
+        <a class="project-link" href="https://alpenzu.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/legambientecuneo.jpg" | relURL }}')">
+        <span>LEGAMBIENTE CUNEO</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>Associazione ambientale · Sviluppo &amp; gestione</span><span>04</span></div>
+        <h3>Legambiente Cuneo</h3>
+        <p>
+          Il sito del circolo cuneese di Legambiente: monitoraggio ambientale,
+          campagne ed eventi sul territorio, dalle valli alpine alla pianura.
+          Sviluppo e gestisco io il sito.
+        </p>
+        <a class="project-link" href="https://legambientecuneo.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+    <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/drivingchange.jpg" | relURL }}')">
+        <span>DRIVING CHANGE</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>Media · Sviluppo &amp; gestione</span><span>05</span></div>
+        <h3>Driving Change</h3>
+        <p>
+          Piattaforma editoriale che racconta persone e politiche che cambiano
+          l'Italia — sostenibilità, governance e benessere, più un podcast.
+          Sviluppo e gestisco io la piattaforma.
+        </p>
+        <a class="project-link" href="https://drivingchange.org" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+<section class="brands-section" style="padding-top:0">
+  <div class="wrap">
+    <div class="section-number reveal">Alcuni brand con cui collaboro</div>
+  </div>
+
+  <div class="brands-marquee reveal">
+    <div class="brands-track" aria-hidden="true">
+      {{ range seq 2 }}
+        {{ range site.Data.brands }}
+        <span class="brand-logo"><img src="{{ printf "img/brands/%s" . | relURL }}" alt="" loading="lazy"></span>
+        {{ end }}
+      {{ end }}
+    </div>
+  </div>
+</section>
+
+{{ end }}

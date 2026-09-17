@@ -10,3 +10,15 @@ theme = 'alberto-reineri'
 
 [params]
   description = 'Alberto Reineri — Web design, sviluppo e infrastruttura web.'
+  formspreeEndpoint = 'https://formspree.io/f/mlgkavgo'
+
+[permalinks]
+  blog = "/:slug/"
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[markup.tableOfContents]
+  startLevel = 2
+  endLevel = 3
+  ordered = false

@@ -1,0 +1,44 @@
+{{ define "main" }}
+
+<section class="page-hero wrap">
+  <div class="section-number reveal">Contatti</div>
+  <h1 class="section-title reveal">Parliamo del<br>tuo progetto.</h1>
+  <p class="page-intro reveal">
+    Scrivimi due righe su cosa stai cercando di fare: un sito nuovo, un
+    restyling, un problema da risolvere. Ti risponderò io direttamente,
+    di solito entro un giorno o due, e capiamo insieme se e come posso
+    esserti utile.
+  </p>
+</section>
+
+<section class="contact-page wrap" style="margin-top:40px">
+  <form class="contact-page-form reveal" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
+    <label class="contact-field">
+      <span>Email</span>
+      <input type="email" name="email" required>
+    </label>
+
+    <label class="contact-field">
+      <span>Messaggio</span>
+      <textarea name="messaggio" rows="5" required></textarea>
+    </label>
+
+    <div class="contact-form-row">
+      <label class="contact-privacy">
+        <input type="checkbox" required>
+        Accetto la privacy policy
+      </label>
+
+      <button type="submit" class="contact-submit">Invia →</button>
+    </div>
+
+    <p class="form-status" role="status" aria-live="polite"></p>
+  </form>
+
+  <p class="contact-alt reveal">
+    Preferisci l'email diretta? Scrivimi a
+    <a class="contact-alt-link" href="mailto:info@albertoreineri.it">info@albertoreineri.it</a>
+  </p>
+</section>
+
+{{ end }}

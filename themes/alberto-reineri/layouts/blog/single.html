@@ -1,0 +1,29 @@
+{{ define "main" }}
+
+<section class="page-hero wrap">
+  <div class="section-number">
+    <a href="{{ "/blog/" | relURL }}">← Blog</a> · {{ .Date | time.Format ":date_long" }}
+  </div>
+  <h1 class="section-title">{{ .Title }}</h1>
+</section>
+
+<section class="wrap">
+  {{ $toc := .TableOfContents }}
+  {{ $content := .Content }}
+
+  {{ if in $toc "<li" }}
+    {{ $tocBox := partial "post-toc.html" $toc }}
+    {{ $parts := split $content "</p>" }}
+    {{ if ge (len $parts) 3 }}
+      {{ $content = print (index $parts 0) "</p>" (index $parts 1) "</p>" $tocBox (delimit (after 2 $parts) "</p>") }}
+    {{ else }}
+      {{ $content = print $tocBox $content }}
+    {{ end }}
+  {{ end }}
+
+  <div class="prose">
+    {{ $content | safeHTML }}
+  </div>
+</section>
+
+{{ end }}

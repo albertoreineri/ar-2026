@@ -74,32 +74,86 @@ document.querySelectorAll(".reveal").forEach(el => revealObserver.observe(el));
   });
 })();
 
-/* HERO MOUSE PARALLAX */
+/* HERO MOUSE PARALLAX — presente solo in home */
 if (window.matchMedia("(pointer:fine)").matches) {
   const heroTitle = document.getElementById("heroTitle");
 
-  window.addEventListener("pointermove", (e) => {
-    const x = (e.clientX / window.innerWidth - .5) * 2;
-    const y = (e.clientY / window.innerHeight - .5) * 2;
-    heroTitle.style.transform = `translate(${x * 5}px, ${y * 3}px)`;
+  if (heroTitle) {
+    window.addEventListener("pointermove", (e) => {
+      const x = (e.clientX / window.innerWidth - .5) * 2;
+      const y = (e.clientY / window.innerHeight - .5) * 2;
+      heroTitle.style.transform = `translate(${x * 5}px, ${y * 3}px)`;
+    });
+  }
+}
+
+/* CONTACT FORM (via Formspree) — nel footer su ogni pagina tranne Contatti, e nella pagina Contatti stessa */
+const contactForm = document.getElementById("contactForm");
+
+if (contactForm) {
+  const statusEl = contactForm.querySelector(".form-status");
+  const submitBtn = contactForm.querySelector(".contact-submit");
+
+  contactForm.addEventListener("submit", (e) => {
+    e.preventDefault();
+
+    if (submitBtn) submitBtn.disabled = true;
+    if (statusEl) {
+      statusEl.textContent = "Invio in corso…";
+      statusEl.className = "form-status";
+    }
+
+    fetch(contactForm.action, {
+      method: "POST",
+      body: new FormData(contactForm),
+      headers: { Accept: "application/json" },
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Invio non riuscito");
+        contactForm.reset();
+        if (statusEl) {
+          statusEl.textContent = "Messaggio inviato — ti rispondo appena posso.";
+          statusEl.className = "form-status form-status--ok";
+        }
+      })
+      .catch(() => {
+        if (statusEl) {
+          statusEl.textContent = "Qualcosa non ha funzionato. Riprova o scrivimi a info@albertoreineri.it.";
+          statusEl.className = "form-status form-status--error";
+        }
+      })
+      .finally(() => {
+        if (submitBtn) submitBtn.disabled = false;
+      });
   });
 }
 
-/* CONTACT FORM (via mailto, nessun backend) */
-const contactForm = document.getElementById("contactForm");
+/* INDICE ARTICOLO: collassabile + evidenzia la voce della sezione visibile — presente solo nei single del blog */
+const postToc = document.querySelector(".post-toc");
 
-contactForm.addEventListener("submit", (e) => {
-  e.preventDefault();
+if (postToc) {
+  const tocToggle = postToc.querySelector(".post-toc-toggle");
 
-  const email = contactForm.email.value;
-  const messaggio = contactForm.messaggio.value;
+  tocToggle.addEventListener("click", () => {
+    const collapsed = postToc.classList.toggle("collapsed");
+    tocToggle.setAttribute("aria-expanded", !collapsed);
+  });
 
-  const subject = "Nuovo contatto dal sito";
-  const body = `${messaggio}\n\n— ${email}`;
+  const tocLinks = postToc.querySelectorAll("a[href^='#']");
+  const headings = [...tocLinks]
+    .map((link) => document.getElementById(decodeURIComponent(link.hash.slice(1))))
+    .filter(Boolean);
 
-  window.location.href =
-    `mailto:ciao@albertoreineri.it?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-});
+  const tocObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      const link = postToc.querySelector(`a[href="#${entry.target.id}"]`);
+      if (!link) return;
+      link.classList.toggle("active", entry.isIntersecting);
+    });
+  }, { rootMargin: "-20% 0px -70% 0px" });
+
+  headings.forEach((heading) => tocObserver.observe(heading));
+}
 
 /* MAGNETIC PROJECT IMAGES */
 if (window.matchMedia("(pointer:fine)").matches) {

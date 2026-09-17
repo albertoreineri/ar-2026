@@ -1,3 +1,47 @@
+<div class="status">
+  <div class="wrap status-grid">
+    <div class="status-title">ALBERTOREINERI.IT</div>
+    <div class="status-item">Dal 2010</div>
+    <div class="status-item">Uptime 99.9%</div>
+    <div class="status-item">Interventi rapidi</div>
+    <div class="status-item">From Valle Maira</div>
+  </div>
+</div>
+
+{{ if ne .Layout "contatti" }}
+<section class="footer-cta wrap">
+  <div class="footer-cta-grid">
+    <div>
+      <h2 class="footer-cta-title">Hai qualcosa<br>in mente?</h2>
+      <a class="contact-link" href="{{ "/contatti/" | relURL }}">Raccontamelo →</a>
+    </div>
+
+    <form class="footer-form" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
+      <label class="contact-field">
+        <span>Email</span>
+        <input type="email" name="email" required>
+      </label>
+
+      <label class="contact-field">
+        <span>Messaggio</span>
+        <textarea name="messaggio" rows="3" required></textarea>
+      </label>
+
+      <div class="contact-form-row">
+        <label class="contact-privacy">
+          <input type="checkbox" required>
+          Accetto la privacy policy
+        </label>
+
+        <button type="submit" class="contact-submit">Invia →</button>
+      </div>
+
+      <p class="form-status" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+{{ end }}
+
 <footer>
   <div class="wrap inner">
     <span>© {{ now.Format "2006" }} Alberto Reineri</span>

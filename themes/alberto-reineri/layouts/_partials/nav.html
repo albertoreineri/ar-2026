@@ -1,13 +1,15 @@
-<nav>
+<nav class="site-nav">
   <div class="wrap inner">
     <a class="logo" href="{{ "/" | relURL }}">{{ site.Title }}</a>
 
     <div class="nav-right">
       <div class="nav-links">
-        <a href="#work">Lavori</a>
-        <a href="#lab">Servizi</a>
-        <a href="#about">Chi sono</a>
-        <a href="#contact">Contatti</a>
+        <a href="{{ "/" | relURL }}">Home</a>
+        <a href="{{ "/portfolio/" | relURL }}">Lavori</a>
+        <a href="{{ "/servizi/" | relURL }}">Servizi</a>
+        <a href="{{ "/chi-sono/" | relURL }}">Chi sono</a>
+        <a href="{{ "/blog/" | relURL }}">Blog</a>
+        <a href="{{ "/contatti/" | relURL }}">Contatti</a>
       </div>
 
       <button class="theme-switch" id="themeSwitch" aria-label="Cambia tema"></button>
@@ -21,9 +23,11 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-links">
-    <a href="#work">Lavori</a>
-    <a href="#lab">Servizi</a>
-    <a href="#about">Chi sono</a>
-    <a href="#contact">Contatti</a>
+    <a href="{{ "/" | relURL }}">Home</a>
+    <a href="{{ "/portfolio/" | relURL }}">Lavori</a>
+    <a href="{{ "/servizi/" | relURL }}">Servizi</a>
+    <a href="{{ "/chi-sono/" | relURL }}">Chi sono</a>
+    <a href="{{ "/blog/" | relURL }}">Blog</a>
+    <a href="{{ "/contatti/" | relURL }}">Contatti</a>
   </div>
 </div>

@@ -1,0 +1,5 @@
+su servizi: ho tolto la parte come in home. farei però a sfondo scuro la parte centrale 'Il grosso del lavoro è progettare e sviluppare il sito. Ma il giorno del lancio non è la fine del rapporto: hosting, backup e sicurezza restano sul mio tavolo finché il sito è online.
+
+'
+
+togliamo effetti su blog

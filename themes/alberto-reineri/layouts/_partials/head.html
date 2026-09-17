@@ -1,14 +1,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }} — Design · Code · Infrastructure{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<title>{{ if .IsHome }}{{ site.Title }} — Design · Siti web · Hosting{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <meta name="description" content="{{ site.Params.description }}">
+
+<link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
+<link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 
 <script>
   (function () {
-    var saved = localStorage.getItem("ar-theme");
-    if (saved === "dark" || (!saved && window.matchMedia("(prefers-color-scheme: dark)").matches)) {
-      document.documentElement.classList.add("dark");
+    var mql = window.matchMedia("(prefers-color-scheme: dark)");
+
+    function applyTheme(isDark) {
+      document.documentElement.classList.toggle("dark", isDark);
     }
+
+    var saved = localStorage.getItem("ar-theme");
+    applyTheme(saved === "dark" || (!saved && mql.matches));
+
+    // Se non c'è una scelta manuale salvata, segue il sistema anche a pagina già aperta
+    mql.addEventListener("change", function (e) {
+      if (!localStorage.getItem("ar-theme")) {
+        applyTheme(e.matches);
+      }
+    });
   })();
 </script>
 
