@@ -1,114 +1,158 @@
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+// Cursore personalizzato: solo su desktop con mouse e senza reduced motion
+if (hasFinePointer && !prefersReducedMotion) {
+    document.documentElement.classList.add('custom-cursor-active');
+
+    const cursor = document.querySelector('.custom-cursor');
+    let mouseX = window.innerWidth / 2;
+    let mouseY = window.innerHeight / 2;
+    let cursorX = mouseX;
+    let cursorY = mouseY;
+
+    window.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function renderCursor() {
+        cursorX += (mouseX - cursorX) * 0.15;
+        cursorY += (mouseY - cursorY) * 0.15;
+
+        cursor.style.left = `${cursorX}px`;
+        cursor.style.top = `${cursorY}px`;
+
+        requestAnimationFrame(renderCursor);
+    }
+    renderCursor();
+
+    const interactiveElements = document.querySelectorAll('a, button, .service-card, .testimonial-card, .method-item');
+
+    interactiveElements.forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.width = '48px';
+            cursor.style.height = '48px';
+            cursor.style.backgroundColor = 'rgba(224, 169, 57, 0.15)';
+            cursor.style.borderColor = 'var(--accent)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.width = '24px';
+            cursor.style.height = '24px';
+            cursor.style.backgroundColor = 'transparent';
+            cursor.style.borderColor = 'var(--text-primary)';
+        });
+    });
+}
+
+// Animazione della grafica geometrica in base allo scroll (disattivata con reduced motion)
+if (!prefersReducedMotion) {
+    const scrollGraphic = document.getElementById('scrollGraphic');
+
+    window.addEventListener('scroll', () => {
+        const scrollY = window.scrollY;
+        const rotation = scrollY * 0.15;
+        const scale = 1 + (scrollY * 0.0003);
+
+        if (scrollGraphic) {
+            scrollGraphic.style.transform = `rotate(${rotation}deg) scale(${Math.min(scale, 1.2)})`;
+        }
+    });
+}
+
+// Reveal delle sezioni allo scroll
+const revealEls = document.querySelectorAll('.reveal');
+
+if (prefersReducedMotion || !('IntersectionObserver' in window)) {
+    revealEls.forEach(el => el.classList.add('is-visible'));
+} else {
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            entry.target.classList.toggle('is-visible', entry.isIntersecting);
+        });
+    }, {
+        threshold: 0.15,
+        rootMargin: '0px 0px -10% 0px'
+    });
+
+    revealEls.forEach(el => revealObserver.observe(el));
+}
+
+// Tema chiaro / scuro — di default segue il sistema, ma un click sceglie
+// sempre l'opposto di ciò che si vede in quel momento (bypassa "system").
 (function () {
-  'use strict';
-
-  // Rete di sicurezza: se qualcosa va storto in questo script, il contenuto
-  // resta comunque visibile e leggibile (nessuna dipendenza da JS per l'accesso ai contenuti).
-  window.addEventListener('error', function () {
-    document.querySelectorAll('.services__item, .help__item, .testimonials__item').forEach(function (el) {
-      el.style.opacity = '';
-      el.style.transform = '';
-    });
-  });
-
-  var prefersReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var isDesktop = window.matchMedia('(min-width: 52rem)').matches;
-  var hasGSAP = typeof window.gsap !== 'undefined' && typeof window.ScrollTrigger !== 'undefined';
-
-  if (!hasGSAP || prefersReduced) {
-    return;
-  }
-
-  gsap.registerPlugin(ScrollTrigger);
-  ScrollTrigger.config({ ignoreMobileResize: true });
-
-  document.fonts.ready.then(function () {
-    ScrollTrigger.refresh();
-  });
-
-  initTopoLines();
-  initHeroTitle();
-  initReveal('.services__item', { y: 34, stagger: 0.09, rotate: true });
-  initReveal('.help__item', { alternateX: 46, stagger: 0.1 });
-  initReveal('.testimonials__item', { y: 22, stagger: 0.12 });
-
-  // Le curve di livello dell'hero si "disegnano" seguendo lo scroll,
-  // come se la mappa altimetrica prendesse forma mentre si esplora la pagina.
-  function initTopoLines() {
-    var paths = document.querySelectorAll('.hero__topo path');
-    if (!paths.length) return;
-
-    var tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.6
-      }
-    });
-
-    paths.forEach(function (path, i) {
-      var length = path.getTotalLength();
-      gsap.set(path, { strokeDasharray: length, strokeDashoffset: length });
-      tl.to(path, { strokeDashoffset: 0, ease: 'none', duration: 1 }, i * 0.12);
-    });
-  }
-
-  // Il titolo hero reagisce allo scroll: peso variabile e leggero spostamento.
-  // Il cambio di peso (più costoso, perché il font reflow) resta solo da desktop in su.
-  function initHeroTitle() {
-    var title = document.querySelector('.hero__title');
-    if (!title) return;
-
-    var vars = {
-      y: -22,
-      ease: 'none',
-      scrollTrigger: {
-        trigger: '.hero',
-        start: 'top top',
-        end: 'bottom top',
-        scrub: 0.6
-      }
+    const root = document.documentElement;
+    const toggle = document.getElementById('theme-toggle');
+    const darkMediaQuery = window.matchMedia('(prefers-color-scheme: dark)');
+    const labels = {
+        light: 'Tema chiaro attivo — passa allo scuro',
+        dark: 'Tema scuro attivo — passa al chiaro'
     };
 
-    if (isDesktop) {
-      vars['--wght'] = 700;
+    function hasExplicitTheme() {
+        const explicit = root.getAttribute('data-theme');
+        return explicit === 'light' || explicit === 'dark';
     }
 
-    gsap.to(title, vars);
-  }
+    function getResolvedTheme() {
+        if (hasExplicitTheme()) return root.getAttribute('data-theme');
+        return darkMediaQuery.matches ? 'dark' : 'light';
+    }
 
-  // Scelte di ingresso coordinate per sezione: le righe dei servizi si "depositano"
-  // (come strati) mentre i punti di "posso aiutarti a" arrivano alternati da sinistra/destra.
-  function initReveal(selector, opts) {
-    var items = document.querySelectorAll(selector);
-    if (!items.length) return;
+    function updateMetaThemeColor() {
+        const meta = document.querySelector('meta[name="theme-color"]');
+        const bg = getComputedStyle(root).getPropertyValue('--bg-color').trim();
+        if (meta && bg) meta.setAttribute('content', bg);
+    }
 
-    items.forEach(function (item, i) {
-      var fromVars = { opacity: 0 };
+    function updateToggleUI(resolved) {
+        if (!toggle) return;
+        toggle.dataset.mode = resolved;
+        toggle.setAttribute('aria-label', labels[resolved]);
+        toggle.title = labels[resolved];
+    }
 
-      if (opts.alternateX) {
-        fromVars.x = (i % 2 === 0) ? -opts.alternateX : opts.alternateX;
-      } else {
-        fromVars.y = opts.y || 30;
-        if (opts.rotate) fromVars.rotate = (i % 2 === 0) ? -1.1 : 1.1;
-      }
+    function refresh() {
+        updateToggleUI(getResolvedTheme());
+        updateMetaThemeColor();
+    }
 
-      gsap.set(item, fromVars);
+    refresh();
 
-      gsap.to(item, {
-        opacity: 1,
-        x: 0,
-        y: 0,
-        rotate: 0,
-        duration: 0.7,
-        delay: i * (opts.stagger || 0.08),
-        ease: 'power3.out',
-        scrollTrigger: {
-          trigger: item,
-          start: 'top 88%',
-          toggleActions: 'play none none none'
-        }
-      });
+    if (toggle) {
+        toggle.addEventListener('click', () => {
+            const next = getResolvedTheme() === 'dark' ? 'light' : 'dark';
+            root.setAttribute('data-theme', next);
+            try {
+                localStorage.setItem('theme-preference', next);
+            } catch (e) {}
+            refresh();
+        });
+    }
+
+    darkMediaQuery.addEventListener('change', () => {
+        if (!hasExplicitTheme()) refresh();
     });
-  }
 })();
+
+
+// Effetto parallasse/rotazione sottile per le grafiche secondarie durante lo scroll
+window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY;
+    
+    // Grafica Hero (già presente)
+    const scrollGraphic = document.getElementById('scrollGraphic');
+    if (scrollGraphic) {
+        const rotation = scrollY * 0.15;
+        const scale = 1 + (scrollY * 0.0003);
+        scrollGraphic.style.transform = `rotate(${rotation}deg) scale(${Math.min(scale, 1.2)})`;
+    }
+
+    // Grafiche secondarie (ruotano in senso opposto o a velocità diversa per dare dinamismo)
+    const secondaryGraphics = document.querySelectorAll('.section-graphic svg');
+    secondaryGraphics.forEach((svg, index) => {
+        const speed = (index % 2 === 0) ? 0.05 : -0.05;
+        const rotation = scrollY * speed;
+        svg.style.transform = `rotate(${rotation}deg)`;
+    });
+});
