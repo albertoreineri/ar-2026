@@ -1,0 +1,12 @@
+baseURL = 'https://albertoreineri.it/'
+defaultContentLanguage = 'it'
+title = 'Alberto Reineri'
+theme = 'alberto-reineri'
+
+[languages.it]
+  label = 'Italiano'
+  locale = 'it-IT'
+  weight = 1
+
+[params]
+  description = 'Alberto Reineri — Web design, sviluppo e infrastruttura web.'
