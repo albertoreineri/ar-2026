@@ -59,7 +59,7 @@ La sicurezza delle tue informazioni è importante per noi: adottiamo misure ragi
 
 ## 8. Titolare del trattamento
 
-Il titolare del trattamento è **Alberto Reineri**, Via Stefano Revelli 25, email: info@albertoreineri.it. Per qualsiasi domanda o dubbio sul trattamento dei tuoi dati puoi scrivere a questo indirizzo.
+Il titolare del trattamento è **Alberto Reineri**, Via Stefano Revelli 25, P.IVA 03888370040, email: info@albertoreineri.it. Per qualsiasi domanda o dubbio sul trattamento dei tuoi dati puoi scrivere a questo indirizzo.
 
 ## 9. Gestione dei cookie
 
