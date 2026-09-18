@@ -3,6 +3,7 @@ title: "Come creare un effetto Overlay in CSS"
 date: 2022-02-22
 description: "Personalmente utilizzo moltissimo gli overlay per migliorare la leggibilità del testo sopra un’immagine, ma che cos’è questo overlay? In poche parole non è nient’altro che un livello intermedio…"
 tags: ["Guide", "Web Dev"]
+translationKey: "css-overlay-effect"
 ---
 
 Personalmente utilizzo moltissimo gli overlay per migliorare la leggibilità del testo sopra un’immagine, **ma che cos’è questo overlay?**

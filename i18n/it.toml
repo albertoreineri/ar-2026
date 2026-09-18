@@ -1,0 +1,282 @@
+[nav_home]
+other = "Home"
+[nav_portfolio]
+other = "Lavori"
+[nav_servizi]
+other = "Servizi"
+[nav_chisono]
+other = "Chi sono"
+[nav_blog]
+other = "Blog"
+[nav_contatti]
+other = "Contatti"
+[nav_theme_toggle]
+other = "Cambia tema"
+[nav_menu_open]
+other = "Apri il menu"
+[nav_lang_switch]
+other = "🇬🇧"
+[nav_lang_switch_label]
+other = "Passa all'inglese"
+
+[footer_uptime]
+other = "Uptime 99.9%"
+[footer_response]
+other = "Interventi rapidi"
+[footer_location]
+other = "From Valle Maira"
+[footer_since]
+other = "Dal 2010"
+[footer_role]
+other = "Web Designer · Developer · Sysadmin"
+[footer_privacy_link]
+other = "Informativa sulla privacy"
+[footer_cookie_link]
+other = "Politica sui cookie"
+[footer_cookie_anchor]
+other = "9-gestione-dei-cookie"
+[footer_cookie_prefs]
+other = "Preferenze cookie"
+[footer_cta_title]
+other = "Hai qualcosa<br>in mente?"
+[footer_cta_link]
+other = "Raccontamelo →"
+[form_email]
+other = "Email"
+[form_message]
+other = "Messaggio"
+[form_privacy_accept]
+other = "Accetto la"
+[form_privacy_policy]
+other = "privacy policy"
+[form_submit]
+other = "Invia →"
+[cookie_title]
+other = "Ho a cuore la tua privacy"
+[cookie_body]
+other = "Usiamo cookie tecnici (sempre attivi) e, solo con il tuo consenso, Google Analytics per capire come viene usato il sito."
+[cookie_more_info]
+other = "Maggiori informazioni"
+[cookie_reject]
+other = "Rifiuta"
+[cookie_accept]
+other = "Accetta"
+
+[site_title_suffix]
+other = "Design · Siti web · Hosting"
+[site_description]
+other = "Alberto Reineri — Web design, sviluppo e infrastruttura web."
+
+[cta_all_projects]
+other = "Vedi tutti i progetti →"
+[cta_all_services]
+other = "Vedi tutti i servizi →"
+[cta_full_story]
+other = "La mia storia completa →"
+[cta_back_home]
+other = "Torna alla home →"
+[cta_view_project]
+other = "Vedi progetto ↗"
+
+[home_hero_kicker]
+other = "Design · Siti web · Hosting"
+[home_hero_line1]
+other = "Faccio cose"
+[home_hero_line2]
+other = "per il <span class=\"accent-word\">web</span>."
+[home_hero_line3]
+other = "E mi piace"
+[home_hero_line4]
+other = "<span class=\"accent-word\">farle bene</span>."
+[home_hero_bottom_text]
+other = "Web design, sviluppo, infrastruttura e tutto quello che serve per portare un progetto online — e mantenerlo in piedi."
+[home_hero_scroll]
+other = "↓ Scorri per vedere cosa faccio"
+
+[home_intro_number]
+other = "01 / Cosa faccio"
+[home_intro_statement]
+other = "Progetto e sviluppo <span class=\"accent-word\">siti web</span>, dal concept al lancio online. E già che ci sono, seguo anche <span class=\"accent-word\">hosting</span> e sicurezza — per non lasciarti solo dopo il grande giorno."
+[tag_design]
+other = "Design"
+[tag_sites_ecommerce]
+other = "Siti & e-commerce"
+[tag_hosting_security]
+other = "Hosting & sicurezza"
+
+[home_work_number]
+other = "02 / Lavori"
+[home_work_title]
+other = "Alcune cose<br>che ho costruito."
+
+[home_lab_number]
+other = "03 / Servizi"
+[home_lab_title]
+other = "Design.<br>Siti web.<br>Hosting."
+[capability_design_title]
+other = "Design"
+[capability_design_desc]
+other = "Identità visiva, grafica e interfacce pensate su misura per il progetto, non incastrate in un template."
+[capability_sites_title]
+other = "Siti & e-commerce"
+[capability_sites_desc]
+other = "WordPress, e-commerce e sviluppo custom: dal primo pixel al lancio online, senza passaggi tra reparti."
+[capability_hosting_title]
+other = "Hosting & sicurezza"
+[capability_hosting_desc]
+other = "Mi occupo anche di hosting, server e sicurezza, così il sito resta online, veloce e protetto nel tempo."
+
+[philosophy_number]
+other = "04 / Filosofia"
+[philosophy_manifesto_line1]
+other = "Non vendo pacchetti."
+[philosophy_manifesto_em]
+other = "Prima capiamo cosa serve."
+[philosophy_manifesto_line2]
+other = "Poi decidiamo cosa costruire."
+
+[home_about_title]
+other = "Eccomi!"
+[home_about_p1]
+other = "Dal 2010 lavoro con il web. Ho iniziato dal design, sono passato allo sviluppo e ho finito per occuparmi anche di quello che succede dietro le quinte."
+[home_about_p2]
+other = "Oggi seguo direttamente i progetti: dall'idea al design, dal codice al server. Una persona sola, senza passaggi tra reparti."
+[fact_base_label]
+other = "Base"
+[fact_base_value]
+other = "Dronero, Piemonte"
+[fact_since_label]
+other = "Dal"
+[fact_since_value]
+other = "2010"
+[fact_focus_label]
+other = "Focus"
+[fact_focus_value]
+other = "Web · Sviluppo · Sistemi"
+[fact_approach_label]
+other = "Approccio"
+[fact_approach_value]
+other = "Un progetto alla volta"
+[portrait_alt]
+other = "Ritratto di Alberto Reineri"
+
+[project_bikeitalia_meta]
+other = "Editorial · Sviluppo & gestione"
+[project_bikeitalia_desc]
+other = "Ho costruito e gestisco nel tempo la piattaforma editoriale e commerciale dedicata alla bicicletta: contenuti, servizi e un traffico importante da tenere in piedi ogni giorno."
+[project_dsl_meta]
+other = "Musica · Sviluppo & gestione"
+[project_dsl_desc]
+other = "Il sito ufficiale della band nata dall'amore e dal rispetto per la musica dei Dire Straits, il progetto DSL Dire Straits Legacy riunisce sul palco alcuni degli artisti che hanno reso unico il leggendario sound della band britannica, insieme a musicisti di livello internazionale."
+[project_alpenzu_meta]
+other = "E-commerce · Valle d'Aosta"
+[project_alpenzu_desc]
+other = "E-commerce per i prodotti tipici della Valle d'Aosta. Alpenzu è nata nel 2001 ad Arnad con l'obiettivo di valorizzare il territorio attraverso ricette tradizionali di famiglia. Il nome si ispira a un villaggio Walser sopra Gressoney, simbolo di autenticità."
+[project_fiera_meta]
+other = "Evento · Sito multilingua & piattaforma B2B"
+[project_fiera_desc]
+other = "Il sito multilingua del Cycle Tourism Show, fiera internazionale dedicata al turismo in bicicletta a Padova Fiere. Ho creato il sito e la piattaforma B2B per espositori e buyer, e gestisco il server."
+[project_legambiente_meta]
+other = "Associazione ambientale · Sviluppo & gestione"
+[project_legambiente_desc]
+other = "Il sito del circolo cuneese di Legambiente: monitoraggio ambientale, campagne ed eventi sul territorio, dalle valli alpine alla pianura. Sviluppo e gestisco io il sito."
+[project_drivingchange_meta]
+other = "Media · Sviluppo & gestione"
+[project_drivingchange_desc]
+other = "Piattaforma editoriale che racconta persone e politiche che cambiano l'Italia — sostenibilità, governance e benessere, più un podcast. Sviluppo e gestisco io la piattaforma."
+
+[brands_number]
+other = "Alcuni brand con cui collaboro"
+
+[page_servizi_number]
+other = "Servizi"
+[page_servizi_title]
+other = "Design.<br>Siti web.<br>Hosting."
+[page_servizi_intro]
+other = "Tre cose che di solito vengono gestite separate, spesso da persone diverse che nemmeno si parlano tra loro. Io le tengo insieme: chi disegna il sito è la stessa persona che lo costruisce ed è la stessa che, un anno dopo, risponde al telefono se qualcosa si rompe."
+[servizi_detail_number]
+other = "Nel dettaglio"
+[servizi_detail_statement]
+other = "Il grosso del lavoro è <span class=\"accent-word\">progettare e sviluppare</span> il sito. Ma il giorno del lancio non è la fine del rapporto: <span class=\"accent-word\">hosting</span>, backup e sicurezza restano sul mio tavolo finché il sito è online."
+[servizi_process_number]
+other = "Come lavoro"
+[servizi_process_title]
+other = "Quattro passaggi,<br>una persona sola."
+[process_1_title]
+other = "Ascolto"
+[process_1_desc]
+other = "Prima di proporre qualsiasi cosa, capisco cosa stai cercando di ottenere e con che budget e tempi lavoriamo."
+[process_2_title]
+other = "Design & sviluppo"
+[process_2_desc]
+other = "Progetto l'interfaccia e la costruisco — WordPress quando basta, su misura quando il progetto lo richiede."
+[process_3_title]
+other = "Lancio"
+[process_3_desc]
+other = "Metto il sito online, controllo che tutto funzioni davvero — velocità, SEO tecnica, form, mobile — non solo che \"si veda\"."
+[process_4_title]
+other = "Manutenzione"
+[process_4_desc]
+other = "Da qui in poi mi occupo io di hosting, aggiornamenti e sicurezza, con un abbonamento annuale pensato per non pensarci più."
+
+[page_portfolio_number]
+other = "Portfolio"
+[page_portfolio_title]
+other = "Alcune cose<br>che ho costruito."
+[page_portfolio_intro]
+other = "Ogni progetto qui sotto parte da una chiacchierata, non da un preventivo a pacchetto: capisco cosa serve davvero, poi decidiamo insieme se basta WordPress o se conviene costruire su misura. E quando il sito va online continuo a seguirlo, tra hosting, aggiornamenti e piccole modifiche che servono nel tempo."
+
+[page_chisono_number]
+other = "Chi sono"
+[page_chisono_title]
+other = "Ciao, sono Alberto."
+[page_chisono_intro]
+other = "Non sono un'agenzia con dieci persone e un project manager tra me e te. Sono io, dal primo preventivo all'ultimo backup."
+[chisono_p1]
+other = "Dal 2010 lavoro con il web. Ho iniziato dal design, sono passato allo sviluppo e ho finito per occuparmi anche di quello che succede dietro le quinte."
+[chisono_p2]
+other = "Nel tempo ho lavorato con realtà editoriali che macinano traffico ogni giorno, e-commerce di prodotti locali, persino il sito ufficiale di una band che gira i palchi di mezza Europa. Progetti diversi, stesso approccio: capire bene prima di costruire."
+[chisono_p3]
+other = "Oggi seguo direttamente i progetti: dall'idea al design, dal codice al server. Una persona sola, senza passaggi tra reparti."
+[chisono_p4]
+other = "Vivo e lavoro da Dronero, in Valle Maira, ma il posto conta poco: la maggior parte del lavoro la faccio a distanza, con chiamate quando servono e risposte rapide via email o messaggio."
+[chisono_p5]
+other = "Ho iniziato a occuparmi anche di hosting e sicurezza dopo aver visto troppi siti bellissimi lasciati a se stessi appena finito il lavoro... dominio scaduto, plugin non aggiornati, un giorno spariti dal web, vulnerabilità continue. Io preferisco restare, non solo consegnare e gestire tutto in autonomia."
+[chisono_philosophy_number]
+other = "Filosofia"
+
+[page_contatti_number]
+other = "Contatti"
+[page_contatti_title]
+other = "Parliamo del<br>tuo progetto."
+[page_contatti_intro]
+other = "Scrivimi due righe su cosa stai cercando di fare: un sito nuovo, un restyling, un problema da risolvere. Ti risponderò io direttamente, di solito entro un giorno o due, e capiamo insieme se e come posso esserti utile."
+[contatti_alt_email]
+other = "Preferisci l'email diretta? Scrivimi a"
+
+[page_blog_number]
+other = "Blog"
+[page_blog_title]
+other = "Note su WordPress,<br>siti e hosting."
+[page_blog_intro]
+other = "Appunti pratici dal lavoro di tutti i giorni: plugin, sicurezza, SEO e tutto quello che serve per tenere in piedi un sito nel tempo."
+[blog_read_article]
+other = "Leggi l'articolo →"
+[blog_newer]
+other = "← Più recenti"
+[blog_older]
+other = "Meno recenti →"
+[blog_page_status]
+other = "Pagina {{ .Current }} di {{ .Total }}"
+[blog_back_link]
+other = "← Blog"
+
+[toc_label]
+other = "Indice"
+
+[page_404_number]
+other = "404"
+[page_404_title]
+other = "Questa pagina<br>non esiste."
+[page_404_intro]
+other = "Il link è sbagliato o la pagina è stata spostata."

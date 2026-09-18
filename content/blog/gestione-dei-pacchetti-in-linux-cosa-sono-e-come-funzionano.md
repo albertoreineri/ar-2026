@@ -3,6 +3,7 @@ title: "Gestione dei Pacchetti in Linux. Cosa sono e come funzionano"
 date: 2024-03-20
 description: "Nel vasto e dinamico mondo dei sistemi operativi Linux, la gestione dei pacchetti riveste un ruolo fondamentale. Immagina di dover installare un nuovo software sul tuo sistema o di dover…"
 tags: ["Guide", "Linux"]
+translationKey: "linux-package-management"
 ---
 
 Nel vasto e dinamico mondo dei sistemi operativi Linux, la gestione dei pacchetti riveste un ruolo fondamentale. Immagina di dover installare un nuovo software sul tuo sistema o di dover aggiornare una libreria già esistente: grazie alla gestione dei pacchetti, queste operazioni diventano semplici e intuitive, consentendo agli utenti di concentrarsi sulle proprie attività senza dover affrontare complessi processi di installazione e configurazione.

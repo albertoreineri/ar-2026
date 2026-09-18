@@ -7,9 +7,17 @@ theme = 'alberto-reineri'
   label = 'Italiano'
   locale = 'it-IT'
   weight = 1
+  [languages.it.params]
+    description = 'Alberto Reineri — Web design, sviluppo e infrastruttura web.'
+
+[languages.en]
+  label = 'English'
+  locale = 'en-US'
+  weight = 2
+  [languages.en.params]
+    description = 'Alberto Reineri — Web design, development and web infrastructure.'
 
 [params]
-  description = 'Alberto Reineri — Web design, sviluppo e infrastruttura web.'
   formspreeEndpoint = 'https://formspree.io/f/mlgkavgo'
   googleAnalyticsId = 'G-9MQ20QPDEM'
 

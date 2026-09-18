@@ -3,6 +3,7 @@ title: "I migliori temi per Visual Studio Code"
 date: 2022-07-04
 description: "Lavorare in un ambiente piacevole è fondamentale per la produttività. Visual Studio code ultimamente sta guadagnando sempre più popolarità, e se mi segui saprai già che è il mio editor preferito!…"
 tags: ["Web Dev"]
+translationKey: "vscode-themes"
 ---
 
 Lavorare in un ambiente piacevole è fondamentale per la produttività. Visual Studio code ultimamente sta guadagnando sempre più popolarità, e se mi segui saprai già che è il mio editor preferito! Vediamo oggi quali sono i miei temi [preferiti](https://albertoreineri.it/software-per-sviluppo-web/) per Visual Studio Code, sia chiari che scuri!

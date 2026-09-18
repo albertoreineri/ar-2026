@@ -3,6 +3,7 @@ title: "Come funziona il DNS (e perché ti conviene capirlo)"
 date: 2026-09-18
 description: "Guida pratica al DNS: cosa succede davvero quando digiti un indirizzo nel browser, i record A, CNAME, MX e TXT più usati, e come evitare gli errori più comuni quando cambi hosting o email."
 tags: ["Guide", "Web Dev"]
+translationKey: "how-dns-works"
 ---
 
 Ogni volta che un cliente mi scrive "il sito è down" la prima cosa che controllo, prima ancora del server, è il **DNS**. Nella maggior parte dei casi il problema non è il sito: è che il dominio punta dove non deve, o una modifica fatta un'ora prima non si è ancora propagata.

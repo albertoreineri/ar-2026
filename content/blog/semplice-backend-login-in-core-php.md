@@ -3,6 +3,7 @@ title: "Semplice Backend Login in Core PHP"
 date: 2021-05-31
 description: "Ho effettuato un nuovo commit a questo progetto, aggiornandolo a PDO, inserendo i bindparam per aumentare la sicurezza e variando leggermente l’architettura software. Il codice aggiornato è nella…"
 tags: ["Guide", "PHP"]
+translationKey: "php-backend-login"
 ---
 
 *Ho effettuato un nuovo commit a questo progetto, aggiornandolo a PDO, inserendo i bindparam per aumentare la sicurezza e variando leggermente l’architettura software. Il codice aggiornato è nella repository github indicata nell’articolo.*

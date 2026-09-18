@@ -3,6 +3,7 @@ title: "Nano Editor, Guida per principianti"
 date: 2022-06-27
 description: "Gli utenti Linux hanno molte opzioni tra cui scegliere quando si tratta di editor di testo. Da base ad avanzato, esistono un sacco di editor di testo, ma alcuni come Vim ed Emacs possono risultare…"
 tags: ["Guide", "Linux"]
+translationKey: "nano-editor-guide"
 ---
 
 Gli utenti [Linux](/tags/linux/) hanno molte opzioni tra cui scegliere quando si tratta di editor di testo. Da base ad avanzato, esistono un sacco di editor di testo, ma alcuni come Vim ed Emacs possono risultare molto complicati per gli utenti meno avanzati.

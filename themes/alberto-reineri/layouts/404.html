@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 <section class="page-hero wrap">
-  <div class="section-number">404</div>
-  <h1 class="section-title">Questa pagina<br>non esiste.</h1>
+  <div class="section-number">{{ i18n "page_404_number" }}</div>
+  <h1 class="section-title">{{ i18n "page_404_title" | safeHTML }}</h1>
   <p class="page-intro">
-    Il link è sbagliato o la pagina è stata spostata.
+    {{ i18n "page_404_intro" }}
   </p>
-  <a class="section-link" href="{{ "/" | relURL }}">Torna alla home →</a>
+  <a class="section-link" href="{{ "/" | relLangURL }}">{{ i18n "cta_back_home" }}</a>
 </section>
 
 {{ end }}

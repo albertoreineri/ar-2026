@@ -49,22 +49,21 @@
   </svg>
 
   <div class="hero-grid">
-    <div class="hero-kicker reveal">Design · Siti web · Hosting</div>
+    <div class="hero-kicker reveal">{{ i18n "home_hero_kicker" }}</div>
 
     <h1 class="hero-title" id="heroTitle">
-      <span class="line"><span class="word">Faccio cose</span></span>
-      <span class="line indent"><span class="word">per il <span class="accent-word">web</span>.</span></span>
-      <span class="line"><span class="word">E mi piace</span></span>
-      <span class="line indent"><span class="word"><span class="accent-word">farle bene</span>.</span></span>
+      <span class="line"><span class="word">{{ i18n "home_hero_line1" }}</span></span>
+      <span class="line indent"><span class="word">{{ i18n "home_hero_line2" | safeHTML }}</span></span>
+      <span class="line"><span class="word">{{ i18n "home_hero_line3" }}</span></span>
+      <span class="line indent"><span class="word">{{ i18n "home_hero_line4" | safeHTML }}</span></span>
     </h1>
   </div>
 
   <div class="hero-bottom">
     <p>
-      Web design, sviluppo, infrastruttura e tutto quello che serve
-      per portare un progetto online — e mantenerlo in piedi.
+      {{ i18n "home_hero_bottom_text" }}
     </p>
-    <a class="scroll" href="#intro">↓ Scorri per vedere cosa faccio</a>
+    <a class="scroll" href="#intro">{{ i18n "home_hero_scroll" }}</a>
   </div>
 </header>
 
@@ -78,20 +77,17 @@
   </svg>
 
   <div class="wrap intro">
-    <div class="section-number reveal">01 / Cosa faccio</div>
+    <div class="section-number reveal">{{ i18n "home_intro_number" }}</div>
 
     <div class="reveal">
       <p class="intro-statement">
-        Progetto e sviluppo <span class="accent-word">siti web</span>, dal
-        concept al lancio online. E già che ci sono, seguo anche
-        <span class="accent-word">hosting</span> e sicurezza — per non
-        lasciarti solo dopo il grande giorno.
+        {{ i18n "home_intro_statement" | safeHTML }}
       </p>
 
       <div class="intro-tags">
-        <span class="intro-tag">Design</span>
-        <span class="intro-tag">Siti & e-commerce</span>
-        <span class="intro-tag">Hosting & sicurezza</span>
+        <span class="intro-tag">{{ i18n "tag_design" }}</span>
+        <span class="intro-tag">{{ i18n "tag_sites_ecommerce" }}</span>
+        <span class="intro-tag">{{ i18n "tag_hosting_security" }}</span>
       </div>
     </div>
   </div>
@@ -107,8 +103,8 @@
   </svg>
 
   <div class="section-head reveal">
-    <div class="section-number">02 / Lavori</div>
-    <h2 class="section-title">Alcune cose<br>che ho costruito.</h2>
+    <div class="section-number">{{ i18n "home_work_number" }}</div>
+    <h2 class="section-title">{{ i18n "home_work_title" | safeHTML }}</h2>
   </div>
 
   <div class="projects">
@@ -118,14 +114,12 @@
         <span>BIKEITALIA</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Editorial · Sviluppo &amp; gestione</span><span>01</span></div>
+        <div class="project-meta"><span>{{ i18n "project_bikeitalia_meta" }}</span><span>01</span></div>
         <h3>Bikeitalia</h3>
         <p>
-          Ho costruito e gestisco nel tempo la piattaforma editoriale e commerciale
-          dedicata alla bicicletta: contenuti, servizi e un traffico importante
-          da tenere in piedi ogni giorno.
+          {{ i18n "project_bikeitalia_desc" }}
         </p>
-        <a class="project-link" href="https://www.bikeitalia.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://www.bikeitalia.it" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -134,14 +128,12 @@
         <span>DIRE STRAITS LEGACY</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Musica · Sviluppo &amp; gestione</span><span>02</span></div>
+        <div class="project-meta"><span>{{ i18n "project_dsl_meta" }}</span><span>02</span></div>
         <h3>Dire Straits Legacy</h3>
         <p>
-          Il sito ufficiale della band nata dall'amore e dal rispetto per la musica dei Dire Straits, il progetto DSL Dire Straits Legacy riunisce
-          sul palco alcuni degli artisti che hanno reso unico il leggendario sound della band britannica, insieme a
-          musicisti di livello internazionale.
+          {{ i18n "project_dsl_desc" }}
         </p>
-        <a class="project-link" href="https://dslegacy.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://dslegacy.com" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -150,19 +142,18 @@
         <span>ALPENZU</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>E-commerce · Valle d'Aosta</span><span>03</span></div>
+        <div class="project-meta"><span>{{ i18n "project_alpenzu_meta" }}</span><span>03</span></div>
         <h3>Alpenzu</h3>
         <p>
-          E-commerce per i prodotti tipici della Valle d'Aosta.
-          Alpenzu è nata nel 2001 ad Arnad con l’obiettivo di valorizzare il territorio attraverso ricette tradizionali di famiglia. Il nome si ispira a un villaggio Walser sopra Gressoney, simbolo di autenticità.
+          {{ i18n "project_alpenzu_desc" }}
         </p>
-        <a class="project-link" href="https://alpenzu.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://alpenzu.com" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
   </div>
 
-  <a class="section-link" href="{{ "/portfolio/" | relURL }}">Vedi tutti i progetti →</a>
+  <a class="section-link" href="{{ "/portfolio/" | relLangURL }}">{{ i18n "cta_all_projects" }}</a>
 </section>
 
 <section id="lab" class="capabilities">
@@ -183,41 +174,41 @@
 
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="section-number">03 / Servizi</div>
-      <h2 class="section-title">Design.<br>Siti web.<br>Hosting.</h2>
+      <div class="section-number">{{ i18n "home_lab_number" }}</div>
+      <h2 class="section-title">{{ i18n "home_lab_title" | safeHTML }}</h2>
     </div>
 
     <div class="capability-list">
       <div class="capability reveal">
         <span class="num">01</span>
-        <h3>Design</h3>
-        <p>Identità visiva, grafica e interfacce pensate su misura per il progetto, non incastrate in un template.</p>
+        <h3>{{ i18n "capability_design_title" }}</h3>
+        <p>{{ i18n "capability_design_desc" }}</p>
       </div>
 
       <div class="capability reveal">
         <span class="num">02</span>
-        <h3>Siti & e-commerce</h3>
-        <p>WordPress, e-commerce e sviluppo custom: dal primo pixel al lancio online, senza passaggi tra reparti.</p>
+        <h3>{{ i18n "capability_sites_title" }}</h3>
+        <p>{{ i18n "capability_sites_desc" }}</p>
       </div>
 
       <div class="capability reveal">
         <span class="num">03</span>
-        <h3>Hosting & sicurezza</h3>
-        <p>Mi occupo anche di hosting, server e sicurezza, così il sito resta online, veloce e protetto nel tempo.</p>
+        <h3>{{ i18n "capability_hosting_title" }}</h3>
+        <p>{{ i18n "capability_hosting_desc" }}</p>
       </div>
     </div>
 
-    <a class="section-link" href="{{ "/servizi/" | relURL }}">Vedi tutti i servizi →</a>
+    <a class="section-link" href="{{ "/servizi/" | relLangURL }}">{{ i18n "cta_all_services" }}</a>
   </div>
 </section>
 
 <section class="philosophy-section wrap">
   <div class="philosophy reveal">
-    <div class="section-number">04 / Filosofia</div>
+    <div class="section-number">{{ i18n "philosophy_number" }}</div>
     <p class="manifesto">
-      Non vendo pacchetti.
-      <em>Prima capiamo cosa serve.</em>
-      Poi decidiamo cosa costruire.
+      {{ i18n "philosophy_manifesto_line1" }}
+      <em>{{ i18n "philosophy_manifesto_em" }}</em>
+      {{ i18n "philosophy_manifesto_line2" }}
     </p>
   </div>
 </section>
@@ -225,28 +216,25 @@
 <section id="about" class="wrap">
   <div class="about">
     <img class="portrait reveal" src="https://albertoreineri.it/wp-content/uploads/2024/11/io4Seria-1.webp"
-      alt="Ritratto di Alberto Reineri" loading="lazy">
+      alt="{{ i18n "portrait_alt" }}" loading="lazy">
 
     <div class="about-copy reveal">
-      <h2>Eccomi!</h2>
+      <h2>{{ i18n "home_about_title" }}</h2>
       <p>
-        Dal 2010 lavoro con il web. Ho iniziato dal design, sono passato
-        allo sviluppo e ho finito per occuparmi anche di quello che succede
-        dietro le quinte.
+        {{ i18n "home_about_p1" }}
       </p>
       <p>
-        Oggi seguo direttamente i progetti: dall'idea al design, dal codice
-        al server. Una persona sola, senza passaggi tra reparti.
+        {{ i18n "home_about_p2" }}
       </p>
 
       <div class="facts">
-        <div class="fact"><span>Base</span><span>Dronero, Piemonte</span></div>
-        <div class="fact"><span>Dal</span><span>2010</span></div>
-        <div class="fact"><span>Focus</span><span>Web · Sviluppo · Sistemi</span></div>
-        <div class="fact"><span>Approccio</span><span>Un progetto alla volta</span></div>
+        <div class="fact"><span>{{ i18n "fact_base_label" }}</span><span>{{ i18n "fact_base_value" }}</span></div>
+        <div class="fact"><span>{{ i18n "fact_since_label" }}</span><span>{{ i18n "fact_since_value" }}</span></div>
+        <div class="fact"><span>{{ i18n "fact_focus_label" }}</span><span>{{ i18n "fact_focus_value" }}</span></div>
+        <div class="fact"><span>{{ i18n "fact_approach_label" }}</span><span>{{ i18n "fact_approach_value" }}</span></div>
       </div>
 
-      <a class="section-link" href="{{ "/chi-sono/" | relURL }}">La mia storia completa →</a>
+      <a class="section-link" href="{{ "/chi-sono/" | relLangURL }}">{{ i18n "cta_full_story" }}</a>
     </div>
   </div>
 </section>

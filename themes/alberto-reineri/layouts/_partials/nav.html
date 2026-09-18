@@ -1,20 +1,32 @@
 <nav class="site-nav">
   <div class="wrap inner">
-    <a class="logo" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+    <a class="logo" href="{{ "/" | relLangURL }}">{{ site.Title }}</a>
 
     <div class="nav-right">
       <div class="nav-links">
-        <a href="{{ "/" | relURL }}">Home</a>
-        <a href="{{ "/portfolio/" | relURL }}">Lavori</a>
-        <a href="{{ "/servizi/" | relURL }}">Servizi</a>
-        <a href="{{ "/chi-sono/" | relURL }}">Chi sono</a>
-        <a href="{{ "/blog/" | relURL }}">Blog</a>
-        <a href="{{ "/contatti/" | relURL }}">Contatti</a>
+        <a href="{{ "/" | relLangURL }}">{{ i18n "nav_home" }}</a>
+        <a href="{{ "/portfolio/" | relLangURL }}">{{ i18n "nav_portfolio" }}</a>
+        <a href="{{ "/servizi/" | relLangURL }}">{{ i18n "nav_servizi" }}</a>
+        <a href="{{ "/chi-sono/" | relLangURL }}">{{ i18n "nav_chisono" }}</a>
+        <a href="{{ "/blog/" | relLangURL }}">{{ i18n "nav_blog" }}</a>
+        <a href="{{ "/contatti/" | relLangURL }}">{{ i18n "nav_contatti" }}</a>
       </div>
 
-      <button class="theme-switch" id="themeSwitch" aria-label="Cambia tema"></button>
+      {{ $pageInOtherLang := false }}
+      {{ range .Translations }}{{ $pageInOtherLang = . }}{{ end }}
+      {{ if $pageInOtherLang }}
+        <a class="lang-switch" href="{{ $pageInOtherLang.RelPermalink }}" aria-label="{{ i18n "nav_lang_switch_label" }}">{{ i18n "nav_lang_switch" }}</a>
+      {{ else }}
+        {{ if eq site.Language.Lang "it" }}
+          <a class="lang-switch" href="{{ "/en/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇬🇧</a>
+        {{ else }}
+          <a class="lang-switch" href="{{ "/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇮🇹</a>
+        {{ end }}
+      {{ end }}
 
-      <button class="menu-toggle" id="menuToggle" aria-label="Apri il menu" aria-expanded="false">
+      <button class="theme-switch" id="themeSwitch" aria-label="{{ i18n "nav_theme_toggle" }}"></button>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="{{ i18n "nav_menu_open" }}" aria-expanded="false">
         <span></span><span></span>
       </button>
     </div>
@@ -23,11 +35,11 @@
 
 <div class="mobile-menu" id="mobileMenu">
   <div class="mobile-menu-links">
-    <a href="{{ "/" | relURL }}">Home</a>
-    <a href="{{ "/portfolio/" | relURL }}">Lavori</a>
-    <a href="{{ "/servizi/" | relURL }}">Servizi</a>
-    <a href="{{ "/chi-sono/" | relURL }}">Chi sono</a>
-    <a href="{{ "/blog/" | relURL }}">Blog</a>
-    <a href="{{ "/contatti/" | relURL }}">Contatti</a>
+    <a href="{{ "/" | relLangURL }}">{{ i18n "nav_home" }}</a>
+    <a href="{{ "/portfolio/" | relLangURL }}">{{ i18n "nav_portfolio" }}</a>
+    <a href="{{ "/servizi/" | relLangURL }}">{{ i18n "nav_servizi" }}</a>
+    <a href="{{ "/chi-sono/" | relLangURL }}">{{ i18n "nav_chisono" }}</a>
+    <a href="{{ "/blog/" | relLangURL }}">{{ i18n "nav_blog" }}</a>
+    <a href="{{ "/contatti/" | relLangURL }}">{{ i18n "nav_contatti" }}</a>
   </div>
 </div>

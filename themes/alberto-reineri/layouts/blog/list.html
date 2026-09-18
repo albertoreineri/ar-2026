@@ -2,11 +2,10 @@
 
 <section class="page-hero wrap">
   {{ partial "page-doodle.html" "blog" }}
-  <div class="section-number reveal">Blog</div>
-  <h1 class="section-title reveal">Note su WordPress,<br>siti e hosting.</h1>
+  <div class="section-number reveal">{{ i18n "page_blog_number" }}</div>
+  <h1 class="section-title reveal">{{ i18n "page_blog_title" | safeHTML }}</h1>
   <p class="page-intro reveal">
-    Appunti pratici dal lavoro di tutti i giorni: plugin, sicurezza, SEO e
-    tutto quello che serve per tenere in piedi un sito nel tempo.
+    {{ i18n "page_blog_intro" }}
   </p>
 </section>
 
@@ -19,7 +18,7 @@
         <span class="post-item-date">{{ .Date | time.Format ":date_long" }}</span>
         <h2 class="post-item-title">{{ .Title }}</h2>
         <p class="post-item-excerpt">{{ .Params.description }}</p>
-        <span class="post-item-cta">Leggi l'articolo →</span>
+        <span class="post-item-cta">{{ i18n "blog_read_article" }}</span>
       </a>
     </article>
     {{ end }}
@@ -28,15 +27,15 @@
   {{ if gt $paginator.TotalPages 1 }}
   <nav class="pagination">
     {{ if $paginator.HasPrev }}
-      <a class="pagination-link" href="{{ $paginator.Prev.URL }}">← Più recenti</a>
+      <a class="pagination-link" href="{{ $paginator.Prev.URL }}">{{ i18n "blog_newer" }}</a>
     {{ else }}
       <span></span>
     {{ end }}
 
-    <span class="pagination-status">Pagina {{ $paginator.PageNumber }} di {{ $paginator.TotalPages }}</span>
+    <span class="pagination-status">{{ i18n "blog_page_status" (dict "Current" $paginator.PageNumber "Total" $paginator.TotalPages) }}</span>
 
     {{ if $paginator.HasNext }}
-      <a class="pagination-link" href="{{ $paginator.Next.URL }}">Meno recenti →</a>
+      <a class="pagination-link" href="{{ $paginator.Next.URL }}">{{ i18n "blog_older" }}</a>
     {{ else }}
       <span></span>
     {{ end }}

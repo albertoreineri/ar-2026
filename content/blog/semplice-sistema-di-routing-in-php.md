@@ -3,6 +3,7 @@ title: "Semplice sistema di routing in PHP"
 date: 2021-06-04
 description: "Usare un sistema di routing in php può portare grandi vantaggi a un progetto. Gli URL delle pagine web di un sito sono molto importanti, sia per i motori di ricerca, sia per gli utenti, che sempre…"
 tags: ["Guide", "PHP"]
+translationKey: "php-routing-system"
 ---
 
 Usare un sistema di routing in php può portare grandi vantaggi a un progetto.

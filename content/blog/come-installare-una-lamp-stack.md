@@ -3,6 +3,7 @@ title: "Come installare una LAMP stack (Linux, Apache, MySQL, PHP) su Ubuntu"
 date: 2022-06-20
 description: "Introduzione Uno stack “LAMP” è un gruppo di software open source che viene generalmente installato insieme per consentire a un server di ospitare siti Web dinamici e app Web. Questo termine è in…"
 tags: ["Guide", "Linux"]
+translationKey: "lamp-stack-install"
 ---
 
 ## Introduzione

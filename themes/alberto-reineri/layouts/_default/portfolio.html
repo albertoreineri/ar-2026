@@ -2,14 +2,10 @@
 
 <section class="page-hero wrap">
   {{ partial "page-doodle.html" "portfolio" }}
-  <div class="section-number reveal">Portfolio</div>
-  <h1 class="section-title reveal">Alcune cose<br>che ho costruito.</h1>
+  <div class="section-number reveal">{{ i18n "page_portfolio_number" }}</div>
+  <h1 class="section-title reveal">{{ i18n "page_portfolio_title" | safeHTML }}</h1>
   <p class="page-intro reveal">
-    Ogni progetto qui sotto parte da una chiacchierata, non da un preventivo
-    a pacchetto: capisco cosa serve davvero, poi decidiamo insieme se basta
-    WordPress o se conviene costruire su misura. E quando il sito va online
-    continuo a seguirlo, tra hosting, aggiornamenti e piccole
-    modifiche che servono nel tempo.
+    {{ i18n "page_portfolio_intro" }}
   </p>
 </section>
 
@@ -21,14 +17,12 @@
         <span>BIKEITALIA</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Editorial · Sviluppo &amp; gestione</span><span>01</span></div>
+        <div class="project-meta"><span>{{ i18n "project_bikeitalia_meta" }}</span><span>01</span></div>
         <h3>Bikeitalia</h3>
         <p>
-          Ho costruito e gestisco nel tempo la piattaforma editoriale e commerciale
-          dedicata alla bicicletta: contenuti, servizi e un traffico importante
-          da tenere in piedi ogni giorno.
+          {{ i18n "project_bikeitalia_desc" }}
         </p>
-        <a class="project-link" href="https://www.bikeitalia.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://www.bikeitalia.it" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -37,15 +31,12 @@
         <span>DIRE STRAITS LEGACY</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Musica · Sviluppo &amp; gestione</span><span>02</span></div>
+        <div class="project-meta"><span>{{ i18n "project_dsl_meta" }}</span><span>02</span></div>
         <h3>Dire Straits Legacy</h3>
         <p>
-          Il sito ufficiale della band nata dall'amore e dal rispetto per la musica dei Dire Straits, il progetto DSL
-          Dire Straits Legacy riunisce
-          sul palco alcuni degli artisti che hanno reso unico il leggendario sound della band britannica, insieme a
-          musicisti di livello internazionale.
+          {{ i18n "project_dsl_desc" }}
         </p>
-        <a class="project-link" href="https://dslegacy.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://dslegacy.com" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -54,13 +45,12 @@
         <span>ALPENZU</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>E-commerce · Valle d'Aosta</span><span>03</span></div>
+        <div class="project-meta"><span>{{ i18n "project_alpenzu_meta" }}</span><span>03</span></div>
         <h3>Alpenzu</h3>
         <p>
-          E-commerce per i prodotti tipici della Valle d'Aosta.
-          Alpenzu è nata nel 2001 ad Arnad con l’obiettivo di valorizzare il territorio attraverso ricette tradizionali di famiglia. Il nome si ispira a un villaggio Walser sopra Gressoney, simbolo di autenticità.
+          {{ i18n "project_alpenzu_desc" }}
         </p>
-        <a class="project-link" href="https://alpenzu.com" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://alpenzu.com" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -69,14 +59,12 @@
         <span>FIERA DEL CICLOTURISMO</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Evento · Sito multilingua &amp; piattaforma B2B</span><span>04</span></div>
+        <div class="project-meta"><span>{{ i18n "project_fiera_meta" }}</span><span>04</span></div>
         <h3>Fiera del Cicloturismo</h3>
         <p>
-          Il sito multilingua del Cycle Tourism Show, fiera internazionale
-          dedicata al turismo in bicicletta a Padova Fiere. Ho creato il sito
-          e la piattaforma B2B per espositori e buyer, e gestisco il server.
+          {{ i18n "project_fiera_desc" }}
         </p>
-        <a class="project-link" href="https://fieradelcicloturismo.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://fieradelcicloturismo.it" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -85,14 +73,12 @@
         <span>LEGAMBIENTE CUNEO</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Associazione ambientale · Sviluppo &amp; gestione</span><span>05</span></div>
+        <div class="project-meta"><span>{{ i18n "project_legambiente_meta" }}</span><span>05</span></div>
         <h3>Legambiente Cuneo</h3>
         <p>
-          Il sito del circolo cuneese di Legambiente: monitoraggio ambientale,
-          campagne ed eventi sul territorio, dalle valli alpine alla pianura.
-          Sviluppo e gestisco io il sito.
+          {{ i18n "project_legambiente_desc" }}
         </p>
-        <a class="project-link" href="https://legambientecuneo.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://legambientecuneo.it" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -101,14 +87,12 @@
         <span>DRIVING CHANGE</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Media · Sviluppo &amp; gestione</span><span>06</span></div>
+        <div class="project-meta"><span>{{ i18n "project_drivingchange_meta" }}</span><span>06</span></div>
         <h3>Driving Change</h3>
         <p>
-          Piattaforma editoriale che racconta persone e politiche che cambiano
-          l'Italia — sostenibilità, governance e benessere, più un podcast.
-          Sviluppo e gestisco io la piattaforma.
+          {{ i18n "project_drivingchange_desc" }}
         </p>
-        <a class="project-link" href="https://drivingchange.org" target="_blank" rel="noopener">Vedi progetto ↗</a>
+        <a class="project-link" href="https://drivingchange.org" target="_blank" rel="noopener">{{ i18n "cta_view_project" }}</a>
       </div>
     </article>
 
@@ -117,7 +101,7 @@
 
 <section class="brands-section" style="padding-top:0">
   <div class="wrap">
-    <div class="section-number reveal">Alcuni brand con cui collaboro</div>
+    <div class="section-number reveal">{{ i18n "brands_number" }}</div>
   </div>
 
   <div class="brands-marquee reveal">

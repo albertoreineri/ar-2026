@@ -2,42 +2,39 @@
 
 <section class="page-hero wrap">
   {{ partial "page-doodle.html" "contatti" }}
-  <div class="section-number reveal">Contatti</div>
-  <h1 class="section-title reveal">Parliamo del<br>tuo progetto.</h1>
+  <div class="section-number reveal">{{ i18n "page_contatti_number" }}</div>
+  <h1 class="section-title reveal">{{ i18n "page_contatti_title" | safeHTML }}</h1>
   <p class="page-intro reveal">
-    Scrivimi due righe su cosa stai cercando di fare: un sito nuovo, un
-    restyling, un problema da risolvere. Ti risponderò io direttamente,
-    di solito entro un giorno o due, e capiamo insieme se e come posso
-    esserti utile.
+    {{ i18n "page_contatti_intro" }}
   </p>
 </section>
 
 <section class="contact-page wrap" style="margin-top:40px">
   <form class="contact-page-form reveal" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
     <label class="contact-field">
-      <span>Email</span>
+      <span>{{ i18n "form_email" }}</span>
       <input type="email" name="email" required>
     </label>
 
     <label class="contact-field">
-      <span>Messaggio</span>
+      <span>{{ i18n "form_message" }}</span>
       <textarea name="messaggio" rows="5" required></textarea>
     </label>
 
     <div class="contact-form-row">
       <label class="contact-privacy">
         <input type="checkbox" required>
-        Accetto la <a href="{{ "/privacy-policy/" | relURL }}" target="_blank" rel="noopener">privacy policy</a>
+        {{ i18n "form_privacy_accept" }} <a href="{{ "/privacy-policy/" | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
       </label>
 
-      <button type="submit" class="contact-submit">Invia →</button>
+      <button type="submit" class="contact-submit">{{ i18n "form_submit" }}</button>
     </div>
 
     <p class="form-status" role="status" aria-live="polite"></p>
   </form>
 
   <p class="contact-alt reveal">
-    Preferisci l'email diretta? Scrivimi a
+    {{ i18n "contatti_alt_email" }}
     <a class="contact-alt-link" href="mailto:info@albertoreineri.it">info@albertoreineri.it</a>
   </p>
 </section>

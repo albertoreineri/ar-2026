@@ -3,6 +3,7 @@ title: "Nascondere l’estensione alla fine dell’URL"
 date: 2019-12-19
 description: "Oggi vedere l’estensione alla fine dell’URL non è il massimo, sia per quanto riguarda la SEO che per la “figura” che il sito fa con l’utente finale, sarebbe meglio nasconderla. La possibilità di…"
 tags: ["Guide", "Web Dev"]
+translationKey: "hide-url-extension"
 ---
 
 Oggi vedere l’estensione alla fine dell’URL non è il massimo, sia per quanto riguarda la SEO che per la “figura” che il sito fa con l’utente finale, sarebbe meglio nasconderla.

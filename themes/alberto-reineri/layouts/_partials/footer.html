@@ -1,10 +1,10 @@
 <div class="status">
   <div class="wrap status-grid">
     <div class="status-title">ALBERTOREINERI.IT</div>
-    <div class="status-item">Dal 2010</div>
-    <div class="status-item">Uptime 99.9%</div>
-    <div class="status-item">Interventi rapidi</div>
-    <div class="status-item">From Valle Maira</div>
+    <div class="status-item">{{ i18n "footer_since" }}</div>
+    <div class="status-item">{{ i18n "footer_uptime" }}</div>
+    <div class="status-item">{{ i18n "footer_response" }}</div>
+    <div class="status-item">{{ i18n "footer_location" }}</div>
   </div>
 </div>
 
@@ -12,28 +12,28 @@
 <section class="footer-cta wrap">
   <div class="footer-cta-grid">
     <div>
-      <h2 class="footer-cta-title">Hai qualcosa<br>in mente?</h2>
-      <a class="contact-link" href="{{ "/contatti/" | relURL }}">Raccontamelo →</a>
+      <h2 class="footer-cta-title">{{ i18n "footer_cta_title" | safeHTML }}</h2>
+      <a class="contact-link" href="{{ "/contatti/" | relLangURL }}">{{ i18n "footer_cta_link" }}</a>
     </div>
 
     <form class="footer-form" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
       <label class="contact-field">
-        <span>Email</span>
+        <span>{{ i18n "form_email" }}</span>
         <input type="email" name="email" required>
       </label>
 
       <label class="contact-field">
-        <span>Messaggio</span>
+        <span>{{ i18n "form_message" }}</span>
         <textarea name="messaggio" rows="3" required></textarea>
       </label>
 
       <div class="contact-form-row">
         <label class="contact-privacy">
           <input type="checkbox" required>
-          Accetto la <a href="{{ "/privacy-policy/" | relURL }}" target="_blank" rel="noopener">privacy policy</a>
+          {{ i18n "form_privacy_accept" }} <a href="{{ "/privacy-policy/" | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
         </label>
 
-        <button type="submit" class="contact-submit">Invia →</button>
+        <button type="submit" class="contact-submit">{{ i18n "form_submit" }}</button>
       </div>
 
       <p class="form-status" role="status" aria-live="polite"></p>
@@ -45,11 +45,11 @@
 <footer>
   <div class="wrap inner">
     <span>© {{ now.Format "2006" }} Alberto Reineri — P.IVA 03888370040</span>
-    <span>Web Designer · Developer · Sysadmin</span>
+    <span>{{ i18n "footer_role" }}</span>
     <span class="footer-legal">
-      <a href="{{ "/privacy-policy/" | relURL }}">Informativa sulla privacy</a>
-      <a href="{{ "/privacy-policy/#9-gestione-dei-cookie" | relURL }}">Politica sui cookie</a>
-      {{ if site.Params.googleAnalyticsId }}<button type="button" id="cookiePrefsBtn" class="cookie-prefs-link">Preferenze cookie</button>{{ end }}
+      <a href="{{ "/privacy-policy/" | relLangURL }}">{{ i18n "footer_privacy_link" }}</a>
+      <a href="{{ printf "/privacy-policy/#%s" (i18n "footer_cookie_anchor") | relLangURL }}">{{ i18n "footer_cookie_link" }}</a>
+      {{ if site.Params.googleAnalyticsId }}<button type="button" id="cookiePrefsBtn" class="cookie-prefs-link">{{ i18n "footer_cookie_prefs" }}</button>{{ end }}
     </span>
   </div>
 </footer>
@@ -57,16 +57,15 @@
 {{ with site.Params.googleAnalyticsId }}
 <div class="cookie-banner" id="cookieBanner" hidden>
   <div class="cookie-modal">
-    <p class="cookie-modal-title">Ho a cuore la tua privacy</p>
+    <p class="cookie-modal-title">{{ i18n "cookie_title" }}</p>
     <p>
-      Usiamo cookie tecnici (sempre attivi) e, solo con il tuo consenso, Google
-      Analytics per capire come viene usato il sito.
-      <a href="{{ "/privacy-policy/" | relURL }}">Informativa sulla privacy</a> ·
-      <a href="{{ "/privacy-policy/#9-gestione-dei-cookie" | relURL }}">Politica sui cookie</a>
+      {{ i18n "cookie_body" }}
+      <a href="{{ "/privacy-policy/" | relLangURL }}">{{ i18n "footer_privacy_link" }}</a> ·
+      <a href="{{ printf "/privacy-policy/#%s" (i18n "footer_cookie_anchor") | relLangURL }}">{{ i18n "footer_cookie_link" }}</a>
     </p>
     <div class="cookie-modal-actions">
-      <button type="button" id="cookieReject" class="cookie-btn cookie-btn-ghost">Rifiuta</button>
-      <button type="button" id="cookieAccept" class="cookie-btn">Accetta</button>
+      <button type="button" id="cookieReject" class="cookie-btn cookie-btn-ghost">{{ i18n "cookie_reject" }}</button>
+      <button type="button" id="cookieAccept" class="cookie-btn">{{ i18n "cookie_accept" }}</button>
     </div>
   </div>
 </div>

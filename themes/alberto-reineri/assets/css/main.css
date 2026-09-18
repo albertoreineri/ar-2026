@@ -141,6 +141,24 @@ html.dark .site-nav {
   right: 0;
 }
 
+/* LANGUAGE SWITCH */
+.lang-switch {
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  margin-right: -14px;
+  border-radius: 50%;
+  font-size: 19px;
+  line-height: 1;
+  filter: grayscale(.15);
+  transition: transform .25s ease;
+}
+
+.lang-switch:hover {
+  transform: scale(1.12);
+}
+
 /* THEME SWITCH */
 .theme-switch {
   border: 1px solid currentColor;

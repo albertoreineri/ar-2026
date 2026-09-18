@@ -3,6 +3,7 @@ title: "3. Come funziona XAMPP"
 date: 2020-03-20
 description: "Hai letto l’articolo sulla configurazione del PC per lo sviluppo web, hai installato tutti i programmi e sei pronto ad iniziare a sviluppare! MA COME FUNZIONA XAMPP? Sebbene non sia un software…"
 tags: ["Guide", "WordPress Base"]
+translationKey: "xampp-how-it-works"
 ---
 
 Hai letto l’articolo sulla [configurazione del PC per lo sviluppo web](https://albertoreineri.it/configurare-il-pc-per-sviluppare-in-wordpress/), hai installato tutti i programmi e sei pronto ad iniziare a sviluppare!

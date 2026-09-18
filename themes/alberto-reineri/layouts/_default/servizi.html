@@ -2,32 +2,26 @@
 
 <section class="page-hero wrap">
   {{ partial "page-doodle.html" "servizi" }}
-  <div class="section-number reveal">Servizi</div>
-  <h1 class="section-title reveal">Design.<br>Siti web.<br>Hosting.</h1>
+  <div class="section-number reveal">{{ i18n "page_servizi_number" }}</div>
+  <h1 class="section-title reveal">{{ i18n "page_servizi_title" | safeHTML }}</h1>
   <p class="page-intro reveal">
-    Tre cose che di solito vengono gestite separate, spesso da persone
-    diverse che nemmeno si parlano tra loro. Io le tengo insieme: chi
-    disegna il sito è la stessa persona che lo costruisce ed è la stessa
-    che, un anno dopo, risponde al telefono se qualcosa si rompe.
+    {{ i18n "page_servizi_intro" }}
   </p>
 </section>
 
 <section class="section-dark">
   <div class="wrap intro">
-    <div class="section-number reveal">Nel dettaglio</div>
+    <div class="section-number reveal">{{ i18n "servizi_detail_number" }}</div>
 
     <div class="reveal">
       <p class="intro-statement">
-        Il grosso del lavoro è <span class="accent-word">progettare e
-        sviluppare</span> il sito. Ma il giorno del lancio non è la fine
-        del rapporto: <span class="accent-word">hosting</span>, backup e
-        sicurezza restano sul mio tavolo finché il sito è online.
+        {{ i18n "servizi_detail_statement" | safeHTML }}
       </p>
 
       <div class="intro-tags">
-        <span class="intro-tag">Design</span>
-        <span class="intro-tag">Siti & e-commerce</span>
-        <span class="intro-tag">Hosting & sicurezza</span>
+        <span class="intro-tag">{{ i18n "tag_design" }}</span>
+        <span class="intro-tag">{{ i18n "tag_sites_ecommerce" }}</span>
+        <span class="intro-tag">{{ i18n "tag_hosting_security" }}</span>
       </div>
     </div>
   </div>
@@ -35,33 +29,33 @@
 
 <section class="process-section wrap">
   <div class="section-head reveal">
-    <div class="section-number">Come lavoro</div>
-    <h2 class="section-title">Quattro passaggi,<br>una persona sola.</h2>
+    <div class="section-number">{{ i18n "servizi_process_number" }}</div>
+    <h2 class="section-title">{{ i18n "servizi_process_title" | safeHTML }}</h2>
   </div>
 
   <div class="process-list">
     <div class="process-item reveal">
       <span class="num">01</span>
-      <h3>Ascolto</h3>
-      <p>Prima di proporre qualsiasi cosa, capisco cosa stai cercando di ottenere e con che budget e tempi lavoriamo.</p>
+      <h3>{{ i18n "process_1_title" }}</h3>
+      <p>{{ i18n "process_1_desc" }}</p>
     </div>
 
     <div class="process-item reveal">
       <span class="num">02</span>
-      <h3>Design & sviluppo</h3>
-      <p>Progetto l'interfaccia e la costruisco — WordPress quando basta, su misura quando il progetto lo richiede.</p>
+      <h3>{{ i18n "process_2_title" }}</h3>
+      <p>{{ i18n "process_2_desc" }}</p>
     </div>
 
     <div class="process-item reveal">
       <span class="num">03</span>
-      <h3>Lancio</h3>
-      <p>Metto il sito online, controllo che tutto funzioni davvero — velocità, SEO tecnica, form, mobile — non solo che "si veda".</p>
+      <h3>{{ i18n "process_3_title" }}</h3>
+      <p>{{ i18n "process_3_desc" }}</p>
     </div>
 
     <div class="process-item reveal">
       <span class="num">04</span>
-      <h3>Manutenzione</h3>
-      <p>Da qui in poi mi occupo io di hosting, aggiornamenti e sicurezza, con un abbonamento annuale pensato per non pensarci più.</p>
+      <h3>{{ i18n "process_4_title" }}</h3>
+      <p>{{ i18n "process_4_desc" }}</p>
     </div>
   </div>
 </section>
