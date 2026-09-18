@@ -1,3 +1,24 @@
+{{/* Go's html/template strips literal HTML comments, quindi lo iniettiamo via safeHTML */}}
+{{ `<!--
+
+  ╔══════════════════════════════════════════════════════════╗
+  ║                                                          ║
+  ║ Ciao curioso! Benvenuto nel codice del sito.             ║
+  ║                                                          ║
+  ║ Questo è un sito fatto a mano: ho usato un framework, ma ║
+  ║ l'ho personalizzato pesantemente. Se vuoi scoprire come  ║
+  ║ ho fatto, curiosa pure nel sorgente!                     ║
+  ║                                                          ║
+  ║ Se ti serve qualcosa di simile - o di completamente      ║
+  ║ diverso - scrivimi: info@albertoreineri.it               ║
+  ║                                                          ║
+  ║                           /\_/\                          ║
+  ║                         ( o.o )                          ║
+  ║                           > ^ <                          ║
+  ║                                                          ║
+  ╚══════════════════════════════════════════════════════════╝
+
+-->` | safeHTML }}
 <!doctype html>
 <html lang="{{ site.Language.Lang }}">
 <head>

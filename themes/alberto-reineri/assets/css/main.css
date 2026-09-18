@@ -298,7 +298,7 @@ html.dark .hero-glow {
   height: auto;
   pointer-events: none;
   z-index: 0;
-  bottom: 100px;
+  bottom: 150px;
   right: -30px;
   width: clamp(150px, 42vw, 240px);
   opacity: 0;

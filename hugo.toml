@@ -23,3 +23,6 @@ theme = 'alberto-reineri'
   startLevel = 2
   endLevel = 3
   ordered = false
+
+[minify.tdewolff.html]
+  keepComments = true
