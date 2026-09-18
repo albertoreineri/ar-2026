@@ -7,7 +7,7 @@ tags: ["Tech"]
 
 Amo programmare e amo i computer, quindi mi trovo spesso a dover configurare un pc per lo sviluppo web, installando **tutti i software necessari.**
 
-Che sia su un pc nuovo, su una nuova distro o semplicemente dopo una formattazione, ci sono sempre una serie di programmi che devo installare ogni volta. Col tempo ho quindi creato una** lista di app** da installare al primo avvio, per avere il pc subito pronto a lavorare.
+Che sia su un pc nuovo, su una nuova distro o semplicemente dopo una formattazione, ci sono sempre una serie di programmi che devo installare ogni volta. Col tempo ho quindi creato una **lista di app** da installare al primo avvio, per avere il pc subito pronto a lavorare.
 
 Ho suddiviso la lista per **categorie** di software: quelli per programmare, per la grafica, i software generali e quelli destinati solamente ad un sistema operativo specifico.
 

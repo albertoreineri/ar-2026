@@ -23,9 +23,9 @@ Perciò faremo la strada più lunga (non poi tanto in realtà) ed impareremo ver
 
 Per capire meglio ciò che andremo a fare ora ti **consiglio **di leggere questi articoli:
 
-- [Configurare il PC per Sviluppare in WordPress](https://albertoreineri.it/guide/configurare-il-pc-per-sviluppare-in-wordpress%ef%bf%bc/)
-- [Perché intallare WordPress in locale?](https://albertoreineri.it/guide/perche-installare-wordpress-in-locale/)
-- [Come funziona XAMPP](https://albertoreineri.it/guide/come-funziona-xampp/)
+- [Configurare il PC per Sviluppare in WordPress](https://albertoreineri.it/configurare-il-pc-per-sviluppare-in-wordpress/)
+- [Perché intallare WordPress in locale?](https://albertoreineri.it/perche-installare-wordpress-in-locale/)
+- [Come funziona XAMPP](https://albertoreineri.it/come-funziona-xampp/)
 
 ------------------------------------------------------------------------
 

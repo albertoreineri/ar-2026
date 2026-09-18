@@ -5,7 +5,7 @@ description: "Se hai letto le nostre guide precedenti, ormai saprai bene che HTM
 tags: ["Guide", "Inizia Qui"]
 ---
 
-Se hai letto le nostre [guide precedenti](/guide), ormai saprai bene che **HTML**, **CSS** e **Javascript** sono i tre **linguaggi fondamentali **del web.
+Se hai letto le nostre [guide precedenti](/tags/guide/), ormai saprai bene che **HTML**, **CSS** e **Javascript** sono i tre **linguaggi fondamentali** del web.
 
 Con **l’HTML** strutturiamo i nostri siti, con il **CSS** li modelliamo e li formattiamo e con il **Javascript** aggiungiamo funzionalità interattive e animazioni.
 
@@ -13,7 +13,7 @@ Con **l’HTML** strutturiamo i nostri siti, con il **CSS** li modelliamo e 
 
 Inoltre JQuery **è compatibile con la maggior parte dei browser,** il che significa che non dobbiamo preoccuparci di testare gli effettu su tutti i browser presenti, ma possiamo stare tranquilli che tutto funzionerà ovunque!
 
-Vuoi **vedere** come** JQuery è più semplice** rispetto a Javascript?
+Vuoi **vedere** come **JQuery è più semplice** rispetto a Javascript?
 
 **Ecco un esempio!**
 
@@ -33,13 +33,13 @@ $('#ciao').html('Ciao mondo!')
 
 **Visto?** Già da una cosa semplicissima come questa si può vedere che il codice è molto più semplice con JQuery!
 
-**Ti sei convinto **che può valere la pena imparare ad utilizzare questa libreria? Molto bene!
+**Ti sei convinto** che può valere la pena imparare ad utilizzare questa libreria? Molto bene!
 
 **Iniziamo!**
 
 ## Installazione di JQuery
 
-**JQuery** è semplicemente un **file Javascript **da inserire nel nostro HTML.
+**JQuery** è semplicemente un **file Javascript** da inserire nel nostro HTML.
 
 Questo inserimento può essere fatto in **due modi:** tramite **CDN** oppure **scaricando** i file in locale.
 
@@ -107,7 +107,7 @@ Torniamo quindi nel nostro* index.html *e inseriamo questo nel *\<body\>:*
 <p id="ciao"></p>
 ```
 
-**jQuery** viene chiamato con e rappresentato dal **simbolo del dollaro **( `$`). Accediamo al DOM con jQuery utilizzando principalmente la **sintassi CSS **e applichiamo un’azione con un metodo. Un esempio di base di jQuery segue questo formato:
+**jQuery** viene chiamato con e rappresentato dal **simbolo del dollaro** ( `$`). Accediamo al DOM con jQuery utilizzando principalmente la **sintassi CSS** e applichiamo un’azione con un metodo. Un esempio di base di jQuery segue questo formato:
 
 ``` wp-block-code
 $('selector').method()
@@ -119,13 +119,13 @@ Poiché un ID è rappresentato da un simbolo hash (#) nei CSS, accederemo all’
 $('#ciao').html('Ciao mondo!')
 ```
 
-Il codice viene eseguito non **appena il documento è pronto. **
+Il codice viene eseguito non **appena il documento è pronto.** 
 
 **Salviamo** tutto e apriamo index.html nel browser, **vedremo apparire l**a scritta “Ciao mondo”. Questa scritta è stata inserita da JQuery!
 
 ## I selettori
 
-La maggior parte dei **selettori jQuery s**ono gli stessi di quelli che utilizziamo nei [CSS](https://albertoreineri.it/guide/le-basi-del-css/), con alcune aggiunte specifiche di jQuery. L’elenco completo dei selettori jQuery <a href="https://api.jquery.com/category/selectors/" target="_blank" rel="noreferrer noopener">è disponibile qui</a> .
+La maggior parte dei **selettori jQuery s**ono gli stessi di quelli che utilizziamo nei [CSS](https://albertoreineri.it/le-basi-del-css/), con alcune aggiunte specifiche di jQuery. L’elenco completo dei selettori jQuery <a href="https://api.jquery.com/category/selectors/" target="_blank" rel="noreferrer noopener">è disponibile qui</a> .
 
 Di seguito una breve panoramica di alcuni dei selettori più comunemente usati.
 
@@ -137,7 +137,7 @@ Di seguito una breve panoramica di alcuni dei selettori più comunemente usati.
 - *\$(“\[type=’text’\]”)*– **Attributo:** seleziona qualsiasi elemento con *text*applicato *type*all’attributo.
 - *\$(“p:first-of-type”)*– **Pseudo Element:** seleziona il primo *\<p\>*.
 
-Generalmente, le **classi** e gli **ID **sono ciò che verrà utilizzato maggiormente: le classi quando si vogliono selezionare più elementi e gli id â€‹â€‹quando si vuole selezionarne solo uno.
+Generalmente, le **classi** e gli **ID** sono ciò che verrà utilizzato maggiormente: le classi quando si vogliono selezionare più elementi e gli id â€‹â€‹quando si vuole selezionarne solo uno.
 
 ## Eventi jQuery
 
@@ -210,7 +210,7 @@ $('.trigger').click(function() {
 })
 ```
 
-Ora potrai **attivare / disattivare la visibilità del modale facendo clic sui pulsanti. **
+Ora potrai **attivare / disattivare la visibilità del modale facendo clic sui pulsanti.** 
 
 Puoi anche provare a modificare *toggle()* per *fadeToggle()* o *slideToggle()* per vedere un paio di altri effetti incorporati jQuery.
 
@@ -225,23 +225,23 @@ Di seguito una breve panoramica di alcuni dei metodi di effetto più comunemente
 
 Ora che hai imparato le basi di JQuery puoi **sbizzarrirti** e provare a realizzare gli effetti che vuoi!
 
-Prova quindi a **creare qualche effetto **all’hover del mouse, al click, allo scroll, andando a modificare le **classi CSS **come il colore, lo sfondo o anche l’immagine!
+Prova quindi a **creare qualche effetto** all’hover del mouse, al click, allo scroll, andando a modificare le **classi CSS** come il colore, lo sfondo o anche l’immagine!
 
 **Con JQuery si può fare veramente di tutto**, basta mettersi sotto e studiare un pochino!
 
-Ora che hai capito le basi dei linguaggi **front-end **è ora di dedicare un po’ di tempo anche al **linguaggio principale di WordPress: **
+Ora che hai capito le basi dei linguaggi **front-end** è ora di dedicare un po’ di tempo anche al **linguaggio principale di WordPress:** 
 
 <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Le basi di Bootstrap](https://albertoreineri.it/guide/le-basi-di-bootstrap/)*
+*[\<\< Le basi di Bootstrap](https://albertoreineri.it/le-basi-di-bootstrap/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Le basi di PHP \>\>](https://albertoreineri.it/guide/le-basi-di-php/)*
+*[Le basi di PHP \>\>](https://albertoreineri.it/le-basi-di-php/)*
 
 </div>
 

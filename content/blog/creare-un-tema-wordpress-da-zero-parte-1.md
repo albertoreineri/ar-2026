@@ -5,23 +5,23 @@ description: "WordPress è una piattaforma fantastica! Permette di creare siti w
 tags: ["Guide", "WordPress DEV"]
 ---
 
-**WordPress **è una piattaforma **fantastica**! Permette di creare** siti web di ogni tipo** in maniera semplice e **veloce**, grazie all’infinita quantità di **temi **e **plugin **disponibili, moltissimi dei quali in maniera gratuita.
+**WordPress** è una piattaforma **fantastica**! Permette di creare **siti web di ogni tipo** in maniera semplice e **veloce**, grazie all’infinita quantità di **temi** e **plugin** disponibili, moltissimi dei quali in maniera gratuita.
 
-Però **quando si vuole fare il salto di livello** ed avere un sito web veramente **performante**, allora conviene utilizzare un** tema sviluppato da zero**, in grado di implementare tutte le funzioni necessarie nella maniera più performante!
+Però **quando si vuole fare il salto di livello** ed avere un sito web veramente **performante**, allora conviene utilizzare un **tema sviluppato da zero**, in grado di implementare tutte le funzioni necessarie nella maniera più performante!
 
 **Niente errori** in console, niente stringhe in inglese, niente codici sparsi in giro per il sito, niente css e js inutili… Solo ciò che serve realmente, sviluppato nel modo corretto.
 
 **Oggi vediamo come creare un tema WordPress da zero!**
 
-Mettiti comodo e** prenditi il tuo tempo**, ci vorrà un po’, ma alla fine avrai realizzato **il tuo primo tema WordPress **funzionante e nel rispetto di tutte le best practice.
+Mettiti comodo e **prenditi il tuo tempo**, ci vorrà un po’, ma alla fine avrai realizzato **il tuo primo tema WordPress** funzionante e nel rispetto di tutte le best practice.
 
 ***Partiremo da un’installazione di WordPress, se non sai come installare il CMS ti consiglio di seguire le guide per [Inizia Qui](https://albertoreineri.it.local/inizia-qui/inizia-qui-principiante/).***
 
-*Questo tutorial è suddiviso in 3 parti, alla fine potrai scaricare l’intero tema che creeremo insieme per confrontarlo e correggere eventuali errori. Ti consiglio di seguire le varie parti e scaricare il tema solo alla fine, ma se ti servisse prima lo puoi trovare sul fondo della [parte 3](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-3/).*
+*Questo tutorial è suddiviso in 3 parti, alla fine potrai scaricare l’intero tema che creeremo insieme per confrontarlo e correggere eventuali errori. Ti consiglio di seguire le varie parti e scaricare il tema solo alla fine, ma se ti servisse prima lo puoi trovare sul fondo della [parte 3](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-3/).*
 
 ## CREIAMO IL NOSTRO TEMA
 
-Se apri la cartella del tuo sito **WordPress **noterai che all’interno sono presenti **3 cartelle**:
+Se apri la cartella del tuo sito **WordPress** noterai che all’interno sono presenti **3 cartelle**:
 
 - wp-admin
 - wp-content
@@ -29,13 +29,13 @@ Se apri la cartella del tuo sito **WordPress **noterai che all’interno sono 
 
 A noi per il momento interessa solamente la “**wp-content**“, quindi iniziamo ad **aprirla**.
 
-All’interno di wp-content apriamo ora la cartella “**themes**“, che come puoi intuire contiene** i temi del progetto.**
+All’interno di wp-content apriamo ora la cartella “**themes**“, che come puoi intuire contiene **i temi del progetto.**
 
 **Procediamo quindi a creare il nostro primo tema!**
 
-Creiamo una **nuova cartella** e la chiamiamo “**il-mio-tema**“, dopodiché apriamo la cartella con **<a href="http://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">VS Code</a>**. (Se non sai come fare questo passaggio visualizza le [guide per principianti](https://albertoreineri.it/guide/le-basi-dellhtml/))
+Creiamo una **nuova cartella** e la chiamiamo “**il-mio-tema**“, dopodiché apriamo la cartella con **<a href="http://code.visualstudio.com/" target="_blank" rel="noreferrer noopener">VS Code</a>**. (Se non sai come fare questo passaggio visualizza le [guide per principianti](https://albertoreineri.it/le-basi-dellhtml/))
 
-Un **tema WordPress** per essere riconosciuto necessita solamente di** 2 file:**
+Un **tema WordPress** per essere riconosciuto necessita solamente di **2 file:**
 
 - style.css
 - index.php
@@ -51,15 +51,15 @@ Version: 0.0.1
 */
 ```
 
-Puoi **sostituire **l’autore con il tuo nome, così come il nome del tema e la descrizione.
+Puoi **sostituire** l’autore con il tuo nome, così come il nome del tema e la descrizione.
 
 Se ora salvi il file CSS e vai nel backend di WordPress in “**Aspetto – Temi**” vedrai comparire il nostro tema!
 
-Puoi **attivare il tema **e *voilà*! Il tema è fatto!
+Puoi **attivare il tema** e *voilà*! Il tema è fatto!
 
 Non è poi tanto complicato vero? Già, però ora il tema è **vuoto**, occorre riempirlo!
 
-Inizia con l’inserire questo codice nella “**index.php**“, è un **layout di base** creato con [bootstrap ](https://albertoreineri.it/guide/le-basi-di-bootstrap/)sul quale andremo a costruire il nostro sito:
+Inizia con l’inserire questo codice nella “**index.php**“, è un **layout di base** creato con [bootstrap ](https://albertoreineri.it/le-basi-di-bootstrap/)sul quale andremo a costruire il nostro sito:
 
 **index.html**
 
@@ -225,7 +225,7 @@ Inizia con l’inserire questo codice nella “**index.php**“, è un **layout
 </html>
 ```
 
-Se ora **salvi **e ***refreshi ***la home del sito vedrai del contenuto!
+Se ora **salvi** e ***refreshi** *la home del sito vedrai del contenuto!
 
 La pagina è commentata, quindi dovresti riuscire a capire bene il codice al suo interno.
 
@@ -235,16 +235,16 @@ La pagina è commentata, quindi dovresti riuscire a capire bene il codice al suo
 
 ## DIVIDERE IN SEZIONI
 
-Ora esiste solamente index.php, ma noi vogliamo creare un** tema vero e proprio**, che avrà delle parti di layout che si **ripeteranno **spesso e altre parti da aggiornare **dinamicamente**.
+Ora esiste solamente index.php, ma noi vogliamo creare un **tema vero e proprio**, che avrà delle parti di layout che si **ripeteranno** spesso e altre parti da aggiornare **dinamicamente**.
 
-Procediamo quindi a** dividere il layout** del nostro sito in quattro sezioni:
+Procediamo quindi a **dividere il layout** del nostro sito in quattro sezioni:
 
 - header.php
 - footer.php
 - sidebar.php
 - content.php
 
-**Creiamo **questi** quattro file** nella cartella del nostro tema ed andiamo a **spezzettare la index.php** in questo modo:
+**Creiamo** questi **quattro file** nella cartella del nostro tema ed andiamo a **spezzettare la index.php** in questo modo:
 
 **heder.php**
 
@@ -446,17 +446,17 @@ Le funzioni *get_header()*,* get_sidebar() *e *get_footer()* vanno automati
 
 Per inserire un file diverso abbiamo utilizzato la funzione *get_template_part()* indicando il nome del file php da cui prendere il codice.
 
-Nella programmazione è molto importante **suddividere i contenuti **in parti più piccole, in modo da rendere i file più semplici e facilmente leggibili.
+Nella programmazione è molto importante **suddividere i contenuti** in parti più piccole, in modo da rendere i file più semplici e facilmente leggibili.
 
 ## IMPOSTAZIONI PRINCIPALI
 
-Vediamo ora come **recuperare **alcune delle **informazioni principali** del nostro sito.
+Vediamo ora come **recuperare** alcune delle **informazioni principali** del nostro sito.
 
-Nel **backend **puoi impostare un nome e una descrizione al tuo sito, nella sezione “**Impostazioni – Generali**“.
+Nel **backend** puoi impostare un nome e una descrizione al tuo sito, nella sezione “**Impostazioni – Generali**“.
 
-**Inserisci **il **titolo **del sito e un **motto**. Ora vediamo come recuperare questi dati nel **frontend**!
+**Inserisci** il **titolo** del sito e un **motto**. Ora vediamo come recuperare questi dati nel **frontend**!
 
-Andiamo in **header.php** e modifichiamo il **titolo **nella navbar del sito.
+Andiamo in **header.php** e modifichiamo il **titolo** nella navbar del sito.
 
 Eliminiamo quindi la scritta “**Il mio primo tema**” e la sostituiamo con
 
@@ -466,7 +466,7 @@ Eliminiamo quindi la scritta “**Il mio primo tema**” e la sostituiamo con
 
 In questo modo **il nome del sito sarà dinamico.**
 
-Possiamo anche inserire il **motto **del sito con questa funzione:
+Possiamo anche inserire il **motto** del sito con questa funzione:
 
 ``` wp-block-code
 <?php echo get_bloginfo( 'description' ); ?>
@@ -488,9 +488,9 @@ Possiamo utilizzarlo per inserire l’elenco degli articoli, delle pagine, di un
 
 Tutti i contenuti in WordPress vengono generati da loop! Possiamo dire che **è la funzione più importante di tutte!**
 
-Nel **backend **al momento abbiamo solamente **l’articolo **di default: “Ciao mondo!”, vediamo come **farlo comparire nella home page del sito.**
+Nel **backend** al momento abbiamo solamente **l’articolo** di default: “Ciao mondo!”, vediamo come **farlo comparire nella home page del sito.**
 
-Il **loop **di WordPress è molto semplice:
+Il **loop** di WordPress è molto semplice:
 
 ``` wp-block-code
 <?php
@@ -578,6 +578,6 @@ Prova a **creare un nuovo articolo** nel backend e a pubblicarlo, lo vedrai co
 
 **Grande! Stai iniziando a fare sul serio con WordPress!**
 
-Se vuoi continuare a sviluppare il tuo primo tema WordPress da zero prosegui con la [parte 2](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-2/)!
+Se vuoi continuare a sviluppare il tuo primo tema WordPress da zero prosegui con la [parte 2](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-2/)!
 
-[Parte 2 \>\>](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-2/)
+[Parte 2 \>\>](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-2/)

@@ -7,7 +7,7 @@ tags: ["Guide", "WordPress Base"]
 
 Se hai letto tutti gli articoli precedenti avrai già imparato come **installare un sito in WordPress sul tuo PC.**
 
-Se ancora non l’hai fatto invece ti invito a **dare un’occhiata** a [questa pagina ](https://albertoreineri.it/guide/installare-wordpress-in-locale%ef%bf%bc/)nella quale potrai trovare una serie di articoli utili per un **primo approccio al fantastico mondo di WordPress!**
+Se ancora non l’hai fatto invece ti invito a **dare un’occhiata** a [questa pagina ](https://albertoreineri.it/installare-wordpress-in-locale/)nella quale potrai trovare una serie di articoli utili per un **primo approccio al fantastico mondo di WordPress!**
 
 **Bene, ora andiamo dritti al sodo!!!**
 
@@ -19,7 +19,7 @@ Esistono **tonnellate **di temi sviluppati per WordPress (e se continuerai a s
 
 ## COME INSTALLARE UN TEMA SU WORDPRESS
 
-Come avrai potuto capire [nell’articolo precedente](https://albertoreineri.it/guide/come-funziona-wordpress/), per modificare la veste grafica di un sito occorre recarsi nel backend ed entrare nella sezione “**Aspetto-Temi**“
+Come avrai potuto capire [nell’articolo precedente](https://albertoreineri.it/come-funziona-wordpress/), per modificare la veste grafica di un sito occorre recarsi nel backend ed entrare nella sezione “**Aspetto-Temi**“
 
 A questo punto ci troviamo nella schermata che ci mostra **i temi attualmente installati **sul nostro sito.
 

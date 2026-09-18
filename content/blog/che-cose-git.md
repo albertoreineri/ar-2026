@@ -5,11 +5,11 @@ description: "Git è un fantastico software di controllo versione creato da un p
 tags: ["Guide", "Web Dev"]
 ---
 
-**Git **è un fantastico software di controllo versione creato da un programmatore niente male: **Linus Torvalds.**
+**Git** è un fantastico software di controllo versione creato da un programmatore niente male: **Linus Torvalds.**
 
 ## CHI È LINUS TORVALDS?
 
-Per i pochi che non sanno chi sia questa persona (mi auguro che siano veramente molto pochi…) è il creatore di **Linux**. Se pensiamo che più della metà del **web **e la maggioranza degli **smartphone **funzionano grazie a codice scritto da lui, dobbiamo tutti **essergli grati** per il suo genio e la sua generosità.
+Per i pochi che non sanno chi sia questa persona (mi auguro che siano veramente molto pochi…) è il creatore di **Linux**. Se pensiamo che più della metà del **web** e la maggioranza degli **smartphone** funzionano grazie a codice scritto da lui, dobbiamo tutti **essergli grati** per il suo genio e la sua generosità.
 
 ## MA TORNIAMO A GIT!
 
@@ -29,7 +29,7 @@ Anche se fossimo programmatori previdenti e avessimo creato una cartella di back
 
 **Con Git basta inserire un comando** e il nostro progetto tornerà magicamente come era prima! Fantastico!
 
-Inoltre è possibile tenere aperte** diverse strade di sviluppo**, magari testare una funzionalità da una base e un’altra dalla stessa base per poi decidere qual è la migliore, tutto questo senza creare migliaia di cartelle e sottocartelle che finiranno sicuramente per rendere il tutto molto confusionario.
+Inoltre è possibile tenere aperte **diverse strade di sviluppo**, magari testare una funzionalità da una base e un’altra dalla stessa base per poi decidere qual è la migliore, tutto questo senza creare migliaia di cartelle e sottocartelle che finiranno sicuramente per rendere il tutto molto confusionario.
 
 Con Git è inoltre possibile **caricare il nostro progetto online**, su **GitHub**, una meravigliosa piattaforma di condivisione di codice.
 
@@ -49,9 +49,9 @@ E poi sei un programmatore no? Il mouse è più che altro un abbellimento per la
 
 Esiste anche una versione Desktop del software ma quella classica funziona talmente bene che non mi è mai venuto in mente di testarla.
 
-Se lavori in **Windows **(come me!!!) allora puoi scaricare anche **Git Bash**, una riga di comando molto bella creata per facilitare le operazioni di Git.
+Se lavori in **Windows** (come me!!!) allora puoi scaricare anche **Git Bash**, una riga di comando molto bella creata per facilitare le operazioni di Git.
 
-Prossimamente [scriverò una breve guida dei comandi basilari di Git](https://albertoreineri.it/guide/come-usare-git/), così potrai iniziare ad utilizzarlo.
+Prossimamente [scriverò una breve guida dei comandi basilari di Git](https://albertoreineri.it/come-funziona-git/), così potrai iniziare ad utilizzarlo.
 
 Sono sicuro che non riuscirai più a farne a meno!
 

@@ -5,7 +5,7 @@ description: "Hai imparato a creare un tema WordPress da zero e vuoi impratichir
 tags: ["Guide", "WordPress DEV"]
 ---
 
-Hai imparato a**[ creare un tema WordPress da zero ](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-1/)**e vuoi impratichirti anche con i **plugin**?
+Hai imparato a **[creare un tema WordPress da zero](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-1/)** e vuoi impratichirti anche con i **plugin**?
 
 Sei nel posto giusto!
 
@@ -13,17 +13,17 @@ Creare un plugin per WordPress può essere una cosa semplicissima e molto veloce
 
 In questa guida vediamo semplicemente come **creare un plugin per WordPress funzionante.**
 
-Creeremo un plugin che aggiunge il **back on top **del sito. Andremo a inserire una freccia verso l’alto nell’angolo in basso a destra della pagina. Cliccando su questa freccia avvieremo uno smooth scroll verso il top della pagina!
+Creeremo un plugin che aggiunge il **back on top** del sito. Andremo a inserire una freccia verso l’alto nell’angolo in basso a destra della pagina. Cliccando su questa freccia avvieremo uno smooth scroll verso il top della pagina!
 
 ## CREARE IL PLUGIN
 
-Creare un nuovo plugin** non è difficile.**
+Creare un nuovo plugin **non è difficile.**
 
-Per prima cosa rechiamoci nella **cartella dei plugin **di WordPress: */wp-content/pluigns.*
+Per prima cosa rechiamoci nella **cartella dei plugin** di WordPress: */wp-content/pluigns.*
 
-Ora qui dentro **creiamo una nuova cartella **con il nome “**back-on-top**” e apriamo la cartella con** VS Code**.
+Ora qui dentro **creiamo una nuova cartella** con il nome “**back-on-top**” e apriamo la cartella con **VS Code**.
 
-Creiamo adesso un **file **in questa cartella chiamato “***back-on-top.php***” e inseriamo questo codice al suo interno:
+Creiamo adesso un **file** in questa cartella chiamato “***back-on-top.php***” e inseriamo questo codice al suo interno:
 
 ``` wp-block-code
 <?php
@@ -49,7 +49,7 @@ Vediamo ora come aggiungere una funzionalità al plugin.
 
 ## AGGIUNGERE FUNZIONALITÀ AL PLUGIN
 
-Per poter aggiungere una funzionalità al nostro plugin occorre** agganciarsi ai vari hook di WordPress**. Nel nostro caso dobbiamo inserire una freccia in fondo alla pagina, quindi ci attaccheremo al footer.
+Per poter aggiungere una funzionalità al nostro plugin occorre **agganciarsi ai vari hook di WordPress**. Nel nostro caso dobbiamo inserire una freccia in fondo alla pagina, quindi ci attaccheremo al footer.
 
 Possiamo considerare il file back-on-top.php come un’**estensione del functions.php**. Ogni funzione che agguingiamo nel plugni verrà aggiunta al tema corrente.
 
@@ -73,13 +73,13 @@ function back_on_top()
 }
 ```
 
-In questo modo abbiamo inserito sul fondo della nostra pagina** l’immagine up.svg** presente nella cartella del plugin.
+In questo modo abbiamo inserito sul fondo della nostra pagina **l’immagine up.svg** presente nella cartella del plugin.
 
 **Puoi inserire l’immagine che preferisci**. Se inserisci un jpg o un png al posto di un svg puoi usare semplicemente il tag \<img src=…\>.
 
-***on_start ***è una funzione che permette di inserire codice html e considerarlo come una **variabile php.**
+***on_start** *è una funzione che permette di inserire codice html e considerarlo come una **variabile php.**
 
-Ora aggiungiamo un po’ di **CSS **per rendere sensata la grafica. Per semplificare inseriamo il CSS direttamente nel file php, giusto sopra il div “**back-on-top**“:
+Ora aggiungiamo un po’ di **CSS** per rendere sensata la grafica. Per semplificare inseriamo il CSS direttamente nel file php, giusto sopra il div “**back-on-top**“:
 
 ``` wp-block-code
 <style>
@@ -104,7 +104,7 @@ Ora aggiungiamo un po’ di **CSS **per rendere sensata la grafica. Per sempli
     </style>
 ```
 
-Adesso non ci resta che inserire un po’ di **Javascript **per effettuare lo smooth scroll al top della pagina. Questo può essere fatto in molti modi, da vanilla Javascript a JQuery.
+Adesso non ci resta che inserire un po’ di **Javascript** per effettuare lo smooth scroll al top della pagina. Questo può essere fatto in molti modi, da vanilla Javascript a JQuery.
 
 Per rendere le cose minimali inseriamo del **vanilla Javascript** dopo il div “**back-on-top**“:
 
@@ -190,4 +190,4 @@ function back_on_top()
 }
 ```
 
-*[\<\< Parte 3](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-3/)*[](https://albertoreineri.it.local/assistenza/)
+*[\<\< Parte 3](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-3/)*[](https://albertoreineri.it.local/assistenza/)

@@ -5,7 +5,7 @@ description: "Nella parte 1 di questa guida per creare un tema WordPress da zero
 tags: ["Guide", "WordPress DEV"]
 ---
 
-Nella**[ parte 1](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-1/)** di questa guida per **creare un tema WordPress da zero** abbiamo iniziato a creare in nostro primo tema WordPress, creando **header**, **footer **e **sidebar **e imparando come funziona il **loop **di WordPress.
+Nella **[parte 1](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-1/)** di questa guida per **creare un tema WordPress da zero** abbiamo iniziato a creare in nostro primo tema WordPress, creando **header**, **footer** e **sidebar** e imparando come funziona il **loop** di WordPress.
 
 Ora andiamo a **rendere dinamico** il contenuto delle varie sezioni!
 
@@ -40,15 +40,15 @@ add_action('after_setup_theme', 'il_mio_tema_setup');
 
 Abbiamo creato una funzione di **setup del tema**, che utilizzeremo ancora in seguito per inserire altre personalizzazioni.
 
-Qua abbiamo** registrato un nuovo menu** attraverso la funzione *register_nav_menus *e l’abbiamo chiamato ‘**Menu Navbar**‘.
+Qua abbiamo **registrato un nuovo menu** attraverso la funzione *register_nav_menus *e l’abbiamo chiamato ‘**Menu Navbar**‘.
 
-Se ora andiamo nel **backend **vedremo che la sezione “Aspetto – Menu” è attiva e utilizzabile.
+Se ora andiamo nel **backend** vedremo che la sezione “Aspetto – Menu” è attiva e utilizzabile.
 
 Procediamo quindi a **creare un nuovo menù:**
 
 Per il momento inseriamo solamente la home page e la pagina di esempio di default di WordPress, giusto per avere del contenuto al suo interno e clicchiamo su “**Crea menu**“.
 
-Poi possiamo impostare il menù nella **posizione **“Menù navbar”:
+Poi possiamo impostare il menù nella **posizione** “Menù navbar”:
 
 Ora non ci resta che **inserire questo menù nella nostra barra di navigazione**, nell’header del tema.
 
@@ -75,7 +75,7 @@ Apriamo quindi* header.php* e sostituiamo l'\<ul\> della nav con questo:
 
 IMPORTANTE: per selezionare il giusto menù abbiamo inserito il theme_location uguale al nome di registrazione del menu inserito in functions.php.
 
-Per far funzionare correttamente il **dropdown **di bootstrap dobbiamo ancora aggiungere una funzione che permetta di gestire i vari sottomenù. Questa funzione è chiamata “**walker**“, puoi semplicemente incollare questo codice nel *functions.php*:
+Per far funzionare correttamente il **dropdown** di bootstrap dobbiamo ancora aggiungere una funzione che permetta di gestire i vari sottomenù. Questa funzione è chiamata “**walker**“, puoi semplicemente incollare questo codice nel *functions.php*:
 
 ``` wp-block-code
 // Custom Walker Class for Bootstrap Menu
@@ -137,11 +137,11 @@ if ( ! function_exists( 'bootstrap_setup' ) ):
 endif;
 ```
 
-Ora se salvi e aggiorni dovresti avere** il menu funzionante e dinamico!**
+Ora se salvi e aggiorni dovresti avere **il menu funzionante e dinamico!**
 
 ## WIDGET
 
-I **widget **sono una parte **importantissima **di WordPress. Consentono di creare una** sezione inseribile in più parti** in maniera semplice e veloce.
+I **widget** sono una parte **importantissima** di WordPress. Consentono di creare una **sezione inseribile in più parti** in maniera semplice e veloce.
 
 ### INIZIALIZZIAMO I WIDGET
 
@@ -170,7 +170,7 @@ Se andiamo nel backend in “**Aspetto – Widget**” possiamo vedere che abbia
 
 Proviamo ad inserire dei widget al suo interno. Al momento non verranno inseriti nel frontend.
 
-Dobbiamo** andare a dire alla sidebar di prendere il suo contenuto attraverso i widget**!
+Dobbiamo **andare a dire alla sidebar di prendere il suo contenuto attraverso i widget**!
 
 Apriamo quindi il nostro file *sidebar.php*, cancelliamo tutto e sostituiamo il codice con questo:
 
@@ -202,7 +202,7 @@ Crea 4 widget da inserire nel footer del sito. Ricordati, devi registrare 4 zone
 
 Ecco il risultato nel front-end:
 
-Prenditi un po’ di tempo e prova a farlo, qua sotto ti lascerò** il codice:**
+Prenditi un po’ di tempo e prova a farlo, qua sotto ti lascerò **il codice:**
 
 **functions.php**
 
@@ -304,7 +304,7 @@ Molto bene, ora **il sito inizia a prendere forma!** Andiamo ora a cerare i la
 
 ## LAYOUT PAGINE
 
-Per creare un layout dedicato alle pagine di WordPress dobbiamo andare nella cartella del nostro tema e creare un file*** page.php***.
+Per creare un layout dedicato alle pagine di WordPress dobbiamo andare nella cartella del nostro tema e creare un file ***page.php***.
 
 **page.php**
 
@@ -334,7 +334,7 @@ endif;
 <?php get_footer(); ?>
 ```
 
-Questo codice ci permetterà di** visualizzare il titolo, l’immagine in evidenza ed il contenuto** della pagina salvata nel backend.
+Questo codice ci permetterà di **visualizzare il titolo, l’immagine in evidenza ed il contenuto** della pagina salvata nel backend.
 
 Per differenziarla dagli articoli non abbiamo inserito la sidebar nelle pagine.
 
@@ -342,7 +342,7 @@ Vediamo ora come creare un articolo.
 
 ### LAYOUT ARTICOLI
 
-Per creare un layout dedicato agli articoli ci basterà creare il file ***single.php ***all’interno del tema e inserire il loop:
+Per creare un layout dedicato agli articoli ci basterà creare il file ***single.php** *all’interno del tema e inserire il loop:
 
 **single.php**
 
@@ -393,13 +393,13 @@ Ed ecco il nostro bel layout per gli articoli!
 
 ## LAYOUT ARCHIVI
 
-Un **archivio **è una pagina che contiene un **elenco di post.**
+Un **archivio** è una pagina che contiene un **elenco di post.**
 
 Iniziamo con il creare una categoria “**blog**” nel backend di WordPress, dopodiché inseriamo questa categoria nel nostro menu di navigazione.
 
 Creiamo anche un paio di articoli con categoria “blog”, in modo da avere dei contenuti da visualizzare nel frontend.
 
-Ora andiamo nella cartella del nostro tema e creiamo un file ***archive.php ***contenente questo codice:
+Ora andiamo nella cartella del nostro tema e creiamo un file ***archive.php** *contenente questo codice:
 
 **archive.php**
 
@@ -453,27 +453,27 @@ Ora andiamo nella cartella del nostro tema e creiamo un file ***archive.php **
 <?php get_footer(); ?>
 ```
 
-Il **loop **come puoi vedere **è sempre lo stesso**, però in questo caso al posto che visualizzare il contenuto (the_content), abbiamo visualizzato **l’excerpt**!
+Il **loop** come puoi vedere **è sempre lo stesso**, però in questo caso al posto che visualizzare il contenuto (the_content), abbiamo visualizzato **l’excerpt**!
 
-Un **excerpt **è una parte del contenuto, un’anteprima del testo vero e proprio.
+Un **excerpt** è una parte del contenuto, un’anteprima del testo vero e proprio.
 
 In più abbiamo inserito il link ad ogni singolo articolo, utilizzando ***the_permalink***.
 
 Non è così complicato vero?
 
-**Il tema è sempre più completo! **Ci mancano solamente ancora un paio di passaggi. Leggi la parte numero 3 per imparare a creare un tema WordPress completo!
+**Il tema è sempre più completo!** Ci mancano solamente ancora un paio di passaggi. Leggi la parte numero 3 per imparare a creare un tema WordPress completo!
 
 <div class="wp-block-columns are-vertically-aligned-center is-layout-flex wp-container-core-columns-is-layout-8f761849 wp-block-columns-is-layout-flex">
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Parte 1](https://albertoreineri.it/guide/le-basi-dellhtml/)*
+*[\<\< Parte 1](https://albertoreineri.it/le-basi-dellhtml/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Parte 3 \>\>](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-3/)*
+*[Parte 3 \>\>](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-3/)*
 
 </div>
 

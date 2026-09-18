@@ -5,7 +5,7 @@ description: "Negli ultimi tutorial abbiamo iniziato a creare un tema WordPress 
 tags: ["Guide", "WordPress DEV"]
 ---
 
-Negli [ultimi tutorial](/argomento/wordpress-dev/) abbiamo iniziato a **creare un tema WordPress da zero**, e siamo arrivati già a un buon punto!
+Negli [ultimi tutorial](/tags/wordpress-dev/) abbiamo iniziato a **creare un tema WordPress da zero**, e siamo arrivati già a un buon punto!
 
 Ci mancano però ancora un paio di cosette per rendere accettabile il nostro lavoro. **Vediamo di andare avanti!**
 
@@ -109,7 +109,7 @@ add_action('wp_enqueue_scripts', 'risorse_il_mio_tema');
 
 In questo modo embedderemo il file *style.css*, obbligatorio in ogni tema WordPress.
 
-Ora inseriamo il CSS di **[Bootstrap](https://albertoreineri.it/guide/le-basi-di-bootstrap/)** in maniera corretta. Lo aggiungiamo a questa funzione, in questo modo:
+Ora inseriamo il CSS di **[Bootstrap](https://albertoreineri.it/le-basi-di-bootstrap/)** in maniera corretta. Lo aggiungiamo a questa funzione, in questo modo:
 
 ``` wp-block-code
 wp_enqueue_style( 'bootstrap','http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css','','','all');
@@ -284,13 +284,13 @@ footer{
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Parte 2](https://albertoreineri.it/guide/le-basi-dellhtml/)*
+*[\<\< Parte 2](https://albertoreineri.it/le-basi-dellhtml/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Creare Plugin \>\>](https://albertoreineri.it/guide/creare-un-plugin-wordpress/)*
+*[Creare Plugin \>\>](https://albertoreineri.it/creare-un-plugin-wordpress/)*
 
 </div>
 

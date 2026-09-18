@@ -27,7 +27,7 @@ Molti plugin sono **gratuiti**, ma esistono anche alcuni plugin a pagamento, ch
 
 Questo plugin ci permetterà di creare un **modulo di contatto** in maniera semplice e veloce!
 
-Per prima cosa **accediamo al backend **del nostro sito in WordPress (se non sai come si fa leggi le [guide precedenti](/argomento/inizia-qui/)) e clicchiamo su “**Plugin – Aggiungi nuovo**“
+Per prima cosa **accediamo al backend **del nostro sito in WordPress (se non sai come si fa leggi le [guide precedenti](/tags/inizia-qui/)) e clicchiamo su “**Plugin – Aggiungi nuovo**“
 
 Ci troveremo di fronte ad una schermata come questa:
 
@@ -61,7 +61,7 @@ A questo punto non dobbiamo far altro che **copiare questo shortcode **ed anda
 
 Dopo aver copiato lo shortcode chiudiamo WP Forms (con la X in alto a destra) e clicchiamo su “**Pagine**” nel menù laterale.
 
-Qui clicchiamo su “**Contatti**” per modificare la pagina che abbiamo[ creato in precedenza](https://albertoreineri.it/guide/creiamo-le-pagine-del-nostro-primo-sito-web/).
+Qui clicchiamo su “**Contatti**” per modificare la pagina che abbiamo[ creato in precedenza](https://albertoreineri.it/creiamo-le-pagine-del-nostro-primo-sito-web/).
 
 Ora non ci resta che **incollare lo shortcode** nel contenuto della pagina e fare click su “**Aggiorna**” in alto a destra.
 

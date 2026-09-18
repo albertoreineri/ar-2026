@@ -7,6 +7,40 @@ themeSwitch.addEventListener("click", () => {
   localStorage.setItem("ar-theme", root.classList.contains("dark") ? "dark" : "light");
 });
 
+/* COOKIE CONSENT (Google Consent Mode v2) — popup modale con sfondo sfumato */
+const cookieBanner = document.getElementById("cookieBanner");
+
+if (cookieBanner && window.AR_GA_ID) {
+  const openCookieBanner = () => {
+    cookieBanner.hidden = false;
+    document.body.style.overflow = "hidden";
+  };
+
+  const closeCookieBanner = () => {
+    cookieBanner.hidden = true;
+    document.body.style.overflow = "";
+  };
+
+  const setConsent = (granted) => {
+    localStorage.setItem("ar-cookie-consent", granted ? "granted" : "denied");
+    gtag("consent", "update", { analytics_storage: granted ? "granted" : "denied" });
+    closeCookieBanner();
+  };
+
+  const storedConsent = localStorage.getItem("ar-cookie-consent");
+  if (storedConsent !== "granted" && storedConsent !== "denied") {
+    openCookieBanner();
+  }
+
+  document.getElementById("cookieAccept").addEventListener("click", () => setConsent(true));
+  document.getElementById("cookieReject").addEventListener("click", () => setConsent(false));
+
+  const cookiePrefsBtn = document.getElementById("cookiePrefsBtn");
+  if (cookiePrefsBtn) {
+    cookiePrefsBtn.addEventListener("click", openCookieBanner);
+  }
+}
+
 /* MENU HAMBURGER (mobile) */
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");
@@ -112,7 +146,7 @@ if (contactForm) {
         if (!response.ok) throw new Error("Invio non riuscito");
         contactForm.reset();
         if (statusEl) {
-          statusEl.textContent = "Messaggio inviato — ti rispondo appena posso.";
+          statusEl.textContent = "Messaggio inviato — ti risponderò appena possibile.";
           statusEl.className = "form-status form-status--ok";
         }
       })

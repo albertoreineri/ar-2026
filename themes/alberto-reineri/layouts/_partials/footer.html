@@ -30,7 +30,7 @@
       <div class="contact-form-row">
         <label class="contact-privacy">
           <input type="checkbox" required>
-          Accetto la privacy policy
+          Accetto la <a href="{{ "/privacy-policy/" | relURL }}" target="_blank" rel="noopener">privacy policy</a>
         </label>
 
         <button type="submit" class="contact-submit">Invia →</button>
@@ -46,6 +46,28 @@
   <div class="wrap inner">
     <span>© {{ now.Format "2006" }} Alberto Reineri</span>
     <span>Web Designer · Developer · Sysadmin</span>
-    <span>Made by Alberto, obviously.</span>
+    <span class="footer-legal">
+      <a href="{{ "/privacy-policy/" | relURL }}">Informativa sulla privacy</a>
+      <a href="{{ "/privacy-policy/#9-gestione-dei-cookie" | relURL }}">Politica sui cookie</a>
+      {{ if site.Params.googleAnalyticsId }}<button type="button" id="cookiePrefsBtn" class="cookie-prefs-link">Preferenze cookie</button>{{ end }}
+    </span>
   </div>
 </footer>
+
+{{ with site.Params.googleAnalyticsId }}
+<div class="cookie-banner" id="cookieBanner" hidden>
+  <div class="cookie-modal">
+    <p class="cookie-modal-title">Ho a cuore la tua privacy</p>
+    <p>
+      Usiamo cookie tecnici (sempre attivi) e, solo con il tuo consenso, Google
+      Analytics per capire come viene usato il sito.
+      <a href="{{ "/privacy-policy/" | relURL }}">Informativa sulla privacy</a> ·
+      <a href="{{ "/privacy-policy/#9-gestione-dei-cookie" | relURL }}">Politica sui cookie</a>
+    </p>
+    <div class="cookie-modal-actions">
+      <button type="button" id="cookieReject" class="cookie-btn cookie-btn-ghost">Rifiuta</button>
+      <button type="button" id="cookieAccept" class="cookie-btn">Accetta</button>
+    </div>
+  </div>
+</div>
+{{ end }}

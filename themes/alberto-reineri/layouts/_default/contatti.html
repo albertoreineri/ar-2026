@@ -1,6 +1,7 @@
 {{ define "main" }}
 
 <section class="page-hero wrap">
+  {{ partial "page-doodle.html" "contatti" }}
   <div class="section-number reveal">Contatti</div>
   <h1 class="section-title reveal">Parliamo del<br>tuo progetto.</h1>
   <p class="page-intro reveal">
@@ -26,7 +27,7 @@
     <div class="contact-form-row">
       <label class="contact-privacy">
         <input type="checkbox" required>
-        Accetto la privacy policy
+        Accetto la <a href="{{ "/privacy-policy/" | relURL }}" target="_blank" rel="noopener">privacy policy</a>
       </label>
 
       <button type="submit" class="contact-submit">Invia →</button>

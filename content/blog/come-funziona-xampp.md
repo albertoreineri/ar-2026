@@ -5,7 +5,7 @@ description: "Hai letto l’articolo sulla configurazione del PC per lo sviluppo
 tags: ["Guide", "WordPress Base"]
 ---
 
-Hai letto l’articolo sulla [configurazione del PC per lo sviluppo web](https://albertoreineri.it/guide/configurare-il-pc-per-sviluppare-in-wordpress%ef%bf%bc/), hai installato tutti i programmi e sei pronto ad iniziare a sviluppare!
+Hai letto l’articolo sulla [configurazione del PC per lo sviluppo web](https://albertoreineri.it/configurare-il-pc-per-sviluppare-in-wordpress/), hai installato tutti i programmi e sei pronto ad iniziare a sviluppare!
 
 ## MA COME FUNZIONA XAMPP?
 
@@ -68,7 +68,7 @@ Se premete invio dovreste vedere la pagina di default di XAMPP, ma a noi interes
 - Andate nella cartella htdocs
 - Create una cartella chiamata “test”
 - Entrate nella cartella
-- Fate click con il tasto destro del mouse e premete “Open with Code” (per farlo avrete bisogno di Visual Studio Code, se non l’hai installato [clicca qui](https://albertoreineri.it/guide/configurare-il-pc-per-sviluppare-in-wordpress%ef%bf%bc/))
+- Fate click con il tasto destro del mouse e premete “Open with Code” (per farlo avrete bisogno di Visual Studio Code, se non l’hai installato [clicca qui](https://albertoreineri.it/configurare-il-pc-per-sviluppare-in-wordpress/))
 - Premete “File – New File”
 - Salvatelo come “index.html”
 - All’interno del file scrivete “Ciao Mondo”

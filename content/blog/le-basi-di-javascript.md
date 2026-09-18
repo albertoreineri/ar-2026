@@ -5,11 +5,11 @@ description: "Javascript è il linguaggio che permette di creare animazioni nei 
 tags: ["Guide", "Inizia Qui"]
 ---
 
-**Javascript **è il linguaggio che permette di** creare animazioni **nei contenuti web. Tutte le gallery, gli slider, i pop up, le transizioni di pagina e ogni effetto animato che vedi navigando online è realizzato con **Javascript**.
+**Javascript** è il linguaggio che permette di **creare animazioni** nei contenuti web. Tutte le gallery, gli slider, i pop up, le transizioni di pagina e ogni effetto animato che vedi navigando online è realizzato con **Javascript**.
 
-Questo linguaggio** si è sviluppato moltissimo**, passando dall’essere una cosa in più, un modo per creare effetti divertenti e simpatici, ad essere oggi uno dei più utilizzati al mondo, non solo per animazioni. ma per creare **vere e proprie strutture software** in grado di far funzionare applicativi potentissimi.
+Questo linguaggio **si è sviluppato moltissimo**, passando dall’essere una cosa in più, un modo per creare effetti divertenti e simpatici, ad essere oggi uno dei più utilizzati al mondo, non solo per animazioni. ma per creare **vere e proprie strutture software** in grado di far funzionare applicativi potentissimi.
 
-In questo articolo **tratteremo le basi**, partiremo **da zero **e vedremo come funziona questo linguaggio di programmazione, e creeremo insieme qualcosa di **semplice** ma utile per capire come utilizzare questo linguaggio.
+In questo articolo **tratteremo le basi**, partiremo **da zero** e vedremo come funziona questo linguaggio di programmazione, e creeremo insieme qualcosa di **semplice** ma utile per capire come utilizzare questo linguaggio.
 
 Faremo prima un po’ di teoria e poi passeremo a creare qualcosa di utilizzabile sulla nostra pagina web.
 
@@ -17,13 +17,13 @@ Se ti perdi durante l’articolo sul fondo di questo articolo potrai trovare i
 
 ------------------------------------------------------------------------
 
-*Questo corso è rivolto ai **principianti**, pertanto se conosci già Javascript questo articolo non fa per te, se invece sei agli inizi **BENVENUTO **e buono studio! Vedrai che** imparerai presto** a cerare fantastici contenuti web!*
+*Questo corso è rivolto ai **principianti**, pertanto se conosci già Javascript questo articolo non fa per te, se invece sei agli inizi **BENVENUTO** e buono studio! Vedrai che **imparerai presto** a cerare fantastici contenuti web!*
 
 ------------------------------------------------------------------------
 
 ## Inserire Javascript nell’HTML
 
-Iniziamo ad **inserire** del codice Javascript nel nostro file html (se non sai di cosa sto parlando dai un’occhiata ai nostri articoli su [HTML](https://albertoreineri.it/guide/le-basi-dellhtml/) e [CSS](https://albertoreineri.it/guide/le-basi-del-css/))
+Iniziamo ad **inserire** del codice Javascript nel nostro file html (se non sai di cosa sto parlando dai un’occhiata ai nostri articoli su [HTML](https://albertoreineri.it/le-basi-dellhtml/) e [CSS](https://albertoreineri.it/le-basi-del-css/))
 
 Come per il codice CSS, anche il Javascript può essere inserit in **modi diversi:**
 
@@ -32,7 +32,7 @@ Come per il codice CSS, anche il Javascript può essere inserit in **modi diver
 
 ### Codice Javascript interno
 
-In questo caso il codice Javascript è inserito **direttamente nel file html **prima del fine body (\</body\>), fra i tag ***\<script\>*** e **\</script\>.**
+In questo caso il codice Javascript è inserito **direttamente nel file html** prima del fine body (\</body\>), fra i tag ***\<script\>*** e **\</script\>.**
 
 **Esempio:**
 
@@ -48,11 +48,11 @@ Ora **salviamo** e **apriamo** la pagina “index.html”. Ecco che apparir�
 
 ## Codice Javascript esterno
 
-Per inserire il javascript esterno occorre **creare un file .js** e **importarlo** nell’html. Come per il CSS questo è** il metodo migliore**, quasi sempre.
+Per inserire il javascript esterno occorre **creare un file .js** e **importarlo** nell’html. Come per il CSS questo è **il metodo migliore**, quasi sempre.
 
 **Esempio:**
 
-Andiamo nella nostra cartella “**HTML**” sul desktop, la apriamo con code (guadra la guida [Le basi di HTML](https://albertoreineri.it/guide/le-basi-dellhtml/)) e creiamo un file (**CTRL+N**) e lo salviamo (**CTRL+S**) con il nome “***scripts.js***“.
+Andiamo nella nostra cartella “**HTML**” sul desktop, la apriamo con code (guadra la guida [Le basi di HTML](https://albertoreineri.it/le-basi-dellhtml/)) e creiamo un file (**CTRL+N**) e lo salviamo (**CTRL+S**) con il nome “***scripts.js***“.
 
 All’interno di questo file scriviamo:
 
@@ -90,15 +90,15 @@ Un altro modo per visualizzare errori in Javascript è la funzione “**console.
 console.log("CIAO!");
 ```
 
-Se inserisci questa in “***scripts.js***“, salvi e aggiorni, non vedrai accadere niente. Questo perché il **“CIAO!” **che abbiamo scritto **è inserito nella console di Javascript**, non nel body della pagina. Per vedere la console Javascript premi il tasto “**f12**“, oppure fai click con il tasto destro e clicca su “**ispeziona**” (Su google chrome, ma è molto simile su tutti i browser)
+Se inserisci questa in “***scripts.js***“, salvi e aggiorni, non vedrai accadere niente. Questo perché il **“CIAO!”** che abbiamo scritto **è inserito nella console di Javascript**, non nel body della pagina. Per vedere la console Javascript premi il tasto “**f12**“, oppure fai click con il tasto destro e clicca su “**ispeziona**” (Su google chrome, ma è molto simile su tutti i browser)
 
 ### Commenti
 
 I **commenti** sono **importantissimi** in ogni linguaggio di programmazione.
 
-Per inserire i commenti in Javascript esistono** due modi:**
+Per inserire i commenti in Javascript esistono **due modi:**
 
-Se il commento è su **una sola riga **puoi inserire un** doppio slash** prima della riga. In questo modo** tutta la riga sarà commentata.**
+Se il commento è su **una sola riga** puoi inserire un **doppio slash** prima della riga. In questo modo **tutta la riga sarà commentata.**
 
 **Esempio**
 
@@ -131,7 +131,7 @@ var anni = 30;
 
 È fondamentale **inserire il punto e virgola** alla fine della variabile, per indicare che la regola finisce in quel punto. Senza il punto e virgola verranno generati degli errori.
 
-Ora possiamo **richiamare la variabile dentro il console.log **oppure in un **alert**, in questo modo:
+Ora possiamo **richiamare la variabile dentro il console.log** oppure in un **alert**, in questo modo:
 
 ``` wp-block-code
 console.log(anni);
@@ -167,7 +167,7 @@ console.log('Ciao, mi chiamo ' + nome + ' e sono alto ' + altezza + ' metri. In 
 
 Per inserire una **variabile in un testo** occorre **concatenarla**, metterla insieme.
 
-Per fare questo abbiamo utilizzato il segno** ‘+’.**
+Per fare questo abbiamo utilizzato il segno **‘+’.**
 
 ### Funzioni
 
@@ -179,7 +179,7 @@ Le funzioni possono avere dei **parametri**, che ne personalizzano l’azione.
 
 **Esempio:**
 
-Andiamo sul file ***scripts.js ***e scriviamo:
+Andiamo sul file ***scripts.js** *e scriviamo:
 
 ``` wp-block-code
 function ciao() {
@@ -245,7 +245,7 @@ Da notare come **ci siano due segni uguale**, questo perché nel Javascript un 
 
 ### Eventi
 
-**Il Javascript può essere richiamato all’interno dell’HTML all’accadere di determinati eventi, **per esempio al click, al passaggio con il mouse etc.
+**Il Javascript può essere richiamato all’interno dell’HTML all’accadere di determinati eventi,** per esempio al click, al passaggio con il mouse etc.
 
 Oggi esistono anche molti altri modi, ma per iniziare questi sono i più semplici ed immediati.
 
@@ -279,7 +279,7 @@ function cambiaSfondo(){
 }
 ```
 
-Se **salviamo** e **aggiorniamo** vedremo che ora** al click del bottone lo sfondo diventerà nero.**
+Se **salviamo** e **aggiorniamo** vedremo che ora **al click del bottone lo sfondo diventerà nero.**
 
 Abbiamo detto al browser che al click del bottone deve selezionare il colore di sfondo del body (body.style.backgroundcolor) e impostarlo a nero.
 
@@ -307,7 +307,7 @@ Così facendo possiamo **cambiare colore di sfondo ogni volta che clicchiamo su
 
 ## Animazione di un componente
 
-Se al posto dello sfondo intero volessimo modificare solamente un **componente**, possiamo farlo utilizzando gli **id** ([Le basi di CSS](https://albertoreineri.it/guide/le-basi-del-css/)).
+Se al posto dello sfondo intero volessimo modificare solamente un **componente**, possiamo farlo utilizzando gli **id** ([Le basi di CSS](https://albertoreineri.it/le-basi-del-css/)).
 
 Iniziamo con il creare un **div con id=”box”**
 
@@ -497,13 +497,13 @@ function ciao(nome) {
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Le basi di CSS](https://albertoreineri.it/guide/le-basi-dellhtml/)*
+*[\<\< Le basi di CSS](https://albertoreineri.it/le-basi-dellhtml/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Le basi di Bootstrap \>\>](https://albertoreineri.it/guide/le-basi-di-bootstrap/)*
+*[Le basi di Bootstrap \>\>](https://albertoreineri.it/le-basi-di-bootstrap/)*
 
 </div>
 

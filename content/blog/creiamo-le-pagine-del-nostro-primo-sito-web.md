@@ -5,13 +5,13 @@ description: "Ora che abbiamo installato un tema sul nostro progetto in WordPres
 tags: ["Guide", "WordPress Base"]
 ---
 
-Ora che abbiamo **installato un tema** sul nostro progetto in **WordPress **possiamo iniziare a **creare le varie pagine** per il nostro sito.
+Ora che abbiamo **installato un tema** sul nostro progetto in **WordPress** possiamo iniziare a **creare le varie pagine** per il nostro sito.
 
-Per prima cosa entriamo nel **backend **andando al seguente indirizzo e inserendo le credenziali:
+Per prima cosa entriamo nel **backend** andando al seguente indirizzo e inserendo le credenziali:
 
 <http://localhost/wp-test/wp-admin/>
 
-Creeremo sia **pagine **che **articoli**, in questo modo **capirai meglio** quando è il caso di utilizzare uno anziché l’altro. **Al termin**e della lezione avremo una “**Home page**“, una pagina “**Chi sono**“, una pagina “**Contatti**” e una sezione “**Blog**“.
+Creeremo sia **pagine** che **articoli**, in questo modo **capirai meglio** quando è il caso di utilizzare uno anziché l’altro. **Al termin**e della lezione avremo una “**Home page**“, una pagina “**Chi sono**“, una pagina “**Contatti**” e una sezione “**Blog**“.
 
 **Diamoci da fare!**
 
@@ -23,17 +23,17 @@ Tramite il **menù laterale** ci rechiamo in “**Pagine**” e poi su “**Ag
 
 Ora ci troveremo di fronte a **Gutenberg**: il **page builder** di WordPress.
 
-Attraverso questa interfaccia possiamo **creare la nostra pagina web **senza scrivere una sola riga di codice.
+Attraverso questa interfaccia possiamo **creare la nostra pagina web** senza scrivere una sola riga di codice.
 
 Nel campo “**Aggiungi titolo**” scriviamo “*Chi sono*“, sotto al titolo invece possiamo scrivere il **contenuto della nostra pagina**
 
 ### GUTENBERG
 
-Come già detto **Gutenberg è il page builder di WordPress**. È relativamente giovane, WordPress l’ha implementato da poco, ma ha delle **potenzialità **molto grandi.
+Come già detto **Gutenberg è il page builder di WordPress**. È relativamente giovane, WordPress l’ha implementato da poco, ma ha delle **potenzialità** molto grandi.
 
-Il bello di questo page builder è che è **minimale**, **semplice **ed **intuitivo**.
+Il bello di questo page builder è che è **minimale**, **semplice** ed **intuitivo**.
 
-Tutti i contenuti sono **suddivisi in blocchi**. Per esempio un **paragrafo **è un blocco, **un’immagine **un altro blocco, un** elenco puntato** un altro e così via.
+Tutti i contenuti sono **suddivisi in blocchi**. Per esempio un **paragrafo** è un blocco, **un’immagine** un altro blocco, un **elenco puntato** un altro e così via.
 
 Per inserire un blocco basta cliccare sul “**+**” sulla sinistra e scegliere il blocco desiderato.
 
@@ -47,7 +47,7 @@ Dopo aver scelto il blocco immagine è sufficiente cliccare su “**Carica**“,
 
 Infine per rendere visibili le modifiche dobbiamo **pubblicare la pagina.**
 
-In alto a destra troverai due bottoni: **Anteprima **e **Pubblica**.
+In alto a destra troverai due bottoni: **Anteprima** e **Pubblica**.
 
 Premendo su “**Anteprima**” potrai vedere un’anteprima della pagina che stai creando. Quando hai finito di riempire la pagina puoi cliccare su “**Pubblica**” e questa **sarà messa online!**
 
@@ -59,7 +59,7 @@ Per creare la pagina “**Contatti**” utilizziamo lo stesso metodo di sopra:
 
 Andiamo su “**Pagine – Aggiungi Pagina**” e nel titolo inseriamo “**Contatti**“. Dopodiché **possiamo pubblicarla così per ora.**
 
-Nella **prossima lezione** vedremo come **inserire un modulo di contatto **semplice ed elegante per permettere ai nostri utenti di scriverci via mail!
+Nella **prossima lezione** vedremo come **inserire un modulo di contatto** semplice ed elegante per permettere ai nostri utenti di scriverci via mail!
 
 ## BLOG
 
@@ -75,13 +75,13 @@ Ma prima creiamo la categoria “**Blog**” inserendo la scritta “*Blog*” n
 
 Ora vedrai “**Blog**” apparire sulla destra nell’elenco delle categorie.
 
-Se provi a **cancellare “Senza categoria”** vedrai che **non puoi **al momento, non c’è nessuna opzione “Elimina”…
+Se provi a **cancellare “Senza categoria”** vedrai che **non puoi** al momento, non c’è nessuna opzione “Elimina”…
 
 Questo perché è impostata come **categoria di default,** cioè ogni articolo senza categoria verrà inserito automaticamente dentro questa. Ma noi non la vogliamo, quindi andiamo a vedere come eliminarla!
 
 Andiamo su “**Impostazioni – Scrittura**“
 
-Ed ecco qua che vediamo le impostazione per la** categoria predefinita:**
+Ed ecco qua che vediamo le impostazione per la **categoria predefinita:**
 
 Basterà selezionare “**Blog**” al posto di “**Senza categoria**” e salvare premendo il tasto “**Salva le modifiche**” sul fondo.
 
@@ -109,7 +109,7 @@ TIPS: è molto comune nel mondo del design utilizzare il testo “Lorem ipsum”
 
 ## CREIAMO IL MENÙ DI NAVIGAZIONE
 
-Ora che abbiamo creato le nostre pagine e impostato il blog possiamo andare a creare il** menù di navigazione**, per permettere agli utenti di raggiungere tutte le pagine del nostro sito in maniera semplice, intuitiva e veloce.
+Ora che abbiamo creato le nostre pagine e impostato il blog possiamo andare a creare il **menù di navigazione**, per permettere agli utenti di raggiungere tutte le pagine del nostro sito in maniera semplice, intuitiva e veloce.
 
 Andiamo quindi su “**Aspetto – Menu**“.
 
@@ -125,11 +125,11 @@ Qua clicchiamo “**Rimuovi**“.
 
 Per inserire la sezione “**Blog**” nel nostro menù di navigazione ci basterà cliccare su “**Categorie**“, selezionare “**Blog**” e premere “**Aggiungi al menu**“
 
-È possibile **spostare in alto o in basso le voci** del menù semplicemente premendo su di esse e trascinandole nella posizione desiderata! **Semplice **no?
+È possibile **spostare in alto o in basso le voci** del menù semplicemente premendo su di esse e trascinandole nella posizione desiderata! **Semplice** no?
 
 Ora possiamo premere su “**Crea menu**“.
 
-Ora che il menù è creato vedremo delle** nuove impostazioni:**
+Ora che il menù è creato vedremo delle **nuove impostazioni:**
 
 Qua clicchiamo su “**Top Primary menu**” per poter impostare il menù appena creato come menu top, cioè in alto, la classica **barra di navigazione.**
 
@@ -141,8 +141,8 @@ ATTENZIONE! Ogni menù creato necessita di essere inserito da qualche parte nel 
 
 Molto bene, **hai appena creato il menù di navigazione del tuo sito web.**
 
-Prova ad andare nel** front-end **e lo vedrai comparire in alto sulla destra!
+Prova ad andare nel **front-end** e lo vedrai comparire in alto sulla destra!
 
 Prova a utilizzarlo **cliccando i vari link**, vedrai che il tuo sito è diventato navigabile in maniera semplice, chiara e veloce.
 
-**Siamo a buon punto** no? Mancano solo un paio di cose, **prosegui **nelle prossime lezioni per terminare il sito!
+**Siamo a buon punto** no? Mancano solo un paio di cose, **prosegui** nelle prossime lezioni per terminare il sito!

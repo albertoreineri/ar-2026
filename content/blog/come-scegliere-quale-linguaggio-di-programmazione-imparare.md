@@ -97,6 +97,6 @@ Quale linguaggio di programmazione imparare, prima di tutto, dipende dai tuoi ob
 
 Tuttavia, se dopo un po’ si scopre che un certo linguaggio di programmazione non ti piace, è una buona idea considerare di passare a uno diverso. Ciò che funziona per una persona potrebbe essere un incubo per un’altra e viceversa, tutto dipende dalle tue esigenze.
 
-Se vuoi dare un’occhiata ad altre risorse di apprendimento per sviluppatori, puoi dare un’occhiata anche alla sezione [Guide](/guide) del blog.
+Se vuoi dare un’occhiata ad altre risorse di apprendimento per sviluppatori, puoi dare un’occhiata anche alla sezione [Guide](/tags/guide/) del blog.
 
 Buon codice!

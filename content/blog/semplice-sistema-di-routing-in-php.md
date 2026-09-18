@@ -19,7 +19,7 @@ Una cosa che non mi è mai piaciuta dei primi siti web che realizzavo era vedere
 
 La risposta è** assolutamente SI!!!**
 
-Se sei interessato ad una semplice soluzione per “nascondere” il “.php” alla fine dell’URL leggi questo [articolo](https://albertoreineri.it/guide/nascondere-lestensione-alla-fine-dellurl/).
+Se sei interessato ad una semplice soluzione per “nascondere” il “.php” alla fine dell’URL leggi questo [articolo](https://albertoreineri.it/nascondere-lestensione-alla-fine-dellurl/).
 
 Se vuoi imparare ad utilizzare un semplice sistema di routing in PHP ecco come puoi fare.
 

@@ -5,7 +5,7 @@ description: "Gli utenti Linux hanno molte opzioni tra cui scegliere quando si t
 tags: ["Guide", "Linux"]
 ---
 
-Gli utenti [Linux](/argomento/linux/) hanno molte opzioni tra cui scegliere quando si tratta di editor di testo. Da base ad avanzato, esistono un sacco di editor di testo, ma alcuni come Vim ed Emacs possono risultare molto complicati per gli utenti meno avanzati.
+Gli utenti [Linux](/tags/linux/) hanno molte opzioni tra cui scegliere quando si tratta di editor di testo. Da base ad avanzato, esistono un sacco di editor di testo, ma alcuni come Vim ed Emacs possono risultare molto complicati per gli utenti meno avanzati.
 
 In questo casi ci viene in aiuto Nano, forse il miglior editor di testo per principianti.
 

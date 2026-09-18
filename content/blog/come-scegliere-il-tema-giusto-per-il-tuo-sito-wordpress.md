@@ -92,7 +92,7 @@ Tuttavia, ci sono anche alcune limitazioni:
 - **Meno supporto**: il supporto per i temi gratuiti è solitamente limitato. In caso di problemi, potresti dover fare affidamento sulla **comunità di WordPress** o cercare soluzioni da solo.
 - **Aggiornamenti meno frequenti**: alcuni temi gratuiti non vengono aggiornati regolarmente, il che può essere un problema quando ci sono nuove versioni di WordPress o aggiornamenti di sicurezza.
 
-Se scegli un tema gratuito, ma poi riscontri difficoltà o desideri personalizzarlo ulteriormente, **[puoi sempre contattarmi](#contatti)** per una consulenza. Posso aiutarti a risolvere eventuali problemi e ottimizzare il sito per soddisfare le tue esigenze.
+Se scegli un tema gratuito, ma poi riscontri difficoltà o desideri personalizzarlo ulteriormente, **[puoi sempre contattarmi](/contatti/)** per una consulenza. Posso aiutarti a risolvere eventuali problemi e ottimizzare il sito per soddisfare le tue esigenze.
 
 ### **Temi a pagamento**
 
@@ -166,7 +166,7 @@ Tuttavia, ci sono anche degli svantaggi:
 
 La scelta tra un tema gratuito e uno a pagamento dipende principalmente dal tipo di sito che desideri creare e dalle tue esigenze. Se hai bisogno di un sito semplice e non hai un budget elevato, un **tema gratuito** può essere più che sufficiente. Se invece stai creando un sito più complesso, come un negozio online o un sito aziendale, un **tema a pagamento** potrebbe essere la soluzione migliore grazie alle sue funzionalità avanzate e al supporto professionale.
 
-In generale, se il tuo obiettivo è creare un sito che funzioni bene, sia sicuro e abbia un aspetto professionale, un tema a pagamento è spesso la scelta migliore. Se però hai scelto un tema gratuito e hai bisogno di supporto o se hai dei dubbi, **[contattami](#contatti)**. Sarò felice di aiutarti a risolvere qualsiasi problema e a portare il tuo sito al livello successivo.
+In generale, se il tuo obiettivo è creare un sito che funzioni bene, sia sicuro e abbia un aspetto professionale, un tema a pagamento è spesso la scelta migliore. Se però hai scelto un tema gratuito e hai bisogno di supporto o se hai dei dubbi, **[contattami](/contatti/)**. Sarò felice di aiutarti a risolvere qualsiasi problema e a portare il tuo sito al livello successivo.
 
 ## **6. Dove trovare temi WordPress**
 
@@ -232,7 +232,7 @@ Come fare:
 
 Un’opzione che molti trascurano è quella di rivolgersi a **sviluppatori freelance** per creare un tema personalizzato. Se hai esigenze molto specifiche per il design o le funzionalità del tuo sito, un tema su misura potrebbe essere la soluzione migliore. Su piattaforme come **Upwork**, **Fiverr** o **Freelancer**, puoi trovare sviluppatori pronti a creare un tema WordPress adatto alle tue necessità.
 
-Se desideri un tema personalizzato o hai bisogno di assistenza per adattare un tema esistente alle tue esigenze, **[puoi contattarmi direttamente](#contatti)**. Offro consulenze e servizi di sviluppo WordPress per creare soluzioni su misura per il tuo sito, risparmiando tempo e garantendo un risultato professionale.
+Se desideri un tema personalizzato o hai bisogno di assistenza per adattare un tema esistente alle tue esigenze, **[puoi contattarmi direttamente](/contatti/)**. Offro consulenze e servizi di sviluppo WordPress per creare soluzioni su misura per il tuo sito, risparmiando tempo e garantendo un risultato professionale.
 
 Vantaggi:
 
@@ -362,4 +362,4 @@ Scegliere il tema giusto per il tuo sito WordPress è un passo cruciale per gara
 
 Ricorda di considerare sempre le **esigenze del tuo sito**, la **compatibilità con i plugin** e la **velocità** prima di prendere una decisione finale. Non dimenticare di testare il tema in un ambiente sicuro e di fare attenzione anche ai dettagli di **usabilità** e **accessibilità** per garantire che il sito sia fruibile da tutti.
 
-Se desideri un aiuto più approfondito nella scelta e personalizzazione del tema, o se il processo ti sembra troppo complesso, non esitare a **[contattarmi](#contatti)**. Sono a tua disposizione per offrirti supporto professionale e aiutarti a ottenere il massimo dal tuo sito WordPress.
+Se desideri un aiuto più approfondito nella scelta e personalizzazione del tema, o se il processo ti sembra troppo complesso, non esitare a **[contattarmi](/contatti/)**. Sono a tua disposizione per offrirti supporto professionale e aiutarti a ottenere il massimo dal tuo sito WordPress.

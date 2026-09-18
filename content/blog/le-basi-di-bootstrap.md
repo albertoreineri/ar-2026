@@ -689,7 +689,7 @@ Come avrai potuto capire **Bootstrap utilizza JQuery**, una libreria Javascript
 
 Vuoi sapere come funziona?
 
-[Vai alla guida Le basi di JQuery \>\>](https://albertoreineri.it/guide/le-basi-di-jquery/)
+[Vai alla guida Le basi di JQuery \>\>](https://albertoreineri.it/le-basi-di-jquery/)
 
 Per maggior chiarezza ecco il **codice completo** del layout base con Bootstrap!
 
@@ -859,13 +859,13 @@ I **commenti **ti aiuteranno a capire le varie sezioni!
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Le basi di Javascript](https://albertoreineri.it/guide/le-basi-di-javascript/)*
+*[\<\< Le basi di Javascript](https://albertoreineri.it/le-basi-di-javascript/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Le basi di jQuery \>\>](https://albertoreineri.it/guide/le-basi-di-jquery/)*
+*[Le basi di jQuery \>\>](https://albertoreineri.it/le-basi-di-jquery/)*
 
 </div>
 

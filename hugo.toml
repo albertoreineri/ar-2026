@@ -11,9 +11,10 @@ theme = 'alberto-reineri'
 [params]
   description = 'Alberto Reineri — Web design, sviluppo e infrastruttura web.'
   formspreeEndpoint = 'https://formspree.io/f/mlgkavgo'
+  googleAnalyticsId = 'G-9MQ20QPDEM'
 
 [permalinks]
-  blog = "/:slug/"
+  blog = "/:contentbasename/"
 
 [markup.goldmark.renderer]
   unsafe = true

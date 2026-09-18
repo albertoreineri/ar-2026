@@ -7,9 +7,9 @@ tags: ["Guide", "Web Dev"]
 
 Vediamo come installare un certificato SSL sul nostro sito e passare da http a https.
 
-Vuoi rimuovere la scritta “**non sicuro**” che compare** vicino all’URL** del tuo sito? Allora questo articolo fa al caso tuo!
+Vuoi rimuovere la scritta “**non sicuro**” che compare **vicino all’URL** del tuo sito? Allora questo articolo fa al caso tuo!
 
-**Non **andremo ad approfondire che cos’è **l’HTTPS**, ma vedremo semplicemente come far funzionare il tuo sito in modo che sia sicuro.
+**Non** andremo ad approfondire che cos’è **l’HTTPS**, ma vedremo semplicemente come far funzionare il tuo sito in modo che sia sicuro.
 
 La procedura è molto semplice, ti basterà seguire questi due passaggi:
 
@@ -21,9 +21,9 @@ Una volta trovata la sezione giusta **attiva il servizio**. **Può volerci qua
 
 Dopo qualche ora prova a collegarti al tuo sito digitando https://www.nomesito.it. Se tutto funziona correttamente vai al passaggio 2.
 
-Se visualizzi degli **errori **probabilmente è perché hai dei link http per fogli di stile, immagini e file js. Prova a** sostituire l’http con https** in tutti i riferimenti a immagini, css e js, dovrebbe sistemarsi tutto.
+Se visualizzi degli **errori** probabilmente è perché hai dei link http per fogli di stile, immagini e file js. Prova a **sostituire l’http con https** in tutti i riferimenti a immagini, css e js, dovrebbe sistemarsi tutto.
 
-Se utilizzi **[WordPress](https://albertoreineri.it/guide/come-installare-e-personalizzare-un-tema-wordpress-2/) **puoi utilizzare dei **plugin **che si occupano del problema, ad esempio<a href="https://it.wordpress.org/plugins/really-simple-ssl/" target="_blank" rel="noreferrer noopener"> Really Simple SSL</a> oppure <a href="https://it.wordpress.org/plugins/wp-force-ssl/" target="_blank" rel="noreferrer noopener">WP Force SSL</a>. Utilizzando questi plugin puoi saltare il punto 2, i plugin si occupano di tutto da soli
+Se utilizzi **WordPress** puoi utilizzare dei **plugin** che si occupano del problema, ad esempio<a href="https://it.wordpress.org/plugins/really-simple-ssl/" target="_blank" rel="noreferrer noopener"> Really Simple SSL</a> oppure <a href="https://it.wordpress.org/plugins/wp-force-ssl/" target="_blank" rel="noreferrer noopener">WP Force SSL</a>. Utilizzando questi plugin puoi saltare il punto 2, i plugin si occupano di tutto da soli
 
 ## 2. REDIRIGERE IL TRAFFICO VERSO HTTPS
 

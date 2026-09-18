@@ -1,10 +1,94 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }} — Design · Siti web · Hosting{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
-<meta name="description" content="{{ site.Params.description }}">
+<meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
+<link rel="canonical" href="{{ .Permalink }}">
+
+{{ $ogTitle := cond .IsHome (printf "%s — Design · Siti web · Hosting" site.Title) (printf "%s | %s" .Title site.Title) }}
+{{ $ogDesc := .Description | default site.Params.description }}
+{{ $ogImage := "img/og-image.png" | absURL }}
+<meta property="og:type" content="{{ if and (eq .Type "blog") (eq .Kind "page") }}article{{ else }}website{{ end }}">
+<meta property="og:title" content="{{ $ogTitle }}">
+<meta property="og:description" content="{{ $ogDesc }}">
+<meta property="og:url" content="{{ .Permalink }}">
+<meta property="og:site_name" content="{{ site.Title }}">
+<meta property="og:image" content="{{ $ogImage }}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ $ogTitle }}">
+<meta name="twitter:description" content="{{ $ogDesc }}">
+<meta name="twitter:image" content="{{ $ogImage }}">
+
+<script type="application/ld+json">
+{{ if and (eq .Type "blog") (eq .Kind "page") -}}
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": {{ .Title | jsonify | safeJS }},
+  "description": {{ ($ogDesc) | jsonify | safeJS }},
+  "datePublished": {{ .Date.Format "2006-01-02" | jsonify | safeJS }},
+  {{ with .Lastmod }}"dateModified": {{ .Format "2006-01-02" | jsonify | safeJS }},{{ end }}
+  "url": {{ .Permalink | jsonify | safeJS }},
+  "inLanguage": "it",
+  "author": {
+    "@type": "Person",
+    "name": "Alberto Reineri",
+    "url": "https://albertoreineri.it/chi-sono/"
+  },
+  "publisher": {
+    "@type": "Person",
+    "name": "Alberto Reineri"
+  }
+}
+{{- else -}}
+{
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "Alberto Reineri",
+  "url": "https://albertoreineri.it/",
+  "image": "https://albertoreineri.it/wp-content/uploads/2024/11/io4Seria-1.webp",
+  "description": {{ site.Params.description | jsonify | safeJS }},
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dronero",
+    "addressRegion": "CN",
+    "addressCountry": "IT"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Alberto Reineri"
+  }
+}
+{{- end }}
+</script>
 
 <link rel="icon" type="image/svg+xml" href="{{ "favicon.svg" | relURL }}">
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
+
+{{ with site.Params.googleAnalyticsId }}
+<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
+<script>
+  window.AR_GA_ID = {{ . | jsonify | safeJS }};
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+
+  var arConsent = null;
+  try { arConsent = localStorage.getItem("ar-cookie-consent"); } catch (e) {}
+  var arGranted = arConsent === "granted";
+
+  /* Consent Mode v2: di default tutto negato finché l'utente non sceglie dal banner */
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: arGranted ? "granted" : "denied"
+  });
+
+  gtag("js", new Date());
+  gtag("config", window.AR_GA_ID);
+</script>
+{{ end }}
 
 <script>
   (function () {

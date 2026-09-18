@@ -7,7 +7,7 @@ tags: ["Guide", "Linux"]
 
 ## Introduzione
 
-Uno stack “LAMP” è un gruppo di software open source che viene generalmente installato insieme per consentire a un server di ospitare siti Web dinamici e app Web. Questo termine è in realtà un acronimo che rappresenta il sistema operativo **L**inux, con il web server **A**pache**. **I dati del sito vengono archiviati in un database **M**ySQL e il contenuto dinamico viene elaborato da **P**HP.
+Uno stack “LAMP” è un gruppo di software open source che viene generalmente installato insieme per consentire a un server di ospitare siti Web dinamici e app Web. Questo termine è in realtà un acronimo che rappresenta il sistema operativo **L**inux, con il web server **A**pache. I dati del sito vengono archiviati in un database **M**ySQL e il contenuto dinamico viene elaborato da **P**HP.
 
 In questa guida, installeremo uno stack LAMP su un server Ubuntu.
 
@@ -17,7 +17,7 @@ Questo tutorial è creato su Ubuntu, ma funziona su tutte le distro basate su De
 
 ## Passaggio 1: installazione di Apache
 
-Il server Web Apache è un popolare server Web open source che può essere utilizzato insieme a [PHP](https://albertoreineri.it/guide/le-basi-di-php/) per ospitare siti Web dinamici. È ben documentato ed è stato ampiamente utilizzato per gran parte della storia del web.
+Il server Web Apache è un popolare server Web open source che può essere utilizzato insieme a [PHP](https://albertoreineri.it/le-basi-di-php/) per ospitare siti Web dinamici. È ben documentato ed è stato ampiamente utilizzato per gran parte della storia del web.
 
 Innanzitutto, assicurati che la tua `apt` cache sia aggiornata con:
 
@@ -250,11 +250,11 @@ Premi `Q` per uscire da questo stato.
 
 ## Passaggio 4: configurazione di un host virtuale (consigliato)
 
-Quando si utilizza il server Web Apache, è possibile utilizzare *host virtuali* per incapsulare i dettagli di configurazione e ospitare più di un dominio da un singolo server. Imposteremo ora un dominio di esempio chiamato ****il_mio_dominio****, potrai sostituirlo con il nome del dominio che desideri utilizzare.
+Quando si utilizza il server Web Apache, è possibile utilizzare *host virtuali* per incapsulare i dettagli di configurazione e ospitare più di un dominio da un singolo server. Imposteremo ora un dominio di esempio chiamato **il_mio_dominio**, potrai sostituirlo con il nome del dominio che desideri utilizzare.
 
 Apache su ha un blocco server abilitato per impostazione predefinita che è configurato per servire i documenti dalla cartella `/var/www/html`. Sebbene funzioni bene per un singolo sito, può diventare ingombrante se ospiti più siti. Invece di modificare `/var/www/html`, creiamo una struttura di directory all’interno `/var/www` per **il sito il_mio_dominio**, lasciando `/var/www/html` come directory predefinita da servire se una richiesta del client non corrisponde a nessun altro sito.
 
-Crea la directory per ****il_mio_dominio**** come segue:
+Crea la directory per **il_mio_dominio** come segue:
 
 ``` wp-block-code
 sudo mkdir /var/www/il_mio_dominio
@@ -312,7 +312,7 @@ Incolla il seguente blocco di configurazione, che è simile a quello predefinito
 </VirtualHost>
 ```
 
-Nota che abbiamo aggiornato il `DocumentRoot` alla nostra nuova directory e `ServerAdmin` a un’e-mail a cui l’ amministratore del sito ****il_mio_dominio**** può accedere. Abbiamo anche aggiunto due direttive: `ServerName`, che stabilisce il dominio di base che dovrebbe corrispondere a questa definizione di host virtuale e `ServerAlias`, che definisce altri nomi che dovrebbero corrispondere come se fossero il nome di base.
+Nota che abbiamo aggiornato il `DocumentRoot` alla nostra nuova directory e `ServerAdmin` a un’e-mail a cui l’ amministratore del sito **il_mio_dominio** può accedere. Abbiamo anche aggiunto due direttive: `ServerName`, che stabilisce il dominio di base che dovrebbe corrispondere a questa definizione di host virtuale e `ServerAlias`, che definisce altri nomi che dovrebbero corrispondere come se fossero il nome di base.
 
 Salva e chiudi il file quando hai finito.
 

@@ -5,7 +5,7 @@ description: "Vuoi creare i tuoi widget personalizzati in WordPress? I widget ti
 tags: ["Guide", "WordPress Tricks"]
 ---
 
-Vuoi** creare i tuoi widget **personalizzati in WordPress? I widget ti consentono di aggiungere elementi non contenuti in una sidebar o in qualsiasi area predisposta per i widget del tuo sito web.
+Vuoi **creare i tuoi widget** personalizzati in WordPress? I widget ti consentono di aggiungere elementi non contenuti in una sidebar o in qualsiasi area predisposta per i widget del tuo sito web.
 
 Puoi utilizzare i widget per **aggiungere banner, pubblicità, moduli di iscrizione alla newsletter e altri elementi** sul tuo sito web.
 
@@ -15,7 +15,7 @@ In questo articolo, ti mostreremo come creare un widget WordPress personalizzato
 
 I widget di WordPress contengono **parti di codice che puoi aggiungere alle sidebar del tuo sito Web o alle aree predisposte per accogliere i widget.**
 
-Pensali come moduli che puoi usare per aggiungere diversi elementi usando una semplice** interfaccia drag and drop.**
+Pensali come moduli che puoi usare per aggiungere diversi elementi usando una semplice **interfaccia drag and drop.**
 
 Per impostazione predefinita, **WordPress viene fornito con un set standard di widget** che è possibile utilizzare con qualsiasi tema WordPress. Consulta la nostra guida per principianti su [come utilizzare i widget in WordPress](http://specialistawp.local/widget-in-wordpress-come-utilizzarli/) .
 
@@ -31,11 +31,11 @@ Detto questo, vediamo come creare facilmente i tuoi widget personalizzati in Wor
 
 Se stai imparando a sviluppare in WordPress, avrai bisogno di un **ambiente di sviluppo locale**. Puoi [installare WordPress](http://specialistawp.local/installare-wordpress-in-locale/) sul tuo computer (Mac o Windows).
 
-Esistono **diversi modi **per aggiungere il codice del widget personalizzato in WordPress.
+Esistono **diversi modi** per aggiungere il codice del widget personalizzato in WordPress.
 
-Puoi creare un** plug-in** specifico per il sito e incollare qui il codice del tuo widget.
+Puoi creare un **plug-in** specifico per il sito e incollare qui il codice del tuo widget.
 
-Puoi anche incollare il codice nel** file Functions.php **del tuo tema . Tuttavia, sarà disponibile solo quando quel particolare tema è attivo.
+Puoi anche incollare il codice nel **file Functions.php** del tuo tema . Tuttavia, sarà disponibile solo quando quel particolare tema è attivo.
 
 In questo tutorial, creeremo un semplice widget che saluta i visitatori. L’obiettivo è familiarizzare con la classe del widget WordPress.
 
@@ -45,7 +45,7 @@ In questo tutorial, creeremo un semplice widget che saluta i visitatori. L’ob
 
 WordPress viene fornito con una classe Widget WordPress integrata. **Ogni nuovo widget WordPress estende la classe del widget WordPress.**
 
-Esistono **18 metodi **menzionati nel manuale dello sviluppatore di WordPress che possono essere utilizzati con la <a href="http://developer.wordpress.org/reference/classes/wp_widget/" rel="noreferrer noopener" target="_blank">classe Widget WP</a> .
+Esistono **18 metodi** menzionati nel manuale dello sviluppatore di WordPress che possono essere utilizzati con la <a href="http://developer.wordpress.org/reference/classes/wp_widget/" rel="noreferrer noopener" target="_blank">classe Widget WP</a> .
 
 Tuttavia, per il bene di questo tutorial, **ci concentreremo sui seguenti metodi.**
 
@@ -95,9 +95,9 @@ function swp_load_widget()
 add_action('widgets_init', 'swp_load_widget');
 ```
 
-Ora mettiamo tutto insieme per** creare un widget WordPress di base.**
+Ora mettiamo tutto insieme per **creare un widget WordPress di base.**
 
-Puoi **copiare e incollare il seguente codice **nel tuo plugin personalizzato o nel file Functions.php del tema.
+Puoi **copiare e incollare il seguente codice** nel tuo plugin personalizzato o nel file Functions.php del tema.
 
 ``` wp-block-code
 // Creo il widget 
@@ -173,7 +173,7 @@ add_action('widgets_init', 'swp_load_widget');
 
 Dopo aver aggiunto il codice, devi andare alla pagina **Aspetto »Widget** . Noterai il nuovo widget SpecialistaWP nell’elenco dei widget disponibili. Devi trascinare questo widget su una barra laterale.
 
-Questo widget ha solo un campo modulo da compilare, puoi **aggiungere il tuo testo e fare clic sul pulsante Salva **per memorizzare le modifiche.
+Questo widget ha solo un campo modulo da compilare, puoi **aggiungere il tuo testo e fare clic sul pulsante Salva** per memorizzare le modifiche.
 
 Ora puoi **visitare il tuo sito Web per vederlo in azione.**
 

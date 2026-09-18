@@ -7,13 +7,13 @@ tags: ["Guide", "WordPress Tricks"]
 
 WordPress è una delle piattaforme **più utilizzate la mondo** per la **creazione di siti web ma a volte può essere facile imbattersi in un virus, ma come si possono rimuovere?**
 
-WordPRess permette a chiunque di **tirar su un sito internet** funzionante** in pochissimo tempo** e con **costi molto bassi.**
+WordPRess permette a chiunque di **tirar su un sito internet** funzionante **in pochissimo tempo** e con **costi molto bassi.**
 
-Questo però significa anche avere **moltissimi siti web creati da estranei ai lavori **che installato temi e plugin *a caso* senza sapere realmente cosa stanno facendo… Finché il sito è piccolino e con un numero esigui di utenti non c’è problema, quando invece raggiunge una audience più alta allora** la probabilità di essere bersagliati da qualche hacker diventa elevata.**
+Questo però significa anche avere **moltissimi siti web creati da estranei ai lavori** che installato temi e plugin *a caso* senza sapere realmente cosa stanno facendo… Finché il sito è piccolino e con un numero esigui di utenti non c’è problema, quando invece raggiunge una audience più alta allora **la probabilità di essere bersagliati da qualche hacker diventa elevata.**
 
 Si stima che almeno **il 30% dei siti web in WordPress abbia delle vulnerabilità.** Se pensiamo che **più di 75 milioni di siti web utilizzano questa piattaforma** allora le vulnerabilità sono moltissime.
 
-Vedremo ora come** mantenere al sicuro il proprio sito WordPress e come eliminare eventuali virus.**
+Vedremo ora come **mantenere al sicuro il proprio sito WordPress e come eliminare eventuali virus.**
 
 ## Mettere in sicurezza WordPress
 
@@ -49,7 +49,7 @@ Installare 20 plugin gestiti da sviluppatori diversi aumenta notevolmente il ris
 
 Parliamo di hosting e non di server perché la stragrande maggioranza dei siti web è ospitata su hosting condiviso.
 
-Questi servizi sono **migliorati moltissimo **e offrono servizi che in passato erano disponibili solamente sui server dedicati, come accessi **SSH**, **cache** e **sicurezza**.
+Questi servizi sono **migliorati moltissimo** e offrono servizi che in passato erano disponibili solamente sui server dedicati, come accessi **SSH**, **cache** e **sicurezza**.
 
 Poter contare su un buon servizio è molto importante per **proteggersi dagli attacchi e gestirli** nel malaugurato caso in cui si venga infettati.
 
@@ -99,7 +99,7 @@ In questo caso se il virus era presente nella cartella verrà sovrascritto.
 
 ### Analizzare struttura WordPress
 
-In ultima battuta si può** analizzare la struttura di file e cartelle di WordPress** per controllare che non ci siano file strani, non presenti nell’installazione originale.
+In ultima battuta si può **analizzare la struttura di file e cartelle di WordPress** per controllare che non ci siano file strani, non presenti nell’installazione originale.
 
 Se si trovano file **strani** allora bisogna cancellarli, sempre prestando molta attenzione a ciò che si sta facendo.
 
@@ -109,8 +109,8 @@ Questi sono alcuni passaggi **generici** da effettuare per controllare lo stat
 
 Purtroppo **ogni virus è differente**, alcuni agiscono sul database, altri direttaemnte nei file di sistema, altri ancora in modi che non ci immaginiamo nemmeno.
 
-In questo articolo ho provato a darti **alcuni consigli di base **da mettere in pratica per provare a rimuovere un virus da un **sito in WordPress.**
+In questo articolo ho provato a darti **alcuni consigli di base** da mettere in pratica per provare a rimuovere un virus da un **sito in WordPress.**
 
 Se nessuno di questi ha funzionato ti consiglio di **rivolgerti ad un professionista.**
 
-Se **hai un sito web hackerato e vuoi una consulenza o un intervento professionale **volto alla rimozione e alla messa in sicurezza del suo sito contattami tramite la pagina [contatti](https://albertoreineri.it/contatti)
+Se **hai un sito web hackerato e vuoi una consulenza o un intervento professionale** volto alla rimozione e alla messa in sicurezza del suo sito contattami tramite la pagina [contatti](https://albertoreineri.it/contatti)

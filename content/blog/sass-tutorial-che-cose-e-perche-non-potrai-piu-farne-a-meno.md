@@ -5,15 +5,15 @@ description: "Se vivi nel mondo dello sviluppo web allora sicuramente avrai già
 tags: ["Guide", "Web Dev"]
 ---
 
-Se vivi nel mondo dello **sviluppo web** allora sicuramente avrai già sentito parlare di **SASS**, il preprocessore di CSS più famoso! Questo è uno **strumento fantastico** che consente di **estendere di molto le possibilità del CSS** e creare e gestire i fogli di stile in maniera **veloce **e ben **organizzata**.
+Se vivi nel mondo dello **sviluppo web** allora sicuramente avrai già sentito parlare di **SASS**, il preprocessore di CSS più famoso! Questo è uno **strumento fantastico** che consente di **estendere di molto le possibilità del CSS** e creare e gestire i fogli di stile in maniera **veloce** e ben **organizzata**.
 
-**SASS **è un **preprocessore CSS**, che aggiunge funzionalità speciali come **variabili**, **annidamenti**, **mixin **e molto altro ai normali CSS. L’obiettivo è rendere il processo di creazione del C**SS semplice ed efficace**, sia da scrivere che da leggere in futuro.
+**SASS** è un **preprocessore CSS**, che aggiunge funzionalità speciali come **variabili**, **annidamenti**, **mixin** e molto altro ai normali CSS. L’obiettivo è rendere il processo di creazione del C**SS semplice ed efficace**, sia da scrivere che da leggere in futuro.
 
 > *Ma andiamo un po’ più nel dettaglio!*
 
 ## Che cos’è un preprocessore CSS?
 
-Un preprocessore CSS è un **linguaggio di scripting** che estende i CSS, consentendo agli sviluppatori di scrivere codice in un determinato linguaggio e quindi **compilarlo **in CSS. <a href="https://sass-lang.com/" target="_blank" rel="noreferrer noopener">Sass </a>è forse il preprocessore più popolare in circolazione in questo momento, ma altri esempi ben noti includono <a href="http://lesscss.org/" target="_blank" rel="noreferrer noopener">Less </a>e <a href="http://stylus-lang.com/" target="_blank" rel="noreferrer noopener">Stylus</a>.
+Un preprocessore CSS è un **linguaggio di scripting** che estende i CSS, consentendo agli sviluppatori di scrivere codice in un determinato linguaggio e quindi **compilarlo** in CSS. <a href="https://sass-lang.com/" target="_blank" rel="noreferrer noopener">Sass </a>è forse il preprocessore più popolare in circolazione in questo momento, ma altri esempi ben noti includono <a href="http://lesscss.org/" target="_blank" rel="noreferrer noopener">Less </a>e <a href="http://stylus-lang.com/" target="_blank" rel="noreferrer noopener">Stylus</a>.
 
 **Prima di proseguire, è necessaria una rapida premessa:*** la maggior parte dei web designer direbbe che se sei nuovo nel mondo del CSS, è meglio evitare Sass (o eventuali preprocessori, estensioni o framework) mentre sei ancora in fase di apprendimento. Sebbene questi tool offrono molti vantaggi in termini di velocità ed efficienza, è importante che conoscere a fondo le basi del CSS prima di affacciarsi ai preprocessori. Assicurati quindi di apprendere i concetti chiave prima di iniziare ad esplorare i vari tool a disposizione. Questo vale per ogni tecnologia ed ogni framework, prima è sempre buona norma imparare a dovere il linguaggio base e poi i vari strumenti su esso costruiti!*
 
@@ -21,7 +21,7 @@ Un preprocessore CSS è un **linguaggio di scripting** che estende i CSS, cons
 
 ## Che cos’è Sass?
 
-**Sass **(che sta per “Syntactically awesome style sheets”) è un’**estensione del CSS** che consente di usare cose come variabili, regole nidificate, importazioni in linea e altro. Aiuta anche a mantenere il **codice organizzato **e consente di **creare fogli di stile molto più velocemente.**
+**Sass** (che sta per “Syntactically awesome style sheets”) è un’**estensione del CSS** che consente di usare cose come variabili, regole nidificate, importazioni in linea e altro. Aiuta anche a mantenere il **codice organizzato** e consente di **creare fogli di stile molto più velocemente.**
 
 **Sass è compatibile con tutte le versioni di CSS**. L’unico requisito per usarlo è avere installato Ruby. Gli sviluppatori che lo utilizzano sono inoltre invitati a seguire le <a href="https://sass-lang.com/community-guidelines" target="_blank" rel="noreferrer noopener">Linee guida della community di Sass</a>, è sempre un bene darci un’occhiata.
 
@@ -53,7 +53,7 @@ Nella sezione seguente, vedremo alcuni suggerimenti di base per l’utilizzo di 
 
 Sass include **due opzioni di sintassi**:
 
-- **SCSS **(Sassy CSS): utilizza l’estensione del file .scss ed è pienamente conforme alla sintassi CSS. (la mia preferita!)
+- **SCSS** (Sassy CSS): utilizza l’estensione del file .scss ed è pienamente conforme alla sintassi CSS. (la mia preferita!)
 - **SASS**: utilizza l’indentazione al posto delle parentesi ed ha estensione .sass; non è completamente conforme alla sintassi CSS, ma è più veloce da scrivere. (Per gli amanti di Python)
 
 I file possono comunque essere convertiti da una sintassi all’altra utilizzando il comando **sass-convert**.
@@ -62,7 +62,7 @@ I file possono comunque essere convertiti da una sintassi all’altra utilizzand
 
 Proprio come altri linguaggi di programmazione, **Sass consente l’uso di variabili** che possono memorizzare informazioni che è possibile utilizzare in tutto il foglio di stile.
 
-Ad esempio,** è possibile memorizzare un valore di colore in una variabile** nella parte superiore del file e quindi utilizzare questa variabile quando si imposta il colore dei propri elementi. Ciò consente di **cambiare rapidamente i colori senza dover modificare ciascuna riga separatamente**.
+Ad esempio, **è possibile memorizzare un valore di colore in una variabile** nella parte superiore del file e quindi utilizzare questa variabile quando si imposta il colore dei propri elementi. Ciò consente di **cambiare rapidamente i colori senza dover modificare ciascuna riga separatamente**.
 
 *Per esempio:*
 
@@ -91,7 +91,7 @@ body {
 
 L’idea è di annidare i selettori CSS in modo tale da **imitare la gerarchia HTML.**
 
-Ecco un **esempio **di menù di navigazione che utilizza l’annidamento:
+Ecco un **esempio** di menù di navigazione che utilizza l’annidamento:
 
 ``` wp-block-code
 nav {
@@ -133,11 +133,11 @@ nav a {
 
 ### Parzializzazione
 
-I **parziali **sono **file Sass più piccoli** che possono essere importati (vedi la sezione successiva) in altri file Sass. Sono come** frammenti di codice**. Con questi frammenti il CSS può essere **modulare **e più **facile da mantenere**. Un parziale è designato come tale nominandolo con un carattere di underscore iniziale: **\_partial.scss**.
+I **parziali** sono **file Sass più piccoli** che possono essere importati (vedi la sezione successiva) in altri file Sass. Sono come **frammenti di codice**. Con questi frammenti il CSS può essere **modulare** e più **facile da mantenere**. Un parziale è designato come tale nominandolo con un carattere di underscore iniziale: **\_partial.scss**.
 
 ### Importazione
 
-Utilizzatato con i parziali (vedere la sezione precedente), il comando @import consente di **importare i file parziali nel file corrente**, per **creare un singolo file CSS.** In questo modo in fase di sviluppo è possibile **suddividere il codice per sezioni**, mentre in fase di caricamento del sito ci sarà solamente **un file .css **da caricare,** riducendo la richiesta al server**.
+Utilizzatato con i parziali (vedere la sezione precedente), il comando @import consente di **importare i file parziali nel file corrente**, per **creare un singolo file CSS.** In questo modo in fase di sviluppo è possibile **suddividere il codice per sezioni**, mentre in fase di caricamento del sito ci sarà solamente **un file .css** da caricare, **riducendo la richiesta al server**.
 
 *Ecco un esempio:*
 
@@ -222,7 +222,7 @@ L’idea è che con questa direttiva non dovrai includere più nomi di classe ne
 
 La possibilità di e**seguire calcoli nel CSS** consente consente di ampliare le possibilità, come convertire i valori dei pixel in percentuali. Si può avere accesso a funzioni matematiche standard come **addizione, sottrazione, moltiplicazione e divisione**. Naturalmente, queste funzioni possono essere combinate per creare calcoli complessi.
 
-Inoltre, Sass include alcune funzioni integrate per aiutare a manipolare i numeri. Funzioni come **percentage()**, **floor() **e **round()** per citarne alcuni.
+Inoltre, Sass include alcune funzioni integrate per aiutare a manipolare i numeri. Funzioni come **percentage()**, **floor()** e **round()** per citarne alcuni.
 
 Se ancora non conoscevi questo strumento inizia subito ad utilizzarlo nel progetto in corso, sicuramente non te ne pentirai!
 

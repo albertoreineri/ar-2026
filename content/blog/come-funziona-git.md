@@ -5,7 +5,7 @@ description: "Poco tempo fa ho scritto un articolo elogiando Git, questo softwar
 tags: ["Guide", "Web Dev"]
 ---
 
-Poco tempo fa ho scritto un [articolo ](https://albertoreineri.it/guide/che-cose-git/)elogiando **Git**, questo software di controllo versione del quale ormai **non posso più fare a meno**, quindi ho pensato di scrivere una guida per spiegare come funziona GIT!
+Poco tempo fa ho scritto un [articolo ](https://albertoreineri.it/che-cose-git/)elogiando **Git**, questo software di controllo versione del quale ormai **non posso più fare a meno**, quindi ho pensato di scrivere una guida per spiegare come funziona GIT!
 
 ## MA COME SI USA CONCRETAMENTE GIT? E’ DIFFICILE DA USARE?
 

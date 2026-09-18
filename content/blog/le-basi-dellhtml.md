@@ -307,7 +307,7 @@ ed ecco il **risultato**
 
 </div>
 
-Per inserire i colori ho utilizzato l’attributo “style”, che permette di inserire del codice CSS all’interno dell’HTML, ma lo vedremo meglio nella[ guida](https://albertoreineri.it/guide/le-basi-del-css/) [al CSS.](https://albertoreineri.it/corso-intensivo-di-css/)
+Per inserire i colori ho utilizzato l’attributo “style”, che permette di inserire del codice CSS all’interno dell’HTML, ma lo vedremo meglio nella[ guida](https://albertoreineri.it/le-basi-del-css/) al CSS.
 
 ## I form
 
@@ -431,7 +431,7 @@ Per questa guida è tutto. Ti lascio ancora **il codice per intero della nostra
 
 **Ora puoi iniziare a smanettare un po’ con i tag** che hai imparato, provando a **creare e modificare qualche pagina HTML!**
 
-Leggi anche *[Le basi del CSS \>\>](https://albertoreineri.it/guide/le-basi-del-css/)*
+Leggi anche *[Le basi del CSS \>\>](https://albertoreineri.it/le-basi-del-css/)*
 
 <div class="wp-block-buttons is-content-justification-right is-layout-flex wp-container-core-buttons-is-layout-89b4c9e9 wp-block-buttons-is-layout-flex">
 

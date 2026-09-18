@@ -1,6 +1,7 @@
 {{ define "main" }}
 
 <section class="page-hero wrap">
+  {{ partial "page-doodle.html" "portfolio" }}
   <div class="section-number reveal">Portfolio</div>
   <h1 class="section-title reveal">Alcune cose<br>che ho costruito.</h1>
   <p class="page-intro reveal">
@@ -16,7 +17,7 @@
   <div class="projects">
 
     <article class="project reveal">
-      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/bikeitalia.jpg" | relURL }}')">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/bikeitalia.jpg" | relURL }}')">
         <span>BIKEITALIA</span>
       </div>
       <div class="project-info">
@@ -32,7 +33,7 @@
     </article>
 
     <article class="project reveal">
-      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/dslegacy.jpg" | relURL }}')">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/dslegacy.jpg" | relURL }}')">
         <span>DIRE STRAITS LEGACY</span>
       </div>
       <div class="project-info">
@@ -49,7 +50,7 @@
     </article>
 
     <article class="project reveal">
-      <div class="project-image magnetic" style="--shot:url('{{ " img/projects/alpenzu.jpg" | relURL }}')">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/alpenzu.jpg" | relURL }}')">
         <span>ALPENZU</span>
       </div>
       <div class="project-info">
@@ -64,11 +65,27 @@
     </article>
 
     <article class="project reveal">
+      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/fieradelcicloturismo.jpg" | relURL }}')">
+        <span>FIERA DEL CICLOTURISMO</span>
+      </div>
+      <div class="project-info">
+        <div class="project-meta"><span>Evento · Sviluppo &amp; gestione</span><span>04</span></div>
+        <h3>Fiera del Cicloturismo</h3>
+        <p>
+          Il sito del Cycle Tourism Show, l'evento di Bikenomist dedicato al
+          turismo in bicicletta a Padova Fiere: espositori, workshop e area
+          B2B. Sviluppo e gestisco io il sito.
+        </p>
+        <a class="project-link" href="https://fieradelcicloturismo.it" target="_blank" rel="noopener">Vedi progetto ↗</a>
+      </div>
+    </article>
+
+    <article class="project reveal">
       <div class="project-image magnetic" style="--shot:url('{{ "img/projects/legambientecuneo.jpg" | relURL }}')">
         <span>LEGAMBIENTE CUNEO</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Associazione ambientale · Sviluppo &amp; gestione</span><span>04</span></div>
+        <div class="project-meta"><span>Associazione ambientale · Sviluppo &amp; gestione</span><span>05</span></div>
         <h3>Legambiente Cuneo</h3>
         <p>
           Il sito del circolo cuneese di Legambiente: monitoraggio ambientale,
@@ -80,11 +97,11 @@
     </article>
 
     <article class="project reveal">
-      <div class="project-image magnetic" style="--shot:url('{{ "img/projects/drivingchange.jpg" | relURL }}')">
+      <div class="project-image project-image--wide magnetic" style="--shot:url('{{ "img/projects/drivingchange.jpg" | relURL }}')">
         <span>DRIVING CHANGE</span>
       </div>
       <div class="project-info">
-        <div class="project-meta"><span>Media · Sviluppo &amp; gestione</span><span>05</span></div>
+        <div class="project-meta"><span>Media · Sviluppo &amp; gestione</span><span>06</span></div>
         <h3>Driving Change</h3>
         <p>
           Piattaforma editoriale che racconta persone e politiche che cambiano
@@ -106,7 +123,7 @@
   <div class="brands-marquee reveal">
     <div class="brands-track" aria-hidden="true">
       {{ range seq 2 }}
-        {{ range site.Data.brands }}
+        {{ range hugo.Data.brands }}
         <span class="brand-logo"><img src="{{ printf "img/brands/%s" . | relURL }}" alt="" loading="lazy"></span>
         {{ end }}
       {{ end }}

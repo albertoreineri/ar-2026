@@ -5,7 +5,7 @@ description: "Collegare un database MySQL ad un progetto PHP è quasi sempre fon
 tags: ["Guide", "PHP"]
 ---
 
-Collegare un database MySQL ad un progetto [PHP](/argomento/php/) è quasi sempre fondamentale, vediamo come farlo utilizzando PDO.
+Collegare un database MySQL ad un progetto [PHP](/tags/php/) è quasi sempre fondamentale, vediamo come farlo utilizzando PDO.
 
 È possibile continuare ad utilizzare MySQLi, ma <a href="https://www.html.it/pag/63991/pdo-vs-mysqli/" target="_blank" rel="noreferrer noopener">PDO</a> garantisce livelli di sicurezza maggiori.
 

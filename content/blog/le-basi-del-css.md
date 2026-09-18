@@ -17,7 +17,7 @@ Come l’HTML, anche il css **non è un linguaggio di programmazione**, è un l
 
 ------------------------------------------------------------------------
 
-Questo articolo è una continuazione del la guida [Le basi di](https://albertoreineri.it/guide/le-basi-dellhtml/) [HTML](https://albertoreineri.it/guide/le-basi-dell-html/), che puoi trovare [qui](https://albertoreineri.it/guide/le-basi-dellhtml/).
+Questo articolo è una continuazione del la guida [Le basi di](https://albertoreineri.it/le-basi-dellhtml/) [HTML](https://albertoreineri.it/le-basi-dellhtml/), che puoi trovare [qui](https://albertoreineri.it/le-basi-dellhtml/).
 
 Se ti perdi durante l’articolo sul fondo di questo articolo potrai trovare il codice di tutto ciò che andremo a creare.
 
@@ -600,13 +600,13 @@ body{
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[\<\< Le basi di HTML](https://albertoreineri.it/guide/le-basi-dellhtml/)*
+*[\<\< Le basi di HTML](https://albertoreineri.it/le-basi-dellhtml/)*
 
 </div>
 
 <div class="wp-block-column is-vertically-aligned-center is-layout-flow wp-block-column-is-layout-flow">
 
-*[Le basi di Javascript \>\>](https://albertoreineri.it/guide/le-basi-di-javascript/)*
+*[Le basi di Javascript \>\>](https://albertoreineri.it/le-basi-di-javascript/)*
 
 </div>
 

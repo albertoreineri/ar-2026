@@ -52,9 +52,9 @@ Per poter iniziare a utilizzare PHP sul nostro computer dobbiamo **utilizzare u
 
 Come già detto prima, se HTML, CSS e Javascript possono girare nel browser, il PHP ha bisogno di un server.
 
-Esistono molti server locali. In questa guida utilizzeremo [XAMPP](https://albertoreineri.it/guide/come-funziona-xampp/), perché è semplice e disponibile per tutti i sistemi operativi.
+Esistono molti server locali. In questa guida utilizzeremo [XAMPP](https://albertoreineri.it/come-funziona-xampp/), perché è semplice e disponibile per tutti i sistemi operativi.
 
-Se vuoi sapere come installare XAMPP guarda [qui](https://albertoreineri.it/guide/come-funziona-xampp/).
+Se vuoi sapere come installare XAMPP guarda [qui](https://albertoreineri.it/come-funziona-xampp/).
 
 ### Sintassi di base
 
@@ -332,6 +332,6 @@ Come per ogni cosa il metodo migliore è sempre quello di **provare, provare e 
 
 Il PHP consente di fare ben altre cose, ma **per iniziare con WordPress questo può bastare!**
 
-**Quando ti senti pronto prova** adare un’occhiata alle nostre guide per **[creare un tema WordPress da zero](https://albertoreineri.it/guide/creare-un-tema-wordpress-da-zero-parte-1/)**, così potra imettere in pratica quello che hai imparato
+**Quando ti senti pronto prova** adare un’occhiata alle nostre guide per **[creare un tema WordPress da zero](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-1/)**, così potra imettere in pratica quello che hai imparato
 
-*[\<\< Le basi di jQuery](https://albertoreineri.it/guide/le-basi-di-jquery/)*
+*[\<\< Le basi di jQuery](https://albertoreineri.it/le-basi-di-jquery/)*
