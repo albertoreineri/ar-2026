@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>It's Fart Time</title>
+    <meta name="author" content="Alberto Reineri Web Designer & Developer">
+    <link rel="icon" href="./assets/images/fartsmoke.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pangolin">
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.12.1/css/all.css?ver=01e35d78885ea60c37440866fef14c15">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Find fart -->
+    <script type="text/javascript">
+        function findfart() {
+            if (typeof (Storage) !== "undefined") {
+                // Store
+                //localStorage.setItem("fartname", "Fart_Squeeze1.mp3");
+                // Retrieve
+                varfart = localStorage.getItem("fartname");
+            } else {
+                varfart = 0;
+            }
+            return varfart;
+        }
+        //if fartsound = TRUE then play fart-
+        function controlfartsound() {
+            fartsound = localStorage.getItem("fartsound");
+            if (fartsound == "TRUE") {
+                // playAudio();
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="controlfartsound()">
+    <main id="swup" class="transition-fade">
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-5 mx-auto">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="/letsfart" title="Let's Fart!">
+                                <div class="back">
+                                    << </div>
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <div>Select Sound</div>
+                        </div>
+                        <div class="col-12">
+                            <div class="text-center mt-5" style="font-size:22px">
+                                Just play a sound to set it as default
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="soundsList">
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Agressive-Fart-A1</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Agressive-Fart-A1-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Agressive-Fart-A1-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Agressive-Fart-A2</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Agressive-Fart-A2-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Agressive-Fart-A2-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Almost-Sharded-Fart-A1</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Almost-Sharded-Fart-A1-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Almost-Sharded-Fart-A1-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Ascending-Fart</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Ascending-Fart-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Ascending-Fart-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Baby-Fart-A1</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Baby-Fart-A1-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Baby-Fart-A1-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Baby-Fart-A2</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Baby-Fart-A2-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Baby-Fart-A2-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Bursting-Out-Fart-A1</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Bursting-Out-Fart-A1-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Bursting-Out-Fart-A1-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Crying-Fart</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Crying-Fart-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Crying-Fart-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Deep-Fart-A2</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Deep-Fart-A2-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Deep-Fart-A2-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+                <div class="col-12 text-center" id="soundName" style="font-size:30px">Deep-Fart-A3</div>
+                <div class="col-12 mb-3 text-center" style="font-size:24px">
+                    <audio controls onplay="setSound('Deep-Fart-A3-www.fesliyanstudios.com.mp3')">
+                        <source src="assets/sound/Deep-Fart-A3-www.fesliyanstudios.com.mp3" type="audio/mpeg">
+                        Your browser does not support the audio element.
+                    </audio>
+                </div>
+
+
+
+
+
+            </div>
+
+        </div>
+
+
+
+        <div class="credits mb-5">
+            By <a href="https://albertoreineri.github.io" target="_blank"
+                title="Alberto Reineri Web Designer & Developer">Alberto Reineri</a>
+        </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+            </script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+
+        <script language="javascript" type="text/javascript">
+
+            // $.ajax({
+            //     url: "assets/sound/",
+            //     success: function (data) {
+            //         $(data).find("a:contains(.mp3)").each(function () {
+            //             // will loop through
+            //             var sounds = $(this).attr("href");
+            //             var mp3 = $(this).attr("href");
+            //             mp3 = mp3.replace('/letsfart/assets/sound', '');
+            //             sounds = sounds.replace('/letsfart/assets/sound/', '');
+            //             sounds = sounds.replace('-www.fesliyanstudios.com.mp3', '');
+
+            //             var soundItem = `<div class="col-12 text-center" id = "soundName" style = "font-size:30px" > ` + sounds + `</div > \
+            //                                 <div class="col-12 mb-3 text-center" style="font-size:24px"> \
+            //                                     <audio controls onplay="setSound('`+ mp3 + `')"> \
+            //                                         <source src="assets/sound/`+ mp3 + `" type="audio/mpeg"> \
+            //                                             Your browser does not support the audio element. \
+            //                                     </audio> \
+            //                                 </div>`;
+
+            //             $('#soundsList').append(soundItem);
+            //             // $('<p></p>').html(soundItem).appendTo('#soundsList')
+
+            //         });
+            //     }
+            // });
+
+            // $.ajax({
+            //     url: "assets/sound/",
+            //     success: function (data) {
+            //         var soundItems = []
+            //         // $(data).find("td > a").each(function () {
+            //         //     // will loop through
+            //         //     var sound = $(this).attr("href");
+            //         //     alert(sound);
+            //         //     // var soundItem = '<div class="col-12 text-center" id = "soundName" style = "font-size:30px" > ' + sound + '</div > \
+            //         //     //         <div class="col-12 mb-3 text-center" style="font-size:24px"> \
+            //         //     //             <audio controls onplay="setSound('+ sound + ')"> \
+            //         //     //                 <source src="/assets/sound/<?php echo $file ?>" type="audio/mpeg"> \
+            //         //     //                     Your browser does not support the audio element. \
+            //         //     //             </audio> \
+            //         //     //         </div>';
+            //         //     // soundItems.push(soundItem);
+            //         // });
+            //     }
+            // }).done(function () {
+            //     console.log(this.soundItems);
+            // });;
+
+            function setSound(sound) {
+                localStorage.setItem("fartname", sound);
+            }
+
+            function controlminute(varminute) {
+                if (varminute > 59) {
+                    document.getElementById("error").style.visibility = "visible";
+                    document.getElementById("minute").value = "";
+                    document.getElementById("minute").focus();
+                } else {
+                    document.getElementById("error").style.visibility = "hidden";
+                }
+            }
+
+            function controlsecond(varsecond) {
+                if (varsecond > 59) {
+                    document.getElementById("error").style.visibility = "visible";
+                    document.getElementById("second").value = "";
+                    document.getElementById("second").focus();
+                } else {
+                    document.getElementById("error").style.visibility = "hidden";
+                }
+            }
+
+
+            function starttimer() {
+                minute = (60 * document.getElementById("minute").value);
+                minute = (minute + +document.getElementById("second").value)
+                duration = minute;
+                display = document.querySelector('#time');
+                document.getElementById("timeleft").style.visibility = "visible";
+                var timer = duration,
+                    minutes, seconds;
+
+                setInterval(function () {
+
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        localStorage.setItem("fartsound", "TRUE");
+                        window.location.href = "index.html";
+
+                        document.getElementById("minute").value = 0;
+                        document.getElementById("second").value = 0;
+                    }
+                }, 1000);
+            }
+        </script>
+
+</body>
+
+</html>

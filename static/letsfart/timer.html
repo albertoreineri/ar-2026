@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>It's Fart Time</title>
+    <meta name="author" content="Alberto Reineri Web Designer & Developer">
+    <link rel="icon" href="./assets/images/fartsmoke.png" type="image/png" />
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Pangolin">
+    <link rel="stylesheet"
+        href="https://use.fontawesome.com/releases/v5.12.1/css/all.css?ver=01e35d78885ea60c37440866fef14c15">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="./style.css">
+
+    <!-- Find fart -->
+    <script type="text/javascript">
+        function findfart() {
+            if (typeof (Storage) !== "undefined") {
+                // Store
+                //localStorage.setItem("fartname", "Fart_Squeeze1.mp3");
+                // Retrieve
+                varfart = localStorage.getItem("fartname");
+            } else {
+                varfart = 0;
+            }
+            return varfart;
+        }
+        //if fartsound = TRUE then play fart-
+        function controlfartsound() {
+            fartsound = localStorage.getItem("fartsound");
+            if (fartsound == "TRUE") {
+                // playAudio();
+            }
+        }
+    </script>
+
+</head>
+
+<body onload="controlfartsound()">
+    <main id="swup" class="transition-fade">
+
+
+        <div class="container">
+            <div class="row mt-5 mb-5">
+                <div class="col-lg-5 mx-auto">
+                    <div class="row">
+                        <div class="col-4">
+                            <a href="/letsfart" title="Let's Fart!">
+                                <div class="back">
+                                    << </div>
+                            </a>
+                        </div>
+                        <div class="col-8">
+                            <div>Set a timer</div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <div class="row">
+                        <div class="col-6 mb-5">
+                            <div>Minutes:</div>
+
+                        </div>
+                        <div class="col-6">
+                            <div><input id="minute" type="number" min="0" max="59" value="0" class="time"
+                                    onClick="this.select();" onchange="controlminute(value)"></div>
+
+                        </div>
+                        <div class="col-6 mb-5">
+                            <div>Seconds:</div>
+
+                        </div>
+                        <div class="col-6">
+                            <div><input id="second" type="number" min="0" max="59" value="0" class="time"
+                                    onClick="this.select();" onchange="controlsecond(value)"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <div class="buttonstart" onclick="starttimer()" style="cursor:pointer">
+                        <div class="wrapmenu">
+                            START
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-5 mx-auto">
+                    <div id="timeleft">Time left: <span id="time"></span></div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+        <script language="javascript" type="text/javascript">
+
+        </script>
+
+
+        <div class="countdown"></div>
+
+
+
+        <div class="credits mb-5">
+            By <a href="https://albertoreineri.github.io" target="_blank"
+                title="Alberto Reineri Web Designer & Developer">Alberto Reineri</a>
+        </div>
+        </div>
+        <!-- Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous">
+            </script>
+        <script src="./assets/js/bootstrap.min.js"></script>
+
+        <script language="javascript" type="text/javascript">
+            function setSound(sound) {
+                localStorage.setItem("fartname", sound);
+            }
+
+            function controlminute(varminute) {
+                if (varminute > 59) {
+                    document.getElementById("error").style.visibility = "visible";
+                    document.getElementById("minute").value = "";
+                    document.getElementById("minute").focus();
+                } else {
+                    document.getElementById("error").style.visibility = "hidden";
+                }
+            }
+
+            function controlsecond(varsecond) {
+                if (varsecond > 59) {
+                    document.getElementById("error").style.visibility = "visible";
+                    document.getElementById("second").value = "";
+                    document.getElementById("second").focus();
+                } else {
+                    document.getElementById("error").style.visibility = "hidden";
+                }
+            }
+
+
+            function starttimer() {
+                minute = (60 * document.getElementById("minute").value);
+                minute = (minute + +document.getElementById("second").value)
+                duration = minute;
+                display = document.querySelector('#time');
+                document.getElementById("timeleft").style.visibility = "visible";
+                var timer = duration,
+                    minutes, seconds;
+
+                setInterval(function () {
+
+                    minutes = parseInt(timer / 60, 10)
+                    seconds = parseInt(timer % 60, 10);
+
+                    minutes = minutes < 10 ? "0" + minutes : minutes;
+                    seconds = seconds < 10 ? "0" + seconds : seconds;
+
+                    display.textContent = minutes + ":" + seconds;
+
+                    if (--timer < 0) {
+                        localStorage.setItem("fartsound", "TRUE");
+                        window.location.href = "index.html";
+
+                        document.getElementById("minute").value = 0;
+                        document.getElementById("second").value = 0;
+                    }
+                }, 1000);
+            }
+
+        </script>
+
+</body>
+
+</html>
