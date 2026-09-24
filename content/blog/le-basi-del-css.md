@@ -3,6 +3,9 @@ title: "2. Le basi del CSS"
 date: 2020-03-17
 description: "Il CSS è il linguaggio di formattazione del web. Sta per Cascading Style Sheets ed è utilizzato per assegnare uno stile alle pagine html. Ha una sintassi specifica e permette di separare l’html…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Il CSS è il linguaggio di **formattazione **del web. Sta per *Cascading Style Sheets* ed è utilizzato per **assegnare uno stile alle pagine html**.
@@ -39,7 +42,7 @@ Con questo metodo **i linguaggi HTML e CSS restano mischiati insieme**. Un esem
 
 **Esempio**:
 
-``` wp-block-code
+```
 <div style="background-color:green>Ciao Mondo</div>
 ```
 
@@ -57,7 +60,7 @@ In questo modo il CSS è all’interno della pagina HTML ma **non in mezzo al c
 
 Per inserire del CSS interno occorre andare **fra i tag \<head\>\</head\>** e indicare che stiamo per scrivere del codice CSS, in questo modo:
 
-``` wp-block-code
+```
 <style type="text/css">
 
 </style>
@@ -67,7 +70,7 @@ All’interno del tag \<style\> possiamo inserire il codice CSS.
 
 **Esempio:**
 
-``` wp-block-code
+```
 <style type="text/css">
    h1{
       color:red
@@ -91,7 +94,7 @@ Ora **creiamo un nuovo file** (CTRL+N) e salviamolo (CTRL+S) con il nome “**
 
 In questo file possiamo inserire questo:
 
-``` wp-block-code
+```
 h1{
    color:red;
 }
@@ -101,7 +104,7 @@ Ora **salviamo** “***style.css***” e apriamo “***index.html***“.
 
 Andiamo **nell’head** di “index.html” e inseriamo questo sotto al title:
 
-``` wp-block-code
+```
 <link rel="stylesheet" href="style.css">
 ```
 
@@ -141,7 +144,7 @@ Al termine di ogni Valore occorre inserire un “**punto e virgola**“.
 
 **Esempio:**
 
-``` wp-block-code
+```
 h1{
    color:red;
 }
@@ -162,7 +165,7 @@ Andiamo nel nostro file “style.css” e iniziamo a scrivere del codice CSS!
 
 Iniziamo con il dare uno stile generale alla nostra pagina, utilizzando il selettore “body”, in questo modo:
 
-``` wp-block-code
+```
 body{
    color:#444;
    background-color:#f2f2f2
@@ -187,7 +190,7 @@ Per esempio se voglio un colore bianco basterà scrivere “white”, e così vi
 
 **Esempio:**
 
-``` wp-block-code
+```
 color:blue;
 ```
 
@@ -197,7 +200,7 @@ Il colore è indicato utilizzando un codice esadecimale, chiamato anche **Hex c
 
 **Esempio:**
 
-``` wp-block-code
+```
 color:#f4f4f4;
 ```
 
@@ -209,13 +212,13 @@ Consiste nell’indicare il colore utilizzando il **metodo RGB**. È possibile 
 
 **RGB:**
 
-``` wp-block-code
+```
 rgb(243, 163, 44)
 ```
 
 **RGBA**:
 
-``` wp-block-code
+```
 rgba(243, 163, 44,.7)
 ```
 
@@ -267,7 +270,7 @@ Adesso possiamo copiare il contenuto fra *\<style\>* e *\</style\>* e incoll
 
 Ora aggiungiamo questo codice:
 
-``` wp-block-code
+```
 body{
     font-family: 'Source Sans Pro', sans-serif;
     font-size: 22px;
@@ -304,7 +307,7 @@ Per indicare un id nel CSS occorre farlo precedere da un **hashtag**
 
 ***style.css***
 
-``` wp-block-code
+```
 #giallo{
    color:yellow
 }
@@ -312,7 +315,7 @@ Per indicare un id nel CSS occorre farlo precedere da un **hashtag**
 
 ***index.html***
 
-``` wp-block-code
+```
 <h2 id="giallo">Questo titolo è giallo</h2>
 ```
 
@@ -326,7 +329,7 @@ Per indicare una classe nel CSS occorre farla precedere da un **punto**.
 
 ***style.css***
 
-``` wp-block-code
+```
 .bottone{
    background-color:coral;
    border-radius: 15px;
@@ -336,7 +339,7 @@ Per indicare una classe nel CSS occorre farla precedere da un **punto**.
 
 ***index.html***
 
-``` wp-block-code
+```
 <div class="bottone">Premi qui!</div>
 ```
 
@@ -358,7 +361,7 @@ Ecco alcuni **esempi**:
 
 ***style.css***
 
-``` wp-block-code
+```
 .box-margin{
     background-color: coral;
     margin:50px
@@ -375,7 +378,7 @@ Ecco alcuni **esempi**:
 
 ***index.html***
 
-``` wp-block-code
+```
     <h2>Margin e Padding</h2>
     <h3>Margin:</h3>
     <div class="box-margin">
@@ -400,19 +403,19 @@ Proviamo a rendere la nostra pagina HTML un po’ più carina inserendola in un�
 
 Andiamo** sotto il tag body** e inseriamo un **div **con classe “**container**“, in questo modo:
 
-``` wp-block-code
+```
 <div class="container">
 ```
 
 Ora andiamo prima del \</body\> e** chiudiamo questo div**, inserendo:
 
-``` wp-block-code
+```
 </div>
 ```
 
 Ora aggiungiamo questo codice nel nostro “**style.css**“:
 
-``` wp-block-code
+```
 .container{
     max-width: 800px;
     margin: 0 auto;
@@ -431,7 +434,7 @@ Per poter inserire un’immagine come sfondo occorre utilizzare la proprietà �
 
 Creiamo un **div **che conterrà la nostra immagine nel file **html**:
 
-``` wp-block-code
+```
 <div class="immagine-sfondo">
     Questo div ha un'immagine di sfondo!
 </div>
@@ -439,7 +442,7 @@ Creiamo un **div **che conterrà la nostra immagine nel file **html**:
 
 E inseriamo l’url all’immagine tramite il **CSS **nel nostro “style.css”:
 
-``` wp-block-code
+```
 .immagine-sfondo{
     background-image: url(img/immagine.jpg);
     height:500px;
@@ -463,7 +466,7 @@ Qua puoi trovare il **codice completo** dei file index.html e style.css
 
 ***index.html***
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="en">
 
@@ -562,7 +565,7 @@ Qua puoi trovare il **codice completo** dei file index.html e style.css
 
 ***style.css***
 
-``` wp-block-code
+```
 @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;700&display=swap');
 body{
     font-family: 'Source Sans Pro', sans-serif;

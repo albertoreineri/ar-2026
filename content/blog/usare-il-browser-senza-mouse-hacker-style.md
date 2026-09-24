@@ -7,25 +7,7 @@ tags: ["Tech", "Web Dev"]
 
 Passiamo molto, moltissimo tempo sul browser ormai, e usare il mouse per la navigazione può essere frustranete per noi sviluppatori… Ma è possibile farne a meno e muoversi solamente utilizzando la tastiera, come un vero hacker! Vediamo come si fa.
 
-<div class="iframe">
-
-<div id="player">
-
-</div>
-
-<div class="player-unavailable">
-
-# Si è verificato un errore.
-
-<div class="submessage">
-
-Impossibile eseguire JavaScript
-
-</div>
-
-</div>
-
-</div>
+{{< youtube t54tfXB3ZKg >}}
 
 ## Vimium Extension
 
@@ -39,7 +21,7 @@ Ecco i comandi principali per utilizzarlo:
 
 ## Navigare nella pagina corrente:
 
-``` wp-block-code
+```
 ?       mostra l'elenco dei comandi disponibili (molto utile all'inizio)
 h       scroll verso sinistra
 j       scroll verso il basso
@@ -57,7 +39,7 @@ gs      visualizza codice sorgente
 
 ## Navigare in altre pagina:
 
-``` wp-block-code
+```
 o       Apri URL
 O       Apri URL in nuova tab
 b       Apri preferiti
@@ -66,14 +48,14 @@ B       Apri preferiti in nuova tab
 
 ## Cronologia:
 
-``` wp-block-code
+```
 H       Vai a pagina precedente
 L       Vai a pagina successiva
 ```
 
 ## Manipolazione tabs:
 
-``` wp-block-code
+```
 J, gT      Vai un tab verso sinistra
 K, gt      Vai un tab verso destra
 g0         Vai alla prima tab

@@ -1,131 +1,184 @@
 ---
-title: "Ottimizzare lo Spazio su Disco da terminale con NCDU: Una Guida Essenziale per i Server"
+title: "ncdu: trovare cosa occupa spazio su disco da terminale"
+seoTitle: "ncdu: analizzare lo spazio su disco da terminale"
 date: 2024-03-12
-description: "Se sei responsabile della gestione di server, sai quanto sia importante mantenere uno spazio su disco sufficiente e ottimizzato per garantire il corretto funzionamento delle tue applicazioni e dei…"
+lastmod: 2026-09-24
+description: "Come usare ncdu per trovare cosa riempie il disco di un server Linux, i colpevoli più comuni e cosa fare quando il disco è pieno ma ncdu non trova niente."
 tags: ["Guide", "Linux"]
+translationKey: "ncdu-disk-usage"
 ---
 
-Se sei responsabile della gestione di server, sai quanto sia importante mantenere uno spazio su disco sufficiente e ottimizzato per garantire il corretto funzionamento delle tue applicazioni e dei tuoi servizi. Tuttavia, monitorare e gestire lo spazio su disco può diventare rapidamente una sfida, specialmente su server senza interfaccia grafica.
+"No space left on device" è uno degli errori più banali e più distruttivi che possono capitare su un server. Il database smette di scrivere, i log si interrompono, le sessioni PHP falliscono, e a volte non riesci nemmeno a completare il login via SSH. In quel momento non ti serve una teoria sulla gestione dello storage: ti serve sapere **cosa** sta occupando spazio, e in fretta.
 
-In questo articolo, esploreremo una soluzione efficace per ottimizzare lo spazio su disco direttamente dalla riga di comando: NCDU. Questo strumento versatile offre un modo semplice ed efficiente per analizzare e gestire lo spazio su disco, consentendoti di identificare rapidamente i file e le directory che occupano più spazio e di liberare risorse preziose.
+Lo strumento che uso per questo da anni è **ncdu**. In questa guida trovi come usarlo bene, le opzioni che contano su un server di produzione, i colpevoli che trovo più spesso e cosa fare nel caso più subdolo: il disco è pieno, ma ncdu non trova niente.
 
-Dalla sua installazione ai suoi comandi fondamentali e alle strategie avanzate per ottimizzare lo spazio su disco, questa guida fornirà una panoramica completa su come utilizzare NCDU per migliorare le prestazioni e la gestione dei tuoi server. Se sei pronto per semplificare la tua esperienza di gestione dello spazio su disco e ottimizzare le risorse del tuo server, continua a leggere.
+## Prima di ncdu: `df`
 
-## COS’È NCDU?
+Il primo comando è sempre `df`, per capire **quale** filesystem è pieno:
 
-NCDU, acronimo di “NCurses Disk Usage”, è uno strumento di utilità a riga di comando progettato per fornire una panoramica dettagliata dell’utilizzo dello spazio su disco all’interno del sistema operativo Unix-like. Utilizzando un’interfaccia basata su testo e il supporto per la libreria NCurses, NCDU consente agli amministratori di sistema e agli utenti avanzati di analizzare rapidamente la distribuzione dello spazio su disco e identificare le directory e i file che occupano più spazio.
+```
+df -h
+```
 
-Una delle caratteristiche distintive di NCDU è la sua capacità di fornire un resoconto interattivo e dettagliato dell’utilizzo dello spazio su disco, consentendo agli utenti di navigare attraverso le directory e visualizzare le dimensioni dei file in modo chiaro e intuitivo. Questo rende NCDU particolarmente utile per individuare rapidamente le aree del sistema in cui lo spazio su disco è stato consumato in modo eccessivo.
+Guarda la colonna `Use%` e il punto di montaggio (`Mounted on`). Il disco pieno potrebbe non essere quello di sistema: un volume separato per `/var` o per i backup, per esempio.
 
-Inoltre, NCDU offre una serie di funzionalità avanzate, tra cui la possibilità di eliminare file e directory direttamente dall’interfaccia utente, consentendo agli utenti di liberare spazio su disco in modo rapido e efficiente.
+## Cos'è ncdu
 
-In breve, NCDU è uno strumento indispensabile per la gestione dello spazio su disco sui server Unix-like, offrendo un modo intuitivo e potente per analizzare, monitorare e ottimizzare l’utilizzo delle risorse di archiviazione.
+**ncdu** (NCurses Disk Usage) è un'interfaccia interattiva per terminale sopra lo stesso concetto di `du`: scansiona una directory, calcola quanto occupa ogni sottocartella e ti mostra l'elenco ordinato per dimensione. Entri nelle cartelle con le frecce, risali, e in dieci secondi arrivi al file da 40 GB che non doveva essere lì.
 
-## INSTALLAZIONE DI NCDU
+La versione 2, riscritta in Zig, è più veloce e usa molta meno memoria sui filesystem con milioni di file. Alcune distribuzioni distribuiscono ancora la 1.x: i comandi descritti qui funzionano su entrambe.
 
-L’installazione di NCDU è un processo semplice e diretto, che richiede solo pochi passaggi. Qui di seguito, forniamo una guida passo-passo per installare NCDU sui principali sistemi operativi Unix-like:
+## Installazione
 
-### Linux (Debian/Ubuntu):
+```
+# Debian, Ubuntu
+sudo apt install ncdu
 
-1.  Apri il terminale.
-2.  Assicurati di avere i privilegi di amministratore (puoi utilizzare il comando `sudo`).
-3.  Esegui il seguente comando per installare NCDU:`sudo apt-get install ncdu`
-4.  Segui le istruzioni sullo schermo e attendi il completamento del processo di installazione.
+# Fedora
+sudo dnf install ncdu
 
-### Linux (CentOS/RHEL):
+# RHEL, Rocky, AlmaLinux (serve EPEL)
+sudo dnf install epel-release && sudo dnf install ncdu
 
-1.  Apri il terminale.
-2.  Assicurati di avere i privilegi di amministratore (puoi utilizzare il comando `sudo`).
-3.  Esegui il seguente comando per installare NCDU utilizzando il gestore dei pacchetti YUM:`sudo yum install ncdu`
-4.  Segui le istruzioni sullo schermo e attendi il completamento del processo di installazione.
+# Arch
+sudo pacman -S ncdu
 
-### macOS (utilizzando Homebrew):
+# macOS
+brew install ncdu
+```
 
-1.  Apri il terminale.
-2.  Assicurati di avere Homebrew installato sul tuo sistema. Se non lo hai, puoi installarlo seguendo le istruzioni sul sito ufficiale di Homebrew.
-3.  Esegui il seguente comando per installare NCDU utilizzando Homebrew:`brew install ncdu`
-4.  Segui le istruzioni sullo schermo e attendi il completamento del processo di installazione.
+Su RHEL e derivate ncdu non è nei repository base: se non ti è chiaro cosa sia EPEL, trovi la spiegazione nella mia [guida alla gestione dei pacchetti in Linux](/gestione-dei-pacchetti-in-linux-cosa-sono-e-come-funzionano/).
 
-Una volta completata l’installazione, puoi verificare se NCDU è stato installato correttamente digitando `ncdu` nel terminale e premendo Invio. Se tutto è andato a buon fine, verrà visualizzata l’interfaccia utente di NCDU, pronta per essere utilizzata per analizzare e gestire lo spazio su disco del tuo sistema.
+## Come lo lancio su un server
 
-## UTILIZZO DI BASE DI NCDU
+Questo è il comando che uso quasi sempre:
 
-Dopo aver installato NCDU, puoi utilizzarlo per esplorare e gestire lo spazio su disco del tuo sistema seguendo alcuni semplici passaggi. Di seguito sono riportate le istruzioni per l’utilizzo di base di NCDU:
+```
+sudo ncdu -x /
+```
 
-### 1. Avviare NCDU:
+- **`sudo`**: senza privilegi di root ncdu non può leggere molte cartelle di sistema, e i totali risultano sbagliati per difetto.
+- **`-x`**: resta su un solo filesystem. Senza questa opzione ncdu entra anche nei dischi montati, nelle condivisioni di rete e in `/proc`, e il risultato non ti dice niente su quale disco è pieno. Se `df` ti ha detto che il problema è su `/var`, lancia `sudo ncdu -x /var`.
 
-- Apri il terminale.
-- Digita `ncdu` e premi Invio.
-- NCDU avvierà l’analisi dello spazio su disco e visualizzerà l’interfaccia utente.
+Altre opzioni utili:
 
-### 2. Navigare nell’interfaccia utente:
+```
+sudo ncdu -rx /                    # sola lettura: disattiva la cancellazione
+sudo ncdu -x --exclude /srv/backup /
+sudo ncdu -x -o /tmp/scan.json /   # salva la scansione in un file, senza interfaccia
+ncdu -f /tmp/scan.json             # apre una scansione salvata
+```
 
-- Una volta avviato, NCDU visualizzerà una lista delle directory nel tuo sistema, ordinate in base alla dimensione.
-- Utilizza i tasti freccia su e giù per navigare attraverso le directory.
-- Premi Invio per accedere a una directory e visualizzare i suoi contenuti.
+La modalità **`-r`** la uso sempre sui server di produzione, soprattutto quando ci lavora qualcun altro. Con `-rr` disattivi anche la possibilità di aprire una shell dall'interfaccia. Esportare la scansione con **`-o`** è comodo su un disco molto grande: la lanci una volta, magari di notte, e poi la esplori con calma, anche su un'altra macchina.
 
-### 3. Interpretare i dati visualizzati:
+## I tasti che servono
 
-- NCDU visualizza le dimensioni delle directory e dei file in modo chiaro e intuitivo.
-- Le dimensioni sono espresse in kilobyte (KB), megabyte (MB), gigabyte (GB), ecc.
-- Utilizza la barra inferiore dello schermo per visualizzare informazioni dettagliate su una directory o un file selezionato.
+| Tasto | Azione |
+|---|---|
+| `↑` `↓` (o `j` `k`) | Muoversi nell'elenco |
+| `→` / `Invio` (o `l`) | Entrare nella cartella |
+| `←` (o `h`, `<`) | Tornare alla cartella superiore |
+| `s` / `n` / `C` | Ordina per dimensione / nome / numero di elementi |
+| `a` | Dimensione reale su disco o dimensione apparente |
+| `c` | Mostra quanti file contiene ogni cartella |
+| `g` | Cambia visualizzazione di percentuale e grafico |
+| `e` | Mostra o nasconde i file nascosti ed esclusi |
+| `i` | Dettagli dell'elemento selezionato |
+| `d` | Cancella l'elemento selezionato (chiede conferma) |
+| `r` | Ricalcola la cartella corrente |
+| `b` | Apre una shell nella cartella corrente |
+| `q` | Esci |
 
-### 4. Comandi principali:
+Il tasto `c` insieme all'ordinamento con `C` è sottovalutato: ti mostra le cartelle con **centinaia di migliaia di file piccoli**, che non pesano molto in GB ma possono esaurire gli inode (ne parlo più sotto).
 
-- Premi `d` per eliminare il file o la directory selezionata.
-- Premi `r` per aggiornare l’elenco delle directory.
-- Premi `q` per uscire dall’applicazione.
+Sul tasto `d`: funziona, ma su un server io preferisco trovare il colpevole con ncdu e poi risolvere con il comando giusto. Cancellare a mano un file di log aperto o un file di Docker di solito crea più problemi di quanti ne risolva.
 
-### 5. Navigazione tra le directory:
+## I colpevoli più comuni
 
-- Utilizza i tasti freccia su e giù per spostarti attraverso le directory.
-- Premi `u` per tornare alla directory precedente.
-- Premi `Tab` per passare tra la visualizzazione della dimensione della directory e la visualizzazione dell’ultima data di modifica.
+Dopo anni di server riempiti, i sospetti sono quasi sempre gli stessi.
 
-### 6. Uscire da NCDU:
+**I log del journal di systemd** (`/var/log/journal`). Senza un limite possono arrivare a diversi GB. Controlla e riduci:
 
-- Quando hai finito di utilizzare NCDU, premi `q` per uscire dall’applicazione.
+```
+journalctl --disk-usage
+sudo journalctl --vacuum-size=500M
+```
 
-Seguendo questi passaggi, sarai in grado di utilizzare NCDU per esplorare e analizzare efficacemente lo spazio su disco del tuo sistema, identificando i file e le directory che occupano più spazio e liberando risorse secondo necessità.
+Per rendere il limite permanente, imposta `SystemMaxUse=500M` in `/etc/systemd/journald.conf` e riavvia `systemd-journald`.
 
-## STRATEGIE PER OTTIMIZZARE LO SPAZIO SU DISCO
+**I log delle applicazioni** (`/var/log/nginx`, `/var/log/apache2`, log di Laravel in `storage/logs`). Il problema è quasi sempre un log che nessuno ruota. La soluzione è una regola di **logrotate** in `/etc/logrotate.d/`, non la cancellazione a mano ogni tanto.
 
-Oltre ad analizzare l’utilizzo dello spazio su disco, NCDU può essere utilizzato anche per implementare strategie efficaci per ottimizzare e gestire in modo efficiente le risorse di archiviazione del tuo sistema. Di seguito sono riportate alcune strategie pratiche che puoi adottare utilizzando NCDU:
+**Docker** (`/var/lib/docker`). Immagini vecchie, container fermi, cache di build. Prima guarda, poi pulisci:
 
-### 1. Identificare i principali consumatori di spazio:
+```
+docker system df
+docker system prune
+```
 
-Utilizza NCDU per individuare le directory e i file che occupano più spazio sul disco. Concentrati sulle aree del sistema che contribuiscono maggiormente all’utilizzo eccessivo dello spazio su disco.
+Attenzione: `docker system prune --volumes` cancella anche i volumi non collegati a un container, cioè potenzialmente i dati di un database. Non aggiungerlo senza sapere cosa c'è dentro.
 
-### 2. Eliminare file e directory non necessari:
+**I binary log di MySQL** (`/var/lib/mysql/binlog.*`). MySQL 8 li attiva di default e li conserva per 30 giorni. Su un server con molte scritture possono pesare più del database stesso. Non cancellare i file a mano: dalla console di MySQL usa `PURGE BINARY LOGS BEFORE NOW() - INTERVAL 3 DAY;`, e riduci la conservazione con `binlog_expire_logs_seconds`. Se non usi la replica né il recupero point-in-time, valuta se ti servono. Ne parlo anche nella guida alla [LAMP stack su Ubuntu](/come-installare-una-lamp-stack/).
 
-Utilizza il comando `d` in NCDU per eliminare i file e le directory non necessari o obsolete. Assicurati di eseguire una verifica attenta prima di eliminare qualsiasi elemento per evitare la perdita accidentale di dati importanti.
+**Cache dei pacchetti e kernel vecchi.** `sudo apt clean` svuota `/var/cache/apt/archives`. `sudo apt autoremove` rimuove i kernel non più usati, che su `/boot` piccole sono una causa classica di aggiornamenti falliti.
 
-### 3. Comprimere o archiviare dati meno utilizzati:
+**Le vecchie revisioni degli snap** (`/var/lib/snapd`). Ogni snap conserva di default tre versioni. `sudo snap set system refresh.retain=2` scende al minimo consentito.
 
-Se hai file o directory che non vengono utilizzati regolarmente ma che desideri conservare, considera l’opzione di comprimerli o archiviarli in un’area separata del disco. Puoi utilizzare NCDU per identificare questi elementi e prendere decisioni informate sulla compressione o l’archiviazione.
+**Backup dimenticati.** Il dump del database fatto "solo per sicurezza" prima di un aggiornamento, un anno fa, nella home di root. ncdu li trova in un secondo.
 
-### 4. Monitorare e limitare la crescita dei log:
+## Il disco è pieno, ma ncdu non trova niente
 
-I file di log possono occupare rapidamente molto spazio su disco. Utilizza NCDU per monitorare le directory dei log e implementare politiche per la rotazione e la compressione dei log al fine di limitare la crescita eccessiva dello spazio su disco.
+Il caso più frustrante: `df` dice 100%, ncdu somma 20 GB su un disco da 50. Le cause sono tre, in ordine di frequenza.
 
-### 5. Ottimizzare la gestione delle immagini e dei media:
+### File cancellati ma ancora aperti
 
-Se il tuo sistema gestisce una grande quantità di immagini o file multimediali, utilizza NCDU per identificare e ottimizzare la gestione di queste risorse. Considera l’opzione di comprimere le immagini o archiviare i file multimediali meno utilizzati in un’area separata del disco.
+Su Linux, cancellare un file rimuove il nome, ma lo spazio viene liberato solo quando **l'ultimo processo che lo tiene aperto lo chiude**. Classico: qualcuno cancella un log da 30 GB mentre il servizio ci sta ancora scrivendo. Il file sparisce da ncdu, ma lo spazio resta occupato.
 
-### 6. Programmare operazioni di manutenzione regolari:
+```
+sudo lsof +L1
+```
 
-Utilizza NCDU regolarmente per monitorare l’utilizzo dello spazio su disco e implementare operazioni di manutenzione preventive. Programma controlli periodici per identificare e risolvere eventuali problemi di utilizzo eccessivo dello spazio su disco prima che diventino critici.
+mostra i file cancellati ancora aperti, con il processo che li tiene. La soluzione pulita è riavviare quel servizio. Se non puoi, puoi svuotare il file attraverso il descrittore del processo (con il PID e il numero di descrittore che vedi nell'output di `lsof`):
 
-Implementando queste strategie con l’aiuto di NCDU, sarai in grado di ottimizzare in modo efficace lo spazio su disco del tuo sistema, garantendo un utilizzo efficiente delle risorse di archiviazione e una migliore gestione complessiva del tuo server.
+```
+sudo truncate -s 0 /proc/PID/fd/NUMERO
+```
 
-## CONCLUSIONI
+La lezione per la prossima volta: per svuotare un log in uso non cancellarlo, **troncalo**: `sudo truncate -s 0 /var/log/file.log`.
 
-In conclusione, l’utilizzo di NCDU per la gestione dello spazio su disco sui server da riga di comando si è dimostrato essere un approccio potente e efficace. Attraverso la sua interfaccia utente intuitiva e le sue robuste funzionalità, NCDU consente agli amministratori di sistema e agli utenti avanzati di analizzare, monitorare e ottimizzare l’utilizzo dello spazio su disco in modo efficiente e accurato.
+### Inode esauriti
 
-Durante il corso di questo articolo, abbiamo esaminato come installare e utilizzare NCDU per esplorare l’utilizzo dello spazio su disco, identificare i principali consumatori di spazio e implementare strategie pratiche per ottimizzare le risorse di archiviazione del sistema. Dall’eliminazione di file non necessari alla gestione dei file di log e alla compressione dei dati, NCDU offre una serie di strumenti che consentono agli utenti di mantenere il controllo sullo spazio su disco e garantire prestazioni ottimali del sistema.
+Un filesystem ha un numero massimo di file, non solo di byte. Se lo esaurisci, ottieni "No space left on device" con il disco mezzo vuoto:
 
-Tuttavia, è importante ricordare che l’ottimizzazione dello spazio su disco è un processo continuo e che le esigenze di archiviazione di un sistema possono cambiare nel tempo. Pertanto, è consigliabile monitorare regolarmente l’utilizzo dello spazio su disco e adottare pratiche di gestione proattive per garantire un utilizzo efficiente delle risorse.
+```
+df -i
+```
 
-Con NCDU nel tuo arsenale di strumenti di gestione del sistema, sei ben equipaggiato per affrontare le sfide legate alla gestione dello spazio su disco e garantire prestazioni ottimali del tuo server. Continua a esplorare le funzionalità di NCDU e scopri come questo strumento versatile può migliorare la tua esperienza di gestione dei server.
+Se `IUse%` è al 100%, cerca la cartella con milioni di file piccoli: in ncdu premi `c` per vedere il conteggio e `C` per ordinare. I responsabili tipici sono le sessioni PHP mai ripulite, le cache di un'applicazione e le code di posta.
 
-Se hai domande, suggerimenti o esperienze da condividere su NCDU o sulla gestione dello spazio su disco, non esitare a farlo nei commenti o a contattarmi direttamente. Grazie per aver letto questo articolo e spero che ti sia stato utile nella tua esperienza di gestione dei server.
+### File nascosti sotto un punto di montaggio
+
+Se scrivi in `/mnt/dati` mentre il disco non è montato, i file finiscono sul disco di sistema. Quando poi il disco viene montato, quei file restano lì, ma diventano invisibili. Per vederli, monta di nuovo la radice in un'altra posizione con un bind mount:
+
+```
+sudo mkdir /mnt/root-bind
+sudo mount --bind / /mnt/root-bind
+sudo ncdu -x /mnt/root-bind
+```
+
+Quando hai finito, `sudo umount /mnt/root-bind`.
+
+## E se ncdu non è installato?
+
+Sul server di un cliente non sempre puoi installare pacchetti. `du` c'è ovunque e dà lo stesso risultato, solo meno comodo da navigare:
+
+```
+sudo du -xh --max-depth=1 / 2>/dev/null | sort -h
+```
+
+Poi ripeti sulla cartella più grande, finché arrivi al colpevole.
+
+## In sintesi
+
+`df -h` per capire quale disco è pieno, `sudo ncdu -x` per capire cosa lo riempie, e il comando giusto per risolvere: `journalctl --vacuum-size`, logrotate, `docker system prune`, `PURGE BINARY LOGS`. Se i conti non tornano, `lsof +L1` e `df -i` risolvono quasi tutti i misteri.
+
+Per le modifiche ai file di configurazione, come `journald.conf` o le regole di logrotate, ti può servire la mia [guida pratica a nano](/nano-editor-guida-per-principianti/).

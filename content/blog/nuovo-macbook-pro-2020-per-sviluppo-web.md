@@ -3,6 +3,9 @@ title: "Nuovo Macbook Pro 2020 per sviluppo web"
 date: 2020-06-30
 description: "Ebbene sì, sono passato ad Apple! Ho acquistato il nuovo Macbook Pro 2020. È stata una decisione pensata a lungo, ho valutato tutto nei minimi dettagli e alla fine mi sono deciso a fare…"
 tags: ["Tech"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Ebbene sì, sono passato ad **Apple**! Ho acquistato il nuovo Macbook Pro 2020.

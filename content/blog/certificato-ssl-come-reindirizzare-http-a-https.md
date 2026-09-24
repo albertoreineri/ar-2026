@@ -29,7 +29,7 @@ Se utilizzi **WordPress** puoi utilizzare dei **plugin** che si occupano del
 
 Se hai effettuato correttamente il punto uno ora puoi aprire il file **.htaccess** presente nella root del tuo sito (se non c’è crealo) e inserire questo codice:
 
-``` wp-block-code
+```
 RewriteEngine on
 
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
@@ -41,13 +41,13 @@ In questo modo tutte le chiamate al server verranno redirette verso **l’https
 
 Se questo codice crea un errore circa i reindirizzamenti puoi sostituire 
 
-``` wp-block-code
+```
 RewriteCond %{HTTP:X-Forwarded-Proto} !https
 ```
 
 con
 
-``` wp-block-code
+```
 RewriteCond %{HTTPS}  !=on.
 ```
 

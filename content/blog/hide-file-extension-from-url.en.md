@@ -1,37 +1,91 @@
 ---
-title: "Hiding the File Extension at the End of a URL"
+title: "Hiding the .php extension from URLs with .htaccess"
+seoTitle: "Remove .php from URLs with .htaccess"
 date: 2019-12-19
-description: "These days, seeing a file extension at the end of a URL isn't great, both for SEO and for the impression the site makes on the end user — it's better to hide it. The ability to…"
+lastmod: 2026-09-24
+description: "A few lines of mod_rewrite in your .htaccess file to hide the .php extension from URLs and redirect old requests to the clean version."
 tags: ["Guides", "Web Dev"]
 translationKey: "hide-url-extension"
 ---
 
-These days, seeing a file extension at the end of a URL isn't great, both for SEO and for the impression the site makes on the end user — it's better to hide it.
+`/about` is cleaner than `/about.php`. It's not strictly an SEO matter, since Google doesn't care about the extension. The point is that a URL without an extension doesn't depend on the technology: if the site later moves to a framework or a static site generator, the addresses stay the same and you don't lose links or rankings.
 
-The **ability to choose your own URLs** is essential for building a good website. By using PHP pages correctly, you can simply achieve this result by hiding just the extension from the URL.
+On a plain PHP site, with no CMS or framework, a few lines in the `.htaccess` file are all it takes.
 
-In this guide, we'll see how to **"remove" the .php** from the end of the URL.
+{{< youtube VWqwsKL2-mM >}}
 
-To do this, just **add the following code to the .htaccess file** in the site root. If the .htaccess file doesn't exist, create it using a text editor.
+## The code
 
-``` wp-block-code
-RewriteEngine on
+In the site's root, in the `.htaccess` file (create it if it doesn't exist):
 
-RewriteCond %{THE_REQUEST} /([^.]+)\.php [NC]
+```
+RewriteEngine On
 
-RewriteRule ^ /%1 [NC,L,R]
+# 1. /index.php and /folder/index.php -> / and /folder/
+RewriteCond %{THE_REQUEST} \s/+(.*/)?index(\.php)?[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
 
+# 2. /page.php -> /page (visible redirect, except for POST forms)
+RewriteCond %{REQUEST_METHOD} !POST
+RewriteCond %{THE_REQUEST} \s/+(.+?)\.php[\s?] [NC]
+RewriteRule ^ /%1 [R=301,L,NE]
+
+# 3. /page -> page.php (internal rewrite, invisible to the user)
+RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.php -f
-
-RewriteRule ^ %{REQUEST_URI}.php [NC,L]
+RewriteRule ^(.+)$ $1.php [L]
 ```
 
-This way, all your ".php" files will be shown without the extension.
+What each block does:
 
-Doing this makes the whole site look better. The URLs will be much more "*SEO friendly*," and it also benefits the site's security.
+1. **The home page and indexes** don't become `/index`: anyone landing on `/index.php` is sent to `/`.
+2. **Old URLs with `.php`** (external links, Google results, bookmarks) are redirected to the clean version with a **301**. The 301 is what tells Google the address has changed for good, and it carries the rankings over to the new URL.
+3. **Requests without an extension** are served by the matching `.php` file, with no redirect: the address bar keeps showing `/about`.
 
-If you look at modern websites from big companies, pretty much none of them still use a file extension at the end of the URL.
+## Why it's written this way
 
-Today we can also use frameworks that let us manage URLs in a completely custom, optimal way, but you don't always need a whole framework. For small projects, it's often better to build things from scratch, and in those cases a few lines of code in the .htaccess file are enough to easily hide the extension from the URL.
+The code you'll find around (including the first version of this article) is often shorter. These are the details that make the difference.
 
-If you want to learn how to build a simple routing system, to better organize your website and manage your URLs, read this [article](/en/simple-php-routing-system/). It's pretty basic and simple, but it can be used for small, no-frills projects. It's certainly nothing like <a href="https://laravel.com/" target="_blank" rel="noreferrer noopener">Laravel</a>'s routing, for example, but it can be a good starting point for improving your skills.
+**`THE_REQUEST` rather than `REQUEST_URI`.** `THE_REQUEST` is the browser's original request, before any rewriting. If rule 2 looked at `REQUEST_URI`, it would also see the `.php` added internally by rule 3, and the result would be an infinite redirect.
+
+**POST forms are excluded.** If a form has `action="contact.php"` and the server answers with a redirect, the browser repeats the request as GET and the submitted data is lost, with no visible error. With the `!POST` condition old forms keep working. Still, update your links and form `action`s to the extension-less version.
+
+**Explicit `R=301`.** A bare `R` produces a **302**, a temporary redirect, and Google keeps treating the old URL as the main one.
+
+**`NE`** stops special characters in URLs from being encoded twice during the redirect.
+
+## Before going live: test with 302
+
+Browsers cache 301 redirects very aggressively. If you get a rule wrong and test it with a 301, your browser will keep following the wrong redirect even after you've fixed it. While testing, replace `R=301` with `R=302` and work in a private window. Once everything works, switch back to `R=301`.
+
+From the terminal you can check the redirects without a browser in the way:
+
+```
+curl -I https://example.com/about.php
+```
+
+The response should show `HTTP/1.1 301` and `Location: https://example.com/about`.
+
+## If it doesn't work
+
+**Error 500 as soon as you save the file.** Usually `mod_rewrite` isn't enabled, and Apache doesn't recognise `RewriteEngine`. On Debian and Ubuntu: `sudo a2enmod rewrite && sudo systemctl restart apache2`. The exact reason is always in Apache's error log.
+
+**The rules are ignored.** Apache isn't reading the `.htaccess` file: `AllowOverride All` is missing from the virtual host. My guide to the [LAMP stack on Ubuntu](/en/how-to-install-a-lamp-stack/) has the complete configuration.
+
+**The site lives in a subfolder.** If the site is at `example.com/project/`, add `RewriteBase /project/` below `RewriteEngine On`, and in rules 1 and 2 replace `/%1` with `/project/%1`.
+
+**You're on nginx.** nginx doesn't read `.htaccess` files. The equivalent of rule 3 goes in the server configuration:
+
+```
+location / {
+    try_files $uri $uri/ @php;
+}
+
+location @php {
+    rewrite ^(.*)$ $1.php last;
+}
+```
+
+## One step further
+
+Hiding the extension is the right fix when every page is already its own `.php` file. If you want URLs with parameters, like `/article/how-dns-works`, or a 404 page handled in PHP, the next step is a router: I wrote about building a [simple routing system in PHP](/en/simple-php-routing-system/) from scratch, without a framework.

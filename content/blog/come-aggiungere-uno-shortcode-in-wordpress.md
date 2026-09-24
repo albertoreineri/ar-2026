@@ -63,7 +63,7 @@ Gli shortcode sono pensati per essere utilizzati all’interno di post, pagine e
 
 Fondamentalmente, puoi aggiungere uno shortcode a qualsiasi file del tuo tema WordPress semplicemente aggiungendo il seguente codice.
 
-``` wp-block-code
+```
 <?php echo do_shortcode("[shortcode]"); ?>
 ```
 
@@ -75,7 +75,7 @@ Gli shortcode possono essere davvero utili quando si desidera **aggiungere cont
 
 Se hai dimestichezza con la scrittura di codice PHP, ecco un esempio che puoi utilizzare come modello:
 
-``` wp-block-code
+```
 // Funzione che viene eseguita quando è richiamato lo shortcode
 function my_shortcode() { 
     $messaggio = 'Ciao mondo!';  // Output 

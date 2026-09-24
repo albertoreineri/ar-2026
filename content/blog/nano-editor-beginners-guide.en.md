@@ -1,158 +1,192 @@
 ---
-title: "Nano Editor: A Beginner's Guide"
+title: "Nano: a practical guide to the terminal text editor"
+seoTitle: "Nano Editor: Commands and Shortcuts Cheat Sheet"
 date: 2022-06-27
-description: "Linux users have plenty of options when it comes to text editors. From basic to advanced, there are tons of text editors out there, but some like Vim and Emacs can be quite intimidating…"
+lastmod: 2026-09-24
+description: "A practical guide to nano: open, save and exit, search and replace, copy and paste, the essential shortcuts, the .nanorc file and the most common mistakes."
 tags: ["Guides", "Linux"]
 translationKey: "nano-editor-guide"
 ---
 
-[Linux](/en/tags/linux/) users have plenty of options when it comes to text editors. From basic to advanced, there are tons of text editors out there, but some like Vim and Emacs can be quite intimidating for less experienced users.
+Sooner or later you'll be on a server with a config file to edit and no GUI in sight. On almost every [Linux](/en/tags/linux/) distribution the first editor you'll find is **nano**: lightweight, preinstalled nearly everywhere, and with its shortcuts printed at the bottom of the screen, so you don't get trapped inside it the way everyone does with Vim the first time.
 
-This is where Nano comes to the rescue — arguably the best text editor for beginners.
+I've used Vim for years, yet for a quick change to an `sshd_config` or a virtual host I still reach for nano. This guide covers what you actually need: opening, saving and exiting, the shortcuts I use every day, configuring it with `.nanorc`, and the mistakes everyone runs into sooner or later.
 
-## Nano
+## Nano in a nutshell
 
-Nano is a simple, lightweight text editor built specifically for Unix systems and command-line desktop environments. It's licensed under the GNU General Public License and emulates the Pico text editor.
+Nano is a terminal text editor released under the GNU GPL, born as a free clone of **Pico**. It has no modes like Vim: you open the file and type. Every command is a key combination, and the main ones are always visible in the two lines at the bottom.
 
-## How to install Nano
+The help bar uses two symbols:
 
-I'm using Ubuntu for this tutorial, but the installation process is the same on other Linux distributions.
+- `^` means **Ctrl**: `^O` means `Ctrl + O`.
+- `M-` means **Meta**, i.e. the **Alt** key (Option on a Mac, see [common mistakes](#common-mistakes-and-how-to-get-out-of-them)): `M-U` means `Alt + U`.
 
-Before installing, it's worth checking whether the Nano text editor is already installed on your system. Some Linux distributions ship with Nano pre-installed.
+## Installing nano
 
-To check, run the following command in your terminal.
+First check whether it's already there:
 
-``` wp-block-code
-$ nano --version
+```
+nano --version
 ```
 
-If you get an output with the current version of nano, you can skip the installation since Nano is already installed on your system.
+If it isn't, install it with your distribution's package manager (if that's new territory, I wrote a [guide to Linux package management](/en/linux-package-management-explained/)):
 
-Installing the Nano text editor is straightforward — just run the following command in your terminal and wait for the installation to complete.
+```
+# Debian, Ubuntu and derivatives
+sudo apt install nano
 
-``` wp-block-code
-$ sudo apt-get install nano
+# Fedora, RHEL, Rocky, AlmaLinux
+sudo dnf install nano
+
+# Arch Linux
+sudo pacman -S nano
+
+# Alpine (common in Docker containers)
+apk add nano
+
+# macOS
+brew install nano
 ```
 
-CentOS/Red Hat Enterprise Linux (RHEL) users can use the following command to install Nano.
+A note for macOS: in recent versions the system `nano` command is actually a link to **pico**, which doesn't read `.nanorc` and lacks most of the features described here. Homebrew gets you the real GNU nano.
 
-``` wp-block-code
-$ sudo yum install nano
+## Opening, saving and exiting
+
+To open a file (or create it if it doesn't exist):
+
+```
+nano filename.txt
 ```
 
-Now that Nano is correctly installed on your system and ready to use, let's move on to a beginner's guide to using the Nano text editor.
+A few variants I use often:
 
-## Guide to using the Nano text editor
-
-Let's see how to use the Nano text editor.
-
-### How to open/close the Nano text editor
-
-The command to open the Nano text editor is the following.
-
-``` wp-block-code
-$ nano filename
+```
+nano +42 config.php      # open the file with the cursor on line 42
+nano -l nginx.conf       # show line numbers
+nano -v /var/log/syslog  # read-only: no accidental edits
 ```
 
-You can open various types of files in the Nano text editor, including .txt, .php, .html and many others. You just need to type the file name followed by an extension to open that particular file in the Nano editor. For example, let's say you need to open a file called my_file.txt, the command would be as follows.
+Once inside:
 
-``` wp-block-code
-$ nano my_file.txt
+- **Save**: `Ctrl + O`, then `Enter` to confirm the file name. Recent versions also have `Ctrl + S`, which saves without asking.
+- **Exit**: `Ctrl + X`. If there are unsaved changes, nano asks whether to save them: `Y` for yes, `N` to quit without saving, `Ctrl + C` to cancel and stay in the file.
+
+### Editing system files: prefer `sudoedit`
+
+To edit a file in `/etc`, the reflex is `sudo nano /etc/...`. It works, but the whole editor then runs as root. The cleaner alternative is:
+
+```
+sudoedit /etc/ssh/sshd_config
 ```
 
-Make sure you're in the directory where the file was saved. If the file isn't present in the directory, the Nano text editor will create a new file in the current directory.
+`sudoedit` (same as `sudo -e`) copies the file to a temporary location, opens it with your editor **as your regular user** and with your own configuration, then puts it back with the right permissions when you save. It uses the editor set in `SUDO_EDITOR`, `VISUAL` or `EDITOR`: if nano doesn't open, see below for how to set it.
 
-Once the file is open, you'll notice the Nano interface shows the file name at the top, while at the bottom you'll mostly see shortcuts like cut, replace, go to line and justify. Here ˄ means the **CTRL** key on your keyboard.
+## Search and replace
 
-For example, to **write** or save your changes, you need to press CTRL + O on your keyboard.
+- `Ctrl + W` opens search: type the text and press `Enter`.
+- `Alt + W` jumps to the next match, `Alt + Q` to the previous one.
+- `Ctrl + \` (or `Alt + R`) opens replace: nano asks for the text to find, then its replacement. At each match press `Y` to replace it, `N` to skip it or `A` to replace them all.
 
-If you're opening a configuration file, make sure to use the **–w** option — this tells the Nano editor to open the configuration file in a standard format. If you don't use this option, the Nano editor will wrap the file's text to fit the window, which ends up being hard to read.
+Inside the search prompt, `Alt + R` toggles **regular expressions** and `Alt + C` makes the search case-sensitive. For example, `^#?Port ` with regex enabled finds the port line in `sshd_config`, commented out or not.
 
-## How to search / replace text
+## Selecting, copying and pasting
 
-**CTRL + W** is the shortcut to search for a word in the editor. Now you need to enter the text you want to search for and then press Enter. To keep searching for the same text, use the **ALT + W** key.
+Copy and paste in nano doesn't use `Ctrl + C` / `Ctrl + V`, and that confuses everyone at first:
 
-To replace text, you need to use **CTRL + R** — the editor will take you to the first instance of the text you want to replace; to replace all occurrences of the text, press **A**. But if you only want to replace one occurrence, press **Y**.
+1. Put the cursor at the start of the text and press `Alt + A` (or `Ctrl + 6`) to start a selection.
+2. Move the cursor to the end of the text you need.
+3. Press `Alt + 6` to **copy** or `Ctrl + K` to **cut**.
+4. Move the cursor where you want the text and press `Ctrl + U` to paste.
 
-## How to copy and paste text
+With no selection, `Ctrl + K` cuts the whole line the cursor is on. Press it several times in a row and it stacks the lines up: the quickest way to move a block.
 
-Copy-pasting isn't as straightforward in the Nano editor as in other text editors. If you want to cut and paste a particular line, you first need to move the cursor to the beginning of that line.
+To paste text coming **from outside** (a browser, for example), use your terminal's paste: `Ctrl + Shift + V` on Linux, `Cmd + V` on a Mac.
 
-Now you need to press **CTRL + K** to cut the line, then move the cursor to where you want to paste it, and finally press **CTRL + U** to paste the line.
+## Shortcuts worth keeping at hand
 
-To copy and paste a particular string or word, you need to select that word or string by pressing **CTRL + 6** or **ALT + A**, making sure the cursor is at the beginning of the word.
+This is the table I'd keep printed next to the monitor. `Ctrl + G` opens the full help anyway, right inside nano.
 
-Now you can use **CTRL + K** and **CTRL + U** to cut and paste the word or string.
+| Shortcut | Action |
+|---|---|
+| `Ctrl + O` | Save (asks to confirm the name) |
+| `Ctrl + S` | Save without asking |
+| `Ctrl + X` | Exit |
+| `Ctrl + G` | Help with every command |
+| `Ctrl + W` | Search |
+| `Alt + W` / `Alt + Q` | Next / previous match |
+| `Ctrl + \` | Search and replace |
+| `Ctrl + _` | Go to a specific line (and column) |
+| `Ctrl + A` / `Ctrl + E` | Start / end of line |
+| `Ctrl + Y` / `Ctrl + V` | Page up / page down |
+| `Alt + \` / `Alt + /` | Start / end of file |
+| `Ctrl + C` | Show cursor position (line and column) |
+| `Alt + A` | Start a selection |
+| `Alt + 6` | Copy the line or selection |
+| `Ctrl + K` | Cut the line or selection |
+| `Ctrl + U` | Paste |
+| `Alt + U` / `Alt + E` | Undo / redo |
+| `Alt + 3` | Comment or uncomment the line or selection |
+| `Alt + }` / `Alt + {` | Indent / unindent |
+| `Alt + N` | Toggle line numbers |
+| `Ctrl + R` | Insert the contents of another file |
+| `Ctrl + J` | Justify the paragraph |
 
-That's how you can get started using the Nano text editor. Editing a text file from the command line isn't easy, but the Nano text editor makes it simpler. It's reliable and one of the easiest command-line tools to use.
+`Alt + 3` alone is worth the read: to disable a config block on the fly, select it and comment it out in one go, using the right comment character for that file type.
 
-From beginners to professionals, everyone finds the Nano text editor a useful command-line tool. I hope this guide has definitely helped you get started with Nano.
+## Configuring nano with `.nanorc`
 
-Below is a list of frequently used commands:
+The defaults are bare-bones. The `~/.nanorc` file (for your user) or `/etc/nanorc` (system-wide) changes them for good. This is a reasonable starting point:
 
-## Handy Nano shortcuts
+```
+set linenumbers          # always show line numbers
+set constantshow         # cursor position always in the status bar
+set indicator            # scrollbar on the side
+set autoindent           # keep the previous line's indentation
+set tabsize 4
+set tabstospaces         # spaces instead of tabs (see YAML below)
+set mouse                # click to place the cursor and select
+set backup               # keep a copy of the file before saving
+set backupdir "~/.cache/nano/backups"
 
-<figure class="wp-block-table">
-<table>
-<thead>
-<tr>
-<th>Command</th>
-<th>Action</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>CTRL + A</td>
-<td>Go to the beginning of the line</td>
-</tr>
-<tr>
-<td>CTRL + E</td>
-<td>Go to the end of the line</td>
-</tr>
-<tr>
-<td>CTRL + Y</td>
-<td>Scroll down the page</td>
-</tr>
-<tr>
-<td>CTRL + V</td>
-<td>Scroll up the page</td>
-</tr>
-<tr>
-<td>CTRL + _</td>
-<td>Go to a specific line</td>
-</tr>
-<tr>
-<td>CTRL + C</td>
-<td>Show current cursor position</td>
-</tr>
-<tr>
-<td>CTRL + V</td>
-<td>Scroll up</td>
-</tr>
-<tr>
-<td>CTRL + W</td>
-<td>Search for text</td>
-</tr>
-<tr>
-<td>CTRL + D</td>
-<td>Delete the character under the cursor</td>
-</tr>
-<tr>
-<td>CTRL + K</td>
-<td>Delete the whole line</td>
-</tr>
-<tr>
-<td>CTRL + \</td>
-<td>Replace a string</td>
-</tr>
-<tr>
-<td>CTRL + O</td>
-<td>Save the content without exiting</td>
-</tr>
-<tr>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-</figure>
+# syntax highlighting
+include "/usr/share/nano/*.nanorc"
+```
+
+Two notes. The `backupdir` folder must exist (`mkdir -p ~/.cache/nano/backups`), otherwise nano can't write the backup. The path to the syntax files varies by system: with Homebrew on Apple Silicon it's `/opt/homebrew/share/nano/*.nanorc`. On Debian and Ubuntu the `include` is often already in `/etc/nanorc`.
+
+### Nano as the default editor
+
+Many programs (`git commit`, `crontab -e`, `visudo`, `sudoedit`) open whatever editor is set in the `VISUAL` and `EDITOR` variables. To use nano, add this to your `~/.bashrc` or `~/.zshrc`:
+
+```
+export EDITOR=nano
+export VISUAL=nano
+```
+
+On Debian and Ubuntu you can also pick the system editor with `sudo update-alternatives --config editor`. Git has its own setting:
+
+```
+git config --global core.editor nano
+```
+
+## Common mistakes (and how to get out of them)
+
+**"Error writing ...: Permission denied" when saving.** You opened a system file without `sudo` and already made all your changes. Don't quit and lose your work: press `Ctrl + O`, change the name to `/tmp/filename` and save it there. Then copy it into place with `sudo cp /tmp/filename /original/path`. Next time, use `sudoedit`.
+
+**Alt shortcuts don't work on a Mac.** macOS Terminal doesn't send Option as Meta. In *Terminal → Settings → Profiles → Keyboard*, enable "Use Option as Meta key". In iTerm2, set the left Option key to "Esc+". Alternatively, press and release `Esc` and then the letter: `Esc`, `U` is the same as `Alt + U`.
+
+**YAML that won't parse after editing.** YAML doesn't allow tabs for indentation. If you edit a `docker-compose.yml` or an Ansible playbook with nano set to tabs, the file breaks with nothing visible on screen. `set tabstospaces` in `.nanorc` (or the `-E` option) fixes this for good. Watch out for the opposite case: `Makefile`s actually require tabs.
+
+**Long lines split in two.** Old versions of nano, like the ones still found on CentOS 7, wrapped long lines on their own by inserting real line breaks, which is deadly in a config file. On old versions, open files with `nano -w`. Since nano 4.0 this behaviour is off by default. If a long line bothers you on screen, `Alt + S` turns on visual-only wrapping, which doesn't change the file.
+
+**A file full of `^M` characters or "Converted from DOS format".** The file has Windows line endings (CRLF). Nano converts them when reading. When saving, in the `Ctrl + O` prompt, `Alt + D` chooses whether to write it back in DOS or Unix format. For shell scripts and config files you want Unix.
+
+**Terminal frozen after `Ctrl + S`.** It happens on older systems or terminals with XON/XOFF flow control enabled: `Ctrl + S` freezes the output instead of saving. `Ctrl + Q` unfreezes it. Then save with `Ctrl + O`.
+
+**"I'm stuck inside an editor and can't get out."** If you see shortcuts at the bottom, you're in nano: `Ctrl + X`. If you see nothing and every line at the bottom is just `~`, you're in Vim: press `Esc`, then type `:q!` and `Enter` to quit without saving.
+
+## Nano or Vim?
+
+It's not a contest. Nano is the right choice for targeted edits: a parameter in a config file, a line in the crontab, a commit message. When you spend hours inside a file, or need repetitive edits across many lines, Vim (or a real editor over SSH, like VS Code Remote) pays back the time it takes to learn.
+
+Even as a Vim user, though, knowing nano well pays off: it's almost always installed, even in a minimal container or on a client's server where you can't install anything. If you work on remote servers a lot, you may also find my [practical guide to SSH](/en/ssh-practical-guide/) and the guide to [ncdu for analyzing disk usage](/en/ncdu-disk-usage-from-the-terminal/) useful.

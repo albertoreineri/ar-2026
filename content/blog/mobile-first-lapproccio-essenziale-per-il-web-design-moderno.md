@@ -3,6 +3,9 @@ title: "Mobile First: L’Approccio Essenziale per il Web Design Moderno"
 date: 2024-02-19
 description: "Viviamo in un’era in cui il mondo digitale è alla portata di mano, grazie all’ampia diffusione di smartphone e tablet. Gli utenti trascorrono sempre più tempo online attraverso questi dispositivi…"
 tags: ["Web Design"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Viviamo in un’era in cui il mondo digitale è alla portata di mano, grazie all’ampia diffusione di smartphone e tablet. Gli utenti trascorrono sempre più tempo online attraverso questi dispositivi mobili, rendendo fondamentale per il successo online la creazione di esperienze web ottimizzate per schermi di dimensioni ridotte. È in questo contesto che emerge l’approccio “Mobile First” nel web design.

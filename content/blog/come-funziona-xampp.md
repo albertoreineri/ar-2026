@@ -1,7 +1,7 @@
 ---
 title: "3. Come funziona XAMPP"
 date: 2020-03-20
-description: "Hai letto l’articolo sulla configurazione del PC per lo sviluppo web, hai installato tutti i programmi e sei pronto ad iniziare a sviluppare! MA COME FUNZIONA XAMPP? Sebbene non sia un software…"
+description: "Come usare XAMPP per sviluppare in PHP in locale: avviare Apache e MySQL, dove mettere i siti, come aprirli nel browser e come accedere al database."
 tags: ["Guide", "WordPress Base"]
 translationKey: "xampp-how-it-works"
 ---

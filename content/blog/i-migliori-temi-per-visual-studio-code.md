@@ -1,232 +1,98 @@
 ---
-title: "I migliori temi per Visual Studio Code"
+title: "I migliori temi per VS Code nel 2026, chiari e scuri"
+seoTitle: "I migliori temi per VS Code, chiari e scuri"
 date: 2022-07-04
-description: "Lavorare in un ambiente piacevole è fondamentale per la produttività. Visual Studio code ultimamente sta guadagnando sempre più popolarità, e se mi segui saprai già che è il mio editor preferito!…"
+lastmod: 2026-09-24
+description: "I temi scuri e chiari per VS Code che valgono la pena nel 2026, come fargli seguire il tema del sistema e il trucco per non confondere più produzione e locale."
 tags: ["Web Dev"]
 translationKey: "vscode-themes"
 ---
 
-Lavorare in un ambiente piacevole è fondamentale per la produttività. Visual Studio code ultimamente sta guadagnando sempre più popolarità, e se mi segui saprai già che è il mio editor preferito! Vediamo oggi quali sono i miei temi [preferiti](https://albertoreineri.it/software-per-sviluppo-web/) per Visual Studio Code, sia chiari che scuri!
+Passo più ore dentro VS Code che in qualunque altro programma, e il tema è la cosa che ho davanti per tutto il tempo. Non ti rende un programmatore migliore, ma un buon contrasto e colori della sintassi che distinguono davvero le cose affaticano meno gli occhi e rendono il codice più veloce da leggere.
 
-Nel 2019 [Visual Studio Code](https://code.visualstudio.com/) (VSCode) è stato l’editor di testo più utilizzato dagli sviluppatori secondo, con il 50% degli 87.317 intervistati che lo utilizzano. Questo è stato un grande passo avanti dopo essere stato classificato al 13° posto tra gli strumenti di sviluppo popolari su Stackoverflow.
+Questa è la mia selezione, rivista per il 2026: pochi temi, scelti perché sono mantenuti e ben fatti, non perché hanno più download. Per le anteprime ho messo i link alle pagine del Marketplace, che hanno screenshot sempre aggiornati.
 
-VSCode dispone di un velocissimo editor di codice sorgente, ideale per l’uso quotidiano. Con il supporto per centinaia di linguaggi di programmazione diversi, tra cui C++, Java, Javascript, JSON, Julia, PHP etc. migliora la tua produttività con la corrispondenza delle parentesi, la selezione dei riquadri, l’evidenziazione della sintassi, l’indentazione automatica e altro ancora.
+## Come installare e cambiare tema
 
-Tuttavia, con oltre 5.000 temi tra cui scegliere, può essere scoraggiante trovare il migliore per te. Se stai cercando i migliori temi VSCode da provare, ecco a te i miei preferiti!
+Dal pannello Estensioni (`Ctrl + Shift + X`) cerca il nome del tema e installalo. Poi `Ctrl + K`, `Ctrl + T` apre il selettore dei temi: scorri con le frecce per vedere l'anteprima dal vivo e premi `Invio` per confermare.
 
-## **Come installare temi in Visual Studio Code**
+Prima di installare qualcosa, prova i temi integrati: **Dark Modern** e **Light Modern** sono i predefiniti delle versioni recenti e sono fatti bene. Tra gli integrati ci sono anche **Solarized** (chiaro e scuro), **Quiet Light** e le varianti ad alto contrasto.
 
-Puoi installare temi in Visual Studio Code in due modi principali. Puoi visitare il Marketplace e selezionare il tema che desideri scaricare, oppure puoi cercare in VSCode IDE.
+## I temi scuri
 
-**Metodo 1: **Marketplace****
+**[One Dark Pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)**: il porting del tema di Atom, ed è ancora il tema più installato del Marketplace. Colori equilibrati, niente di eccessivo: se non sai da dove partire, parti da qui.
 
-1: Visita il <a href="https://marketplace.visualstudio.com/vscode" target="_blank" rel="noreferrer noopener">Marketplace</a> e seleziona il tema che desideri scaricare. In VSCode, fai clic su File\>Preferenze\>Tema colore per aprire il selettore Tema colore sul tuo PC Windows. Se sei su macOS, fai clic su Code\>Preferenze\>Tema colore
+**[Tokyo Night](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night)**: blu profondi e colori della sintassi tenui ma ben distinti. Ha una variante *Storm*, un po' più chiara, e una versione diurna. È il tema che uso più spesso.
 
-Puoi anche aprire il selettore usando la scorciatoia da tastiera “Ctrl+K Ctrl+T”.
+**[Catppuccin](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc)**: colori pastello, in quattro varianti (tre scure e una chiara, *Latte*). Il suo punto di forza è l'ecosistema: esiste per terminale, browser, Slack e quasi tutto il resto, quindi puoi avere lo stesso aspetto ovunque.
 
-2: Usa i tasti cursore per scorrere e visualizzare in anteprima i colori del tema
+**[Dracula](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)**: contrasto alto e colori saturi, viola e rosa su fondo scuro. Divide: o lo ami o dopo un'ora ti stanca. Anche questo esiste per centinaia di altre applicazioni.
 
-3: Seleziona il tema che desideri e premi “Invio” sulla tastiera
+**[GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)**: il tema ufficiale di GitHub, con varianti scure e chiare, comprese quelle per daltonici e ad alto contrasto. Sobrio e molto leggibile, e il codice ha lo stesso aspetto che vedi nelle pull request.
 
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/1-how-to-install-vscode-themes-from-marketplace.png" class="wp-image-1588" decoding="async" />
-</figure>
+**[Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)**: creato da Sarah Drasner pensando a chi programma di notte e all'accessibilità per chi è daltonico. Include anche una variante chiara, *Light Owl*.
 
-**Metodo 2: ricerca in VSCode**
+**[Gruvbox](https://marketplace.visualstudio.com/items?itemName=jdinhlife.gruvbox)**: toni caldi, marroni e ocra, a basso contrasto. Arriva dal mondo Vim ed è ideale se trovi stancanti i blu e i viola della maggior parte dei temi scuri.
 
-In alternativa, puoi installare un tema cercandolo dentro VSCode. Dall’icona <a href="https://www.tabnine.com/blog/top-42-free-vscode-extensions/" target="_blank" rel="noreferrer noopener">Estensioni</a> sul lato sinistro di VSCode, cerca il tema richiesto e fai clic su Installa.
+## I temi chiari
 
-## **I migliori temi scuri per VSCode**
+I temi chiari hanno una cattiva reputazione tra gli sviluppatori, ma in una stanza luminosa o all'aperto sono più leggibili di qualsiasi tema scuro. Il problema è che molti sono fatti male, con colori pensati per il fondo scuro e adattati alla meglio. Questi no:
 
-Se non vuoi farti male agli occhi usando un tema chiaro tutto il giorno, un tema scuro è sicuramente consigliato per la tua vista. Sebbene VSCode abbia un tema Dark+ predefinito, potrebbe non essere il tuo preferito… Magari desideri un mix di colori e sfumature diversi. 
+**GitHub Light** (dal [GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme) visto sopra): il tema chiaro più equilibrato che conosco. Colori della sintassi scuri e saturi quanto basta per leggere bene anche con il sole sullo schermo.
 
-Ecco i migliori temi oscuri per VSCode:
+**Catppuccin Latte** (dal pacchetto [Catppuccin](https://marketplace.visualstudio.com/items?itemName=Catppuccin.catppuccin-vsc)): pastello anche in versione chiara, meno abbagliante del bianco puro.
 
-****One Dark Pro****
+**Solarized Light** (integrato in VS Code): progettato con criteri precisi di contrasto, sfondo color crema invece che bianco. È nato nel 2011 e non è mai passato di moda.
 
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/3-one-dark-pro-1024x861.png" class="wp-image-1591" decoding="async" />
-</figure>
+**Light Owl** (dal pacchetto [Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)): alto contrasto e colori ben distinti, ottimo per le presentazioni e per condividere lo schermo.
 
-One Dark Pro è il tema VSCode più popolare e ampiamente scaricato con quasi 4 milioni di installazioni. Si basa sul tema One Dark di Atom ed è adatto per gli sviluppatori che amano i temi in modalità oscura. Ha combinazioni ben miscelate e colori di evidenziazione della sintassi molto *cool* che lo rendono visivamente accattivante. 
+## Chiaro di giorno, scuro di sera
 
-[Scarica One Dark pro](https://marketplace.visualstudio.com/items?itemName=zhuangtongfa.Material-theme)
+Non devi scegliere. VS Code può seguire il tema del sistema operativo e passare da solo da un tema all'altro:
 
-****Dracula Official****
+```
+{
+  "window.autoDetectColorScheme": true,
+  "workbench.preferredDarkColorTheme": "Tokyo Night Storm",
+  "workbench.preferredLightColorTheme": "GitHub Light Default"
+}
+```
 
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/4-dracula-official-screenshot-989x1024.png" class="wp-image-1592" decoding="async" />
-</figure>
+Con il sistema in modalità automatica, l'editor cambia tema all'alba e al tramonto senza che tu debba pensarci.
 
-Creato da Zeno Rocha, Dracula Official è un tema scuro per VSCode e altre oltre 181 app. Ha download in tutto il mondo con oltre 2 milioni di utenti e ha ricevuto una valutazione media di 4,9 da 81 revisori. Vanta fantastiche combinazioni di colori e contrasti per migliorare la tua produttività.
+## Il trucco che uso davvero: un colore per ambiente
 
-[Scarica Dracula ufficiale](https://marketplace.visualstudio.com/items?itemName=dracula-theme.theme-dracula)
+Più che il tema in sé, la personalizzazione che mi ha evitato più guai è questa: dare un colore diverso alla barra del titolo in base al progetto. Quando lavori via [Remote SSH](/le-9-migliori-estensioni-di-visual-studio-code/) su un server di produzione, una barra rossa ti ricorda in ogni momento dove sei.
 
-**Darcula**
+Nel file `.vscode/settings.json` del progetto (o nelle impostazioni dell'host remoto):
 
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/5-darcula-screenshot-1024x760.png" class="wp-image-1594" decoding="async" />
-</figure>
+```
+{
+  "workbench.colorCustomizations": {
+    "titleBar.activeBackground": "#8b1e1e",
+    "titleBar.activeForeground": "#ffffff",
+    "statusBar.background": "#8b1e1e"
+  }
+}
+```
 
-Se hai utilizzato gli IDE Jetbrains e Android Studio, ti sei sicuramente imbattuto nel tema Darcula. Sebbene sia facile confondere Dracula Official con il Darcula, quest’ultimo offre una combinazione di colori accuratamente scuri per oltre 195+ app, editor di codice ed emulatori di terminale, incluso VSCode. 
+Se vuoi farlo con un clic e una tavolozza già pronta, l'estensione [Peacock](https://marketplace.visualstudio.com/items?itemName=johnpapa.vscode-peacock) fa esattamente questo.
 
-[Scarica il tema Darcula](https://marketplace.visualstudio.com/items?itemName=rokoroku.vscode-theme-darcula)
+## Il font conta quanto il tema
 
-**Synthwave ’84**
+Un buon tema con un font mediocre resta mediocre. I due che consiglio sono **[JetBrains Mono](https://www.jetbrains.com/lp/mono/)** e **[Fira Code](https://github.com/tonsky/FiraCode)**, entrambi gratuiti, progettati per il codice e con le **legature**: `=>`, `!==` e `>=` diventano un unico simbolo. Dopo averne installato uno sul sistema:
 
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/6-synthwave-theme-1024x672.jpg" class="wp-image-1595" decoding="async" />
-</figure>
+```
+{
+  "editor.fontFamily": "'JetBrains Mono', monospace",
+  "editor.fontLigatures": true,
+  "editor.fontSize": 14,
+  "editor.lineHeight": 1.6
+}
+```
 
-Il tema Synthwave ’84 è un semplice tema CSS che celebra l’estetica degli anni ’80 nello sviluppo web moderno. È influenzato dalla musica e dalle copertine dei moderni marchi Synthwave come Timecop 1893, The Midnight e FM-84. Ti consente di sperimentare l’effetto bagliore dei sogni al neon degli anni ’80 con colori ben miscelati, rendendolo uno dei temi più eleganti e di classe.
+Le legature sono una questione di gusto: se ti confondono, disattivale e tieni il font.
 
-[Scarica Synthwave ’84](https://marketplace.visualstudio.com/items?itemName=RobbOwen.synthwave-vscode)
+## In sintesi
 
-**Tema Atom One Dark**
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/7-atom-one-dark-preview-1024x617.png" class="wp-image-1596" decoding="async" />
-</figure>
-
-Creato da Mahmoud Ali, è stato l’ispirazione per il tema One Dark e si basa sul tema dell’Atom IDE. A differenza di altri temi dark, ha solo una variante: oscuro. È un’opzione eccellente se ti manca Atom ma non vuoi tornarci. Vanta quasi 2 milioni di installazioni in tutto il mondo con una valutazione di 5/5.
-
-[Scarica Atom One Dark](https://marketplace.visualstudio.com/items?itemName=akamud.vscode-theme-onedark) 
-
-****Night Owl****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/8-nightowl-first-screen.jpg" class="wp-image-1597" decoding="async" />
-</figure>
-
-Sei un nottambulo a cui piace programmare di notte quando il resto del mondo dorme? Lo sono anche io! Il tema Night Owl può fare per te. Presenta un tema chiaro e uno scuro, che aiuta le persone daltoniche e garantisce una facile visualizzazione alla luce del giorno.
-
-[Scarica Night Owl](https://marketplace.visualstudio.com/items?itemName=sdras.night-owl)
-
-## **I migliori temi chiari per VSCode**
-
-I temi chiari sono consigliati per la codifica della luce diurna. Poiché i programmatori trascorrono la maggior parte del lavoro di giorno, spesso si può avere bisogno di un tema luminoso elegante che aiuti a programmare con facilità. Personalmente li utilizzo quando lavoro all’aperto sotto al sole.
-
-Ecco i migliori temi di luce per VSCode:
-
-****Quiet Light****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/9-quiet-light.png" class="wp-image-1598" decoding="async" />
-</figure>
-
-Creato inizialmente per l’editor di testo Espresso su Mac, Quiet Light è un porting ufficiale del tema Quiet Light. Sebbene VSCode venga fornito con un tema Quiet Light predefinito, questo ha più modifiche per soddisfare i tuoi gusti e le tue preferenze. Supporta diversi linguaggi, inclusi JavaScript, PHP, HTML, CSS, Python e altri.
-
-[Scarica Quiet Light](https://marketplace.visualstudio.com/items?itemName=onecrayon.theme-quietlight-vsc)
-
-****Bracket Lights Pro****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/10-brackets-light-pro-1024x597.png" class="wp-image-1599" decoding="async" />
-</figure>
-
-Bracket Lights Pro è un tema accattivante grazie alla sua bellissima tavolozza di colori. Incanala il tema chiaro dell’editor di codice Brackets di Adobe su VSCode. Sebbene Adobe abbia terminato il suo supporto per Brackets il 1° settembre 2021, ti piacerà usare Bracket Lights Pro per il suo aspetto pulito.
-
-[Scarica Bracket Lights Pro](https://marketplace.visualstudio.com/items?itemName=fehey.brackets-light-pro)
-
-****Bluloco Light****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/11-blulocojs-1024x926.png" class="wp-image-1600" decoding="async" />
-</figure>
-
-Se desideri un tema con raffinatezza e un’ampia gamma di colori nella tavolozza, non sbaglierai con Bluloco Light. Biforcato inizialmente da One Light Theme, presenta un uso più ampio della coerenza del colore e degli ambiti della sintassi per quanto riguarda leggibilità, contrasto ed estetica.
-
-[Scarica Bluloco Light](https://marketplace.visualstudio.com/items?itemName=uloco.theme-bluloco-light)
-
-## **I migliori temi per VSCode**
-
-VSCode è senza dubbio uno dei migliori editor di codice, con una vasta gamma di estensioni supportate dalla comunità. Disponibile su macOS, Windows e Linux, puoi soddisfare quasi tutte le tue esigenze di programmazione indipendentemente dal sistema operativo. 
-
-Ecco i migliori temi per VSCode:
-
-****Tokyo Night****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/12-ss_tokyo_night-1024x713.png" class="wp-image-1605" decoding="async" alt="Notte di Tokio" />
-<figcaption>Tokyo Night</figcaption>
-</figure>
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/12-ss_tokyo_night_storm-1-1024x713.png" class="wp-image-1602" decoding="async" alt="Tempesta notturna di Tokyo" />
-<figcaption>Tokyo Night Storm</figcaption>
-</figure>
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/12-ss_tokyo_day-1024x712.png" class="wp-image-1603" decoding="async" alt="Giornata di Tokyo" />
-<figcaption>Tokyo Day</figcaption>
-</figure>
-
-Questo tema è pulito, fresco e rilassante con colori calmi. Celebra le luci del centro di Tokyo di notte ed è disponibile sia in versione chiara che scura. La sua perfetta miscela e combinazione di colori aiutano a meditare mentre scrivi codici.
-
-[Scarica](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night) [Tokyo Night](https://marketplace.visualstudio.com/items?itemName=enkia.tokyo-night)
-
-****GitHub Theme****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/13-github-132220037-3cd3e777-55a6-445f-9a2e-da6020ebd78d-1024x640.png" class="wp-image-1604" decoding="async" />
-<figcaption>Temi GitHub</figcaption>
-</figure>
-
-Il tema GitHub porta l’esperienza GitHub in VSCode. È simile ai temi ufficiali di GitHub.com ed è popolare tra gli sviluppatori che preferiscono i temi classici. È disponibile sia in chiaro che in scuro
-
-[Scarica GitHub Theme](https://marketplace.visualstudio.com/items?itemName=GitHub.github-vscode-theme)
-
-****Winter is Coming****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/14-dark-blue-html-1024x605.png" class="wp-image-1608" decoding="async" />
-<figcaption><strong><strong>Dark Blue HTML</strong></strong></figcaption>
-</figure>
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/14-dark-blue-js-1024x605.png" class="wp-image-1609" decoding="async" />
-<figcaption><strong><strong>Dark Blue JavaScript</strong></strong></figcaption>
-</figure>
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/14-dark-blue-ts-1024x605.png" class="wp-image-1610" decoding="async" />
-<figcaption><strong><strong>Dark Blue TypeScript</strong></strong></figcaption>
-</figure>
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/14-winteriscoming-1024x605.png" class="wp-image-1606" decoding="async" alt="JavaScript leggero" />
-<figcaption><strong><strong>Light JavaScript</strong></strong></figcaption>
-</figure>
-
-Se sei un grande fan di Game of Thrones, avrai sicuramente sentito questa frase diverse volte! È stato creato da John Papa ed è disponibile in diverse versioni, tra cui blu scuro, nero scuro e chiaro. Racchiude un equilibrio nelle sue combinazioni di colori, rendendolo perfetto per la codifica durante il giorno e la notte.
-
-[Scarica](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming) [Winter is Coming](https://marketplace.visualstudio.com/items?itemName=johnpapa.winteriscoming)
-
-****Firefox Theme****
-
-<figure class="wp-block-image">
-<img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/15-theme-preview-1-1024x576.gif" class="wp-image-1612" decoding="async" alt="Tema Firefox" />
-</figure>
-
-Il tema Firefox è basato sugli strumenti per sviluppatori di Mozilla Firefox. Il suo perfetto equilibrio di colori freddi gli conferisce un aspetto elegante con icone illuminate al neon. Per passare facilmente da una scheda all’altra, fornisce una sottolineatura evidenziata sulle schede aperte per garantire una transizione rapida. È disponibile nelle versioni scura e chiara.
-
-[Scarica il tema Firefox](https://marketplace.visualstudio.com/items?itemName=Heron.firefox-devtools-theme)
-
-**Nu Disco**
-
-<figure class="wp-block-image">
-<a href="https://www.tabnine.com/blog/wp-content/uploads/2021/11/17-discojs.png"><img src="https://www.tabnine.com/blog/wp-content/uploads/2021/11/17-discojs-1024x733.png" class="wp-image-1615" decoding="async" alt="Nu Disco" /></a>
-<figcaption>Nu Disco</figcaption>
-</figure>
-
-Nu Disco è stato creato da Danny Banks ed è alimentato da Style Dictionary. I suoi colori di sintassi sono posizionati magnificamente con colori contrastanti per semplificare la tua esperienza di codifica. Disponibile nelle versioni scura e chiara, è perfettamente progettato per essere facile da usare in ambienti luminosi e scarsamente illuminati.
-
-[Scarica il tema Nu Disco](https://marketplace.visualstudio.com/items?itemName=dbanksdesign.nu-disco)
-
-## **Incartare**
-
-VSCode è un ottimo editor di codice che supporta centinaia di linguaggi e funzionalità avanzate, tra cui l’evidenziazione della sintassi, l’indentazione automatica e gli snippet. È adatto per lo sviluppo Web moderno e dispone di un debugger interattivo per visualizzare gli stack di chiamate ed eseguire variabili.
-
-Provare uno dei temi di Visual Studio Code che ho suggerito qua sopra può aiutarti molto durante le tue sessioni di coding. Sebbene i temi sopra riportati rendano il tuo IDE colorato e aiutino i tuoi occhi a pungere meno, non ti renderanno certo un programmatore migliore… Ma lavorare in un ambiente piacevole è sicuramente più motivante!
-
-Buon codice!
+Parti da un tema integrato. Se non ti convince, prova One Dark Pro o Tokyo Night per lo scuro e GitHub Light per il chiaro, attiva il cambio automatico con il sistema e scegli un font fatto per il codice. Per il resto dell'ambiente ho raccolto [le estensioni di VS Code che uso davvero](/le-9-migliori-estensioni-di-visual-studio-code/).

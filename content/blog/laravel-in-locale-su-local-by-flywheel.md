@@ -11,21 +11,9 @@ Local è molto semplice da utilizzare, veloce e ben organizzato, perciò è la m
 
 Vediamo ora come installare Laravel in locale su Local by Flywheel.
 
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
-<div class="wp-block-embed__wrapper">
-<div class="iframe">
-<div id="player">
+{{< youtube ko7kSkYRmss >}}
 
-</div>
-<div class="player-unavailable">
-<h1 id="si-è-verificato-un-errore." class="message">Si è verificato un errore.</h1>
-<div class="submessage">
-Impossibile eseguire JavaScript
-</div>
-</div>
-</div>
-</div>
-</figure>
+
 
 *Nota: cercherò di aggiornare questo articolo con le ultime versioni di Laravel. (ultimo aggiornamento: 18 febbraio 2020)*
 
@@ -49,7 +37,7 @@ Questo passaggio richiede che Composer sia installato globalmente sul tuo sistem
 
 Una volta installato Composer, puoi seguire le istruzioni di installazione per installare anche Laravel a livello globale. Puoi trovare la documentazione **<a href="https://laravel.com/docs/5.7/installation" target="_blank" rel="noreferrer noopener">qui</a>** , ma il comando di base sarà: 
 
-``` wp-block-code
+```
 composer global require laravel/installer
 ```
 
@@ -60,13 +48,13 @@ Una volta installato Larvel a livello globale, installiamolo nella nostra App in
 - Elimina la cartella “app” corrente (nella finestra Finder / Explorer o tramite riga di comando)
 - Quindi esegui il seguente comando dalla nuova directory del sito:
 
-``` wp-block-code
+```
 laravel new app
 ```
 
 Se questo comando vi dà “*zsh: command not found: laravel*” allora provate a dare questo da terminare:
 
-``` wp-block-code
+```
 export PATH="$HOME/.composer/vendor/bin:$PATH"
 ```
 
@@ -78,7 +66,7 @@ A questo punto, dovresti essere in grado di fare clic su “Visualizza sito” n
 
 Nel tuo `.env`file, puoi sostituire le seguenti credenziali (supponendo che tu non abbia modificato le impostazioni predefinite Local by Flywheel):
 
-``` wp-block-code
+```
 DB_CONNECTION=mysql
 DB_HOST=localhost
 DB_PORT=3306
@@ -94,7 +82,7 @@ Quanto sopra si collegherà al DB locale. Se apri il tuo database utilizzando A
 
 Infine, puoi controllare il collegamento fra Laravel e il DB con questo:
 
-``` wp-block-code
+```
 php artisan migrate
 ```
 

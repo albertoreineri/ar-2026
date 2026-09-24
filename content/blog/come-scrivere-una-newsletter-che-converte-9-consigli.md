@@ -3,6 +3,9 @@ title: "Come scrivere una newsletter che converte – 9 consigli"
 date: 2024-01-15
 description: "L’email marketing funziona! Vediamo oggi come scrivere una newsletter in grado di attrarre i tuoi utenti verso i tuoi prodotti/servizi. Ma per sfruttare veramente il potere dell’email marketing, è…"
 tags: ["Business"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 L’email marketing **funziona!** Vediamo oggi come scrivere una newsletter in grado di attrarre i tuoi utenti verso i tuoi prodotti/servizi.

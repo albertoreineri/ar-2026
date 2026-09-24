@@ -56,7 +56,7 @@ Tuttavia, per il bene di questo tutorial, **ci concentreremo sui seguenti metod
 
 Studiamo il seguente codice in cui abbiamo usato questi quattro metodi all’interno della classe **WP_Widget**.
 
-``` wp-block-code
+```
 // Creo il widget
 class swp_widget extends WP_Widget {
  
@@ -86,7 +86,7 @@ public function update( $new_instance, $old_instance ) {
 
 Il pezzo finale del codice è dove registreremo effettivamente il widget e lo cariceremo all’interno di WordPress.
 
-``` wp-block-code
+```
 // Registrazione e caricamento widget
 function swp_load_widget()
 {
@@ -99,7 +99,7 @@ Ora mettiamo tutto insieme per **creare un widget WordPress di base.**
 
 Puoi **copiare e incollare il seguente codice** nel tuo plugin personalizzato o nel file Functions.php del tema.
 
-``` wp-block-code
+```
 // Creo il widget 
 class swp_widget extends WP_Widget
 {

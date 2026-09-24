@@ -3,6 +3,9 @@ title: "Nuovi Macbook con M1 per programmare"
 date: 2020-11-22
 description: "Di recente Apple ha scosso il mondo intero con l’annuncio dei suoi nuovi Macbook con processore proprietario, l’ormai famoso Apple Silicon M1, ma andranno bene per programmare? La risposta…"
 tags: ["Tech"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Di recente **<a href="https://www.apple.com/it/" target="_blank" rel="noreferrer noopener">Apple</a> ha scosso il mondo intero **con l’annuncio dei suoi nuovi Macbook con processore proprietario, l’ormai famoso** Apple Silicon M1**, ma andranno bene per programmare?

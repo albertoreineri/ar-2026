@@ -34,3 +34,7 @@ theme = 'alberto-reineri'
 
 [minify.tdewolff.html]
   keepComments = true
+
+# Embed YouTube dal dominio youtube-nocookie.com: niente cookie finché il video non viene avviato
+[privacy.youtube]
+  privacyEnhanced = true

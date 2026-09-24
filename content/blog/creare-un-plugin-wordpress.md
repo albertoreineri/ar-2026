@@ -25,7 +25,7 @@ Ora qui dentro **creiamo una nuova cartella** con il nome “**back-on-top**�
 
 Creiamo adesso un **file** in questa cartella chiamato “***back-on-top.php***” e inseriamo questo codice al suo interno:
 
-``` wp-block-code
+```
 <?php
 
 /**
@@ -55,7 +55,7 @@ Possiamo considerare il file back-on-top.php come un’**estensione del function
 
 ### INSERIAMO IL CONTENUTO NEL FOOTER
 
-``` wp-block-code
+```
 add_action('wp_footer', 'back_on_top');
 function back_on_top()
 {
@@ -81,7 +81,7 @@ In questo modo abbiamo inserito sul fondo della nostra pagina **l’immagine up
 
 Ora aggiungiamo un po’ di **CSS** per rendere sensata la grafica. Per semplificare inseriamo il CSS direttamente nel file php, giusto sopra il div “**back-on-top**“:
 
-``` wp-block-code
+```
 <style>
         .back-on-top {
             position: fixed;
@@ -108,7 +108,7 @@ Adesso non ci resta che inserire un po’ di **Javascript** per effettuare lo 
 
 Per rendere le cose minimali inseriamo del **vanilla Javascript** dopo il div “**back-on-top**“:
 
-``` wp-block-code
+```
 <script>
         // Smooth scroll to top
         const scrollToTop = () => {
@@ -128,7 +128,7 @@ Per rendere le cose minimali inseriamo del **vanilla Javascript** dopo il div 
 
 ***Complimenti! Hai appena creato il tuo primo plugin!!!***
 
-``` wp-block-code
+```
 <?php
 
 /**

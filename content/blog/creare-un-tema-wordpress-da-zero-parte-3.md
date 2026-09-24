@@ -3,6 +3,9 @@ title: "3. Creare un tema WordPress da zero – Parte 3"
 date: 2020-04-30
 description: "Negli ultimi tutorial abbiamo iniziato a creare un tema WordPress da zero, e siamo arrivati già a un buon punto! Ci mancano però ancora un paio di cosette per rendere accettabile il nostro lavoro.…"
 tags: ["Guide", "WordPress DEV"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Negli [ultimi tutorial](/tags/wordpress-dev/) abbiamo iniziato a **creare un tema WordPress da zero**, e siamo arrivati già a un buon punto!
@@ -25,7 +28,7 @@ Per prima cosa rechiamoci nella cartella del nostro tema e creiamo un’altra ca
 
 Ora andiamo nel nostro *header.php* e inseriamo il logo prima del titolo del nostro sito, in questo modo:
 
-``` wp-block-code
+```
 <img src="<?php echo get_template_directory_uri(); ?>/img/logo.png" alt="" height="50">
 ```
 
@@ -53,7 +56,7 @@ Un primo hook da inserire è il *wp_title*, che va messo nel meta tag \<title\>,
 
 Apriamo quindi il nostro *heder.php* e modifichiamo il \<title\> in questo modo:
 
-``` wp-block-code
+```
 <title><?php wp_title(); ?></title>
 ```
 
@@ -65,7 +68,7 @@ Sempre nel nostro header dobbiamo aggiungere l’hook *wp_head*. Questo ci perme
 
 Aggiungiamo quindi questo codice giusto prima del *\</head\>*:
 
-``` wp-block-code
+```
 <?php wp_head(); ?>
 ```
 
@@ -73,7 +76,7 @@ Aggiungiamo quindi questo codice giusto prima del *\</head\>*:
 
 Rimaniamo sempre nel nostro header.php e aggiungiamo un hook anche al \<body\>, in questo modo:
 
-``` wp-block-code
+```
 <body <?php body_class(); ?>>
 ```
 
@@ -85,7 +88,7 @@ L’ultimo hook che andremo ad aggiungere è il *wp_footer*, che permette di ins
 
 Andiamo quindi nel *footer.php* e inseriamo questo giusto prima del \</body\>
 
-``` wp-block-code
+```
 <?php wp_footer(); ?>
 ```
 
@@ -99,7 +102,7 @@ Sebbene funzioni anche in metodo classico di inserimento nell'\<head\> e prima d
 
 Iniziamo ad aprire il nostro file *functions.php* e inseriamo questo codice per embeddare il nostro file style.css nel tema:
 
-``` wp-block-code
+```
 function risorse_il_mio_tema() {
     //CSS
          enqueue_style('style', get_stylesheet_uri());
@@ -111,7 +114,7 @@ In questo modo embedderemo il file *style.css*, obbligatorio in ogni tema WordPr
 
 Ora inseriamo il CSS di **[Bootstrap](https://albertoreineri.it/le-basi-di-bootstrap/)** in maniera corretta. Lo aggiungiamo a questa funzione, in questo modo:
 
-``` wp-block-code
+```
 wp_enqueue_style( 'bootstrap','http://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css','','','all');
 ```
 
@@ -125,7 +128,7 @@ Inseriamo ora i file **javascript di Bootstrap** nel modo corretto.
 
 Anche i file Javascript vanno inseriti come i CSS, nella stessa funzione, in questo modo:
 
-``` wp-block-code
+```
 //JS
 wp_enqueue_script( 'jquery-js', 'http://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js', '','' ,true);
 wp_enqueue_script( 'bootstrap-js', 'http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js', '','' ,true);
@@ -135,7 +138,7 @@ Ora possiamo eliminare i file JS di bootstrap dal nostro **footer.php**
 
 Per semplicità ti riscrivo **tutta la funzione** di embeddamento di CSS e JS:
 
-``` wp-block-code
+```
 /* CSS e JS */
 function risorse_il_mio_tema() {
     //CSS
@@ -166,7 +169,7 @@ Puoi decidere quanti articoli far visualizzare nelle pagine archivio tramite la 
 
 Per inserire la paginazione nel frontend andiamo nel nostro ***archive.php*** e inseriamo questa funzione **dopo il** **loop**:
 
-``` wp-block-code
+```
 <?php echo paginate_links(); ?>
 ```
 
@@ -182,7 +185,7 @@ Iniziamo creando un file ***comments.php*** nella cartella del nostro tema.
 
 **comments.php**
 
-``` wp-block-code
+```
  
 <div id="comments" class="comments-area">
  
@@ -228,7 +231,7 @@ Iniziamo creando un file ***comments.php*** nella cartella del nostro tema.
 
 Questo codice ti pemetterà di inserire i commenti, ora andiamo nel file ***single.php,*** quello che contiene i nostri articoli, e inseriamo il template per i commenti dopo il contenuto:
 
-``` wp-block-code
+```
 <!-- COMMENTI -->
 <?php comments_template(); ?>
 ```
@@ -249,7 +252,7 @@ Non è un tema perfetto ma può essere un buon **starter theme** per i tuoi prog
 
 **style.css**
 
-``` wp-block-code
+```
 /*
 Theme Name: Il mio tema
 Author: Specialista WP

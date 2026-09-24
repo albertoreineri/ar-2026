@@ -3,6 +3,9 @@ title: "1. Le basi dell’HTML"
 date: 2020-03-17
 description: "L’HTML è la base del web, c’è dappertutto! Ogni pagina internet che visualizzi ha del codice HTML al suo interno. Se vuoi diventare uno sviluppatore web quindi la prima cosa da fare è un corso…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 **L’HTML è la base del web**, c’è dappertutto! Ogni pagina internet che visualizzi ha del codice HTML al suo interno. Se vuoi diventare uno sviluppatore web quindi la prima cosa da fare è un corso intensivo di HTML!
@@ -81,7 +84,7 @@ Ci basterà aprire il file, inserire un **punto esclamativo** e cliccare il ta
 
 Se hai fatto questa operazione dovresti vedere comparire questo codice all’interno del file:
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -113,43 +116,43 @@ Esistono però alcuni tag senza tag di chiusura, come il tag \<br\>, che è util
 
 ## Esempi di tag:
 
-``` wp-block-code
+```
 <html></html>
 ```
 
 Questi tag indicano dove inizia e dove finisce la pagina HTML. Tutto il contenuto va inserito fra questi due!
 
-``` wp-block-code
+```
 <head></head>
 ```
 
 Questo tag permette di inserire delle informazioni relative alla pagina, come il titolo, gli stili da inserire, gli script etc. (Questo ti sarà più chiaro man mano che andrai avanti)
 
-``` wp-block-code
+```
 <body></body>
 ```
 
 All’interno di questi tag c’è il vero e proprio contenuto della pagina
 
-``` wp-block-code
+```
 <h1>La mia prima pagina web</h1>
 ```
 
 I titoli sono inseriti dentro i tag heading, che vanno dall’1 al 6, in ordine di importanza. Il titolo della pagina deve essere inserito fra i tag \<h1\>\</h1\>, il sottotitolo \<h2\>\</h2\> e così via.
 
-``` wp-block-code
+```
 <br>
 ```
 
 Questo tag indica al browser di andare a capo.
 
-``` wp-block-code
+```
 <!-- Questo è un commento -->
 ```
 
 In qualiasi tipo di codice è molto importante inserire i commenti. Questi permettono di inserire delle note all’interno del codice, per poter capire meglio cosa si sta scrivendo o per inserire delle frasi rivolte ai colleghi etc.
 
-``` wp-block-code
+```
 <ul>
 
     <li>Questo è un item di un elenco</li>
@@ -171,7 +174,7 @@ Iniziamo a modificare la **lingua**, modificando “en” con “it” nella *
 
 La riga 2 sarà quindi così:
 
-``` wp-block-code
+```
 <html lang="en">
 ```
 
@@ -179,7 +182,7 @@ Ora andiamo sulla riga 6 e modifichiamo il titolo, nel tag ***\<title\>***.
 
 Chiamiamo questa pagina “**La mia prima pagina web**“
 
-``` wp-block-code
+```
 <title>La mia prima pagina web</title>
 ```
 
@@ -197,7 +200,7 @@ Possiamo vedere però che il nome della scheda in alto è “**La mia prima pagi
 
 Andiamo **fra i tag \<body\>\</body\>** e inseriamo questo:
 
-``` wp-block-code
+```
    <h1>La mia prima pagina web</h1>
     <p>Benvenuto nella mia prima pagina web!</p>
     <br><!-- questo è un a capo-->
@@ -232,7 +235,7 @@ Gli **attributi **forniscono **informazioni aggiuntive **ai tag html. Per es
 
 Esempio:
 
-``` wp-block-code
+```
 <img src="immagini/foto.jpg">
 ```
 
@@ -244,7 +247,7 @@ Andiamo nella nostra cartella “**HTML**” sul desktop e creiamo una cartella 
 
 Adesso** richiamiamo l’immagine nel nostro file *index.html*,** in questo modo:
 
-``` wp-block-code
+```
 <img src="img/immagine.jpg">
 ```
 
@@ -260,7 +263,7 @@ Però è un po’** troppo grande!** Almeno nel mio caso, questo dipende dalle
 
 Per visualizzare l’immagine in modo più carino possiamo aggiungere un altro attributo al nostro tag \<img\>: **l’attributo height o width**
 
-``` wp-block-code
+```
     <img src="img/immagine.jpg" width="200">
 ```
 
@@ -292,7 +295,7 @@ Se voglio creare un quadrato verde nel sito dovrò utilizzare un \<div\>, se inv
 
 Aggiungi questo codice a*** index.html***
 
-``` wp-block-code
+```
     <div style="background-color: green;">
         Questo è un contenitore con sfondo verde
     </div>
@@ -319,7 +322,7 @@ Per inserire un form occorre utilizzare il tag **\<form\>\</form\>** e al suo 
 
 **Esempio **di form:
 
-``` wp-block-code
+```
   <form>
         <input type="text" placeholder="Nome">
         <br><br>
@@ -355,7 +358,7 @@ Premendo sul tasto “**Invia**” non succederà nulla. Per far svolgere un’a
 
 Per questa guida è tutto. Ti lascio ancora **il codice per intero della nostra *index.html* **con i **commenti **che spiegano cosa fa ogni cosa.
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="en">
 

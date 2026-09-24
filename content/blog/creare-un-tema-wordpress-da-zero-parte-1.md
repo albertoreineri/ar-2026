@@ -3,6 +3,9 @@ title: "1. Creare un tema WordPress da zero – Parte 1"
 date: 2020-04-30
 description: "WordPress è una piattaforma fantastica! Permette di creare siti web di ogni tipo in maniera semplice e veloce, grazie all’infinita quantità di temi e plugin disponibili, moltissimi dei quali in…"
 tags: ["Guide", "WordPress DEV"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 **WordPress** è una piattaforma **fantastica**! Permette di creare **siti web di ogni tipo** in maniera semplice e **veloce**, grazie all’infinita quantità di **temi** e **plugin** disponibili, moltissimi dei quali in maniera gratuita.
@@ -42,7 +45,7 @@ Un **tema WordPress** per essere riconosciuto necessita solamente di **2 file
 
 **creiamo quindi questi 2 file all’interno della cartella “il-mio-tema”** e inseriamo questo codice in “**style.css**“, in modo da indicare a WordPress i dati del tema:
 
-``` wp-block-code
+```
 /*
 Theme Name: Il mio tema
 Author: Specialista WP
@@ -63,7 +66,7 @@ Inizia con l’inserire questo codice nella “**index.php**“, è un **layout
 
 **index.html**
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="it">
 
@@ -248,7 +251,7 @@ Procediamo quindi a **dividere il layout** del nostro sito in quattro sezioni:
 
 **heder.php**
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="it">
 
@@ -303,7 +306,7 @@ Procediamo quindi a **dividere il layout** del nostro sito in quattro sezioni:
 
 **footer.php**
 
-``` wp-block-code
+```
 
             </div><!-- /.row -->
 
@@ -327,7 +330,7 @@ Procediamo quindi a **dividere il layout** del nostro sito in quattro sezioni:
 
 **sidebar.php**
 
-``` wp-block-code
+```
             <!-- SIDEBAR -->
             <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
                 <div>
@@ -357,7 +360,7 @@ Procediamo quindi a **dividere il layout** del nostro sito in quattro sezioni:
 
 **content.php**
 
-``` wp-block-code
+```
 
             <!-- CONTENUTO -->
             <div class="col-sm-8">
@@ -430,7 +433,7 @@ Ora non ci resta che richiamare i vari pezzi di contenuto nella index.php, in mo
 
 **index.php**
 
-``` wp-block-code
+```
 <?php get_header(); ?>
 
 <?php get_template_part( 'content', get_post_format() ); ?>
@@ -460,7 +463,7 @@ Andiamo in **header.php** e modifichiamo il **titolo** nella navbar del sito
 
 Eliminiamo quindi la scritta “**Il mio primo tema**” e la sostituiamo con
 
-``` wp-block-code
+```
 <?php echo get_bloginfo( 'name' ); ?>
 ```
 
@@ -468,13 +471,13 @@ In questo modo **il nome del sito sarà dinamico.**
 
 Possiamo anche inserire il **motto** del sito con questa funzione:
 
-``` wp-block-code
+```
 <?php echo get_bloginfo( 'description' ); ?>
 ```
 
 Infine possiamo impostare **i link alla home del sito** sul titolo, in questo modo:
 
-``` wp-block-code
+```
 <a class="navbar-brand" href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo get_bloginfo( 'name' ); ?></a>
 ```
 
@@ -492,7 +495,7 @@ Nel **backend** al momento abbiamo solamente **l’articolo** di default: �
 
 Il **loop** di WordPress è molto semplice:
 
-``` wp-block-code
+```
 <?php
 if (have_posts()) :
     while (have_posts()) : the_post();
@@ -514,7 +517,7 @@ Proviamo ad **inserire il loop nella nostra home page**, in index.php
 
 **index.php**
 
-``` wp-block-code
+```
 <?php get_header(); ?>
 
 <?php
@@ -536,7 +539,7 @@ Ora **rendiamo dinamico il contenuto** all’interno del file content.php
 
 **content.php**
 
-``` wp-block-code
+```
 
             <!-- CONTENUTO -->
             <div class="col-sm-8">

@@ -46,7 +46,7 @@ Su github puoi trovare il mio file di configurazione per gestire i task **Gulp 
 
 Per **iniziare **ad utilizzarlo devi solamente copiare il mio gulpfile.js all’interno del tuo tema e dare questo comando dalla CLI:
 
-``` wp-block-code
+```
 npm install --save-dev gulp gulp-imagemin gulp-uglify gulp-sass browser-sync del gulp-concat gulp-clean
 ```
 

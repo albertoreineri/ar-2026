@@ -3,6 +3,9 @@ title: "Perché riprogettare un sito web?￼"
 date: 2024-04-29
 description: "Ti stai chiedendo se sia il caso di riprogettare il tuo sito web? Bene, partiamo con una domanda: hai mai sentito che il tuo sito web dovrebbe essere il tuo miglior venditore? Pensaci. Un sito web…"
 tags: ["Web Design"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Ti stai chiedendo se sia il caso di riprogettare il tuo sito web? Bene, partiamo con una domanda: hai mai sentito che il tuo sito web dovrebbe essere il tuo miglior venditore?
@@ -33,12 +36,6 @@ Incongruenze di progettazione come queste sono comuni, in particolare sui siti c
 
 Per un esempio di un sito Web con un marchio coerente, possiamo guardare <a href="https://mailchimp.com/" target="_blank" rel="noreferrer noopener">Mailchimp</a>. Nel 2018, la società di software di posta elettronica ha completamente ridisegnato il suo sito, svelando un nuovo logo, un carattere tipografico serif alla moda, immagini illustrate e altro ancora del colore accattivante del suo marchio. Dai un’occhiata all’immagine prima e dopo qui sotto.
 
-<figure class="wp-block-image">
-<img src="https://blog.hubspot.com/hs-fs/hubfs/Draft%20-%20Why%20Redesign%20a%20Website.png?width=1500&amp;name=Draft%20-%20Why%20Redesign%20a%20Website.png" decoding="async" alt="Mailchimp prima e dopo la riprogettazione del sito web" />
-</figure>
-
-<a href="https://www.justinmind.com/blog/5-excellent-website-redesigns-before-and-after/" rel="noreferrer noopener" target="_blank">Fonte</a>
-
 Se stai cercando di rinominare il tuo sito come ha fatto Mailchimp, allora avrai bisogno di strumenti per la creazione di siti Web che siano sia facili da usare che flessibili. Se i tuoi strumenti attuali non lo sono, cerca una piattaforma che ti consenta di iniziare da zero o personalizzare modelli predefiniti con un editor drag-and-drop.
 
 [Contattami per una consulenza gratuita.](http://reineristudio.com/contatti/)
@@ -67,12 +64,6 @@ Sopra il carosello c’era una barra dei menu con una scheda denominata “Servi
 
 Quando ha riprogettato il suo sito, Rev ha abbandonato il carosello e ha invece mostrato tre carte affiancate. Ogni carta rappresenta uno dei suoi servizi più popolari e include una breve spiegazione, un prezzo e un pulsante di invito all’azione. Questo nuovo design ha comportato un <a href="https://hackernoon.com/https-medium-com-barroncaster-full-website-redesign-the-good-the-bad-and-the-ugly-8129fbc005d8" rel="noreferrer noopener" target="_blank">miglioramento del 18% nel tasso di conversione di</a> Rev.
 
-<figure class="wp-block-image">
-<img src="https://blog.hubspot.com/hs-fs/hubfs/Draft%20-%20Why%20Redesign%20a%20Website-1.png?width=1500&amp;name=Draft%20-%20Why%20Redesign%20a%20Website-1.png" decoding="async" alt="Rev prima e dopo la riprogettazione del sito web" />
-</figure>
-
-<a href="https://www.justinmind.com/blog/5-excellent-website-redesigns-before-and-after/" rel="noreferrer noopener" target="_blank">Fonte</a>
-
 Se stai cercando di vedere un miglioramento simile nel tuo tasso di conversione, controlla se la tua piattaforma attuale supporta le integrazioni tra il tuo sito e un CRM o un software di automazione del marketing. In caso contrario, potrebbe essere necessario migrare a un CMS con strumenti di conversione integrati. 
 
 ## 4. Vuoi aggiungere funzionalità al tuo sito.
@@ -83,10 +74,6 @@ Man mano che il tuo traffico e il tuo team crescono, probabilmente dovrai aggiun
 
 Quando HubSpot ha riprogettato il suo sito Academy nell’aprile 2019, si sono concentrati sul miglioramento della navigabilità e della personalizzazione per garantire che i visitatori potessero trovare ciò che stavano cercando il più rapidamente e facilmente possibile. Tra le altre modifiche, hanno semplificato il sistema di navigazione e aggiunto filtri intelligenti per i contenuti per aiutare i visitatori a vivere un’esperienza senza interruzioni sul sito.
 
-<figure class="wp-block-image">
-<img src="https://blog.hubspot.com/hs-fs/hubfs/HubSpot%20Academy%20redesign.gif?width=1500&amp;name=HubSpot%20Academy%20redesign.gif" decoding="async" alt="La riprogettazione di HubSpot Academy incentrata sull&#39;UX" />
-</figure>
-
 Se stai cercando di aggiungere filtri contenuti intelligenti o altre funzionalità al tuo sito, hai bisogno di una piattaforma che abbia solide funzionalità integrate e la flessibilità di integrarsi con software esterno. Tale piattaforma sarà in grado di supportare la crescita del tuo sito nel tempo.
 
 ## 5. Vuoi ottimizzare il tuo sito per i visitatori mobili.
@@ -94,12 +81,6 @@ Se stai cercando di aggiungere filtri contenuti intelligenti o altre funzionalit
 I dispositivi mobili hanno rappresentato il 58% delle visite organiche ai motori di ricerca nel 2021. Poiché la ricerca mobile è così popolare, i motori di ricerca hanno costruito le loro esperienze attorno ad essa. In effetti, quando cerchi qualcosa su Google sul tuo telefono, vedrai prima i risultati di ricerca per le pagine ottimizzate per i dispositivi mobili. Ciò significa che devi assicurarti che il tuo sito sia ottimizzato sia per desktop che per dispositivi mobili.
 
 Comprendendo questo cambiamento nel comportamento degli utenti, l’ <a href="https://www.artic.edu/articles/713/behind-the-scenes-of-the-website-redesign" rel="noreferrer noopener" target="_blank">Art Institute of Chicago ha riprogettato il proprio sito nel 2018</a> per renderlo completamente reattivo.
-
-<figure class="wp-block-image">
-<img src="https://blog.hubspot.com/hs-fs/hubfs/Draft%20-%20Why%20Redesign%20a%20Website.jpeg?width=1500&amp;name=Draft%20-%20Why%20Redesign%20a%20Website.jpeg" decoding="async" alt="L&#39;Art Institute of Chicago ha ridisegnato il suo sito per renderlo completamente reattivo" />
-</figure>
-
-<a href="https://www.artic.edu/articles/713/behind-the-scenes-of-the-website-redesign" rel="noreferrer noopener" target="_blank">Fonte</a>
 
 Tuttavia, se stai utilizzando un costruttore di siti Web come Wix, dovrai alternare tra la visualizzazione desktop e ottimizzata per dispositivi mobili di una pagina per assicurarti che appaia come desideri. Potrebbe essere necessario riorganizzare alcuni elementi o eliminare spazio per garantire che la pagina sia ottimizzata per i dispositivi mobili.
 

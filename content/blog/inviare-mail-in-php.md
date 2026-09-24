@@ -11,25 +11,7 @@ Oggi vediamo come inviare una mail utilizzando semplicemente il core PHP.
 
 Creeremo un esempio di reale utilizzo in modo da rendere più chiara l’operazione, quindi realizzeremo un Modulo di Contatto utilizzando Bootstrap e poi invieremo una mail al submit del form.
 
-<div class="iframe">
-
-<div id="player">
-
-</div>
-
-<div class="player-unavailable">
-
-# Si è verificato un errore.
-
-<div class="submessage">
-
-Impossibile eseguire JavaScript
-
-</div>
-
-</div>
-
-</div>
+{{< youtube Dp51P_L5juY >}}
 
 Codice Sorgente: <https://github.com/alby-dev/PHP-Send-Mail>
 

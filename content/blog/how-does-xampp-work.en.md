@@ -1,7 +1,7 @@
 ---
 title: "How Does XAMPP Work"
 date: 2020-03-20
-description: "You've read the article about setting up your PC for web development, you've installed all the programs and you're ready to start developing! BUT HOW DOES XAMPP WORK? While it's…"
+description: "How to use XAMPP for local PHP development: starting Apache and MySQL, where to put your sites, how to open them in the browser and how to reach the database."
 tags: ["Guides", "WordPress Basics"]
 translationKey: "xampp-how-it-works"
 aliases: ["/blog/how-does-xampp-work/"]

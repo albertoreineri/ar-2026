@@ -1,7 +1,7 @@
 ---
 title: "Semplice Backend Login in Core PHP"
 date: 2021-05-31
-description: "Ho effettuato un nuovo commit a questo progetto, aggiornandolo a PDO, inserendo i bindparam per aumentare la sicurezza e variando leggermente l’architettura software. Il codice aggiornato è nella…"
+description: "Un semplice sistema di login per un'area riservata in PHP puro, con PDO, password_hash e sessioni: struttura del progetto, database e codice."
 tags: ["Guide", "PHP"]
 translationKey: "php-backend-login"
 ---
@@ -34,7 +34,7 @@ Se non ho ancora effettuato l’accesso allora vedrò il **form di login.**
 
 Nella **index.php** nella cartella login ho quindi inserito il **form** per effettuale l’accesso all’area riservata, con il form che rimanda al file **access.php,** contenente le funzioni di controllo dei dati di accesso.
 
-``` wp-block-code
+```
       <!-- Login form -->
       <form class="" action="access.php" method="POST">
         <!-- Action -->
@@ -61,7 +61,7 @@ Se sto **creando un nuovo utente segue la prassi della registrazione**, inviand
 
 **access.php**
 
-``` wp-block-code
+```
 <?php
 //Config File
 include("config.php");

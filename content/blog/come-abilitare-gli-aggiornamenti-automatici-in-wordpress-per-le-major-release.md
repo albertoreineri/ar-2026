@@ -57,7 +57,7 @@ Questo metodo richiede di **aggiungere codice** ai tuoi file WordPress.
 
 Innanzitutto, devi aggiungere la seguente riga di codice al file *wp-config.php* del tuo sito .
 
-``` wp-block-code
+```
 define( 'WP_AUTO_UPDATE_CORE', true );
 ```
 
@@ -65,7 +65,7 @@ C’è un piccolo problema con questo codice: consente aggiornamenti **notturni
 
 Per **disabilitare build notturni **e aggiornamenti di sviluppo, è necessario aggiungere il seguente codice nel file* functions.php*
 
-``` wp-block-code
+```
 add_filter( 'allow_dev_auto_core_updates', '__return_false' );
 ```
 

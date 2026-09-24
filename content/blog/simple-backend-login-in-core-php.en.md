@@ -1,7 +1,7 @@
 ---
 title: "A Simple Backend Login in Core PHP"
 date: 2021-05-31
-description: "I made a new commit to this project, updating it to PDO, adding bind parameters to improve security, and slightly changing the software architecture. The updated code is in…"
+description: "A simple login system for a restricted area in plain PHP, with PDO, password_hash and sessions: project structure, database and code."
 tags: ["Guides", "PHP"]
 translationKey: "php-backend-login"
 ---
@@ -34,7 +34,7 @@ If I haven't logged in yet, I'll see the **login form**.
 
 In the **index.php** file inside the login folder, I added the **form** to log in to the restricted area, with the form pointing to the **access.php** file, which contains the login-checking functions.
 
-``` wp-block-code
+```
       <!-- Login form -->
       <form class="" action="access.php" method="POST">
         <!-- Action -->
@@ -61,7 +61,7 @@ If I'm **creating a new user**, it follows the registration flow, sending a conf
 
 **access.php**
 
-``` wp-block-code
+```
 <?php
 //Config File
 include("config.php");

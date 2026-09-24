@@ -3,6 +3,9 @@ title: "Ha senso il nuovo Macbook Air 2020 per lo Sviluppo Web"
 date: 2020-03-21
 description: "Mi sto chiedendo se il Macbook Air 2020 possa essere un buon pc per sviluppo web. In questo articolo voglio uscire un attimo dal codice puro per parlare di qualcosa che è altrettanto importante…"
 tags: ["Tech"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Mi sto chiedendo se il Macbook Air 2020 possa essere un buon pc per sviluppo web.

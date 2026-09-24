@@ -1,7 +1,7 @@
 ---
 title: "Come creare un effetto Overlay in CSS"
 date: 2022-02-22
-description: "Personalmente utilizzo moltissimo gli overlay per migliorare la leggibilità del testo sopra un’immagine, ma che cos’è questo overlay? In poche parole non è nient’altro che un livello intermedio…"
+description: "Come creare un overlay in CSS per rendere leggibile il testo sopra un'immagine di sfondo: un livello assoluto semitrasparente, in poche righe di codice."
 tags: ["Guide", "Web Dev"]
 translationKey: "css-overlay-effect"
 ---
@@ -14,27 +14,15 @@ Logicamente **con l’overlay il testo risulta molto più leggibile**, e second
 
 Farlo non è affatto difficile.
 
-<figure class="wp-block-embed is-type-rich is-provider-handler-delloggetto-incorporato wp-block-embed-handler-delloggetto-incorporato wp-embed-aspect-16-9 wp-has-aspect-ratio">
-<div class="wp-block-embed__wrapper">
-<div class="iframe">
-<div id="player">
+{{< youtube KiZMQCs0SSg >}}
 
-</div>
-<div class="player-unavailable">
-<h1 id="si-è-verificato-un-errore." class="message">Si è verificato un errore.</h1>
-<div class="submessage">
-Impossibile eseguire JavaScript
-</div>
-</div>
-</div>
-</div>
-</figure>
+
 
 ## Come si fa
 
 Basterà recarci all’interno del contenitore dell’immagine, in questo caso nel *div* con classe *sidebar *e aggiungere un elemento chiamato “*overlay*“
 
-``` wp-block-code
+```
  <div class="sidebar" style="background:url('https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80')">
 
         <div class="overlay"></div>
@@ -56,7 +44,7 @@ Basterà recarci all’interno del contenitore dell’immagine, in questo caso n
 
 Con l’html siamo a posto, ora spostiamoci nel nostro file **CSS** e dobbiamo solamente creare questa classe:
 
-``` wp-block-code
+```
 .overlay{
 
     position: absolute;

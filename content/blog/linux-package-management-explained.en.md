@@ -1,226 +1,235 @@
 ---
-title: "Package Management in Linux: What It Is and How It Works"
+title: "Linux package management: apt, dnf, pacman, Flatpak and Snap"
+seoTitle: "Linux Package Managers: apt, dnf, pacman, Snap, Flatpak"
 date: 2024-03-20
-description: "In the vast and dynamic world of Linux operating systems, package management plays a fundamental role. Imagine having to install new software on your system or update an existing library…"
+lastmod: 2026-09-24
+description: "The essential commands for APT, DNF, Pacman, Flatpak, Snap and AppImage: install, update and remove software on Linux and manage repositories."
 tags: ["Guides", "Linux"]
 translationKey: "linux-package-management"
 ---
 
-In the vast and dynamic world of Linux operating systems, package management plays a fundamental role. Imagine having to install new software on your system or update an existing library: thanks to package management, these operations become simple and intuitive, letting users focus on their work without dealing with complex installation and configuration processes.
+On Linux you don't download an installer from a website and click "Next". Software almost always comes from a **package manager**, which downloads it from signed repositories, resolves dependencies and knows exactly which files it put where, so it can update or remove them without leaving anything behind.
 
-In this article we'll explore package management on Linux in detail, from the very concept of what software packages are to the practical use of tools like APT, YUM/DNF and Pacman. We'll see how these package managers make it easy to install, remove and update software on the most popular Linux distributions.
+The catch is that every family of distributions has its own package manager, with its own syntax. When you work on different clients' servers you can go from Ubuntu to Rocky Linux to an Alpine container in the same day. This is the guide I wish I'd had: what packages are, the commands you actually need for each package manager, a comparison table, and the errors you'll run into sooner or later.
 
-Package management isn't just a technical aspect — it's also an integral part of the user experience and system security. Through this article, we hope to provide a complete overview that helps both first-time users and experienced system administrators master the challenges and opportunities of package management on Linux.
+## What a package is
 
-## **1. What Is a Package on Linux**
+A package is an archive containing the software (binaries, libraries, config files, documentation) plus **metadata**: name, version, dependencies, scripts to run before and after installation. The package manager reads the metadata, checks the signature, installs any missing dependencies and records every file in a local database.
 
-On Linux, a package is a unit of software distribution designed to simplify the process of installing, removing and managing applications and system resources. A package can contain different types of files — executables, libraries, configuration scripts and documentation — needed to install and correctly run an application or piece of software.
+There are three main formats:
 
-### **Basic Structure of a Package**
+- **.deb**: Debian, Ubuntu, Linux Mint and derivatives. The package manager is **APT**, built on top of `dpkg`.
+- **.rpm**: Fedora, Red Hat Enterprise Linux, Rocky Linux, AlmaLinux, openSUSE. The package manager is **DNF** (`zypper` on openSUSE), built on top of `rpm`.
+- **.pkg.tar.zst**: Arch Linux and derivatives (Manjaro, EndeavourOS). The package manager is **pacman**.
 
-- **Metadata:** every package contains metadata providing key information about the software, such as name, version, author, license and dependencies.
-- **Binary files:** this section includes the executable files and libraries needed by the application.
-- **Install and removal scripts:** pre-install, post-install, pre-remove and post-remove scripts handle the configuration and cleanup tasks tied to installing and removing the package.
-- **Documentation:** it's common to include documentation about the application in the package, such as user manuals or installation guides.
+On top of these there's **Alpine** with `apk`, which you'll often meet in Docker images, and the **universal** formats (Flatpak, Snap, AppImage), which run on any distribution by bundling their own dependencies.
 
-### **Common Package Types**
+## Native or universal packages?
 
-- **RPM (Red Hat Package Manager):** used mainly by Red Hat-based Linux distributions, such as Fedora and Red Hat Enterprise Linux.
-- **DEB:** this package format is typically used by Debian-based distributions, such as Ubuntu, Debian and Linux Mint.
-- **Pacman:** the package manager used mainly by Arch Linux and its derivatives, offering a wide selection of software and easing dependency management through Arch's packaging system.
+The distinction matters more than it seems:
 
-### Universal packages:
+- **Native packages** are built for your distribution and share the system libraries. They're lightweight, well integrated, and get security patches from the distribution's team. The trade-off is that on a stable distribution like Debian or RHEL you'll often find versions that are months or years old.
+- **Universal packages** bundle their own dependencies. You get the latest version straight from the developer, on any distribution, at the cost of more disk space, sometimes imperfect desktop integration, and security updates that depend on whoever publishes the package.
 
-- **Snap:** a universal package format backed by Canonical for distributing software securely and in an isolated way across different Linux distributions.
-- **Flatpak:** another universal package format designed to work on any Linux distribution, offering sandboxing and dependency management.
-- **AppImage:** a software distribution solution that offers a disk image containing all the libraries and dependencies needed to run an application on any Linux distribution, with no installation required.
+My rule of thumb: **native packages only on servers** (plus containers when you need a different version). **On a desktop**, native packages for the system and Flatpak for graphical apps.
 
-In short, packages on Linux are the key building block for distributing and managing software, letting users easily install and maintain applications on their operating system.
+## Commands side by side
 
-## 2. **The Difference Between Standard and Universal Packages**
+The table I check when I jump from one distribution to another:
 
-When it comes to package management on Linux, there's a fundamental distinction between standard packages and universal ones. While both aim to simplify software installation and distribution, they take distinct approaches that affect portability, dependency management and software access. Let's take a closer look at the characteristics of both package types to better understand their differences and the implications for Linux users and developers.
+| Task | APT (Debian/Ubuntu) | DNF (Fedora/RHEL) | pacman (Arch) | apk (Alpine) |
+|---|---|---|---|---|
+| Refresh the package index | `apt update` | `dnf makecache` | `pacman -Sy` | `apk update` |
+| Upgrade the system | `apt upgrade` | `dnf upgrade` | `pacman -Syu` | `apk upgrade` |
+| Install | `apt install pkg` | `dnf install pkg` | `pacman -S pkg` | `apk add pkg` |
+| Remove | `apt remove pkg` | `dnf remove pkg` | `pacman -R pkg` | `apk del pkg` |
+| Remove with config and unused dependencies | `apt purge pkg` + `apt autoremove` | `dnf remove pkg` | `pacman -Rns pkg` | `apk del pkg` |
+| Search | `apt search text` | `dnf search text` | `pacman -Ss text` | `apk search text` |
+| Package details | `apt show pkg` | `dnf info pkg` | `pacman -Si pkg` | `apk info -a pkg` |
+| Installed packages | `apt list --installed` | `dnf list --installed` | `pacman -Q` | `apk info` |
+| Files installed by a package | `dpkg -L pkg` | `rpm -ql pkg` | `pacman -Ql pkg` | `apk info -L pkg` |
+| Which package owns a file | `dpkg -S /path` | `rpm -qf /path` | `pacman -Qo /path` | `apk info --who-owns /path` |
 
-### **Standard Packages (APT, Pacman, etc.)**
+Every command that changes the system needs `sudo` (or root, as is usually the case inside a container).
 
-Standard package managers like APT (used on Debian-based distributions) and Pacman (used on Arch Linux and derivatives) offer direct access to the distribution's official repositories. These packages are optimized for the specific distribution and handle dependencies according to that distribution's own packaging system. They can offer a more integrated, targeted experience for users of a given distribution, but may limit the availability of certain software.
+The last two rows are the ones that save me most often: finding **where a file comes from** in `/etc` or `/usr/bin` is the first step to understanding who put it there and how to update it.
 
-### **Universal Packages (Snap, Flatpak, AppImage)**
+## APT: Debian, Ubuntu and derivatives
 
-Universal packages like Snap, Flatpak and AppImage are designed to be distribution-independent and run on different Linux distributions. These packages bundle all the libraries and dependencies needed to run an application, ensuring it behaves consistently across any Linux distribution. These package formats offer greater flexibility and software portability, letting developers ship applications without worrying about differences between distributions.
+### apt or apt-get?
 
-The fundamental difference between the two package types lies in their approach to dependency management and software portability. While standard packages are optimized for a specific distribution and depend on official repositories, universal packages are designed to be distribution-independent and ensure the application works on any Linux distribution.
+`apt` is the interface designed for interactive use: more readable output, a progress bar, colours. `apt-get` and `apt-cache` are the older commands with stable output, and they're the ones to use **in scripts** and `Dockerfile`s: `apt` itself warns that its command-line interface may change. Use `apt` by hand, `apt-get` in automation.
 
-Let's now look at the pros, cons and differences of the various packages!
+### Everyday commands
 
-## **3. Package Management with APT (Advanced Package Tool)**
+```
+sudo apt update                 # download the updated repository index
+sudo apt upgrade                # upgrade packages without removing any
+sudo apt full-upgrade           # upgrade even when removals or new dependencies are needed
+sudo apt install nginx
+sudo apt remove nginx           # remove the package, keep its configuration
+sudo apt purge nginx            # also remove its configuration in /etc
+sudo apt autoremove             # remove dependencies that are no longer needed
+apt policy nginx                # installed and candidate version, and from which repository
+sudo apt-mark hold nginx        # pin a package at its current version
+```
 
-Package management with APT (Advanced Package Tool) is a crucial aspect for users of Debian-based Linux distributions, such as Ubuntu and Debian itself. APT offers a wide range of tools and commands to install, remove and update software, greatly simplifying the package management process.
+`apt update` doesn't upgrade anything: it only downloads the list of what's available. It's the most common misunderstanding for people coming from other systems.
 
-### **What Is APT?**
+### Repositories and keys, the current way
 
-APT, short for Advanced Package Tool, is a package management system designed to make installing and managing software on Debian-based systems more efficient and convenient. Its importance lies in its ability to automate package management procedures, ensuring software dependencies are satisfied and that the whole process is as smooth as possible for users.
+Repositories are defined in `/etc/apt/sources.list` and in the files under `/etc/apt/sources.list.d/`. Recent releases (Ubuntu 24.04 onwards, for example) use the **deb822** format, with `.sources` files instead of the old `deb ...` lines.
 
-### **Essential APT Commands**
+To add a third-party repository, say for a database or Docker, `apt-key` is deprecated and gone from the latest releases. The correct way is to store the key in its own file and tie it **only** to that repository:
 
-APT offers a set of essential commands that let users perform various package management operations. Some of the most commonly used commands include:
+```
+sudo install -d -m 0755 /etc/apt/keyrings
+curl -fsSL https://repo.example.com/key.gpg | sudo gpg --dearmor -o /etc/apt/keyrings/example.gpg
+```
 
-1.  **apt-get update:** updates the list of packages available in the repositories configured on the system.
-2.  **apt-get upgrade:** upgrades the packages installed on the system to the latest available version.
-3.  **apt-get install:** installs a new package on the system.
-4.  **apt-get remove:** removes a package from the system without deleting its associated dependencies.
-5.  **apt-get purge:** removes a package from the system along with its configuration and associated system files.
-6.  **apt-get autoremove:** automatically removes packages that were installed as dependencies of other packages but are no longer needed.
+Then `/etc/apt/sources.list.d/example.sources`:
 
-### **Configuring Repositories with APT**
+```
+Types: deb
+URIs: https://repo.example.com/apt
+Suites: stable
+Components: main
+Signed-By: /etc/apt/keyrings/example.gpg
+```
 
-Configuring repositories is essential to using APT effectively. This is done mainly through the `/etc/apt/sources.list` file, which lists the official and third-party repositories APT downloads packages from. Editing this file lets users add or remove repositories, expanding the range of software available for installation.
+`Suites` and `Components` vary by repository: you'll find them in the publisher's documentation. With `Signed-By` that key is trusted only for that repository, instead of for the whole system as it was with `apt-key`.
 
-In conclusion, package management with APT is a cornerstone of Debian-based Linux distributions. With its wide range of commands and ease of use, APT makes managing software on Linux a more pleasant and efficient experience for users of every skill level.
+nano is perfectly fine for editing these files from the terminal: I wrote a [practical guide to nano](/en/nano-editor-beginners-guide/) with the essential shortcuts.
 
-## **4. Package Management with YUM/DNF (Yellowdog Updater Modified/DNF)**
+### Automatic updates on servers
 
-Package management on Red Hat and Fedora-based Linux systems is handled by YUM (Yellowdog Updater Modified) and DNF (Dandified YUM). These tools provide efficient package management, making it easy to install, remove and update software on these distributions.
+On a Debian or Ubuntu server, it's worth letting security patches install themselves with `unattended-upgrades`:
 
-### **What Is YUM/DNF?**
+```
+sudo apt install unattended-upgrades
+sudo dpkg-reconfigure -plow unattended-upgrades
+```
 
-YUM was the default package manager for Red Hat and CentOS-based distributions for many years, but it has gradually been replaced by DNF, a direct successor to YUM that offers significant improvements. Both package managers are essential for users of these distributions, offering a wide range of software management features.
+By default it only installs security updates, which is exactly what you want. Feature updates are yours to apply, when you decide.
 
-### **Essential YUM/DNF Commands**
+## DNF: Fedora, RHEL, Rocky Linux, AlmaLinux
 
-Both YUM and DNF offer a similar set of commands for package management. Here are some of the most commonly used:
+**YUM** was the long-standing package manager in the Red Hat world. Since RHEL 8 it has been replaced by **DNF**, and the `yum` command survives only as an alias. Fedora 41 and later use **DNF5**, a faster rewrite: the basic commands are the same, but some subcommands (like `config-manager`) changed syntax, so watch out for old guides.
 
-1.  **yum update (or dnf upgrade):** updates all installed packages on the system to the latest available version.
-2.  **yum install (or dnf install):** installs a new package on the system.
-3.  **yum remove (or dnf remove):** removes a package from the system without deleting its associated dependencies.
-4.  **yum autoremove (or dnf autoremove):** removes packages that are no longer needed from the system, including those installed as dependencies but no longer required.
+```
+sudo dnf upgrade                # upgrade the system (also refreshes metadata)
+sudo dnf install nginx
+sudo dnf remove nginx           # also removes dependencies no longer in use
+dnf provides /usr/bin/dig       # which package provides a file or command
+dnf repolist                    # enabled repositories
+dnf history                     # transaction history
+sudo dnf history undo 42        # roll back transaction number 42
+```
 
-### **Configuring Repositories with YUM/DNF**
+`dnf history undo` is something APT lacks, and it has saved me more than once after an upgrade gone wrong.
 
-YUM and DNF also use configuration files to define the repositories packages are downloaded from. The main configuration files for repositories are located in `/etc/yum.repos.d/` for YUM and `/etc/dnf/` for DNF. By editing these files, users can add or remove repositories and configure advanced options for downloading and installing packages.
+Repositories are `.repo` files in `/etc/yum.repos.d/`. On RHEL and its clones many common packages (such as `htop` or `ncdu`) aren't in the base repositories but in **EPEL**. On Rocky Linux and AlmaLinux 9:
 
-In conclusion, YUM and DNF are essential tools for package management on Red Hat and Fedora-based Linux systems. With their power and versatility, they greatly simplify the process of installing and managing software, giving users a smooth, intuitive package management experience.
+```
+sudo dnf install epel-release
+sudo dnf config-manager --set-enabled crb
+```
 
-## **5. Package Management with Pacman**
+## pacman: Arch Linux and derivatives
 
-Pacman is the default package manager for Arch-based Linux distributions, such as Arch Linux itself and derivatives like Manjaro. Known for its simplicity and power, Pacman offers an effective way to install, remove and manage software on these systems.
+Arch is a **rolling release** distribution: there are no "versions", the system updates continuously. That changes how you use pacman.
 
-### **What Is Pacman?**
+```
+sudo pacman -Syu                # sync and upgrade the whole system
+sudo pacman -S nginx            # install (after a -Syu!)
+sudo pacman -Rns nginx          # remove package, unused dependencies and config files
+pacman -Ss text                 # search the repositories
+pacman -Qi nginx                # details on an installed package
+pacman -Qdtq                    # orphaned packages
+sudo pacman -Rns $(pacman -Qdtq) # remove orphans
+```
 
-Pacman is a command-line package manager designed to simplify package management on Arch-based distributions. Its importance stems from the fact that Arch Linux follows a rolling-release approach, keeping the system constantly up to date with the latest software versions. Pacman is therefore essential to keep the system updated and running correctly.
+The one rule never to break: **don't run `pacman -Sy pkg`**, i.e. refresh the index and install a package without upgrading the rest of the system. That's a partial upgrade, unsupported on Arch, and sooner or later it breaks libraries. Always `-Syu` first, then install.
 
-### **Essential Pacman Commands**
+Software that isn't in the official repositories lives in the **AUR** (Arch User Repository): community-maintained build recipes, installed with a helper like `yay` or `paru`. They're scripts written by anyone, so read the `PKGBUILD` before installing.
 
-Pacman offers a set of clear, intuitive commands for package management. Some of the most commonly used commands include:
+## apk: Alpine and containers
 
-1.  **pacman -Syu:** updates all installed packages on the system to the latest available version.
-2.  **pacman -S:** installs a new package on the system.
-3.  **pacman -R:** removes a package from the system without deleting its associated dependencies.
-4.  **pacman -Rs:** removes a package from the system along with all its unused dependencies.
+Alpine is the base of a huge number of Docker images, so you'll meet `apk` even if you've never installed it on a real machine. In a `Dockerfile` the right form is:
 
-### **Configuring Repositories with Pacman**
+```
+RUN apk add --no-cache curl ca-certificates
+```
 
-Pacman uses the `/etc/pacman.conf` configuration file to define the repositories packages are downloaded from. Users can edit this file to add or remove repositories and configure advanced options for downloading and installing packages.
+`--no-cache` avoids leaving the package index inside the image. The equivalent for Debian images is `apt-get update && apt-get install -y --no-install-recommends ... && rm -rf /var/lib/apt/lists/*`, all in the same `RUN`.
 
-In conclusion, Pacman is an essential tool for package management on Arch-based Linux distributions. With its simplicity and power, Pacman greatly simplifies the process of managing software on these systems, giving users a fast and effective way to keep their system up to date and running properly.
+## Flatpak
 
-## **6. Package Management with Flatpak**
+Flatpak is the de facto standard for **desktop applications** distributed independently of the distribution. Apps run in a **sandbox** with declared permissions, and the main repository is **Flathub**.
 
-Flatpak is a package management technology designed to provide a universal, sandboxed software distribution experience across a wide range of Linux distributions. It offers an innovative approach to package management, letting developers distribute their applications with all the needed dependencies while guaranteeing a sandboxed environment that preserves system security.
+```
+flatpak remote-add --if-not-exists flathub https://dl.flathub.org/repo/flathub.flatpakrepo
+flatpak install flathub org.gimp.GIMP
+flatpak run org.gimp.GIMP
+flatpak update
+flatpak uninstall --unused      # remove runtimes no app uses anymore
+```
 
-### **What Is Flatpak?**
+Apps are identified by a reverse-domain name (`org.gimp.GIMP`), which you can find with `flatpak search`. If an app can't see a folder or a device, the cause is almost always a sandbox permission: manage it with `flatpak override` or, more comfortably, with the **Flatseal** app.
 
-Flatpak is a software distribution system that lets developers build packages that can run on any Linux distribution, regardless of the system libraries present. This portability makes Flatpak an attractive option for developers who want to distribute their software across multiple Linux platforms. Flatpak's built-in sandboxing also provides an extra layer of security, isolating applications from the rest of the system.
+## Snap
 
-### **Essential Flatpak Commands**
+Snap is the universal format developed by Canonical and ships by default in Ubuntu, which also uses it to distribute Firefox. Unlike Flatpak it also works for services and command-line tools, and it's for example the recommended way to install **Certbot** on Ubuntu.
 
-Flatpak offers a set of intuitive commands for package management. Some of the most commonly used commands include:
+```
+sudo snap install certbot --classic
+snap list
+sudo snap refresh               # update (it does this automatically anyway)
+sudo snap refresh --hold        # pause automatic updates
+sudo snap remove certbot
+```
 
-1.  **flatpak install:** installs a Flatpak application on the system.
-2.  **flatpak remove:** removes a Flatpak application from the system.
-3.  **flatpak update:** updates all installed Flatpak applications on the system to the latest available version.
-4.  **flatpak list:** shows a list of all Flatpak applications installed on the system.
+`--classic` installs the snap without sandbox confinement, which tools that need free access to the system require.
 
-### **Configuring Repositories with Flatpak**
+Snap is also the most debated format, and the criticism has solid grounds:
 
-Flatpak uses a repository system similar to that used by other package management technologies. Users can add new Flatpak repositories to the system, giving them access to a wide range of applications available in Flatpak's main channel and in third-party repositories.
+- **Centralised store**: there's only one store, run by Canonical, with a server that isn't open source. You can't add alternative repositories as you can with Flatpak.
+- **Automatic updates**: snaps update themselves. You can postpone or pause them, but on a server, software changing without you deciding is not a minor detail.
+- **System clutter**: every snap is mounted as a loop device, and `df` and `lsblk` fill up with `/snap/...` entries.
 
-In conclusion, Flatpak represents an innovative and powerful solution for package management on Linux distributions. Its ability to provide a universal, sandboxed software distribution experience makes Flatpak a popular choice among Linux developers and users looking for a safe, reliable way to distribute and use software across different Linux platforms.
+## AppImage
 
-## **7. Package Management with Snap**
+An AppImage is a single executable file containing the app and its dependencies. There's nothing to install: download it, make it executable and run it.
 
-Snap is a package management technology developed by Canonical, the company behind Ubuntu. It's designed to simplify software installation and distribution across a wide range of Linux distributions, offering a secure, reliable and easy-to-use software distribution experience.
+```
+chmod +x Application.AppImage
+./Application.AppImage
+```
 
-### **What Is Snap?**
+Two things guides often leave out. AppImages have **no sandbox** by default: they run with all of your user's permissions, exactly like any binary downloaded from the internet, so only download them from sources you trust. They also need **FUSE 2**, which recent distributions no longer install by default. On Ubuntu 24.04, for example, you need:
 
-Snap is a universal package format that includes all the dependencies needed to run an application, ensuring it behaves consistently on any Linux distribution. This makes it an attractive choice for developers who want to distribute their software across multiple Linux platforms without worrying about differences between distributions.
+```
+sudo apt install libfuse2t64
+```
 
-### **Essential Snap Commands**
+There's no central update mechanism: each app updates in its own way, or you download the new version by hand.
 
-Snap offers a set of intuitive commands for package management. Some of the most commonly used commands include:
+## Common errors (and how to fix them)
 
-1.  **snap install:** installs a Snap application on the system.
-2.  **snap remove:** removes a Snap application from the system.
-3.  **snap refresh:** updates all installed Snap applications on the system to the latest available version.
-4.  **snap list:** shows a list of all Snap applications installed on the system.
+**"Could not get lock /var/lib/dpkg/lock-frontend".** Another process is using APT. It's almost always `unattended-upgrades` working in the background right after boot. **Don't delete the lock file**: wait a few minutes, or check who's holding it with `ps aux | grep -E 'apt|dpkg'`. If a previous operation really was interrupted, `sudo dpkg --configure -a` puts the database back in order.
 
-### **Configuring Repositories with Snap**
+**"The following packages have been kept back".** `apt upgrade` won't install upgrades that need new dependencies or removals. `apt full-upgrade` installs them, once you've read what it proposes to remove. On Ubuntu, if the message mentions upgrades "deferred due to phasing", there's nothing to do: Canonical rolls out some updates gradually, to a percentage of machines at a time, and they'll arrive on their own.
 
-Snap uses a centralized repository system called the Snap Store, where developers can publish their applications. Users can browse the Snap Store to search for and install applications, as well as configure additional repositories if needed.
+**"NO_PUBKEY" or "repository is not signed".** The repository key is missing or expired. Download the updated key from the vendor's documentation and store it in `/etc/apt/keyrings/`, as shown above, instead of using `apt-key`.
 
-In conclusion, Snap represents a powerful, convenient solution for package management on Linux distributions. Its ability to provide a universal, secure software distribution experience makes it a popular choice among Linux developers and users looking for a simple, reliable way to install and use software across different Linux platforms.
+**"Unable to locate package".** In order: you haven't run `apt update` (typical in containers, which start with an empty index), the name is different (look it up with `apt search`), or the package lives in a repository that isn't enabled, like `universe` on Ubuntu.
 
-### **Controversies Around Snap**
+**"Unable to find a match" on RHEL and derivatives.** The package is almost always in EPEL or CRB, which aren't enabled by default.
 
-Despite Snap's popularity as a package management technology, the Linux community has raised some controversies and concerns about it. Some of the contentious points include:
+**"invalid or corrupted package (PGP signature)" on Arch.** The keyring is older than the keys used to sign the new packages, usually after months without upgrading. Update the keyring first, then everything else: `sudo pacman -Sy archlinux-keyring && sudo pacman -Su`.
 
-1.  **Central control:** Snap is managed centrally by Canonical through its Snap Store, which has raised concerns about central control of applications by a single entity. Some members of the Linux community would prefer a more decentralized approach to package management.
-2.  **Proprietary licenses and closed binaries:** some software distributed via Snap may include proprietary components or closed binaries, which goes against the software freedom principles championed by some in the Linux community. This has sparked controversy over Snap's compatibility with the core values of free and open source software.
-3.  **Interoperability:** Snap has had some interoperability issues with other package management technologies, such as Flatpak, which could lead to fragmentation and confusion in the Linux ecosystem. Some community members believe this could harm the overall Linux user experience.
+## In short
 
-Despite these controversies, Snap remains a popular choice for many Linux developers and users, thanks to its ease of use, software portability and built-in security. However, these concerns remain important talking points within the Linux community as it seeks a balance between practicality, freedom and security in the world of package management.
+The concepts are the same everywhere: signed repositories, an index to refresh, dependencies resolved automatically, and a database that knows which file belongs to which package. Only the syntax changes, and for that the table above is all you need.
 
-## **8. Package Management with AppImage**
-
-AppImage is a software distribution technology that offers a unique approach to package management on Linux systems. It's designed to be simple to use and highly portable, letting developers easily distribute their applications across different Linux distributions without depending on specific package managers.
-
-### **What Is AppImage and Why Does It Matter?**
-
-AppImage is a package format that includes all the libraries and dependencies needed to run an application on any Linux distribution, with no installation required. This makes it an attractive choice for developers who want to distribute their software across Linux platforms, while ensuring a consistent, hassle-free user experience across different distributions.
-
-### **Using AppImage**
-
-Using AppImage is extremely simple: users just need to download the AppImage file for the desired application, make it executable and launch it. No system installation is required, and the application can run directly from the AppImage file, with no additional dependencies or complex configuration needed.
-
-### **Advantages of AppImage**
-
-- **Portability:** AppImage applications can run on any Linux distribution with no need for adaptation or additional installation.
-- **Simplicity:** using AppImage is extremely simple and doesn't require advanced technical knowledge.
-- **Isolation:** each AppImage application is self-contained and doesn't interfere with other applications or system libraries, ensuring an isolated, secure environment.
-
-### **Considerations**
-
-Despite its many advantages, AppImage isn't free of criticism. Some concerns raised by the Linux community involve the lack of an automatic update mechanism and non-standardized dependency management. Still, despite this criticism, AppImage remains a popular choice for those looking for a simple, convenient way to distribute and use software across different Linux distributions.
-
-## **Conclusion**
-
-Package management is a crucial part of the Linux experience, letting users easily install, update and remove software on their operating system. In this article, we've looked at several tools and technologies used for package management on Linux, including APT, YUM/DNF, Pacman, Snap, Flatpak and AppImage.
-
-Despite the controversies and criticism raised about some of these technologies, it's important to recognize the fundamental role they play in making Linux more accessible and convenient for users around the world. With a proper understanding and use of these tools, users can make the most of their Linux operating system's potential, installing and managing software effectively and securely.
-
-Regardless of personal preference for a specific package management tool, it's important to recognize each one's contribution to the richness and diversity of the Linux ecosystem. Whether it's APT, YUM/DNF, Pacman, Snap, Flatpak or AppImage, every tool plays an important role in giving users a more complete and satisfying Linux experience.
-
-## **References**
-
-While writing this article, several websites and resources were consulted to ensure the accuracy of the information provided. Here are some useful references:
-
-1.  Official Ubuntu website – <a href="https://ubuntu.com/" target="_blank" rel="noreferrer noopener">https://ubuntu.com/</a>
-2.  Debian documentation – <a href="https://www.debian.org/doc/" target="_blank" rel="noreferrer noopener">https://www.debian.org/doc/</a>
-3.  Official Fedora website – <a href="https://getfedora.org/" target="_blank" rel="noreferrer noopener">https://getfedora.org/</a>
-4.  Arch Wiki – <a href="https://wiki.archlinux.org/" target="_blank" rel="noreferrer noopener">https://wiki.archlinux.org/</a>
-5.  Flatpak documentation – <a href="https://flatpak.org/documentation.html" target="_blank" rel="noreferrer noopener">https://flatpak.org/documentation.html</a>
-6.  Official Snapcraft website – <a href="https://snapcraft.io/" target="_blank" rel="noreferrer noopener">https://snapcraft.io/</a>
-7.  AppImage documentation – <a href="https://appimage.org/documentation" target="_blank" rel="noreferrer noopener">https://appimage.org/documentation</a>
-8.  Linux discussion forum – <a href="https://www.linuxquestions.org/" target="_blank" rel="noreferrer noopener">https://www.linuxquestions.org/</a>
-
-These references helped provide thorough, up-to-date information on package management in Linux and were valuable for developing this article.
+If you're setting up a server, the natural next step is installing the web stack: here's my guide to [installing a LAMP stack on Ubuntu](/en/how-to-install-a-lamp-stack/).

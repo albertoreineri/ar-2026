@@ -1,8 +1,12 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>{{ if .IsHome }}{{ site.Title }} — {{ i18n "site_title_suffix" }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+{{/* seoTitle nel front matter sostituisce il titolo solo nel <title> e nei meta social, l'H1 resta .Title */}}
+{{ $seoTitle := .Params.seoTitle | default .Title }}
+<title>{{ if .IsHome }}{{ site.Title }} — {{ i18n "site_title_suffix" }}{{ else }}{{ printf "%s | %s" $seoTitle site.Title }}{{ end }}</title>
 <meta name="description" content="{{ with .Description }}{{ . }}{{ else }}{{ site.Params.description }}{{ end }}">
 <link rel="canonical" href="{{ .Permalink }}">
+{{/* noindex: true nel front matter toglie la pagina dall'indice senza eliminarla (va escluso a parte anche dalla sitemap) */}}
+{{ if .Params.noindex }}<meta name="robots" content="noindex, follow">{{ end }}
 
 {{ if .IsTranslated }}
 {{ range .AllTranslations }}
@@ -15,7 +19,7 @@
 {{ end }}
 {{ end }}
 
-{{ $ogTitle := cond .IsHome (printf "%s — %s" site.Title (i18n "site_title_suffix")) (printf "%s | %s" .Title site.Title) }}
+{{ $ogTitle := cond .IsHome (printf "%s — %s" site.Title (i18n "site_title_suffix")) (printf "%s | %s" $seoTitle site.Title) }}
 {{ $ogDesc := .Description | default site.Params.description }}
 {{ $ogImage := "img/og-image.png" | absURL }}
 {{ $ogLocale := cond (eq site.Language.Lang "en") "en_US" "it_IT" }}

@@ -3,6 +3,9 @@ title: "6. Le basi di PHP"
 date: 2020-03-17
 description: "PHP è uno dei linguaggi di programmazione più utilizzati al mondo in ambito web. Moltissime grandi aziende lo utilizzano per i loro progetti, tra cui Facebook Wikipedia Yahoo Mailchimp Slack…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 **PHP** è uno dei linguaggi di programmazione **più utilizzati al mondo** in ambito web.
@@ -33,7 +36,7 @@ La particolarità del PHP è che **può essere eseguito all’interno delle pag
 
 **Esempio:**
 
-``` wp-block-code
+```
 <html>
    <head></head>
    <body>
@@ -62,7 +65,7 @@ Come già detto il PHP viene eseguito nelle pagine HTML, ma occorre **separare 
 
 Il codice PHP va inserito all’interno di questi tag:*** \<?php*** e *?\>*
 
-``` wp-block-code
+```
 <?php 
     //Codice php
 ?>
@@ -74,7 +77,7 @@ Tutto ciò inserito fra questi tag sarà php, il resto sarà HTML.
 
 Come per il Javascript, anche il PHP necessita del **punto e virgola** alla fine di ogni riga, per poter capire dove termina una regola e ne inizia un’altra. Ricordati perciò semprio di inserire il punto e virgola dopo ogni riga
 
-``` wp-block-code
+```
 echo "CIAO";
 ```
 
@@ -84,13 +87,13 @@ I commenti possono essere di **due tipi:**
 
 **Una riga: **Se si vuole commentare l’intera riga basta inserire un **doppio slash** all’inizio della riga
 
-``` wp-block-code
+```
 // Commento di una riga
 ```
 
 **Più righe: **Per commentare più righe occorre utilizzare ***/\* commento \*/.***
 
-``` wp-block-code
+```
 /* Commento su
 più righe
 Commento
@@ -101,7 +104,7 @@ Commento*/
 
 Le variabili in PHP sono precedute da **\$**, in questo modo:
 
-``` wp-block-code
+```
 $saluto = "CIAO";
 echo $saluto;
 ```
@@ -124,7 +127,7 @@ La funzione PHP per stampare del testo è **echo();**
 
 Scriviamo quindi questo nel body:
 
-``` wp-block-code
+```
 <?php
    echo("Ciao mondo!");
 ?>
@@ -142,7 +145,7 @@ Se tutto è andato liscio dovremmo vedere scritto “**Ciao mondo!**“.
 
 In php possiamo **definire una variabile **con questa sintassi:
 
-``` wp-block-code
+```
 $x = 1;
 $y = "ciao";
 $z = True;
@@ -164,7 +167,7 @@ Possiamo anche **stampare** le variabili PHP usando il comando *echo* (come 
 
 Proviamo per esempio a sommare due numeri, inserire il risultato in una nuova variabile e stamparla.
 
-``` wp-block-code
+```
 $x = 1;
 $y = 2;
 $somma = $x + $y;
@@ -175,7 +178,7 @@ echo $somma;       // Stampa 3
 
 In PHP è possibile concatenare variabili e stringhe utilizzando il pungo (*.*), in questo modo:
 
-``` wp-block-code
+```
 $anni = 30;
 $nome = "Marco";
 echo $nome . " ha " . $anni . " anni!";
@@ -185,14 +188,14 @@ echo $nome . " ha " . $anni . " anni!";
 
 Le stringhe sono **variabili che contengono testo**. Ad esempio, una stringa che contiene un nome è definita come segue:
 
-``` wp-block-code
+```
 $nome = "Marco";
 echo $nome;
 ```
 
 Possiamo **formattare facilmente le stringhe usando le variabili**. Per esempio:
 
-``` wp-block-code
+```
 $nome = "Marco";
 $frase = "Ciao $nome";
 echo $frase;
@@ -200,7 +203,7 @@ echo $frase;
 
 Possiamo anche **concatenare** le stringhe usando l’ *.* operatore punto . Per esempio:
 
-``` wp-block-code
+```
 $nome = "Marco";
 $cognome = "Rossi";
 $nome_completo = $nome . " " . $cognome;
@@ -209,14 +212,14 @@ echo $nome_completo;
 
 Per misurare la **lunghezza** di una stringa, utilizziamo la funzione *strlen*:
 
-``` wp-block-code
+```
 $string = "Misuriamo quanti caratteri ha questa stringa";
 echo strlen($string);
 ```
 
 Per tagliare una parte di una stringa e restituirla come nuova stringa, possiamo usare la funzione *substr*:
 
-``` wp-block-code
+```
 $filename = "image.png";
 $extension = substr($filename, strlen($filename) - 3);
 echo "L'estensione di questo file è $extension";
@@ -230,7 +233,7 @@ Ad esempio, supponiamo di voler creare un elenco di tutti i numeri dispari tra 1
 
 Per utilizzare la prima variabile nell’elenco (in questo caso il numero 1), dovremo fornire **il primo indice**, che è **0**, poiché PHP utilizza indici basati su zero, come quasi tutti i linguaggi di programmazione oggi.
 
-``` wp-block-code
+```
 $numeri_dispari = [1,3,5,7,9];
 $primo_numero_dispari = $numeri_dispari[0];
 $secondo_numero_dispari = $numeri_dispari[1];
@@ -241,7 +244,7 @@ echo "Il secondo numero dispari è $secondo_numero_dispari\n";
 
 Ora possiamo aggiungere nuove variabili usando un indice. Per aggiungere un elemento alla fine dell’elenco, possiamo assegnare l’array con l’indice 5 (la sesta variabile):
 
-``` wp-block-code
+```
 $numeri_dispari = [1,3,5,7,9];
 $numeri_dispari[5] = 11;
 print_r($numeri_dispari);
@@ -255,7 +258,7 @@ I loop ci aiutano a scorrere su una variabile utilizzando un indice. Esistono 
 
 I loop sono molto utili quando dobbiamo **scorrere su un array e fare riferimento al membro dell’array usando un indice che cambia**. Ad esempio, supponiamo di avere un elenco di numeri dispari. Per stamparli, dobbiamo fare riferimento a ciascun articolo singolarmente. Il codice che scriviamo nel ciclo for può usare l’indice *i*, che cambia in ogni iterazione del ciclo for.
 
-``` wp-block-code
+```
 $numeri = [1,3,5,7,9];
 for ($i = 0; $i < count($numeri); $i=$i+1) {
     $numero = $numeri[$i];
@@ -275,7 +278,7 @@ Il ciclo **foreach** esegue il loop su un elemento come una matrice o un ogget
 
 Ad esempio, supponiamo di voler creare un elenco di tutti i numeri dispari tra 1 e 10 e stamparli uno per uno, come nell’esempio precedente. Questa volta, useremo il *foreach*   invece di un *for*  regolare con una variabile. Invece di utilizzare la variabile come indice dell’array, otteniamo l’elemento dall’array direttamente nella variabile *\$numeri_dispari* .
 
-``` wp-block-code
+```
 $numeri_dispari = [1,3,5,7,9];
 foreach ($numeri_dispari as $numero) {
   echo $numero . "\n";
@@ -288,7 +291,7 @@ I cicli **While** sono semplici blocchi che vengono eseguiti ripetutamente fin
 
 Ecco un esempio di un ciclo che viene eseguito per un totale di 10 volte:
 
-``` wp-block-code
+```
 $counter = 0;
 
 while ($counter < 10) {
@@ -303,7 +306,7 @@ Le funzioni sono semplici **blocchi di codice che possiamo chiamare da qualsias
 
 Una funzione riceve un elenco di argomenti separati da virgole. Ogni argomento esiste solo nel contesto della funzione, nel senso che diventano variabili all’interno del blocco funzione, ma non sono definiti al di fuori di quel blocco funzione.
 
-``` wp-block-code
+```
 // Definiamo una funzione chiamata "somma" che farà la somma di una lista di numeri
 function somma($numeri) {
     // inizializziamo la variabile somma

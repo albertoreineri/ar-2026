@@ -3,6 +3,9 @@ title: "4. Le basi di Bootstrap"
 date: 2020-03-17
 description: "Questa guida fa riferimento a Bootstrap 4, ora è uscita la versione 5… Appena avrò un attimo di tempo la aggiornerò! Se vuoi diventare uno sviluppatore web oggi non puoi fare a meno che scontrarti…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 *Questa guida fa riferimento a Bootstrap 4, ora è uscita la versione 5… Appena avrò un attimo di tempo la aggiornerò!*
@@ -38,13 +41,13 @@ Questo può essere fatto in **2 modi:**
 
 Questo metodo consiste nel **richiamare Bootstrap dalla CDN**. È facile e veloce, non occorre scaricare nulla, basta inserire questo codice nell’***\<head\>***:
 
-``` wp-block-code
+```
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 ```
 
 e questo prima della fine del ***\<body\>***:
 
-``` wp-block-code
+```
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
@@ -69,13 +72,13 @@ Nel download saranno presenti **molte versioni** dei file, a noi interessano q
 
 Inseriamo quindi questo codice nell’***\<head\>***:
 
-``` wp-block-code
+```
 <link rel="stylesheet" href="css/bootstrap.min.css">
 ```
 
 E questo prima del*** \</body\>***:
 
-``` wp-block-code
+```
 <script src="js/bootstrap.min.css"></script>
 ```
 
@@ -83,7 +86,7 @@ Proseguendo** utilizzeremo il metodo CDN**, per semplicità e velocità di conf
 
 **Ecco il template di base da cui partiremo:**
 
-``` wp-block-code
+```
 <!doctype html>
 <html lang="it">
   <head>
@@ -127,7 +130,7 @@ Creiamo un **layout **suddiviso su **2 colonne** che diventeranno 1 se lo sc
 
 Sotto l'\<h1\> del nostro file inseriamo questo:
 
-``` wp-block-code
+```
     <!-- Layout 2 colonne Laptop, 1 colonna da tablet in giù -->
     <div class="container bg-secondary">
         <div class="row">
@@ -233,7 +236,7 @@ Ecco una tabella delle **dimensioni **e delle colonne di bootstrap:
 
 Ecco un **esempio**:
 
-``` wp-block-code
+```
     <!-- Layout 2 colonne Laptop, 3 colonna da tablet, 1 colonna da smartphone -->
     <div class="container bg-secondary">
         <div class="row">
@@ -281,7 +284,7 @@ Andiamo a creare una **navbar **per il nostro sito!
 
 Nulla di più semplice con Bootstrap, ci basterà andare a cercare “**Navbar**” fra i vari componenti (<https://getbootstrap.com/docs/4.3/components/navbar/>) e **copiare il codice **per inserirla, nel nostro caso questo:
 
-``` wp-block-code
+```
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">Navbar</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -323,7 +326,7 @@ Vogliamo però apportare qualche **modifica**, per esempio non ci serve la rice
 
 Ci basterà quindi **eliminare il form** di ricerca e modificare il margine del menù, da “**mr-auto**” a “**ml-auto**“, nell’ul “navbar-nav”:
 
-``` wp-block-code
+```
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <a class="navbar-brand" href="#">Navbar</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -377,7 +380,7 @@ Prova a visualizzare in modalità smartphone, vedrai che il menù scompare e app
 
 Un altro componente utilissimo sono i **bottoni**! Bootstrap fornisce un insieme di bottoni già pronti e **ben formattati**, disponibili nei colori più utilizzati, eccoli qui:
 
-``` wp-block-code
+```
 <button type="button" class="btn btn-primary">Primary</button>
 <button type="button" class="btn btn-secondary">Secondary</button>
 <button type="button" class="btn btn-success">Success</button>
@@ -402,7 +405,7 @@ Inserire dei caroselli non è mai stato così semplice! Anche qua basta andare a
 
 **Esempio:**
 
-``` wp-block-code
+```
 <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
   <ol class="carousel-indicators">
     <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -439,7 +442,7 @@ Anche creare **form graficamente accettabili** è velocissimo! Bootstrap conse
 
 Ecco un **esempio**:
 
-``` wp-block-code
+```
 <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -474,7 +477,7 @@ Puoi anche **aggiungere un tuo file css** personale per andare a sovrascrivere
 
 Se per esempio vogliamo che il btn-primary sia arancione, possiamo creare un nostro file css con questo al suo interno:
 
-``` wp-block-code
+```
 .btn-primary{
    background-color:orange !important;
 }
@@ -490,7 +493,7 @@ Creiamo ora una **home page semplice utilizzando solo bootstrap!**
 
 ### **Template di base:**
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="it">
 
@@ -523,7 +526,7 @@ Creiamo ora una **home page semplice utilizzando solo bootstrap!**
 
 Ora inseriamo una** navbar con il menù allineato a destra**, come abbiamo visto prima:
 
-``` wp-block-code
+```
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container">
             <a class="navbar-brand" href="#">Corso intensivo di Bootstrap</a>
@@ -555,7 +558,7 @@ Ora inseriamo una** navbar con il menù allineato a destra**, come abbiamo vist
 
 Ora creiamo il classico layout con il **contenuto sulla sinistra** e una **sidebar sulla destra**. Da smartphone invece la sidebar sarà sotto il contenuto.
 
-``` wp-block-code
+```
     <div class="container mt-5">
 
         <div class="row">
@@ -665,7 +668,7 @@ Particolarità:
 
 Infine inseriamo il footer:
 
-``` wp-block-code
+```
     <footer>
         <div class="container text-center mb-5">
             <p>Sito realizzato da <a href="https://albertoreineri.it">Specialista WP!</a></p>
@@ -695,7 +698,7 @@ Per maggior chiarezza ecco il **codice completo** del layout base con Bootstra
 
 I **commenti **ti aiuteranno a capire le varie sezioni!
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="it">
 

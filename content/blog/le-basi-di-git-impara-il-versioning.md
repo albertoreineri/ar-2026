@@ -3,6 +3,9 @@ title: "Le basi Di GIT: Impara il versioning!"
 date: 2024-02-12
 description: "Nel vasto panorama dello sviluppo software, la gestione efficace del codice svolge un ruolo cruciale nel determinare il successo di un progetto. In questo contesto, Git si erge come uno strumento…"
 tags: ["Guide", "Web Dev"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Nel vasto panorama dello sviluppo software, la gestione efficace del codice svolge un ruolo cruciale nel determinare il successo di un progetto. In questo contesto, Git si erge come uno strumento indispensabile, fornendo un sistema di controllo versione potente ed efficiente. La sua adozione non solo semplifica la collaborazione tra sviluppatori, ma offre anche un metodo robusto per tracciare le modifiche nel tempo, gestire branch distinti e risolvere conflitti in modo ordinato.
@@ -41,7 +44,7 @@ Ora che hai Git installato sul tuo sistema, il passo successivo è inizializzare
 2.  **Spostamento nella Directory del Progetto:** Utilizza il comando `cd` per spostarti nella directory del tuo progetto. Ad esempio: cd percorso/verso/il/tuo/progetto
 3.  **Inizializzazione del Repository:** Esegui il comando `git init` per inizializzare un nuovo repository Git nella directory del progetto.
 
-``` wp-block-code
+```
 git init
 ```
 
@@ -57,13 +60,13 @@ Ora che il tuo repository Git è stato inizializzato, è il momento di iniziare 
 
 Utilizza il comando `git add <nome file>` per aggiungere un singolo file al cosiddetto “staging area”, il luogo dove Git prepara i file per il successivo commit.
 
-``` wp-block-code
+```
  git add nomefile.txt
 ```
 
 Se desideri aggiungere tutti i file modificati o nuovi, puoi utilizzare il comando:
 
-``` wp-block-code
+```
  git add .
 ```
 
@@ -73,7 +76,7 @@ Assicurati di sostituire `<nome file>` con il nome effettivo del tuo file.
 
 Puoi sempre verificare lo stato attuale del repository con il comando `git status`. Questo ti mostrerà i file che sono stati aggiunti al “staging area” e quelli che sono ancora in attesa di essere aggiunti.
 
-``` wp-block-code
+```
 git status
 ```
 
@@ -81,7 +84,7 @@ git status
 
 Una volta che hai aggiunto i file desiderati, è ora di effettuare un commit per registrare le modifiche nel repository. Utilizza il comando `git commit` seguito da un messaggio descrittivo:
 
-``` wp-block-code
+```
   git commit -m "Descrizione delle modifiche"
 ```
 
@@ -97,7 +100,7 @@ Dopo aver aggiunto i file desiderati al tuo repository tramite la “staging are
 
 Utilizza il comando `git commit -m "Messaggio del commit"` per registrare ufficialmente le modifiche nel repository.
 
-``` wp-block-code
+```
  git commit -m "Implementato il sistema di autenticazione"
 ```
 
@@ -125,7 +128,7 @@ L’utilizzo di branch in Git consente di sviluppare diverse linee di codice in 
 
 Utilizza il comando `git branch <nome branch>` per creare un nuovo branch. Ad esempio:
 
-``` wp-block-code
+```
  git branch feature-autenticazione
 ```
 
@@ -157,7 +160,7 @@ L’unione di branch in Git è un passo cruciale per combinare le modifiche effe
 
 Prima di unire i branch, assicurati di trovarti nel branch di destinazione. Per esempio, se desideri unire il branch “feature-autenticazione” al branch “master”, esegui:
 
-``` wp-block-code
+```
 git checkout master
 ```
 
@@ -165,7 +168,7 @@ Copy
 
 Se stai usando il comando `git switch`, puoi usare:
 
-``` wp-block-code
+```
 git switch master
 ```
 

@@ -27,25 +27,7 @@ Un preprocessore CSS è un **linguaggio di scripting** che estende i CSS, cons
 
 ## Come usare Sass?
 
-<div class="iframe">
-
-<div id="player">
-
-</div>
-
-<div class="player-unavailable">
-
-# Si è verificato un errore.
-
-<div class="submessage">
-
-Impossibile eseguire JavaScript
-
-</div>
-
-</div>
-
-</div>
+{{< youtube cM6UQxF9PSA >}}
 
 Nella sezione seguente, vedremo alcuni suggerimenti di base per l’utilizzo di Sass, usando esempi tratti dal sito Web ufficiale di Sass. Dai un’occhiata alla <a href="https://sass-lang.com/documentation" target="_blank" rel="noreferrer noopener">documentazione ufficiale</a> per ulteriori riferimenti ed esempi.
 
@@ -66,7 +48,7 @@ Ad esempio, **è possibile memorizzare un valore di colore in una variabile** 
 
 *Per esempio:*
 
-``` wp-block-code
+```
 $font-stack:    Helvetica, sans-serif;
 $primary-color: #333;
 
@@ -78,7 +60,7 @@ body {
 
 **Questo codice genererà il seguente CSS:**
 
-``` wp-block-code
+```
 body {
   font: 100% Helvetica, sans-serif;
   color: #333;
@@ -93,7 +75,7 @@ L’idea è di annidare i selettori CSS in modo tale da **imitare la gerarchia 
 
 Ecco un **esempio** di menù di navigazione che utilizza l’annidamento:
 
-``` wp-block-code
+```
 nav {
   ul {
     margin: 0;
@@ -113,7 +95,7 @@ nav {
 
 **L’output CSS sarà il seguente:**
 
-``` wp-block-code
+```
 nav ul {
   margin: 0;
   padding: 0;
@@ -143,7 +125,7 @@ Utilizzatato con i parziali (vedere la sezione precedente), il comando @import c
 
 **\_reset.scss**
 
-``` wp-block-code
+```
 html,
 body,
 ul,
@@ -155,7 +137,7 @@ ol {
 
 **basefile.scss**
 
-``` wp-block-code
+```
 @import 'reset';
 
 body {
@@ -166,7 +148,7 @@ body {
 
 **Output CSS:**
 
-``` wp-block-code
+```
 html, body, ul, ol {
   margin: 0;
   padding: 0;
@@ -186,7 +168,7 @@ Uno dei vantaggi dell’utilizzo dei preprocessori è la capacità di **prender
 
 Ad esempio, se è necessario includere i **vendor prefixes**, è possibile utilizzare un mixin. Dai un’occhiata a questo esempio per border-radius:
 
-``` wp-block-code
+```
 @mixin border-radius($radius) {
   -webkit-border-radius: $radius;
      -moz-border-radius: $radius;
@@ -203,7 +185,7 @@ Successivamente, viene chiamato il comando @include, insieme al nome del mixin (
 
 **Viene prodotto il seguente CSS:**
 
-``` wp-block-code
+```
 .box {
   -webkit-border-radius: 10px;
   -moz-border-radius: 10px;

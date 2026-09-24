@@ -3,6 +3,9 @@ title: "3. Le basi di Javascript"
 date: 2020-03-17
 description: "Javascript è il linguaggio che permette di creare animazioni nei contenuti web. Tutte le gallery, gli slider, i pop up, le transizioni di pagina e ogni effetto animato che vedi navigando online è…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 **Javascript** è il linguaggio che permette di **creare animazioni** nei contenuti web. Tutte le gallery, gli slider, i pop up, le transizioni di pagina e ogni effetto animato che vedi navigando online è realizzato con **Javascript**.
@@ -38,7 +41,7 @@ In questo caso il codice Javascript è inserito **direttamente nel file html**�
 
 Apriamo il nostro “**index.html**“, andiamo sul fondo e inseriamo questo codice appena prima del tag ***\</body\>***:
 
-``` wp-block-code
+```
 <script>
    alert("CIAO");
 </script>
@@ -56,7 +59,7 @@ Andiamo nella nostra cartella “**HTML**” sul desktop, la apriamo con code (g
 
 All’interno di questo file scriviamo:
 
-``` wp-block-code
+```
 alert("CIAO");
 ```
 
@@ -64,7 +67,7 @@ Ora **salviamo** “***scripts.js***” e apriamo “***index.html***“.
 
 Qua, sempre prima del *\</body\>*, inseriamo questo:
 
-``` wp-block-code
+```
 <script src="scripts.js"></script>
 ```
 
@@ -86,7 +89,7 @@ Un altro modo per visualizzare errori in Javascript è la funzione “**console.
 
 **Ecco un esempio:**
 
-``` wp-block-code
+```
 console.log("CIAO!");
 ```
 
@@ -102,7 +105,7 @@ Se il commento è su **una sola riga** puoi inserire un **doppio slash** pri
 
 **Esempio**
 
-``` wp-block-code
+```
 // Questo è un commento su una riga Javascript
 ```
 
@@ -110,7 +113,7 @@ Se invece **il commento è più lungo**, puoi usare la stessa sintassi del CSS:
 
 **Esempio:**
 
-``` wp-block-code
+```
 /*
 Questo è un commento 
 Javascript su più righe
@@ -125,7 +128,7 @@ Come ogni linguaggio di prograammazione è possibile **utilizzare delle variabi
 
 Inserire una variabile è molto semplice, basta inserire “**var**” prima della variabile, in questo modo:
 
-``` wp-block-code
+```
 var anni = 30;
 ```
 
@@ -133,13 +136,13 @@ var anni = 30;
 
 Ora possiamo **richiamare la variabile dentro il console.log** oppure in un **alert**, in questo modo:
 
-``` wp-block-code
+```
 console.log(anni);
 ```
 
 oppure:
 
-``` wp-block-code
+```
 alert(anni);
 ```
 
@@ -149,7 +152,7 @@ alert(anni);
 
 Impostiamo **una serie di variabili:**
 
-``` wp-block-code
+```
 var nome = "Marco";
 var altezza = "1.83";
 var anni = 30;
@@ -161,7 +164,7 @@ I **valori testuali devono essere inseriti fra virgolette**, mentre i **valori
 
 **Ecco un esempio:**
 
-``` wp-block-code
+```
 console.log('Ciao, mi chiamo ' + nome + ' e sono alto ' + altezza + ' metri. In questo momento ho ' + anni + ' anni. Fra 5 anni avrò ' + (anni + 5) + ' anni.'); </script>
 ```
 
@@ -181,7 +184,7 @@ Le funzioni possono avere dei **parametri**, che ne personalizzano l’azione.
 
 Andiamo sul file ***scripts.js** *e scriviamo:
 
-``` wp-block-code
+```
 function ciao() {
    alert ("CIAO");
 }
@@ -189,7 +192,7 @@ function ciao() {
 
 Ora andiamo sul file ***index.htm***l e aggiungiamo un bottone, in questo modo:
 
-``` wp-block-code
+```
 <button onclick="ciao()">Salutami</button>
 ```
 
@@ -199,7 +202,7 @@ Ora andiamo sul file ***index.htm***l e aggiungiamo un bottone, in questo modo:
 
 Adesso aggiungiamo un **parametro**. Andiamo nella funzione a la modifichiamo così:
 
-``` wp-block-code
+```
 function ciao(nome) {
     alert ("CIAO "+nome);
  }
@@ -207,7 +210,7 @@ function ciao(nome) {
 
 e sul file ***index.html*** modifichiamo così il bottone:
 
-``` wp-block-code
+```
 <button onclick="ciao('Marco')">Salutami</button>
 ```
 
@@ -225,7 +228,7 @@ Utilizziamo sempre il bottone del saluto. Possiamo prevedere che se il nome è �
 
 Sostituiamo la funzione con questa:
 
-``` wp-block-code
+```
 function ciao(nome) {
     if(nome=="Marco"){
         alert ("CIAO "+nome);
@@ -251,7 +254,7 @@ Oggi esistono anche molti altri modi, ma per iniziare questi sono i più semplic
 
 **Esempio:**
 
-``` wp-block-code
+```
 <button onclick="alert('CIAO!')">Salutami</button>
 ```
 
@@ -267,13 +270,13 @@ Quindi ora andremo a **creare un semplice effetto che cambierà lo sfondo del b
 
 Iniziamo con il creare un bottone nella nostra*** index.html:***
 
-``` wp-block-code
+```
 <button onclick="cambiaSfondo()"> Cambia sfondo! </button>
 ```
 
 Ora andiamo nel nostro ***scripts.js*** e creiamo la funzione **cambiaSfondo()**:
 
-``` wp-block-code
+```
 function cambiaSfondo(){
    document.body.style.backgroundColor='#000';
 }
@@ -287,7 +290,7 @@ Notiamo però che **è un’unica azione**, una volta che lo sfondo è nero non
 
 **Andiamo ad aggiungere ancora qualche linea di codice:**
 
-``` wp-block-code
+```
 function cambiaSfondo(){
     var sfondo = document.body.style.backgroundColor;
     if(sfondo=="rgb(0, 0, 0)"){
@@ -311,7 +314,7 @@ Se al posto dello sfondo intero volessimo modificare solamente un **componente*
 
 Iniziamo con il creare un **div con id=”box”**
 
-``` wp-block-code
+```
 <div id="box" onmouseover="cambiaBoxOver()" onmouseout="cambiaBoxOut()">
    Questo contenitore cambiarà colore al passaggio del mouse
 </div>
@@ -319,7 +322,7 @@ Iniziamo con il creare un **div con id=”box”**
 
 Ora **creiamo le due funzioni in scripts.js:**
 
-``` wp-block-code
+```
  function cambiaBoxOver(){
     document.getElementById('box').style.backgroundColor="coral";
     document.getElementById('box').style.color="blue";
@@ -344,7 +347,7 @@ Molto bene, **queste sono le basi per iniziare a smanettare un po’ con il Jav
 
 **index.html**
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="en">
 
@@ -459,7 +462,7 @@ Molto bene, **queste sono le basi per iniziare a smanettare un po’ con il Jav
 
 **scripts.js**
 
-``` wp-block-code
+```
 function cambiaSfondo(){
     var sfondo = document.body.style.backgroundColor;
     if(sfondo=="rgb(0, 0, 0)"){

@@ -3,6 +3,9 @@ title: "9 trend per il Web Design nel 2024"
 date: 2024-03-25
 description: "Il web design è guardare al futuro. Grazie al suo rapporto con la tecnologia, il regno digitale può essere una vetrina per nuove innovazioni nell’animazione, nell’interazione e nell’immersione…"
 tags: ["Web Design"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Il web design è guardare al futuro. Grazie al suo rapporto con la tecnologia, il regno digitale può essere una vetrina per nuove innovazioni nell’animazione, nell’interazione e nell’immersione complessiva ogni anno. E il 2024 promette molto, vediamo quali saranno i trend del Web Design di quest’anno.
@@ -19,11 +22,6 @@ Il Memphis Design, una delle estetiche che hanno definito gli anni ’80, è ta
 
 Questo atteggiamento suona particolarmente vero oggi, quando gli approcci minimalisti hanno portato a un mare di interfacce che (sebbene intuitive) sono straordinariamente uniformi. Non c’è da stupirsi quindi se molti web designer si stanno rivolgendo al Memphis Design per un’esplosione di personalità colorata che nessun visitatore dimenticherà presto.
 
-<figure class="wp-block-image">
-
-<figcaption>Dalla <a href="https://en.99designs.de/profiles/iconicgraphics">iconicgraphics</a></figcaption>
-</figure>
-
 2. Hero Section Tipografica\
 —
 ----------------------------
@@ -31,11 +29,6 @@ Questo atteggiamento suona particolarmente vero oggi, quando gli approcci minima
 Come prima parte di un sito web che i visitatori vedono, la “Hero Section” (termine tecnico per indicare appunto la parte alta di una pagina web) deve fare una dichiarazione. I web designer stanno prendendo a cuore l’idea di sostituire immagini di sfondo con una tipografia impattante e d’effetto.
 
 In sostanza, queste hero section riducono o eliminano del tutto le immagini per consentire al messaggio stesso di portare il peso della prima impressione. Piuttosto che sembrare spoglie, queste sezioni sono audaci nella loro semplicità. Attirano l’attenzione come fa un titolo notiziario accattivante. Inoltre forniscono un’eccellente vetrina per alcuni stili attraenti e creativi.
-
-<figure id="mediaattachment_249020" class="wp-block-image">
-<img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2021/11/Screen-Shot-2021-11-14-at-12.15.46-PM.png?auto=format&amp;q=60&amp;fit=max&amp;w=930" class="wp-image-249020" decoding="async" alt="Tendenze del web design: immagine dell&#39;eroe incentrata sulla tipografia per il web design" />
-<figcaption>Di <a href="https://en.99designs.de/profiles/bluesjay">Bluesjay</a></figcaption>
-</figure>
 
 3. Rivoluzione retrò\
 —
@@ -47,22 +40,12 @@ Sebbene tutto ciò sia stato implementato con [risultati tragici e spesso esila
 
 Se Internet degli anni ’90 era una vetrina di espedienti, grafica e colori non necessari, era anche un periodo in cui le regole non erano ancora state scritte, in cui il “web designer” non era nemmeno una professione. I designer che sono emersi da allora, regnati dagli standard del settore, ora vedono quei primi giorni come un focolaio di creatività illimitata (nel bene e nel male).
 
-<figure class="wp-block-image">
-
-<figcaption>Di <a href="https://en.99designs.de/profiles/Hiroshy">Hiroshy</a></figcaption>
-</figure>
-
 ### 4. Confini visibili\
 —
 
 Al web design piace creare un senso di magia, o almeno l’illusione che il contenuto sia organizzato in modo ordinato da una mano invisibile, fluttuante a forma libera nello spazio digitale. La realtà, ovviamente, è che i siti Web sono costruiti su una griglia rigida e tenuti insieme dal codice. Per quest’anno, i web designer stanno cercando di diventare un po’ più reali con layout che rivelano le loro fondamenta attraverso semplici bordi e cornici.
 
 Una griglia visibile ha l’ovvio vantaggio di distinguere una sezione dall’altra. Ciò semplifica la scansione della pagina consentendo al contempo più contenuti senza che la pagina risulti affollata. Questi semplici bordi conferiscono anche ai siti Web un tocco sottile e retrò che si abbina bene con altre tendenze adiacenti agli anni ’90, che come abbiamo visto stanno tornando.
-
-<figure class="wp-block-image">
-
-<figcaption>Di <a href="https://dribbble.com/Soumitro_Sobuj">Soumitro Sobuj</a> via Dribbble</figcaption>
-</figure>
 
 5. Interattività coinvolgenti\
 —
@@ -87,11 +70,6 @@ La chiave del trend è presentare un po’ di mistero, come il minuscolo cubo ne
 Il neo-brutalismo deriva dalle radici classiche del brutalismo, un movimento architettonico degli anni ’50-’70 che enfatizzava i materiali grezzi ed a vista come il cemento. Il brutalismo ha preso piede nel web design sin dal suo riemergere digitale nel 2014, come documentato sul sito [brutalistwebsites.com](https://brutalistwebsites.com/) . HTML senza stile, sfondi semplici, layout asimmetrici, caratteri predefiniti per computer e foto non trattate caratterizzano il brutalismo digitale.
 
 Lo stile brutalista è fatto per essere crudo e spesso ha un effetto sorprendente, la chiave è un’onestà consapevole di sé promossa dalla propria nudità. Ma quest’anno, ci aspettiamo che questo stile si trasformi in una versione più sommessa e meno estrema, essenzialmente, il neo-brutalismo. Questo sposa la crudezza del brutalismo con i gusti sobri del minimalismo, creando siti web che funzionano per clienti meno all’avanguardia e che evitano le insidie ​​che hanno portato all’eventuale declino del brutalismo architettonico.
-
-<figure id="mediaattachment_249144" class="wp-block-image">
-<img src="https://99designs-blog.imgix.net/blog/wp-content/uploads/2021/11/Screen-Shot-2021-11-14-at-6.03.07-PM.png?auto=format&amp;q=60&amp;fit=max&amp;w=930" class="wp-image-249144" decoding="async" alt="Progettazione di pagine web brutaliste per negozio di candele" />
-<figcaption>Di <a href="https://en.99designs.de/profiles/maiaiva">Maia I</a></figcaption>
-</figure>
 
 7. Tipografia in movimento\
 —
@@ -131,7 +109,3 @@ Come abbiamo visto finora nelle tendenze, la tecnologia ha spianato la strada ad
 
 Questi possono includere scarabocchi, ritagli disordinati e trame analogiche come pastelli e colori. L’effetto è quello di colmare il divario tra online e offline, per collegare questi schermi troppo spesso intercambiabili al mondo reale attraverso un tocco umano.
 
-<figure class="wp-block-image">
-
-<figcaption>Di <a href="https://en.99designs.de/profiles/realysys">Realsys</a></figcaption>
-</figure>

@@ -28,19 +28,19 @@ La prima cosa che devi fare per iniziare con WP-CLI è assicurarti che il tuo am
 
 Dopo aver verificato quegli elementi essenziali, vai avanti e scarica il file *wp-cli.phar* usando il seguente comando:
 
-``` wp-block-code
+```
 $ curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
 ```
 
 E voilà! WP-CLI dovrebbe ora essere installato nel tuo ambiente di hosting. Se desideri assicurarti che funzioni correttamente, esegui semplicemente il seguente comando:
 
-``` wp-block-code
+```
 $ php wp-cli.phar -info
 ```
 
 Se tutto va bene, dovresti vedere qualcosa di simile sulla riga di comando che specifica quale versione di WP-CLI è in esecuzione nel tuo ambiente di hosting:
 
-``` wp-block-code
+```
 PHP binary: /usr/bin/php5
 PHP version: 5.5.9-1ubuntu4.14
 php.ini used: /etc/php5/cli/php.ini
@@ -55,7 +55,7 @@ Tuttavia, se scopri che WP-CLI non è stato installato correttamente sul tuo sis
 
 Infine, creeremo un file eseguibile per WP-CLI e lo sposteremo nella sua directory in modo da poterlo eseguire da qualsiasi luogo:
 
-``` wp-block-code
+```
 $ chmod +x wp-cli.phar
 $ sudo mv wp-cli.phar /usr/local/bin/wp
 ```
@@ -70,13 +70,13 @@ Ora che WP-CLI è installato e pronto per l’uso, esaminiamo alcune delle cose 
 
 Entra nella directory in cui desideri installare il CMS WordPress ed esegui la seguente riga di codice:
 
-``` wp-block-code
+```
 $ wp core download
 ```
 
 Dovrai creare un file *wp-config.php* per proseguire con la tua installazione. Ecco come puoi farlo:
 
-``` wp-block-code
+```
 $ wp core config --dbname=databasename --dbuser=databaseuser --dbpass=databasepassword --dbhost=localhost --dbprefix=prfx_
 ```
 
@@ -84,7 +84,7 @@ $ wp core config --dbname=databasename --dbuser=databaseuser --dbpass=databasepa
 
 Infine, puoi iniziare l’installazione vera e propria eseguendo il comando di *installazione principale* indicato di seguito. Ricorda di sostituire i parametri di esempio con le informazioni del tuo sito prima di eseguire il codice.
 
-``` wp-block-code
+```
 $ wp core install –-url=yoursite.com -–title="Your WordPress Site's Title" –-admin_user=admin_username –-admin_password=admin_password –-admin_email=admin@yoursite.com
 ```
 
@@ -92,13 +92,13 @@ $ wp core install –-url=yoursite.com -–title="Your WordPress Site's Title" �
 
 Prima o poi verrà lanciata una nuova versione di WordPress e dovrai aggiornare la tua installazione all’ultima versione. Se non sei sicuro di quale versione di WordPress è attualmente in esecuzione sul tuo sito, esegui semplicemente il seguente comando:
 
-``` wp-block-code
+```
 $ wp core version
 ```
 
 Se ritieni che il tuo sito abbia effettivamente bisogno di essere aggiornato, è meglio eseguire un backup completo del suo database prima di procedere. Ecco come puoi farlo con WP-CLI:
 
-``` wp-block-code
+```
 $ wp db export my-db-backup.sql
 ```
 
@@ -106,14 +106,14 @@ L’esecuzione di questo comando creerà un backup completo del database del tuo
 
 Infine, puoi aggiornare i file core del tuo sito e il relativo database eseguendo le seguenti righe di codice:
 
-``` wp-block-code
+```
 $ wp core update
 $ wp core update –db
 ```
 
 Per quelli di voi che gestiscono più siti o reti multisito, eseguire il seguente script per aggiornare tutti i siti in una volta sola:
 
-``` wp-block-code
+```
 $ declare -a sites_to_update=('/var/www/wordpress_site_1' '/var/www/wordpress_site_2' '/var/www/wordpress_site_n')
 for site in "${sites_to_update[@]}";
 do
@@ -147,7 +147,7 @@ Una delle cose migliori di WP-CLI è che collega il tuo server web alle director
 
 WP-CLI elimina il lavoro pesante dalla creazione di custom post type in WordPress e lo riduce a una semplice riga di codice. Invece di scaricare un plug-in per aiutarti a portare a termine il lavoro, perché non provare la seguente riga di codice:
 
-``` wp-block-code
+```
 $ wp scaffold post-type cpt_slug --label=CPT_Label --theme=theme_name
 ```
 
@@ -157,7 +157,7 @@ Tutto quello che devi fare è sostituire il testo di esempio con lo slug, l’et
 
 Se ti è già capitato di creare un tema child, avrai dovuto accedere al pannello di controllo e creareti cartella e file relativi dentro al sito. WP-CLI ti consente di creare un tema child con una singola riga di codice:
 
-``` wp-block-code
+```
 $ wp scaffold child-theme name-of-child-theme --parent_theme=name_of_parent_theme --theme_name='My Child Theme' --author='Your Name' --author_uri=http://www.yoursite.com --theme_uri=http://www.themesite.com --activate
 ```
 

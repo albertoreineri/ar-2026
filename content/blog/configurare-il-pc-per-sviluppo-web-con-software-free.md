@@ -15,25 +15,7 @@ Lasciamo da parte l’eterna discussione su quale sistema operativo sia migliore
 
 Vediamo allora **cosa ci serve** per poter sviluppare siti web e web app
 
-<div class="iframe">
-
-<div id="player">
-
-</div>
-
-<div class="player-unavailable">
-
-# Si è verificato un errore.
-
-<div class="submessage">
-
-Impossibile eseguire JavaScript
-
-</div>
-
-</div>
-
-</div>
+{{< youtube 243UeRVMtFI >}}
 
 ## 1. BROWSER
 

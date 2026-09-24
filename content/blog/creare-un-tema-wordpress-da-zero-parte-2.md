@@ -3,6 +3,9 @@ title: "2. Creare un tema WordPress da zero – Parte 2"
 date: 2020-04-30
 description: "Nella parte 1 di questa guida per creare un tema WordPress da zero abbiamo iniziato a creare in nostro primo tema WordPress, creando header, footer e sidebar e imparando come funziona il loop di…"
 tags: ["Guide", "WordPress DEV"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Nella **[parte 1](https://albertoreineri.it/creare-un-tema-wordpress-da-zero-parte-1/)** di questa guida per **creare un tema WordPress da zero** abbiamo iniziato a creare in nostro primo tema WordPress, creando **header**, **footer** e **sidebar** e imparando come funziona il **loop** di WordPress.
@@ -23,7 +26,7 @@ Per abilitarla dobbiamo creare quello che sarà il file più importante di tutto
 
 Creiamo quindi un file chiamato *functions.php* e inseriamo al suo interno questo codice:
 
-``` wp-block-code
+```
 <?php
 //Setup del tema
 function il_mio_tema_setup() {
@@ -54,7 +57,7 @@ Ora non ci resta che **inserire questo menù nella nostra barra di navigazione*
 
 Apriamo quindi* header.php* e sostituiamo l'\<ul\> della nav con questo:
 
-``` wp-block-code
+```
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <?php
                 $args = array(
@@ -77,7 +80,7 @@ IMPORTANTE: per selezionare il giusto menù abbiamo inserito il theme_location u
 
 Per far funzionare correttamente il **dropdown** di bootstrap dobbiamo ancora aggiungere una funzione che permetta di gestire i vari sottomenù. Questa funzione è chiamata “**walker**“, puoi semplicemente incollare questo codice nel *functions.php*:
 
-``` wp-block-code
+```
 // Custom Walker Class for Bootstrap Menu
 add_action( 'after_setup_theme', 'bootstrap_setup' );
 
@@ -147,7 +150,7 @@ I **widget** sono una parte **importantissima** di WordPress. Consentono di 
 
 Per inizializzare un widget dobbiamo andare sempre nel *functions.php* ed inserire questo codice:
 
-``` wp-block-code
+```
 // Widgets
 function InizializzazioneWidget() {
     
@@ -174,7 +177,7 @@ Dobbiamo **andare a dire alla sidebar di prendere il suo contenuto attraverso i
 
 Apriamo quindi il nostro file *sidebar.php*, cancelliamo tutto e sostituiamo il codice con questo:
 
-``` wp-block-code
+```
 <!-- SIDEBAR -->
 <div class="col-sm-3 col-sm-offset-1 blog-sidebar">
     <?php if (is_active_sidebar('sidebar1')) : ?>
@@ -206,7 +209,7 @@ Prenditi un po’ di tempo e prova a farlo, qua sotto ti lascerò **il codice:*
 
 **functions.php**
 
-``` wp-block-code
+```
 // Widgets
 function InizializzazioneWidget() {
     
@@ -263,7 +266,7 @@ add_action('widgets_init', 'InizializzazioneWidget');
 
 **footer.php**
 
-``` wp-block-code
+```
 <div class="row">
 
             <?php if (is_active_sidebar('footer1')) : ?>
@@ -308,7 +311,7 @@ Per creare un layout dedicato alle pagine di WordPress dobbiamo andare nella car
 
 **page.php**
 
-``` wp-block-code
+```
 <?php get_header(); ?>
 
 <?php
@@ -346,7 +349,7 @@ Per creare un layout dedicato agli articoli ci basterà creare il file ***singl
 
 **single.php**
 
-``` wp-block-code
+```
 <?php get_header(); ?>
 
 <div class="container">
@@ -403,7 +406,7 @@ Ora andiamo nella cartella del nostro tema e creiamo un file ***archive.php** 
 
 **archive.php**
 
-``` wp-block-code
+```
 <?php get_header(); ?>
 
 <div class="container">

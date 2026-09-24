@@ -3,6 +3,9 @@ title: "5. Le basi di jQuery"
 date: 2020-03-17
 description: "Se hai letto le nostre guide precedenti, ormai saprai bene che HTML, CSS e Javascript sono i tre linguaggi fondamentali del web. Con l’HTML strutturiamo i nostri siti, con il CSS li modelliamo e…"
 tags: ["Guide", "Inizia Qui"]
+noindex: true
+sitemap:
+  disable: true
 ---
 
 Se hai letto le nostre [guide precedenti](/tags/guide/), ormai saprai bene che **HTML**, **CSS** e **Javascript** sono i tre **linguaggi fondamentali** del web.
@@ -21,13 +24,13 @@ In questo esempio andremo ad inserire la stringa “**Ciao mondo!**” in un div
 
 **Javascript:**
 
-``` wp-block-code
+```
 document.getElementById('ciao').innerHTML = 'Ciao mondo!'
 ```
 
 **JQuery:**
 
-``` wp-block-code
+```
 $('#ciao').html('Ciao mondo!')
 ```
 
@@ -55,7 +58,7 @@ Oppure puoi utilizzare una **CDN**, come faremo in questa guida. Utilizzeremo i
 
 Iniziamo con il creare un file **HTML** di base in cui installare JQuery. Ecco il nostro **scheletro** HTML:
 
-``` wp-block-code
+```
 <!DOCTYPE html>
 <html lang="it">
   <head>
@@ -91,7 +94,7 @@ Il livello più esterno del DOM è l’oggetto **document**. Per iniziare a ma
 
 Apriamo quindi il nostro file *scripts.js *e inseriamo questo codice:
 
-``` wp-block-code
+```
 $(document).ready(function() {
   // Tutte le funzioni di JQuery vanno inserite qui!
 })
@@ -103,19 +106,19 @@ Nell’introduzione di questo articolo, abbiamo visto un semplice script “**Ci
 
 Torniamo quindi nel nostro* index.html *e inseriamo questo nel *\<body\>:*
 
-``` wp-block-code
+```
 <p id="ciao"></p>
 ```
 
 **jQuery** viene chiamato con e rappresentato dal **simbolo del dollaro** ( `$`). Accediamo al DOM con jQuery utilizzando principalmente la **sintassi CSS** e applichiamo un’azione con un metodo. Un esempio di base di jQuery segue questo formato:
 
-``` wp-block-code
+```
 $('selector').method()
 ```
 
 Poiché un ID è rappresentato da un simbolo hash (#) nei CSS, accederemo all’ID ciao con il selettore* #ciao* *\#ciao*. *html()* è un metodo che modifica l’HTML all’interno di un elemento.
 
-``` wp-block-code
+```
 $('#ciao').html('Ciao mondo!')
 ```
 
@@ -145,14 +148,14 @@ Nell’esempio “Ciao mondo!”, il codice è stato eseguito non appena la pagi
 
 Tuttavia, dovremo utilizzare jQuery se vogliamo **far apparire il testo sulla pagina con il clic di un pulsante**. Possiamo aggiungere un pulsante al nostro HTML per attivare l’evento.
 
-``` wp-block-code
+```
 <button id="trigger">Cliccami!</button>
 <p id="ciao"></p>
 ```
 
 Ora possiamo usare il metodo *click() *per inserire il nostro testo “Ciao mondo!”:
 
-``` wp-block-code
+```
 $('#trigger').click(function() {
   $('#ciao').html('Ciao mondo!')
 })
@@ -177,7 +180,7 @@ Faremo un esempio in cui **apriamo e chiudiamo un overlay / popup modale.** Me
 
 **index.html**
 
-``` wp-block-code
+```
 <button class="trigger">Apri</button>
 
 <section class="overlay">
@@ -189,7 +192,7 @@ Useremo una minima quantità di CSS per nascondere il *overlay* con *display:
 
 **style.css**
 
-``` wp-block-code
+```
 .overlay {
   display: none;
   position: fixed;
@@ -204,7 +207,7 @@ Useremo una minima quantità di CSS per nascondere il *overlay* con *display:
 
 Infine, useremo il metodo *toggle()*, che commuterà la proprietà  *display* CSS tra *none* e *block*, nascondendo e mostrando l’overlay quando si fa clic.
 
-``` wp-block-code
+```
 $('.trigger').click(function() {
   $('.overlay').toggle()
 })

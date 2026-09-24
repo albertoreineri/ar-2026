@@ -1,7 +1,7 @@
 ---
 title: "How DNS Works (and Why You Should Understand It)"
 date: 2026-09-18
-description: "A practical guide to DNS: what actually happens when you type an address in your browser, the A, CNAME, MX and TXT records you'll actually use, and how to avoid the most common mistakes when you switch hosting or email."
+description: "A practical guide to DNS: what happens when you type an address, the A, CNAME, MX and TXT records you'll use, and the mistakes to avoid when you move hosting."
 tags: ["Guides", "Web Dev"]
 translationKey: "how-dns-works"
 ---

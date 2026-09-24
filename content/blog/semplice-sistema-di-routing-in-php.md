@@ -1,132 +1,165 @@
 ---
-title: "Semplice sistema di routing in PHP"
+title: "Semplice sistema di routing in PHP, senza framework"
+seoTitle: "Routing in PHP da zero, senza framework"
 date: 2021-06-04
-description: "Usare un sistema di routing in php può portare grandi vantaggi a un progetto. Gli URL delle pagine web di un sito sono molto importanti, sia per i motori di ricerca, sia per gli utenti, che sempre…"
+lastmod: 2026-09-24
+description: "Come costruire un semplice router in PHP puro: tutto il traffico su index.php con .htaccess, mappatura degli URL, parametri dinamici e pagina 404 corretta."
 tags: ["Guide", "PHP"]
 translationKey: "php-routing-system"
 ---
 
-Usare un sistema di routing in php può portare grandi vantaggi a un progetto.
+Gli URL di un sito contano, per i motori di ricerca e per le persone. Un indirizzo come `/articoli/2026/05` è leggibile, si ricorda e si può "accorciare" a mano per risalire all'elenco del mese o dell'anno. Un indirizzo come `/articoli.php?anno=2026&mese=05` fa lo stesso lavoro, ma male.
 
-Gli **URL **delle pagine web di un sito sono** molto importanti**, sia per i motori di ricerca, sia per gli utenti, che sempre di più li usano per navigare velocemente all’interno di un sito.
+Un CMS o un framework come Laravel gestiscono tutto questo per te. Ma per un progetto piccolo, o per capire cosa fanno i framework dietro le quinte, un router scritto da zero richiede poche decine di righe di PHP. Se ti serve solo togliere il `.php` dagli URL c'è una soluzione ancora più semplice: [nascondere l'estensione con .htaccess](/nascondere-lestensione-alla-fine-dellurl/). Se invece vuoi pieno controllo sugli indirizzi, ecco come fare.
 
-*Se per esempio l’url di una pagina che elenca una serie di articoli è http://www.nomesito.it/2019/05/15 l’utente, se conosce minimamente come funziona un browser ed il web, saprà già che se cancella il “15” dall’URL vedrà l’elenco degli articoli del mese, se cancella “05” vedrà l’elenco degli articoli dell’anno e così via.*
+{{< youtube lFtPh9eoPrc >}}
 
-Questo fa parte delle convenzioni che sono venute a crearsi nel corso di questi anni, e che è bene rispettare nella creazione di un sito web.
+L'idea è semplice: **mandare tutte le richieste a `index.php`** e decidere lì, in PHP, quale pagina mostrare.
 
-Una cosa che non mi è mai piaciuta dei primi siti web che realizzavo era vedere il “.php” alla fine dell’URL. Al giorno d’oggi sa veramente di poco professionale.
+## 1. Tutto il traffico su index.php
 
-**Ma è possibile creare degli URL custom e SEO friendly senza utilizzare un CMS o un framework?**
+Nella root del sito crea (o apri) il file `.htaccess`:
 
-La risposta è** assolutamente SI!!!**
-
-Se sei interessato ad una semplice soluzione per “nascondere” il “.php” alla fine dell’URL leggi questo [articolo](https://albertoreineri.it/nascondere-lestensione-alla-fine-dellurl/).
-
-Se vuoi imparare ad utilizzare un semplice sistema di routing in PHP ecco come puoi fare.
-
-## CREARE UN SISTEMA DI GESTIONE DEL ROUTING DEL SITO
-
-<figure class="wp-block-embed is-type-video is-provider-youtube wp-block-embed-youtube wp-embed-aspect-16-9 wp-has-aspect-ratio">
-<div class="wp-block-embed__wrapper">
-<div class="iframe">
-<div id="player">
-
-</div>
-<div class="player-unavailable">
-<h1 id="si-è-verificato-un-errore." class="message">Si è verificato un errore.</h1>
-<div class="submessage">
-Impossibile eseguire JavaScript
-</div>
-</div>
-</div>
-</div>
-</figure>
-
-Andremo a **dirigere tutto il traffico alla index.php e poi eseguiremo un “routing” alla pagina che vogliamo**.
-
-### Dirigere tutto il traffico alla index.php
-
-Aprite il file .htaccess (se non esiste createlo) e inserite il seguente codice:
-
-``` wp-block-code
+```
 RewriteEngine On
-
 RewriteBase /
 
 RewriteCond %{REQUEST_FILENAME} !-d
-
 RewriteCond %{REQUEST_FILENAME} !-f
-
 RewriteRule ^(.+)$ index.php [QSA,L]
 ```
 
-In questo modo qualsiasi richiesta verrà fatta al server questo aprirà il file “index.php”
+Le due condizioni escludono i file e le cartelle che esistono davvero: CSS, JavaScript e immagini continuano a essere serviti direttamente da Apache. Tutto il resto finisce a `index.php`. `QSA` conserva la query string, quindi `$_GET` continua a funzionare.
 
-### Creare un sistema di routing
+Perché il file `.htaccess` venga letto, Apache deve avere `mod_rewrite` attivo e `AllowOverride All` nel virtual host. Su Ubuntu nessuno dei due è attivo di default: trovi come configurarli nella mia guida alla [LAMP stack su Ubuntu](/come-installare-una-lamp-stack/).
 
-Nel file index.php inserisci il seguente codice:
+Se usi **nginx**, l'equivalente è una riga nel blocco `server`:
 
-``` wp-block-code
-<?php
-
-$request = $_SERVER['REQUEST_URI'];
-
-switch ($request) {
-    case '/' :
-        require __DIR__ . '/views/index.php';
-        break;
-    case '' :
-        require __DIR__ . '/views/index.php';
-        break;
-    case '/chi-siamoi' :
-        require __DIR__ . '/views/chi-siamo.php';
-        break;
-    default:
-        require __DIR__ . '/views/404.php';
-        break;
+```
+location / {
+    try_files $uri $uri/ /index.php?$query_string;
 }
 ```
 
-In questo modo si salverà nella variabile **\$request** la richiesta inviata al server (la parte dell’url dopo “www.nomesito.it”).
+## 2. Il router
 
-Dopodiché effettuando una switch si può richiamare la pagina corrispondente alla richiesta nell’URL. 
+In `index.php`:
 
-Nei casi in cui la richiesta sia vuota oppure uno “**/**” allora si rimanda alla **homepage**, altrimenti si può rimandare alla pagina corretta.
+```
+<?php
 
-Nell’esempio ho creato una cartella “**views**” nella root del sito nella quale saranno presenti i file delle singole pagine. In questo modo il codice sarà anche più snello e capibile.
+// Solo il percorso, senza query string: /chi-siamo?utm_source=x diventa /chi-siamo
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
+// Tolgo la barra finale, così /chi-siamo/ e /chi-siamo sono la stessa pagina
+$path = rtrim($path, '/') ?: '/';
 
-Infine è già presente anche la gestione dell’errore **404**, senza dover inserire altro codice nell’htaccess.
+$routes = [
+    '/'          => 'home.php',
+    '/chi-siamo' => 'chi-siamo.php',
+    '/contatti'  => 'contatti.php',
+];
 
-### Creare le views
+if (isset($routes[$path])) {
+    require __DIR__ . '/views/' . $routes[$path];
+    exit;
+}
 
-A questo punto non ci resta che creare i file per le nostre **views**, cioè le pagine visualizzate dall’utente.
-
-Potete creare semplicemente i seguenti file con il seguente codice in ognuno di essi:
-
-**/views/index.php**
-
-``` wp-block-code
-<h1>Home Page</h1>
+http_response_code(404);
+require __DIR__ . '/views/404.php';
 ```
 
-**/views/chi-siamo.php**
+Tre dettagli che fanno la differenza rispetto alla versione più ingenua, che usa direttamente `$_SERVER['REQUEST_URI']` in uno `switch`:
 
-``` wp-block-code
+- **`parse_url`**: `REQUEST_URI` contiene anche la query string. Senza questa riga, basta che qualcuno arrivi da una campagna con `?utm_source=newsletter` perché la home finisca in 404.
+- **La barra finale**: `/chi-siamo` e `/chi-siamo/` sono URL diversi. Normalizzarli evita pagine "introvabili" per un carattere.
+- **`http_response_code(404)`**: senza, la pagina di errore viene servita con codice 200 e Google la considera una pagina valida, da indicizzare. È quello che nella Search Console compare come *soft 404*.
+
+Le rotte stanno in un array invece che in uno `switch`: aggiungere una pagina è una riga, e l'elenco completo degli URL del sito è leggibile a colpo d'occhio.
+
+## 3. Le view
+
+Nella cartella `views` crea un file per ogni pagina:
+
+**views/home.php**
+
+```
+<h1>Home page</h1>
+```
+
+**views/chi-siamo.php**
+
+```
 <h1>Chi siamo</h1>
 ```
 
-**/views/404.php**
+**views/404.php**
 
-``` wp-block-code
-<h1>Errore 404</h1>
+```
+<h1>Pagina non trovata</h1>
 ```
 
-E voilà! Avrete un sistema di routing in PHP semplice da gestire ma funzionale.
+Header, footer e menu li puoi mettere in due file separati (`views/partials/header.php` e `footer.php`) da includere in ogni view, oppure direttamente in `index.php`, prima e dopo il `require` della view.
 
-Questo sistema è alla base di <a href="https://orange.albertoreineri.it/" target="_blank" rel="noreferrer noopener">Orange CMS</a>, il mio CMS realizzato in php. Ampliandolo a dovere è possibile raggiungere risultati molto soddisfacenti.
+## 4. URL con parametri
 
-Spero possa esservi di aiuto.
+Un router serve davvero quando gli URL contengono dati: `/articolo/come-funziona-il-dns`, `/prodotto/42`. Per questi casi basta un'espressione regolare, da aggiungere prima della risposta 404:
 
-*Buon codice!*
+```
+if (preg_match('#^/articolo/([a-z0-9-]+)$#', $path, $matches)) {
+    $slug = $matches[1];
+    require __DIR__ . '/views/articolo.php';
+    exit;
+}
+```
 
-Se l’articolo ti è stato **utile **lasciami un commento oppure condividilo sui social, lo **apprezzerei **molto!
+Dentro `views/articolo.php` la variabile `$slug` contiene la parte finale dell'URL, e la usi per cercare l'articolo nel database. Sempre con una query preparata: nella mia guida su [come collegare PHP e MySQL con PDO](/collegare-php-e-mysql-con-pdo/) trovi come farlo. Se l'articolo non esiste, rispondi anche lì con `http_response_code(404)`.
+
+L'espressione regolare fa anche da **filtro di sicurezza**: accetta solo lettere minuscole, numeri e trattini, quindi nel parametro non possono arrivare barre, punti o altri caratteri strani.
+
+## 5. GET e POST
+
+Un form di contatto usa lo stesso URL in due modi: `GET /contatti` mostra il form, `POST /contatti` lo riceve. Basta includere il metodo nella chiave delle rotte:
+
+```
+$method = $_SERVER['REQUEST_METHOD'];
+
+$routes = [
+    'GET /'          => 'home.php',
+    'GET /chi-siamo' => 'chi-siamo.php',
+    'GET /contatti'  => 'contatti.php',
+    'POST /contatti' => 'contatti-invio.php',
+];
+
+$key = $method . ' ' . $path;
+
+if (isset($routes[$key])) {
+    require __DIR__ . '/views/' . $routes[$key];
+    exit;
+}
+```
+
+Per l'invio dell'email dal form, ho scritto una guida su come [inviare mail in PHP](/inviare-mail-in-php/).
+
+## Una regola di sicurezza
+
+Qualunque cosa aggiungi, **non costruire mai il percorso di un file direttamente dall'URL**. Qualcosa come `require 'views/' . $path . '.php'` sembra elegante, ma apre la porta a richieste come `/../../config` e permette di includere file che non dovevano essere raggiungibili. Con la mappa esplicita delle rotte e le espressioni regolari restrittive viste sopra, questo problema non esiste.
+
+## Provarlo in locale senza Apache
+
+Il server integrato di PHP accetta un *router script*, quindi puoi provare tutto senza `.htaccess` e senza installare niente:
+
+```
+php -S localhost:8000 index.php
+```
+
+In questo caso aggiungi in cima a `index.php` una riga che lascia servire direttamente i file statici, che altrimenti passerebbero anche loro dal router:
+
+```
+if (PHP_SAPI === 'cli-server' && is_file(__DIR__ . parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH))) {
+    return false;
+}
+```
+
+## Quando passare a qualcosa di più serio
+
+Questo router va benissimo per un sito di qualche decina di pagine o per un piccolo pannello di amministrazione. È anche la base di [Orange CMS](/orange/), il CMS che ho scritto in PHP. Quando cominci a servirti middleware (autenticazione, CSRF), gruppi di rotte o generazione degli URL a partire dal nome della rotta, stai riscrivendo un framework: a quel punto conviene una libreria come [FastRoute](https://github.com/nikic/FastRoute) o direttamente un framework come Slim o Laravel.
