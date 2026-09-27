@@ -40,6 +40,8 @@ Se volessimo utilizzare le tue informazioni per qualsiasi altro scopo, te lo chi
 
 Non trasferiamo le tue informazioni personali a terzi senza il tuo consenso, salvo i casi limitati descritti di seguito:
 
+- **Modulo di contatto**: i messaggi inviati tramite il modulo del sito vengono trasmessi tramite [Formspree](https://formspree.io/legal/privacy-policy), che li inoltra al nostro indirizzo email.
+- **Protezione anti-spam**: il modulo di contatto usa [Cloudflare Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/) per distinguere le persone dai bot. Turnstile viene caricato solo quando il modulo è visibile e raccoglie dati tecnici sul browser e sul dispositivo al solo scopo di verificare che l'invio non sia automatico.
 - **Analytics**: usiamo Google Analytics per capire come viene utilizzato il sito, solo se hai dato il consenso tramite il banner cookie. A Google richiediamo di utilizzare i dati trasferiti solo per lo scopo per cui sono stati trasferiti.
 - Potremmo inoltre divulgare le tue informazioni personali per: (1) rispettare leggi, regolamenti o ordinanze applicabili; (2) far rispettare gli accordi con noi, inclusa questa informativa; (3) rispondere a rivendicazioni secondo cui l'uso del Servizio violerebbe i diritti di terzi.
 

@@ -19,6 +19,8 @@ theme = 'alberto-reineri'
 
 [params]
   formspreeEndpoint = 'https://formspree.io/f/mlgkavgo'
+  # Chiave pubblica del sito Turnstile: la chiave segreta sta solo nelle impostazioni del form su Formspree
+  turnstileSiteKey = '0x4AAAAAAFFhP1GU5j3iHxCL'
   googleAnalyticsId = 'G-9MQ20QPDEM'
 
 [permalinks]

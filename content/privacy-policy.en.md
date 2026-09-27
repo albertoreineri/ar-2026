@@ -40,6 +40,8 @@ If we wanted to use your information for any other purpose, we would ask you exp
 
 We do not transfer your personal information to third parties without your consent, except in the limited cases described below:
 
+- **Contact form**: messages sent through the site's contact form are transmitted via [Formspree](https://formspree.io/legal/privacy-policy), which forwards them to our email address.
+- **Spam protection**: the contact form uses [Cloudflare Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/) to tell people apart from bots. Turnstile is loaded only when the form is visible and collects technical data about the browser and device solely to check that the submission isn't automated.
 - **Analytics**: we use Google Analytics to understand how the site is used, only if you have given consent through the cookie banner. We require Google to use the transferred data only for the purpose for which it was transferred.
 - We may also disclose your personal information to: (1) comply with applicable laws, regulations or orders; (2) enforce agreements with us, including this policy; (3) respond to claims that use of the Service would violate the rights of third parties.
 

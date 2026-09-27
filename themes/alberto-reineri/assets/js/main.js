@@ -127,15 +127,79 @@ const contactForm = document.getElementById("contactForm");
 if (contactForm) {
   const statusEl = contactForm.querySelector(".form-status");
   const submitBtn = contactForm.querySelector(".contact-submit");
+  const msg = contactForm.dataset;
+
+  const setStatus = (text, modifier) => {
+    if (!statusEl) return;
+    statusEl.textContent = text;
+    statusEl.className = modifier ? `form-status form-status--${modifier}` : "form-status";
+  };
+
+  /* Cloudflare Turnstile: lo script viene caricato solo quando il form si avvicina allo schermo,
+     così le pagine che nessuno scorre fino in fondo non contattano Cloudflare.
+     Il token finisce nel campo nascosto "cf-turnstile-response" e lo verifica Formspree. */
+  const captchaEl = contactForm.querySelector(".contact-captcha");
+  let widgetId = null;
+  let turnstileLoading = null;
+
+  const loadTurnstile = () => {
+    if (!turnstileLoading) {
+      turnstileLoading = new Promise((resolve, reject) => {
+        window.arTurnstileReady = () => resolve(window.turnstile);
+        const script = document.createElement("script");
+        script.src = "https://challenges.cloudflare.com/turnstile/v0/api.js?render=explicit&onload=arTurnstileReady";
+        script.async = true;
+        script.onerror = reject;
+        document.head.appendChild(script);
+      });
+    }
+    return turnstileLoading;
+  };
+
+  const renderCaptcha = () => {
+    if (!captchaEl || widgetId !== null) return;
+    loadTurnstile()
+      .then((turnstile) => {
+        if (widgetId !== null) return;
+        widgetId = turnstile.render(captchaEl, {
+          sitekey: captchaEl.dataset.sitekey,
+          language: captchaEl.dataset.lang,
+          theme: document.documentElement.classList.contains("dark") ? "dark" : "light",
+          size: "flexible",
+        });
+      })
+      .catch(() => setStatus(msg.msgError, "error"));
+  };
+
+  if (captchaEl) {
+    if ("IntersectionObserver" in window) {
+      const captchaObserver = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            captchaObserver.disconnect();
+            renderCaptcha();
+          }
+        },
+        { rootMargin: "400px 0px" }
+      );
+      captchaObserver.observe(contactForm);
+    }
+    // Rete di sicurezza: se l'utente arriva al form prima dell'observer (link diretto, tastiera)
+    contactForm.addEventListener("focusin", renderCaptcha, { once: true });
+  }
 
   contactForm.addEventListener("submit", (e) => {
     e.preventDefault();
 
-    if (submitBtn) submitBtn.disabled = true;
-    if (statusEl) {
-      statusEl.textContent = "Invio in corso…";
-      statusEl.className = "form-status";
+    const token = contactForm.querySelector('[name="cf-turnstile-response"]');
+    if (captchaEl && !(token && token.value)) {
+      renderCaptcha();
+      setStatus(msg.msgCaptcha, "error");
+      return;
     }
+
+    if (submitBtn) submitBtn.disabled = true;
+    setStatus(msg.msgSending);
 
     fetch(contactForm.action, {
       method: "POST",
@@ -145,19 +209,15 @@ if (contactForm) {
       .then((response) => {
         if (!response.ok) throw new Error("Invio non riuscito");
         contactForm.reset();
-        if (statusEl) {
-          statusEl.textContent = "Messaggio inviato — ti risponderò appena possibile.";
-          statusEl.className = "form-status form-status--ok";
-        }
+        setStatus(msg.msgOk, "ok");
       })
       .catch(() => {
-        if (statusEl) {
-          statusEl.textContent = "Qualcosa non ha funzionato. Riprova o scrivimi a info@albertoreineri.it.";
-          statusEl.className = "form-status form-status--error";
-        }
+        setStatus(msg.msgError, "error");
       })
       .finally(() => {
         if (submitBtn) submitBtn.disabled = false;
+        // Ogni token Turnstile vale per un solo invio: ne serve uno nuovo per il prossimo messaggio
+        if (widgetId !== null && window.turnstile) window.turnstile.reset(widgetId);
       });
   });
 }

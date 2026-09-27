@@ -10,28 +10,7 @@
 </section>
 
 <section class="contact-page wrap" style="margin-top:40px">
-  <form class="contact-page-form reveal" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
-    <label class="contact-field">
-      <span>{{ i18n "form_email" }}</span>
-      <input type="email" name="email" required>
-    </label>
-
-    <label class="contact-field">
-      <span>{{ i18n "form_message" }}</span>
-      <textarea name="messaggio" rows="5" required></textarea>
-    </label>
-
-    <div class="contact-form-row">
-      <label class="contact-privacy">
-        <input type="checkbox" required>
-        {{ i18n "form_privacy_accept" }} <a href="{{ "/privacy-policy/" | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
-      </label>
-
-      <button type="submit" class="contact-submit">{{ i18n "form_submit" }}</button>
-    </div>
-
-    <p class="form-status" role="status" aria-live="polite"></p>
-  </form>
+  {{ partial "contact-form.html" (dict "class" "contact-page-form reveal" "rows" 5) }}
 
   <p class="contact-alt reveal">
     {{ i18n "contatti_alt_email" }}

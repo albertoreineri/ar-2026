@@ -16,28 +16,7 @@
       <a class="contact-link" href="{{ "/contatti/" | relLangURL }}">{{ i18n "footer_cta_link" }}</a>
     </div>
 
-    <form class="footer-form" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST">
-      <label class="contact-field">
-        <span>{{ i18n "form_email" }}</span>
-        <input type="email" name="email" required>
-      </label>
-
-      <label class="contact-field">
-        <span>{{ i18n "form_message" }}</span>
-        <textarea name="messaggio" rows="3" required></textarea>
-      </label>
-
-      <div class="contact-form-row">
-        <label class="contact-privacy">
-          <input type="checkbox" required>
-          {{ i18n "form_privacy_accept" }} <a href="{{ "/privacy-policy/" | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
-        </label>
-
-        <button type="submit" class="contact-submit">{{ i18n "form_submit" }}</button>
-      </div>
-
-      <p class="form-status" role="status" aria-live="polite"></p>
-    </form>
+    {{ partial "contact-form.html" (dict "class" "footer-form" "rows" 3) }}
   </div>
 </section>
 {{ end }}

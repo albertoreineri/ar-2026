@@ -51,6 +51,14 @@ other = "Accetto la"
 other = "privacy policy"
 [form_submit]
 other = "Invia →"
+[form_sending]
+other = "Invio in corso…"
+[form_ok]
+other = "Messaggio inviato — ti risponderò appena possibile."
+[form_error]
+other = "Qualcosa non ha funzionato. Riprova o scrivimi a info@albertoreineri.it."
+[form_captcha_wait]
+other = "Un attimo: sto verificando che tu non sia un bot. Riprova tra qualche secondo."
 [cookie_title]
 other = "Ho a cuore la tua privacy"
 [cookie_body]

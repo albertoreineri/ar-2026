@@ -1,0 +1,33 @@
+{{/* Form di contatto (Formspree + Cloudflare Turnstile), usato nel footer e nella pagina Contatti.
+     Parametri: class (classi del <form>), rows (righe della textarea) */}}
+<form class="{{ .class }}" id="contactForm" action="{{ site.Params.formspreeEndpoint }}" method="POST"
+  data-msg-sending="{{ i18n "form_sending" }}"
+  data-msg-ok="{{ i18n "form_ok" }}"
+  data-msg-error="{{ i18n "form_error" }}"
+  data-msg-captcha="{{ i18n "form_captcha_wait" }}">
+  <label class="contact-field">
+    <span>{{ i18n "form_email" }}</span>
+    <input type="email" name="email" required>
+  </label>
+
+  <label class="contact-field">
+    <span>{{ i18n "form_message" }}</span>
+    <textarea name="messaggio" rows="{{ .rows }}" required></textarea>
+  </label>
+
+  {{/* Il widget viene caricato da main.js solo quando il form si avvicina allo schermo */}}
+  {{ with site.Params.turnstileSiteKey }}
+  <div class="contact-captcha" data-sitekey="{{ . }}" data-lang="{{ site.Language.Lang }}"></div>
+  {{ end }}
+
+  <div class="contact-form-row">
+    <label class="contact-privacy">
+      <input type="checkbox" required>
+      {{ i18n "form_privacy_accept" }} <a href="{{ "/privacy-policy/" | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
+    </label>
+
+    <button type="submit" class="contact-submit">{{ i18n "form_submit" }}</button>
+  </div>
+
+  <p class="form-status" role="status" aria-live="polite"></p>
+</form>

@@ -1601,6 +1601,12 @@ html.dark .portrait {
   border-color: var(--text);
 }
 
+/* Widget Cloudflare Turnstile: altezza riservata (65px) così il form non salta quando compare */
+.contact-captcha {
+  min-height: 65px;
+  margin-bottom: 12px;
+}
+
 .contact-form-row {
   display: flex;
   align-items: center;

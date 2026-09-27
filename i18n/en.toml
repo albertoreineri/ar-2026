@@ -51,6 +51,14 @@ other = "I accept the"
 other = "privacy policy"
 [form_submit]
 other = "Send →"
+[form_sending]
+other = "Sending…"
+[form_ok]
+other = "Message sent — I'll get back to you as soon as I can."
+[form_error]
+other = "Something went wrong. Please try again or email me at info@albertoreineri.it."
+[form_captcha_wait]
+other = "Just a moment: I'm checking you're not a bot. Try again in a few seconds."
 [cookie_title]
 other = "I care about your privacy"
 [cookie_body]
