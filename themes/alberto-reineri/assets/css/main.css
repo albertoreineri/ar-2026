@@ -1634,27 +1634,44 @@ html.dark .portrait {
   text-underline-offset: 2px;
 }
 
+/* Bottone pieno: sotto al widget Turnstile un semplice link sottolineato si perdeva */
 .contact-submit {
   display: inline-block;
-  border: none;
-  border-bottom: 1px solid var(--text);
-  border-radius: 0;
+  flex-shrink: 0;
+  border: 1px solid var(--text);
+  border-radius: 4px;
   margin: 0;
-  padding: 0 0 4px;
-  background: none;
+  padding: 12px 24px;
+  background: var(--text);
+  color: var(--bg);
   font-size: 14px;
   font-weight: 600;
   cursor: pointer;
-  transition: transform .3s ease;
+  transition: background-color .25s ease, border-color .25s ease, color .25s ease, transform .3s ease;
 }
 
 .contact-submit:hover {
-  transform: translateX(6px);
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #151515;
+  transform: translateX(4px);
+}
+
+.contact-submit:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
 .contact-submit:disabled {
   opacity: .5;
   cursor: default;
+  transform: none;
+}
+
+.contact-submit:disabled:hover {
+  background: var(--text);
+  border-color: var(--text);
+  color: var(--bg);
 }
 
 .form-status {
