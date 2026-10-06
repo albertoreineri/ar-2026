@@ -81,6 +81,11 @@
     });
   });
 
+  // Avviso per chi ha usato lo strumento prima di AES: il pulsante porta alla modalità XOR
+  byId("legacy-xor-button").addEventListener("click", function () {
+    window.bootstrap.Tab.getOrCreateInstance(byId("tab-xor")).show();
+  });
+
   // La modalità si può scegliere dall'indirizzo: /crypt/#xor apre direttamente la chiave numerica
   var xorTab = byId("tab-xor");
   if (window.location.hash === "#xor" && window.bootstrap) {

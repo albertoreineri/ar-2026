@@ -29,7 +29,7 @@ Encrypt & Decrypt Text is a small tool with two modes: **AES-256 with a password
 
 I made the first version for myself. I have data I want to keep hidden but that isn't secret: I didn't need serious cryptography, I just didn't want it readable at a glance. I wanted a simple, quick way to do it, in the browser, without going through a server and without complex machinery: I open the page, type, copy the result. That was the XOR mode, and for that use it's enough.
 
-But one question was inevitable: "what's the point if it isn't secure?". For anyone who wants more I added the **AES-256 with a password** mode, which is real encryption. I kept the XOR as it was for two reasons: it's the one built for the way I use it, and anyone who saved texts with the old version can still recover them, by opening [the XOR mode](/crypt/#xor) and using the same key.
+But one question was inevitable: "what's the point if it isn't secure?". For anyone who wants more I added the **AES-256 with a password** mode, which is real encryption. I kept the XOR as it was for two reasons: it's the one built for the way I use it, and anyone who used the tool before 6 October 2026 and has texts saved can still recover them, by opening [the XOR mode](/crypt/#xor) and using the same key.
 
 ## The two modes
 

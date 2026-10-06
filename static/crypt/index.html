@@ -74,6 +74,10 @@
             <div class="tab-pane fade show active" id="panel-aes" role="tabpanel" aria-labelledby="tab-aes" tabindex="0">
             <div class="row mt-5 mb-5 pb-5">
                 <div class="col-lg-8 offset-lg-2">
+                    <div class="alert alert-info d-flex flex-wrap align-items-center justify-content-between gap-2" role="note" id="legacy-notice">
+                        <span><strong>Used this tool before 6 October 2026?</strong> The texts you encrypted back then used the numeric key (XOR) method. To decrypt them, use the XOR mode.</span>
+                        <button type="button" class="btn btn-sm btn-outline-primary" id="legacy-xor-button">Switch to XOR mode</button>
+                    </div>
                     <p class="text-muted small mb-4">Your text and your password never leave your browser.</p>
                     <div class="row">
                         <div class="col-lg-6">
