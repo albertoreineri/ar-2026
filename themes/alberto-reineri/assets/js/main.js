@@ -47,6 +47,15 @@ if (cookieBanner && window.AR_GA_ID) {
   }
 }
 
+/* LINGUA: la scelta fatta dal selettore vale più della lingua del browser (la legge il redirect in head.html) */
+document.querySelectorAll(".lang-switch").forEach((link) => {
+  link.addEventListener("click", () => {
+    try { localStorage.setItem("ar-lang", link.dataset.lang); } catch (e) {}
+    // Stessa scelta anche in un cookie: la legge il redirect lingua lato server (Worker Cloudflare)
+    document.cookie = "ar-lang=" + link.dataset.lang + "; path=/; max-age=31536000; SameSite=Lax" + (location.protocol === "https:" ? "; Secure" : "");
+  });
+});
+
 /* MENU HAMBURGER (mobile) */
 const menuToggle = document.getElementById("menuToggle");
 const mobileMenu = document.getElementById("mobileMenu");

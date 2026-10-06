@@ -71,7 +71,7 @@ I cookie sono piccoli file di testo che vengono salvati sul tuo dispositivo quan
 
 ### Come li utilizziamo
 
-- **Cookie tecnici** (sempre attivi): necessari al funzionamento del sito, ad esempio per ricordare la preferenza di tema chiaro/scuro. Non richiedono consenso.
+- **Cookie tecnici** (sempre attivi): necessari al funzionamento del sito, ad esempio per ricordare la preferenza di tema chiaro/scuro e la lingua che scegli con il selettore. Non richiedono consenso.
 - **Cookie di analisi** (Google Analytics): ci aiutano a capire come i visitatori usano il sito, in forma aggregata. Vengono attivati **solo se dai il consenso** tramite il banner che vedi alla prima visita.
 
 ### Gestire le tue preferenze

@@ -1,0 +1,8 @@
+name = "ar-lang-redirect"
+main = "worker.js"
+compatibility_date = "2026-09-01"
+
+# Gira solo sulle pagine del dominio principale (il codice scarta subito tutto ciò che non è una pagina)
+routes = [
+  { pattern = "albertoreineri.it/*", zone_name = "albertoreineri.it" }
+]

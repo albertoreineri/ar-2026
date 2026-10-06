@@ -1,0 +1,17 @@
+{{- /* Mappa { "/pagina-it/": "/en/pagina-en/" } per il Worker del redirect lingua (workers/lang-redirect).
+       Solo il sito italiano, e senza gli articoli del blog: chi arriva su un articolo da Google ha già scelto
+       la lingua con la ricerca, e non va spostato. */ -}}
+{{- $map := dict -}}
+{{- if eq site.Language.Lang "it" -}}
+  {{- range site.Pages -}}
+    {{- $page := . -}}
+    {{- if and $page.RelPermalink (not $page.Params.noindex) (in (slice "home" "section" "page") $page.Kind) (not (and $page.IsPage (eq $page.Type "blog"))) -}}
+      {{- range $page.Translations -}}
+        {{- if and (eq .Language.Lang "en") .RelPermalink -}}
+          {{- $map = merge $map (dict $page.RelPermalink .RelPermalink) -}}
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+  {{- end -}}
+{{- end -}}
+{{- $map | jsonify -}}

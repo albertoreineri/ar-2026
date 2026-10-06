@@ -71,7 +71,7 @@ Cookies are small text files saved on your device when you visit a website. They
 
 ### How we use them
 
-- **Technical cookies** (always active): necessary for the site to function, for example to remember your light/dark theme preference. They do not require consent.
+- **Technical cookies** (always active): necessary for the site to function, for example to remember your light/dark theme preference and the language you pick with the language switch. They do not require consent.
 - **Analytics cookies** (Google Analytics): help us understand, in aggregate form, how visitors use the site. They are activated **only if you give consent** through the banner you see on your first visit.
 
 ### Managing your preferences

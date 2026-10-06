@@ -15,12 +15,12 @@
       {{ $pageInOtherLang := false }}
       {{ range .Translations }}{{ $pageInOtherLang = . }}{{ end }}
       {{ if $pageInOtherLang }}
-        <a class="lang-switch" href="{{ $pageInOtherLang.RelPermalink }}" aria-label="{{ i18n "nav_lang_switch_label" }}">{{ i18n "nav_lang_switch" }}</a>
+        <a class="lang-switch" data-lang="{{ $pageInOtherLang.Language.Lang }}" href="{{ $pageInOtherLang.RelPermalink }}" aria-label="{{ i18n "nav_lang_switch_label" }}">{{ i18n "nav_lang_switch" }}</a>
       {{ else }}
         {{ if eq site.Language.Lang "it" }}
-          <a class="lang-switch" href="{{ "/en/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇬🇧</a>
+          <a class="lang-switch" data-lang="en" href="{{ "/en/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇬🇧</a>
         {{ else }}
-          <a class="lang-switch" href="{{ "/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇮🇹</a>
+          <a class="lang-switch" data-lang="it" href="{{ "/" | absLangURL }}" aria-label="{{ i18n "nav_lang_switch_label" }}">🇮🇹</a>
         {{ end }}
       {{ end }}
 

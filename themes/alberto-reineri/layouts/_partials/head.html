@@ -1,5 +1,23 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+{{/* Redirect lingua: parte SOLO dalle pagine inglesi, e solo verso la traduzione italiana se esiste.
+     Mai dalle pagine italiane: Googlebot si presenta come en-US e verrebbe spostato in inglese,
+     con il rischio di perdere l'indicizzazione italiana. Vale prima la scelta fatta col selettore
+     (localStorage "ar-lang", vedi main.js), poi la prima lingua del browser. */}}
+{{ if eq site.Language.Lang "en" }}
+{{ range .Translations }}{{ if eq .Language.Lang "it" }}
+<script>
+  (function () {
+    var saved = null;
+    try { saved = localStorage.getItem("ar-lang"); } catch (e) {}
+    var browser = ((navigator.languages && navigator.languages[0]) || navigator.language || "").slice(0, 2).toLowerCase();
+    if ((saved || browser) === "it") {
+      location.replace({{ .RelPermalink | jsonify | safeJS }} + location.search + location.hash);
+    }
+  })();
+</script>
+{{ end }}{{ end }}
+{{ end }}
 {{/* seoTitle nel front matter sostituisce il titolo solo nel <title> e nei meta social, l'H1 resta .Title */}}
 {{ $seoTitle := .Params.seoTitle | default .Title }}
 <title>{{ if .IsHome }}{{ site.Title }} — {{ i18n "site_title_suffix" }}{{ else }}{{ printf "%s | %s" $seoTitle site.Title }}{{ end }}</title>

@@ -40,3 +40,13 @@ theme = 'alberto-reineri'
 # Embed YouTube dal dominio youtube-nocookie.com: niente cookie finché il video non viene avviato
 [privacy.youtube]
   privacyEnhanced = true
+
+# Mappa italiano → inglese delle pagine tradotte (/lang-map.json), letta dal Worker Cloudflare del redirect lingua
+[outputFormats.LangMap]
+  mediaType = "application/json"
+  baseName = "lang-map"
+  isPlainText = true
+  notAlternative = true
+
+[outputs]
+  home = ["HTML", "RSS", "LangMap"]
