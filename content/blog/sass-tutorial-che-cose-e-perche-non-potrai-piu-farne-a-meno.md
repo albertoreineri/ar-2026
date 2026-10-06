@@ -1,7 +1,9 @@
 ---
-title: "SASS Tutorial – Che cos’è e perché non potrai più farne a meno"
+title: "Sass tutorial: cos’è, a cosa serve e come usarlo"
+seoTitle: "Sass: cos’è, a cosa serve e come usarlo"
 date: 2019-11-10
-description: "Se vivi nel mondo dello sviluppo web allora sicuramente avrai già sentito parlare di SASS, il preprocessore di CSS più famoso! Questo è uno strumento fantastico che consente di estendere di molto…"
+lastmod: 2026-10-06
+description: "Sass è un preprocessore CSS: variabili, annidamenti, mixin e import. Cos’è, a cosa serve, differenza tra SCSS e sintassi indentata e come iniziare."
 tags: ["Guide", "Web Dev"]
 ---
 
