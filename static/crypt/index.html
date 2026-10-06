@@ -6,9 +6,9 @@
     <script src="/consent/consent.js" data-ga-id="G-9MQ20QPDEM"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>XOR Encrypt &amp; Decrypt Text Online — Free Tool</title>
+    <title>Encrypt &amp; Decrypt Text Online — AES-256 or Simple XOR | Free Tool</title>
     <meta name="description"
-        content="Encrypt and decrypt text online with a numeric key using a simple XOR cipher. Runs entirely in your browser: your text is never sent to a server.">
+        content="Encrypt and decrypt text online with a password (AES-256) or a numeric key (XOR). Runs in your browser: your text is never sent to a server.">
     <link rel="canonical" href="https://albertoreineri.it/crypt/">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
@@ -19,33 +19,31 @@
     <div class="container">
         <div class="row mt-5 pt-5">
             <div class="col-lg-8 offset-lg-2">
-                <h1 class="text-center mb-4">Encrypt & Decrypt Text Online </h1>
+                <h1 class="text-center mb-4">Encrypt &amp; Decrypt Text Online</h1>
                 <p>
-                    Online Encrypter and Decrypter.
-                    Insert your text and a numeric key and submit the form to crypt or decrypt a string.
-                    <br><br>
-                    Please note that this tool is intended for personal use and not for professional purposes.
-                    I used a jQuery script to make encryption and decryption of text strings easy and accessible. You
-                    can find it <a href="https://github.com/albertoreineri/encrypt-tool/blob/main/assets/main.js"
-                        target="_blank" title="Crypt function">here</a>.
-                    Feel free to utilize this resource to secure personal information, ensuring direct control over the
-                    security of your messages.
+                    Encrypt and decrypt text right in your browser: nothing is sent to a server. Pick a mode:
+                </p>
+                <ul>
+                    <li><strong>Password · AES-256</strong>: real encryption. Use it for anything you want to protect.</li>
+                    <li><strong>Numeric key · XOR</strong>: a simple obfuscation. It's the original mode of this tool, so texts you encrypted here in the past can still be decrypted.</li>
+                </ul>
+                <p>
+                    This tool is intended for personal use. The code is open source: you can
+                    <a href="https://github.com/albertoreineri/encrypt-tool" target="_blank" title="Source code on GitHub">read it on GitHub</a>.
                     <br><br>
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal">
-                        Watch Tutorial »
+                    <button type="button" class="btn btn-link p-0" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Watch the tutorial (numeric key mode) »
                     </button>
+                </p>
 
-                    <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                    aria-hidden="true">
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-xl modal-dialog-centered">
                         <div class="modal-content">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="exampleModalLabel">Tutorial</h5>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"
-                                    aria-label="Close"></button>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                             </div>
                             <div class="modal-body">
                                 <iframe width="100%" height="500"
@@ -59,12 +57,99 @@
                             </div>
                         </div>
                     </div>
-                    </p>
                 </div>
             </div>
+        </div>
 
+        <ul class="nav nav-pills justify-content-center mt-4" id="mode-tabs" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" id="tab-aes" data-bs-toggle="pill" data-bs-target="#panel-aes" type="button" role="tab" aria-controls="panel-aes" aria-selected="true">Password · AES-256</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" id="tab-xor" data-bs-toggle="pill" data-bs-target="#panel-xor" type="button" role="tab" aria-controls="panel-xor" aria-selected="false">Numeric key · XOR</button>
+            </li>
+        </ul>
+
+        <div class="tab-content">
+            <div class="tab-pane fade show active" id="panel-aes" role="tabpanel" aria-labelledby="tab-aes" tabindex="0">
             <div class="row mt-5 mb-5 pb-5">
                 <div class="col-lg-8 offset-lg-2">
+                    <p class="text-muted small mb-4">Your text and your password never leave your browser.</p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <h2>Encrypt</h2>
+                            <form id="aes-encrypt-form">
+                                <div class="mb-3">
+                                    <label for="aes-text-to-encrypt" class="form-label">Text to encrypt</label>
+                                    <textarea id="aes-text-to-encrypt" class="form-control"></textarea>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="aes-encrypt-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="aes-encrypt-password" autocomplete="new-password" placeholder="A long password or passphrase">
+                                    <div class="form-text text-warning-emphasis" id="aes-password-hint" aria-live="polite"></div>
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="aes-encrypt-show">
+                                    <label class="form-check-label" for="aes-encrypt-show">Show password</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="aes-encrypt-button">Encrypt</button>
+                                <div class="form-text mt-2" id="aes-encrypt-status" role="status" aria-live="polite"></div>
+                            </form>
+                            <div class="crypted mt-5">
+                                <h3>Encrypted text</h3>
+                                <textarea class="form-control" id="aes-encrypted-text" readonly></textarea>
+                                <button type="button" class="copy-button btn btn-link p-0" data-copy-target="aes-encrypted-text" data-copy-done="aes-encrypted-copied" title="Copy to clipboard" aria-label="Copy to clipboard">
+                                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 1.25H10.9436C9.10583 1.24998 7.65019 1.24997 6.51098 1.40314C5.33856 1.56076 4.38961 1.89288 3.64124 2.64124C2.89288 3.38961 2.56076 4.33856 2.40314 5.51098C2.24997 6.65019 2.24998 8.10582 2.25 9.94357V16C2.25 17.8722 3.62205 19.424 5.41551 19.7047C5.55348 20.4687 5.81753 21.1208 6.34835 21.6517C6.95027 22.2536 7.70814 22.5125 8.60825 22.6335C9.47522 22.75 10.5775 22.75 11.9451 22.75H15.0549C16.4225 22.75 17.5248 22.75 18.3918 22.6335C19.2919 22.5125 20.0497 22.2536 20.6517 21.6517C21.2536 21.0497 21.5125 20.2919 21.6335 19.3918C21.75 18.5248 21.75 17.4225 21.75 16.0549V10.9451C21.75 9.57754 21.75 8.47522 21.6335 7.60825C21.5125 6.70814 21.2536 5.95027 20.6517 5.34835C20.1208 4.81753 19.4687 4.55348 18.7047 4.41551C18.424 2.62205 16.8722 1.25 15 1.25ZM17.1293 4.27117C16.8265 3.38623 15.9876 2.75 15 2.75H11C9.09318 2.75 7.73851 2.75159 6.71085 2.88976C5.70476 3.02502 5.12511 3.27869 4.7019 3.7019C4.27869 4.12511 4.02502 4.70476 3.88976 5.71085C3.75159 6.73851 3.75 8.09318 3.75 10V16C3.75 16.9876 4.38624 17.8265 5.27117 18.1293C5.24998 17.5194 5.24999 16.8297 5.25 16.0549V10.9451C5.24998 9.57754 5.24996 8.47522 5.36652 7.60825C5.48754 6.70814 5.74643 5.95027 6.34835 5.34835C6.95027 4.74643 7.70814 4.48754 8.60825 4.36652C9.47522 4.24996 10.5775 4.24998 11.9451 4.25H15.0549C15.8297 4.24999 16.5194 4.24998 17.1293 4.27117ZM7.40901 6.40901C7.68577 6.13225 8.07435 5.9518 8.80812 5.85315C9.56347 5.75159 10.5646 5.75 12 5.75H15C16.4354 5.75 17.4365 5.75159 18.1919 5.85315C18.9257 5.9518 19.3142 6.13225 19.591 6.40901C19.8678 6.68577 20.0482 7.07435 20.1469 7.80812C20.2484 8.56347 20.25 9.56458 20.25 11V16C20.25 17.4354 20.2484 18.4365 20.1469 19.1919C20.0482 19.9257 19.8678 20.3142 19.591 20.591C19.3142 20.8678 18.9257 21.0482 18.1919 21.1469C17.4365 21.2484 16.4354 21.25 15 21.25H12C10.5646 21.25 9.56347 21.2484 8.80812 21.1469C8.07435 21.0482 7.68577 20.8678 7.40901 20.591C7.13225 20.3142 6.9518 19.9257 6.85315 19.1919C6.75159 18.4365 6.75 17.4354 6.75 16V11C6.75 9.56458 6.75159 8.56347 6.85315 7.80812C6.9518 7.07435 7.13225 6.68577 7.40901 6.40901Z" fill="#1C274C" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="alert alert-success mt-3 p-1 text-center" id="aes-encrypted-copied" role="alert" style="display: none;">
+                                Copied to clipboard
+                            </div>
+                        </div>
+                        <div class="col-lg-6 mt-5 pt-5 mt-lg-0 pt-lg-0">
+                            <hr class="d-lg-none pb-5 mb-5">
+                            <h2>Decrypt</h2>
+                            <form id="aes-decrypt-form">
+                                <div class="mb-3">
+                                    <label for="aes-text-to-decrypt" class="form-label">Text to decrypt</label>
+                                    <textarea id="aes-text-to-decrypt" class="form-control" placeholder="aes1.…"></textarea>
+                                </div>
+                                <div class="mb-2">
+                                    <label for="aes-decrypt-password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" id="aes-decrypt-password" autocomplete="off" placeholder="The password you used to encrypt">
+                                </div>
+                                <div class="form-check mb-3">
+                                    <input class="form-check-input" type="checkbox" id="aes-decrypt-show">
+                                    <label class="form-check-label" for="aes-decrypt-show">Show password</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary" id="aes-decrypt-button">Decrypt</button>
+                                <div class="form-text mt-2" id="aes-decrypt-status" role="status" aria-live="polite"></div>
+                            </form>
+                            <div class="decrypted mt-5">
+                                <h3>Decrypted text</h3>
+                                <textarea class="form-control" id="aes-decrypted-text" readonly></textarea>
+                                <button type="button" class="copy-button btn btn-link p-0" data-copy-target="aes-decrypted-text" data-copy-done="aes-decrypted-copied" title="Copy to clipboard" aria-label="Copy to clipboard">
+                                    <svg width="30px" height="30px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                        <path fill-rule="evenodd" clip-rule="evenodd" d="M15 1.25H10.9436C9.10583 1.24998 7.65019 1.24997 6.51098 1.40314C5.33856 1.56076 4.38961 1.89288 3.64124 2.64124C2.89288 3.38961 2.56076 4.33856 2.40314 5.51098C2.24997 6.65019 2.24998 8.10582 2.25 9.94357V16C2.25 17.8722 3.62205 19.424 5.41551 19.7047C5.55348 20.4687 5.81753 21.1208 6.34835 21.6517C6.95027 22.2536 7.70814 22.5125 8.60825 22.6335C9.47522 22.75 10.5775 22.75 11.9451 22.75H15.0549C16.4225 22.75 17.5248 22.75 18.3918 22.6335C19.2919 22.5125 20.0497 22.2536 20.6517 21.6517C21.2536 21.0497 21.5125 20.2919 21.6335 19.3918C21.75 18.5248 21.75 17.4225 21.75 16.0549V10.9451C21.75 9.57754 21.75 8.47522 21.6335 7.60825C21.5125 6.70814 21.2536 5.95027 20.6517 5.34835C20.1208 4.81753 19.4687 4.55348 18.7047 4.41551C18.424 2.62205 16.8722 1.25 15 1.25ZM17.1293 4.27117C16.8265 3.38623 15.9876 2.75 15 2.75H11C9.09318 2.75 7.73851 2.75159 6.71085 2.88976C5.70476 3.02502 5.12511 3.27869 4.7019 3.7019C4.27869 4.12511 4.02502 4.70476 3.88976 5.71085C3.75159 6.73851 3.75 8.09318 3.75 10V16C3.75 16.9876 4.38624 17.8265 5.27117 18.1293C5.24998 17.5194 5.24999 16.8297 5.25 16.0549V10.9451C5.24998 9.57754 5.24996 8.47522 5.36652 7.60825C5.48754 6.70814 5.74643 5.95027 6.34835 5.34835C6.95027 4.74643 7.70814 4.48754 8.60825 4.36652C9.47522 4.24996 10.5775 4.24998 11.9451 4.25H15.0549C15.8297 4.24999 16.5194 4.24998 17.1293 4.27117ZM7.40901 6.40901C7.68577 6.13225 8.07435 5.9518 8.80812 5.85315C9.56347 5.75159 10.5646 5.75 12 5.75H15C16.4354 5.75 17.4365 5.75159 18.1919 5.85315C18.9257 5.9518 19.3142 6.13225 19.591 6.40901C19.8678 6.68577 20.0482 7.07435 20.1469 7.80812C20.2484 8.56347 20.25 9.56458 20.25 11V16C20.25 17.4354 20.2484 18.4365 20.1469 19.1919C20.0482 19.9257 19.8678 20.3142 19.591 20.591C19.3142 20.8678 18.9257 21.0482 18.1919 21.1469C17.4365 21.2484 16.4354 21.25 15 21.25H12C10.5646 21.25 9.56347 21.2484 8.80812 21.1469C8.07435 21.0482 7.68577 20.8678 7.40901 20.591C7.13225 20.3142 6.9518 19.9257 6.85315 19.1919C6.75159 18.4365 6.75 17.4354 6.75 16V11C6.75 9.56458 6.75159 8.56347 6.85315 7.80812C6.9518 7.07435 7.13225 6.68577 7.40901 6.40901Z" fill="#1C274C" />
+                                    </svg>
+                                </button>
+                            </div>
+                            <div class="alert alert-success mt-3 p-1 text-center" id="aes-decrypted-copied" role="alert" style="display: none;">
+                                Copied to clipboard
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>
+            <div class="tab-pane fade" id="panel-xor" role="tabpanel" aria-labelledby="tab-xor" tabindex="0">
+            <div class="row mt-5 mb-5 pb-5">
+                <div class="col-lg-8 offset-lg-2">
+                    <div class="alert alert-warning" role="alert">
+                        <strong>Simple obfuscation, not real encryption.</strong> Use this mode to decrypt texts you encrypted with the earlier version of this tool, or to hide something from a casual glance. For anything that matters, use the <strong>Password · AES-256</strong> mode.
+                    </div>
                     <div class="row">
                         <div class="col-lg-6">
                             <h2>Encrypt</h2>
@@ -136,84 +221,108 @@
                     </div>
                 </div>
             </div>
-
-            <div class="row mb-5">
-                <div class="col-lg-8 offset-lg-2">
-                    <h2 class="mb-3">How this tool works</h2>
-                    <p>
-                        This is a simple <strong>XOR cipher</strong>. Every character of your text is combined with the
-                        numeric key using the XOR operation, and the result is a new character. If you leave the key
-                        empty, the tool uses 1.
-                    </p>
-                    <p>
-                        XOR is symmetric: applying the same key twice gives you back the original text. That's why
-                        encrypting and decrypting are the same operation, and why you need the exact same key to
-                        decrypt a message.
-                    </p>
-                    <p>
-                        Everything runs in your browser, in a few lines of JavaScript you can
-                        <a href="https://github.com/albertoreineri/encrypt-tool/blob/main/assets/main.js"
-                            target="_blank">read on GitHub</a>. Your text and your key are never sent to a server.
-                    </p>
-
-                    <h2 class="mt-5 mb-3">Is it secure?</h2>
-                    <p>
-                        No, and it isn't meant to be. A single-number XOR is <strong>obfuscation</strong>, not
-                        encryption: anyone who knows how the tool works can try every key in a fraction of a second.
-                        It's fine for hiding a spoiler, a puzzle or a note from a casual glance, and it's a nice way to
-                        see how XOR works.
-                    </p>
-                    <p>
-                        For passwords, personal data or anything that actually matters, use real encryption: a password
-                        manager, or tools such as <a href="https://age-encryption.org/" target="_blank">age</a> or
-                        <a href="https://gnupg.org/" target="_blank">GnuPG</a>.
-                    </p>
-
-                    <h2 class="mt-5 mb-3">FAQ</h2>
-                    <h3 class="h5 mt-4">Can I decrypt a text without the key?</h3>
-                    <p>
-                        Only by guessing it. With this tool, trying keys one after another until the text becomes
-                        readable is usually quick.
-                    </p>
-                    <h3 class="h5 mt-4">Why does the encrypted text contain strange characters?</h3>
-                    <p>
-                        XOR can turn a letter into any other character, including symbols or invisible control
-                        characters. Use the copy button rather than selecting the text by hand, so nothing gets lost.
-                    </p>
-                    <h3 class="h5 mt-4">Can I decrypt text that was encrypted with another tool?</h3>
-                    <p>
-                        Only if that tool used the same method: XOR of each character with a single number. Other methods
-                        (AES, Base64 encoding, Caesar ciphers) work differently.
-                    </p>
-                </div>
-            </div>
-
-            <div class="row mt-5 mb-5 pb-5">
-                <div class="col-12 text-center">
-                    <p class="mb-3">
-                        Made by <a href="https://albertoreineri.it/en/">Alberto Reineri</a>. More guides on Linux,
-                        servers and web development on <a href="https://albertoreineri.it/en/blog/">the blog</a>.
-                        <a href="https://albertoreineri.it/en/projects/encrypt-tool/">About this tool</a>.
-                        · <a href="#" data-ar-cookie-prefs>Cookie preferences</a>
-                    </p>
-                    <a title="Github Repo" class="link-offset-2 link-underline link-underline-opacity-0"
-                        href="https://github.com/albertoreineri/encrypt-tool" target="_blank">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
-                            <path
-                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-                        </svg>
-                        GitHub Repo
-                    </a>
-                </div>
             </div>
         </div>
 
-        <script src="https://code.jquery.com/jquery-3.7.1.min.js"
-            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-            crossorigin="anonymous"></script>
-        <script src="./main.js"></script>
+        <div class="row mb-5">
+            <div class="col-lg-8 offset-lg-2">
+                <h2 class="mb-3">How this tool works</h2>
+                <h3 class="h5 mt-4">Password · AES-256</h3>
+                <p>
+                    Your password is turned into a 256-bit key with <strong>PBKDF2</strong> (SHA-256, 600,000
+                    iterations and a random salt), and your text is encrypted with <strong>AES-256-GCM</strong>. The
+                    result is a single string that starts with <code>aes1.</code> and holds the salt, the nonce and the
+                    encrypted text. GCM also authenticates it: with a wrong password or an altered text, decryption fails
+                    instead of returning garbage. Everything uses your browser's built-in Web Crypto API, with no libraries.
+                </p>
+                <h3 class="h5 mt-4">Numeric key · XOR</h3>
+                <p>
+                    Every character of your text is combined with the numeric key using the XOR operation. XOR is
+                    symmetric: applying the same key twice gives you back the original text, which is why encrypting and
+                    decrypting are the same operation. If you leave the key empty, the tool uses 1.
+                </p>
+                <p>
+                    Everything runs in your browser, in a few lines of JavaScript you can
+                    <a href="https://github.com/albertoreineri/encrypt-tool" target="_blank">read on GitHub</a>.
+                    Your text, your password and your key are never sent to a server.
+                </p>
+
+                <h2 class="mt-5 mb-3">Is it secure?</h2>
+                <h3 class="h5 mt-4">Password · AES-256</h3>
+                <p>
+                    Yes, within limits. AES-256-GCM is a standard, well-studied cipher, and the weak point is always the
+                    password: a short or common one can be guessed, so use a long passphrase and keep it somewhere safe.
+                    There is no recovery: if you lose the password, the text is gone. And like any tool that runs in the
+                    browser, it relies on the code this page serves you. For highly sensitive data, prefer an audited tool
+                    you run yourself, such as <a href="https://age-encryption.org/" target="_blank">age</a> or
+                    <a href="https://gnupg.org/" target="_blank">GnuPG</a>.
+                </p>
+                <h3 class="h5 mt-4">Numeric key · XOR</h3>
+                <p>
+                    No, and it isn't meant to be. A single-number XOR is <strong>obfuscation</strong>, not encryption:
+                    anyone who knows how it works can try every key in a fraction of a second. It's fine for hiding a
+                    spoiler, a puzzle or a note from a casual glance, and it's a nice way to see how XOR works.
+                </p>
+
+                <h2 class="mt-5 mb-3">FAQ</h2>
+                <h3 class="h5 mt-4">Which mode should I use?</h3>
+                <p>
+                    Password mode for anything you want to protect. Numeric key mode only to hide something from a casual
+                    glance, or to decrypt texts from the earlier version of this tool.
+                </p>
+                <h3 class="h5 mt-4">I encrypted a text here in the past. How do I get it back?</h3>
+                <p>
+                    Open the <strong>Numeric key · XOR</strong> tab (or go straight to
+                    <a href="/crypt/#xor">albertoreineri.it/crypt/#xor</a>), paste the text and enter the same key you used.
+                </p>
+                <h3 class="h5 mt-4">Can I decrypt an <code>aes1.</code> text with another tool?</h3>
+                <p>
+                    Yes, the formats are standard. After the <code>aes1.</code> prefix, the text is base64 of the salt (16
+                    bytes), the nonce (12 bytes) and the AES-256-GCM ciphertext with its 16-byte tag. The key comes from
+                    PBKDF2-HMAC-SHA256 with 600,000 iterations, and the word <code>aes1</code> is used as additional
+                    authenticated data. The source on GitHub shows the details.
+                </p>
+                <h3 class="h5 mt-4">Why does the XOR text contain strange characters?</h3>
+                <p>
+                    XOR can turn a letter into any other character, including symbols or invisible control characters. Use
+                    the copy button rather than selecting the text by hand, so nothing gets lost. AES results are plain
+                    letters and digits, so they copy and paste cleanly.
+                </p>
+                <h3 class="h5 mt-4">Can I decrypt a text without the password or the key?</h3>
+                <p>
+                    With a strong password, not realistically. With XOR, trying keys one after another until the text
+                    becomes readable is usually quick.
+                </p>
+            </div>
+        </div>
+
+        <div class="row mt-5 mb-5 pb-5">
+            <div class="col-12 text-center">
+                <p class="mb-3">
+                    Made by <a href="https://albertoreineri.it/en/">Alberto Reineri</a>. More guides on Linux,
+                    servers and web development on <a href="https://albertoreineri.it/en/blog/">the blog</a>.
+                    <a href="https://albertoreineri.it/en/projects/encrypt-tool/">About this tool</a>.
+                    · <a href="#" data-ar-cookie-prefs>Cookie preferences</a>
+                </p>
+                <a title="Github Repo" class="link-offset-2 link-underline link-underline-opacity-0"
+                    href="https://github.com/albertoreineri/encrypt-tool" target="_blank">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                    </svg>
+                    GitHub Repo
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="./main.js"></script>
+    <script src="./aes.js"></script>
+    <script src="./aes-ui.js"></script>
 </body>
 
 </html>

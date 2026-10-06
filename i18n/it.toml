@@ -207,7 +207,7 @@ other = "Un'app nel browser per tenere sotto controllo i miei dati finanziari: c
 [project_encrypttool_meta]
 other = "Strumento · Open source"
 [project_encrypttool_desc]
-other = "Uno strumento minuscolo per cifrare e decifrare testo con una chiave numerica, nel browser: il testo non lascia il tuo computer. Non è crittografia vera e non pretende di esserlo: è uno XOR, e la pagina lo dice apertamente. Online e open source (GPL-3.0) dal 2024."
+other = "Uno strumento piccolo per cifrare e decifrare testo nel browser, con due modalità: AES-256 con password per cifrare davvero, e uno XOR con chiave numerica per nascondere senza fatica. Il testo non lascia il tuo computer. Open source (GPL-3.0), online dal 2024."
 
 [brands_number]
 other = "Alcuni brand con cui collaboro"

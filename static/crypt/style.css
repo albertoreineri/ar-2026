@@ -26,3 +26,14 @@ textarea.form-control {
     min-height: 150px;
     overflow-y: scroll;
 }
+
+.copy-button {
+    position: absolute;
+    right: 20px;
+    bottom: 5px;
+    line-height: 0;
+}
+
+.copy-button svg {
+    stroke: rgb(204, 204, 204)
+}

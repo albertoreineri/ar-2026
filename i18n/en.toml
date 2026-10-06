@@ -207,7 +207,7 @@ other = "A browser app to keep track of my own finances: it compares Italian gov
 [project_encrypttool_meta]
 other = "Tool · Open source"
 [project_encrypttool_desc]
-other = "A tiny tool to encrypt and decrypt text with a numeric key, in the browser: your text never leaves your computer. It isn't real cryptography and doesn't pretend to be: it's a XOR, and the page says so openly. Online and open source (GPL-3.0) since 2024."
+other = "A small tool to encrypt and decrypt text in the browser, with two modes: AES-256 with a password to really encrypt, and a XOR with a numeric key to hide things without effort. Your text never leaves your computer. Open source (GPL-3.0), online since 2024."
 
 [brands_number]
 other = "Some brands I work with"
