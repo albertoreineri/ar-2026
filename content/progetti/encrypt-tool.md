@@ -69,10 +69,6 @@ Tutto il JavaScript è leggibile in pochi minuti e non fa nessuna chiamata di re
 
 Scegli la modalità con le due schede in alto. In modalità AES scrivi il testo nella colonna **Encrypt**, inserisci una password e premi **Encrypt**. Per tornare al testo originale incolla la stringa `aes1.…` nella colonna **Decrypt**, inserisci la stessa password e premi **Decrypt**. Ogni risultato ha un pulsante per copiarlo negli appunti.
 
-Il video qui sotto mostra la modalità con chiave numerica, quella originale.
-
-{{< youtube nFo4QFugNA8 >}}
-
 ## Dove si trova
 
 Lo strumento è online su [albertoreineri.it/crypt](/crypt/), e il codice è su [GitHub](https://github.com/albertoreineri/encrypt-tool): è solo HTML, CSS e JavaScript, quindi basta scaricare il repository e aprire `index.html`. Puoi ospitarlo dove vuoi. Le pull request sono benvenute.

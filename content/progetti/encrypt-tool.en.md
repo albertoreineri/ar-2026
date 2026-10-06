@@ -70,10 +70,6 @@ All the JavaScript takes a few minutes to read, and it makes no network calls.
 
 Pick the mode with the two tabs at the top. In AES mode, type the text in the **Encrypt** column, enter a password and press **Encrypt**. To get the original back, paste the `aes1.…` string into the **Decrypt** column, enter the same password and press **Decrypt**. Each result has a button to copy it to the clipboard.
 
-The video below shows the numeric key mode, the original one.
-
-{{< youtube nFo4QFugNA8 >}}
-
 ## Where to find it
 
 The tool is online at [albertoreineri.it/crypt](/crypt/), and the code is on [GitHub](https://github.com/albertoreineri/encrypt-tool): it's just HTML, CSS and JavaScript, so you can download the repository and open `index.html`. You can host it wherever you like. Pull requests are welcome.
