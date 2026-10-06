@@ -1,0 +1,38 @@
+{{ define "main" }}
+
+{{ $siteURL := .Params.projectUrl }}
+{{ $host := "" }}
+{{ with $siteURL }}{{ $host = (urls.Parse .).Host }}{{ end }}
+
+<section class="page-hero wrap">
+  <div class="section-number">
+    <a href="{{ "/portfolio/" | relLangURL }}">{{ i18n "project_back_link" }}</a>{{ with .Params.projectType }} · {{ . }}{{ end }}
+  </div>
+  <h1 class="section-title">{{ .Title }}</h1>
+  {{ with .Params.description }}<p class="page-intro">{{ . }}</p>{{ end }}
+  {{ with $siteURL }}
+  <p class="project-page-cta">
+    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "project_visit_site" (dict "Host" $host) }}</a>
+  </p>
+  {{ end }}
+</section>
+
+<section class="wrap">
+  {{ with .Params.image }}
+  <figure class="project-shot">
+    <img src="{{ . | relURL }}" alt="{{ $.Params.imageAlt }}" width="{{ $.Params.imageWidth | default 1920 }}" height="{{ $.Params.imageHeight | default 1048 }}">
+  </figure>
+  {{ end }}
+
+  <div class="prose">
+    {{ .Content }}
+  </div>
+
+  {{ with $siteURL }}
+  <p class="project-page-cta project-page-cta--end">
+    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "project_visit_site" (dict "Host" $host) }}</a>
+  </p>
+  {{ end }}
+</section>
+
+{{ end }}

@@ -773,6 +773,89 @@ section {
   gap: 120px;
 }
 
+/* Blocchi della pagina Portfolio: lavori per i clienti / progetti miei */
+/* Pagina dedicata a un progetto (layouts/progetti/single.html) */
+.project-shot {
+  margin: 0 0 64px;
+  border-radius: 14px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.project-shot img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* Screenshot dentro il testo: due figure affiancate (telefono + pannello) che su schermi stretti vanno una sotto l'altra */
+.prose .project-shots {
+  display: grid;
+  grid-template-columns: minmax(0, 230px) minmax(0, 1fr);
+  gap: 28px;
+  align-items: start;
+  margin: 40px 0;
+}
+
+.prose .project-shots .project-shot {
+  margin: 0;
+}
+
+.prose .project-shot img {
+  margin: 0;
+}
+
+@media (max-width: 700px) {
+  .prose .project-shots {
+    grid-template-columns: minmax(0, 1fr);
+    max-width: 420px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.project-shot figcaption {
+  padding: 10px 14px;
+  background: var(--bg);
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.5;
+  text-align: center;
+}
+
+.project-page-cta {
+  margin: 28px 0 0;
+}
+
+.project-page-cta--end {
+  margin-top: 48px;
+}
+
+.portfolio-group + .portfolio-group {
+  margin-top: 140px;
+}
+
+.portfolio-group-head {
+  max-width: 720px;
+  margin-bottom: 64px;
+}
+
+.portfolio-group-head h2 {
+  margin: 0 0 16px;
+  font-size: clamp(28px, 3.4vw, 46px);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+
+.portfolio-group-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
 .project {
   display: grid;
   grid-template-columns: 2fr 1fr;

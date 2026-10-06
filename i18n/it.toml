@@ -192,6 +192,14 @@ other = "Il sito del circolo cuneese di Legambiente: monitoraggio ambientale, ca
 other = "Media · Sviluppo & gestione"
 [project_drivingchange_desc]
 other = "Piattaforma editoriale che racconta persone e politiche che cambiano l'Italia — sostenibilità, governance e benessere, più un podcast. Sviluppo e gestisco io la piattaforma."
+[project_typewriternote_meta]
+other = "Web app · Progetto personale"
+[project_typewriternote_desc]
+other = "Un foglio bianco nel browser, in stile macchina da scrivere. Font monospace, niente formattazione e una modalità focus a schermo intero che nasconde tutto tranne il testo; le note si possono taggare, cestinare, ripristinare ed esportare in CSV. L'ho costruita da solo per scrivere racconti brevi senza venti finestre aperte. Sa cosa non è: niente capitoli, niente progetti complessi."
+[project_watt2ride_meta]
+other = "Web app · Progetto personale"
+[project_watt2ride_desc]
+other = "Mi serviva una mappa per sapere dove ricaricare la e-bike, quindi me la sono costruita: dati OpenStreetMap che si aggiornano da soli ogni settimana, più preferiti, recensioni e punti segnalati dalla community. Mappa pubblica, account solo per contribuire. Ideata e sviluppata da me, in JavaScript senza framework."
 
 [brands_number]
 other = "Alcuni brand con cui collaboro"
@@ -233,6 +241,10 @@ other = "Portfolio"
 other = "Alcune cose<br>che ho costruito."
 [page_portfolio_intro]
 other = "Ogni progetto qui sotto parte da una chiacchierata, non da un preventivo a pacchetto: capisco cosa serve davvero, poi decidiamo insieme se basta WordPress o se conviene costruire su misura. E quando il sito va online continuo a seguirlo, tra hosting, aggiornamenti e piccole modifiche che servono nel tempo."
+[portfolio_own_title]
+other = "Progetti personali"
+[portfolio_own_intro]
+other = "Cose che costruisco per me, quando un'idea mi serve davvero. Le tengo separate dal lavoro per i clienti: le scelte, giuste o sbagliate, sono tutte mie."
 
 [page_chisono_number]
 other = "Chi sono"
@@ -278,6 +290,12 @@ other = "Meno recenti →"
 other = "Pagina {{ .Current }} di {{ .Total }}"
 [blog_back_link]
 other = "← Blog"
+[project_back_link]
+other = "← Portfolio"
+[project_visit_site]
+other = "Vai a {{ .Host }} ↗"
+[cta_project_page]
+other = "Scopri di più →"
 
 [toc_label]
 other = "Indice"

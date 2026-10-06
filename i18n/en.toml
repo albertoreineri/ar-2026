@@ -192,6 +192,14 @@ other = "The website of Legambiente's Cuneo chapter: environmental monitoring, c
 other = "Media · Development & management"
 [project_drivingchange_desc]
 other = "An editorial platform covering people and policies changing Italy — sustainability, governance and wellbeing, plus a podcast. I develop and run the platform myself."
+[project_typewriternote_meta]
+other = "Web app · Personal project"
+[project_typewriternote_desc]
+other = "A blank sheet in the browser, in the style of a typewriter. Monospace type, no formatting and a full-screen focus mode that hides everything but the text; notes can be tagged, trashed, restored and exported to CSV. I built it on my own to write short stories without twenty windows open. It knows what it isn't: no chapters, no complex projects."
+[project_watt2ride_meta]
+other = "Web app · Personal project"
+[project_watt2ride_desc]
+other = "I needed a map to know where to charge my e-bike, so I built one: OpenStreetMap data that refreshes itself every week, plus favourites, reviews and points suggested by the community. The map is public, and an account is only needed to contribute. Designed and built by me, in vanilla JavaScript, no framework."
 
 [brands_number]
 other = "Some brands I work with"
@@ -233,6 +241,10 @@ other = "Portfolio"
 other = "Some things<br>I've built."
 [page_portfolio_intro]
 other = "Every project below starts with a conversation, not an off-the-shelf quote: I figure out what's actually needed, then we decide together whether WordPress is enough or a custom build makes more sense. And once the site is live, I keep following it — hosting, updates and the small changes that come up over time."
+[portfolio_own_title]
+other = "Personal projects"
+[portfolio_own_intro]
+other = "Things I build for myself when an idea is actually useful to me. They're kept apart from client work: the decisions, good or bad, are all mine."
 
 [page_chisono_number]
 other = "About"
@@ -278,6 +290,12 @@ other = "Older →"
 other = "Page {{ .Current }} of {{ .Total }}"
 [blog_back_link]
 other = "← Blog"
+[project_back_link]
+other = "← Portfolio"
+[project_visit_site]
+other = "Go to {{ .Host }} ↗"
+[cta_project_page]
+other = "Learn more →"
 
 [toc_label]
 other = "Table of contents"

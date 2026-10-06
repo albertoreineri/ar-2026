@@ -9,7 +9,7 @@
   </p>
 </section>
 
-<section class="wrap">
+<section class="wrap portfolio-group">
   <div class="projects">
 
     <article class="project reveal">
@@ -112,6 +112,49 @@
         {{ end }}
       {{ end }}
     </div>
+  </div>
+</section>
+
+<section class="wrap portfolio-group">
+  <header class="portfolio-group-head reveal">
+    <h2>{{ i18n "portfolio_own_title" }}</h2>
+    <p>{{ i18n "portfolio_own_intro" }}</p>
+  </header>
+
+  <div class="projects">
+
+    {{ $watt2ride := site.GetPage "/progetti/watt2ride" }}
+    <article class="project reveal">
+      {{/* Immagine = link alla pagina del progetto; fuori dalla tabulazione perché "Scopri di più" porta già lì */}}
+      <a class="project-image project-image--wide magnetic" href="{{ $watt2ride.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/watt2ride.jpg" | relURL }}')">
+        <span>WATT2RIDE</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_watt2ride_meta" }}</span><span>01</span></div>
+        <h3>Watt2Ride</h3>
+        <p>
+          {{ i18n "project_watt2ride_desc" }}
+        </p>
+        <a class="project-link" href="{{ $watt2ride.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
+    {{ $typewriterNote := site.GetPage "/progetti/typewriter-note" }}
+    <article class="project reveal">
+      {{/* L'immagine è un link alla pagina del progetto; fuori dall'ordine di tabulazione perché il link "Scopri di più" porta già lì */}}
+      <a class="project-image project-image--wide magnetic" href="{{ $typewriterNote.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/typewriternote.jpg" | relURL }}')">
+        <span>TYPEWRITER NOTE</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_typewriternote_meta" }}</span><span>02</span></div>
+        <h3>Typewriter Note</h3>
+        <p>
+          {{ i18n "project_typewriternote_desc" }}
+        </p>
+        <a class="project-link" href="{{ $typewriterNote.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
   </div>
 </section>
 
