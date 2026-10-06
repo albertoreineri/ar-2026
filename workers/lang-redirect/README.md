@@ -17,14 +17,21 @@ Dopo un deploy del sito la mappa `/lang-map.json` si aggiorna da sola (il Worker
 
 ## Verifica
 
+Il Worker salta i crawler e gli strumenti da riga di comando (anche `curl`): senza un User-Agent da browser non
+fa mai redirect. Per questo i comandi sotto impostano `-A`.
+
+    UA="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0 Safari/537.36"
+
     # inglese → 302 verso /en/
-    curl -sI -H "Accept-Language: en-US,en;q=0.9" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
+    curl -sI -A "$UA" -H "Accept-Language: en-US,en;q=0.9" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
     # italiano → 200
-    curl -sI -H "Accept-Language: it-IT,it;q=0.9,en;q=0.8" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
+    curl -sI -A "$UA" -H "Accept-Language: it-IT,it;q=0.9,en;q=0.8" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
+    # scelta dell'utente: cookie "it" batte il browser inglese → 200
+    curl -sI -A "$UA" -H "Accept-Language: en-US" -H "Cookie: ar-lang=it" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
     # Googlebot, anche con inglese → 200
     curl -sI -A "Googlebot/2.1" -H "Accept-Language: en-US" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
-    # scelta dell'utente: cookie "it" batte il browser inglese → 200
-    curl -sI -H "Accept-Language: en-US" -H "Cookie: ar-lang=it" https://albertoreineri.it/ | grep -iE "^(HTTP|location)"
+    # un articolo del blog non viene mai spostato → 200
+    curl -sI -A "$UA" -H "Accept-Language: en-US" https://albertoreineri.it/nano-editor-guida-per-principianti/ | grep -iE "^(HTTP|location)"
 
 ## Disattivarlo
 
