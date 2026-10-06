@@ -86,7 +86,6 @@
 <link rel="icon" href="{{ "favicon.ico" | relURL }}" sizes="any">
 
 {{ with site.Params.googleAnalyticsId }}
-<script async src="https://www.googletagmanager.com/gtag/js?id={{ . }}"></script>
 <script>
   window.AR_GA_ID = {{ . | jsonify | safeJS }};
   window.dataLayer = window.dataLayer || [];
@@ -94,18 +93,33 @@
 
   var arConsent = null;
   try { arConsent = localStorage.getItem("ar-cookie-consent"); } catch (e) {}
-  var arGranted = arConsent === "granted";
 
   /* Consent Mode v2: di default tutto negato finché l'utente non sceglie dal banner */
   gtag("consent", "default", {
     ad_storage: "denied",
     ad_user_data: "denied",
     ad_personalization: "denied",
-    analytics_storage: arGranted ? "granted" : "denied"
+    analytics_storage: "denied"
   });
 
-  gtag("js", new Date());
-  gtag("config", window.AR_GA_ID);
+  /* GA si carica solo dopo il consenso (modalità "base"). Se lo caricassimo subito, il primo
+     page_view (con inizio sessione, prima visita e referrer) partirebbe senza consenso e su
+     questi volumi GA non lo mostrerebbe: chi accetta perderebbe pagina d'ingresso e fonte.
+     Caricandolo qui, anche se il consenso arriva dal banner a pagina già aperta, il primo hit
+     è già con consenso e document.referrer è ancora quello originale. */
+  window.arStartGA = function () {
+    gtag("consent", "update", { analytics_storage: "granted" });
+    if (window.arGAStarted) return;
+    window.arGAStarted = true;
+    gtag("js", new Date());
+    gtag("config", window.AR_GA_ID);
+    var s = document.createElement("script");
+    s.async = true;
+    s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(window.AR_GA_ID);
+    document.head.appendChild(s);
+  };
+
+  if (arConsent === "granted") window.arStartGA();
 </script>
 {{ end }}
 

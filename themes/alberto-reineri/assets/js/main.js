@@ -23,7 +23,13 @@ if (cookieBanner && window.AR_GA_ID) {
 
   const setConsent = (granted) => {
     localStorage.setItem("ar-cookie-consent", granted ? "granted" : "denied");
-    gtag("consent", "update", { analytics_storage: granted ? "granted" : "denied" });
+    if (granted) {
+      // Carica GA solo adesso (vedi head.html): il page_view di questa pagina parte già con consenso
+      window.arStartGA();
+    } else {
+      // Revoca dal bottone "preferenze cookie": se GA era già attivo, smette di usare i cookie
+      gtag("consent", "update", { analytics_storage: "denied" });
+    }
     closeCookieBanner();
   };
 
