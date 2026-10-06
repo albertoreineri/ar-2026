@@ -155,6 +155,38 @@
       </div>
     </article>
 
+
+    {{ $stash := site.GetPage "/progetti/stash" }}
+    <article class="project reveal">
+      <a class="project-image project-image--wide magnetic" href="{{ $stash.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/stash.jpg" | relURL }}')">
+        <span>STASH</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_stash_meta" }}</span><span>03</span></div>
+        <h3>Stash</h3>
+        <p>
+          {{ i18n "project_stash_desc" }}
+        </p>
+        <a class="project-link" href="{{ $stash.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
+
+    {{ $encryptTool := site.GetPage "/progetti/encrypt-tool" }}
+    <article class="project reveal">
+      <a class="project-image project-image--wide magnetic" href="{{ $encryptTool.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/encrypt-tool.jpg" | relURL }}')">
+        <span>ENCRYPT TOOL</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_encrypttool_meta" }}</span><span>04</span></div>
+        <h3>Encrypt &amp; Decrypt Text</h3>
+        <p>
+          {{ i18n "project_encrypttool_desc" }}
+        </p>
+        <a class="project-link" href="{{ $encryptTool.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
   </div>
 </section>
 

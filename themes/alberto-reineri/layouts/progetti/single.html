@@ -10,10 +10,16 @@
   </div>
   <h1 class="section-title">{{ .Title }}</h1>
   {{ with .Params.description }}<p class="page-intro">{{ . }}</p>{{ end }}
+  {{ if .Params.projectLinks }}
+  <p class="project-page-cta">
+    {{ range .Params.projectLinks }}<a class="project-link" href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>{{ end }}
+  </p>
+  {{ else }}
   {{ with $siteURL }}
   <p class="project-page-cta">
-    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "project_visit_site" (dict "Host" $host) }}</a>
+    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ with $.Params.projectLinkLabel }}{{ . }}{{ else }}{{ i18n "project_visit_site" (dict "Host" $host) }}{{ end }}</a>
   </p>
+  {{ end }}
   {{ end }}
 </section>
 
@@ -28,10 +34,16 @@
     {{ .Content }}
   </div>
 
+  {{ if .Params.projectLinks }}
+  <p class="project-page-cta project-page-cta--end">
+    {{ range .Params.projectLinks }}<a class="project-link" href="{{ .url }}"{{ if .external }} target="_blank" rel="noopener"{{ end }}>{{ .label }}</a>{{ end }}
+  </p>
+  {{ else }}
   {{ with $siteURL }}
   <p class="project-page-cta project-page-cta--end">
-    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ i18n "project_visit_site" (dict "Host" $host) }}</a>
+    <a class="project-link" href="{{ . }}" target="_blank" rel="noopener">{{ with $.Params.projectLinkLabel }}{{ . }}{{ else }}{{ i18n "project_visit_site" (dict "Host" $host) }}{{ end }}</a>
   </p>
+  {{ end }}
   {{ end }}
 </section>
 

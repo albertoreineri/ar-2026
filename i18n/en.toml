@@ -200,6 +200,14 @@ other = "A blank sheet in the browser, in the style of a typewriter. Monospace t
 other = "Web app · Personal project"
 [project_watt2ride_desc]
 other = "I needed a map to know where to charge my e-bike, so I built one: OpenStreetMap data that refreshes itself every week, plus favourites, reviews and points suggested by the community. The map is public, and an account is only needed to contribute. Designed and built by me, in vanilla JavaScript, no framework."
+[project_stash_meta]
+other = "Web app · Open source"
+[project_stash_desc]
+other = "A browser app to keep track of my own finances: it compares Italian government bonds after tax and costs, projects ETFs, calculates deposit accounts and keeps a journal of purchases. No account, no server: your data stays on your computer. Public sources checked against my own bank, open code under the MIT licence."
+[project_encrypttool_meta]
+other = "Tool · Open source"
+[project_encrypttool_desc]
+other = "A tiny tool to encrypt and decrypt text with a numeric key, in the browser: your text never leaves your computer. It isn't real cryptography and doesn't pretend to be: it's a XOR, and the page says so openly. Online and open source (GPL-3.0) since 2024."
 
 [brands_number]
 other = "Some brands I work with"

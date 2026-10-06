@@ -200,6 +200,14 @@ other = "Un foglio bianco nel browser, in stile macchina da scrivere. Font monos
 other = "Web app · Progetto personale"
 [project_watt2ride_desc]
 other = "Mi serviva una mappa per sapere dove ricaricare la e-bike, quindi me la sono costruita: dati OpenStreetMap che si aggiornano da soli ogni settimana, più preferiti, recensioni e punti segnalati dalla community. Mappa pubblica, account solo per contribuire. Ideata e sviluppata da me, in JavaScript senza framework."
+[project_stash_meta]
+other = "Web app · Open source"
+[project_stash_desc]
+other = "Un'app nel browser per tenere sotto controllo i miei dati finanziari: confronta BTP e altri titoli di Stato al netto di tasse e costi, proietta gli ETF, calcola i conti deposito e tiene un diario degli acquisti. Nessun account, nessun server: i dati restano sul computer. Fonti pubbliche verificate contro la mia banca, codice aperto con licenza MIT."
+[project_encrypttool_meta]
+other = "Strumento · Open source"
+[project_encrypttool_desc]
+other = "Uno strumento minuscolo per cifrare e decifrare testo con una chiave numerica, nel browser: il testo non lascia il tuo computer. Non è crittografia vera e non pretende di esserlo: è uno XOR, e la pagina lo dice apertamente. Online e open source (GPL-3.0) dal 2024."
 
 [brands_number]
 other = "Alcuni brand con cui collaboro"

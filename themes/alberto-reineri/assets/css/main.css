@@ -828,6 +828,12 @@ section {
   margin: 28px 0 0;
 }
 
+.project-page-cta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 32px;
+}
+
 .project-page-cta--end {
   margin-top: 48px;
 }
