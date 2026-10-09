@@ -148,6 +148,8 @@ if (contactForm) {
     if (!statusEl) return;
     statusEl.textContent = text;
     statusEl.className = modifier ? `form-status form-status--${modifier}` : "form-status";
+    // Il messaggio deve vedersi anche se il form è lungo o il footer è a metà schermo
+    if (text) statusEl.scrollIntoView({ behavior: "smooth", block: "center" });
   };
 
   /* Cloudflare Turnstile: lo script viene caricato solo quando il form si avvicina allo schermo,
