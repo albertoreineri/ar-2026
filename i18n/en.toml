@@ -208,6 +208,10 @@ other = "A browser app to keep track of my own finances: it compares Italian gov
 other = "Tool · Open source"
 [project_encrypttool_desc]
 other = "A small tool to encrypt and decrypt text in the browser, with two modes: AES-256 with a password to really encrypt, and a XOR with a numeric key to hide things without effort. Your text never leaves your computer. Open source (GPL-3.0), online since 2024."
+[project_bastione_meta]
+other = "Game · Personal project"
+[project_bastione_desc]
+other = "A medieval strategy game in the browser: build a village, manage its resources and hold off the enemy waves coming from the rival castle. A self-running economy, an army to raise, walls and towers to build, 3 levels. Free, no install, and playable on your phone too."
 
 [brands_number]
 other = "Some brands I work with"

@@ -187,6 +187,22 @@
       </div>
     </article>
 
+
+    {{ $bastione := site.GetPage "/progetti/bastione" }}
+    <article class="project reveal">
+      <a class="project-image magnetic" href="{{ $bastione.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/bastione.jpg" | relURL }}')">
+        <span>BASTIONE</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_bastione_meta" }}</span><span>05</span></div>
+        <h3>Bastione</h3>
+        <p>
+          {{ i18n "project_bastione_desc" }}
+        </p>
+        <a class="project-link" href="{{ $bastione.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
   </div>
 </section>
 

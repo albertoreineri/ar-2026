@@ -208,6 +208,10 @@ other = "Un'app nel browser per tenere sotto controllo i miei dati finanziari: c
 other = "Strumento · Open source"
 [project_encrypttool_desc]
 other = "Uno strumento piccolo per cifrare e decifrare testo nel browser, con due modalità: AES-256 con password per cifrare davvero, e uno XOR con chiave numerica per nascondere senza fatica. Il testo non lascia il tuo computer. Open source (GPL-3.0), online dal 2024."
+[project_bastione_meta]
+other = "Gioco · Progetto personale"
+[project_bastione_desc]
+other = "Un gioco di strategia medievale nel browser: si costruisce un villaggio, si gestiscono le risorse e si respingono le ondate nemiche che arrivano dal castello avversario. Economia che gira da sola, esercito da reclutare, mura e torri da costruire, 3 livelli. Gratis, senza installazione e giocabile anche da telefono."
 
 [brands_number]
 other = "Alcuni brand con cui collaboro"
