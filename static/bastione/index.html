@@ -4,6 +4,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Bastione</title>
+    <script>
+        /* Google Analytics 4 (Consent Mode v2): stessa misurazione del resto del sito, stesso consenso
+           salvato in localStorage — se l'utente ha già risposto al banner altrove, qui non si ripete. */
+        window.AR_GA_ID = "G-9MQ20QPDEM";
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+
+        var arConsent = null;
+        try { arConsent = localStorage.getItem("ar-cookie-consent"); } catch (e) {}
+
+        gtag("consent", "default", {
+            ad_storage: "denied",
+            ad_user_data: "denied",
+            ad_personalization: "denied",
+            analytics_storage: "denied"
+        });
+
+        window.arStartGA = function () {
+            gtag("consent", "update", { analytics_storage: "granted" });
+            if (window.arGAStarted) return;
+            window.arGAStarted = true;
+            gtag("js", new Date());
+            gtag("config", window.AR_GA_ID);
+            var s = document.createElement("script");
+            s.async = true;
+            s.src = "https://www.googletagmanager.com/gtag/js?id=" + encodeURIComponent(window.AR_GA_ID);
+            document.head.appendChild(s);
+        };
+
+        if (arConsent === "granted") window.arStartGA();
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/phaser@3.60.0/dist/phaser.min.js"></script>
     <style>
         html, body { margin: 0; height: 100%; overflow: hidden; background: #000; font-family: sans-serif; touch-action: none; -webkit-user-select: none; user-select: none; }
@@ -39,6 +70,17 @@
         .livello.chiuso { opacity: 0.45; border-color: #555; pointer-events: none; }
         .livello span { color: #f1c40f; font-size: 13px; } .livello small { color: #cde; font-size: 12px; }
         #msg { margin-left: auto; color: #f1c40f; }
+        #cookie-banner { position: fixed; inset: 0; z-index: 50; display: flex; align-items: center; justify-content: center;
+                          padding: 24px; background: rgba(10,10,9,.6); }
+        #cookie-banner[hidden] { display: none; }
+        #cookie-modal { width: min(100%, 460px); background: #16181b; color: #fff; border: 1px solid #333; border-radius: 16px;
+                        padding: 28px; box-shadow: 0 30px 80px rgba(0,0,0,.5); }
+        #cookie-modal p { margin: 0 0 20px; font-size: 14px; line-height: 1.6; color: #ccc; }
+        #cookie-modal p.titolo { margin: 0 0 12px; font-size: 18px; font-weight: 700; color: #fff; }
+        #cookie-modal a { color: #fff; }
+        #cookie-modal-actions { display: flex; justify-content: flex-end; gap: 10px; flex-wrap: wrap; }
+        .cookie-btn { padding: 10px 18px; border-radius: 100px; font-size: 14px; cursor: pointer; border: 1px solid #fff; background: #fff; color: #16181b; }
+        .cookie-btn-ghost { background: transparent; color: #fff; }
     </style>
 </head>
 <body>
@@ -48,6 +90,36 @@
     </div>
     <div id="info" style="display:none"></div>
     <div id="menu"></div>
+
+    <div id="cookie-banner" hidden>
+        <div id="cookie-modal">
+            <p class="titolo">Ho a cuore la tua privacy</p>
+            <p>Usiamo cookie tecnici (sempre attivi) e, solo con il tuo consenso, Google Analytics per capire come viene usato il gioco.
+                <a href="/privacy-policy/#9-gestione-dei-cookie">Politica sui cookie</a></p>
+            <div id="cookie-modal-actions">
+                <button type="button" id="cookie-rifiuta" class="cookie-btn cookie-btn-ghost">Rifiuta</button>
+                <button type="button" id="cookie-accetta" class="cookie-btn">Accetta</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        (function () {
+            var banner = document.getElementById("cookie-banner");
+            var consenso = null;
+            try { consenso = localStorage.getItem("ar-cookie-consent"); } catch (e) {}
+            if (consenso !== "granted" && consenso !== "denied") banner.hidden = false;
+
+            function scegli(accettato) {
+                try { localStorage.setItem("ar-cookie-consent", accettato ? "granted" : "denied"); } catch (e) {}
+                if (accettato) window.arStartGA();
+                else gtag("consent", "update", { analytics_storage: "denied" });
+                banner.hidden = true;
+            }
+            document.getElementById("cookie-accetta").addEventListener("click", function () { scegli(true); });
+            document.getElementById("cookie-rifiuta").addEventListener("click", function () { scegli(false); });
+        })();
+    </script>
+
     <script src="js/config.js"></script>
     <script src="js/partita.js"></script>
     <script src="js/map.js"></script>
