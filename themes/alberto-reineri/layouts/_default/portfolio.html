@@ -156,13 +156,29 @@
     </article>
 
 
+    {{ $scrollshame := site.GetPage "/progetti/scrollshame" }}
+    <article class="project reveal">
+      <a class="project-image project-image--wide magnetic" href="{{ $scrollshame.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/scrollshame.jpg" | relURL }}')">
+        <span>SCROLLSHAME</span>
+      </a>
+      <div class="project-info">
+        <div class="project-meta"><span>{{ i18n "project_scrollshame_meta" }}</span><span>03</span></div>
+        <h3>ScrollShame</h3>
+        <p>
+          {{ i18n "project_scrollshame_desc" }}
+        </p>
+        <a class="project-link" href="{{ $scrollshame.RelPermalink }}">{{ i18n "cta_project_page" }}</a>
+      </div>
+    </article>
+
+
     {{ $stash := site.GetPage "/progetti/stash" }}
     <article class="project reveal">
       <a class="project-image project-image--wide magnetic" href="{{ $stash.RelPermalink }}" tabindex="-1" aria-hidden="true" style="--shot:url('{{ "img/projects/stash.jpg" | relURL }}')">
         <span>STASH</span>
       </a>
       <div class="project-info">
-        <div class="project-meta"><span>{{ i18n "project_stash_meta" }}</span><span>03</span></div>
+        <div class="project-meta"><span>{{ i18n "project_stash_meta" }}</span><span>04</span></div>
         <h3>Stash</h3>
         <p>
           {{ i18n "project_stash_desc" }}
@@ -178,7 +194,7 @@
         <span>ENCRYPT TOOL</span>
       </a>
       <div class="project-info">
-        <div class="project-meta"><span>{{ i18n "project_encrypttool_meta" }}</span><span>04</span></div>
+        <div class="project-meta"><span>{{ i18n "project_encrypttool_meta" }}</span><span>05</span></div>
         <h3>Encrypt &amp; Decrypt Text</h3>
         <p>
           {{ i18n "project_encrypttool_desc" }}
@@ -194,7 +210,7 @@
         <span>BASTIONE</span>
       </a>
       <div class="project-info">
-        <div class="project-meta"><span>{{ i18n "project_bastione_meta" }}</span><span>05</span></div>
+        <div class="project-meta"><span>{{ i18n "project_bastione_meta" }}</span><span>06</span></div>
         <h3>Bastione</h3>
         <p>
           {{ i18n "project_bastione_desc" }}
