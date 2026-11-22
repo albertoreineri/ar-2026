@@ -239,6 +239,52 @@ if (contactForm) {
   });
 }
 
+/* NEWSLETTER POPUP — compare dopo un po' di lettura o a metà pagina, poi tace per 30 giorni se chiuso o se si prova a iscriversi */
+const newsletterPopup = document.getElementById("newsletterPopup");
+
+if (newsletterPopup) {
+  const DISMISS_KEY = "ar-newsletter-popup-dismissed";
+  const DISMISS_DAYS = 30;
+  const SHOW_AFTER_MS = 45000;
+  const SHOW_AFTER_SCROLL_RATIO = 0.5;
+
+  const dismissedAt = parseInt(localStorage.getItem(DISMISS_KEY), 10);
+  const stillDismissed = dismissedAt && (Date.now() - dismissedAt) < DISMISS_DAYS * 24 * 60 * 60 * 1000;
+
+  if (!stillDismissed) {
+    let shown = false;
+
+    const showPopup = () => {
+      if (shown) return;
+      shown = true;
+      window.removeEventListener("scroll", onScroll);
+      clearTimeout(timer);
+      newsletterPopup.hidden = false;
+      requestAnimationFrame(() => newsletterPopup.classList.add("is-open"));
+    };
+
+    const dismissPopup = () => {
+      localStorage.setItem(DISMISS_KEY, Date.now().toString());
+      newsletterPopup.classList.remove("is-open");
+      setTimeout(() => { newsletterPopup.hidden = true; }, 400);
+    };
+
+    const onScroll = () => {
+      const scrolledRatio = (window.scrollY + window.innerHeight) / document.documentElement.scrollHeight;
+      if (scrolledRatio >= SHOW_AFTER_SCROLL_RATIO) showPopup();
+    };
+
+    const timer = setTimeout(showPopup, SHOW_AFTER_MS);
+    window.addEventListener("scroll", onScroll, { passive: true });
+
+    newsletterPopup.querySelector(".newsletter-popup-close").addEventListener("click", dismissPopup);
+    // Chi prova a iscriversi non deve rivedersi il popup, indipendentemente dall'esito dell'iscrizione
+    newsletterPopup.querySelector("form").addEventListener("submit", () => {
+      localStorage.setItem(DISMISS_KEY, Date.now().toString());
+    });
+  }
+}
+
 /* INDICE ARTICOLO: collassabile + evidenzia la voce della sezione visibile — presente solo nei single del blog */
 const postToc = document.querySelector(".post-toc");
 

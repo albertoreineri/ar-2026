@@ -1787,6 +1787,95 @@ html.dark .portrait {
   border-left-color: #b3261e;
 }
 
+/* NEWSLETTER (box a fine articolo) */
+.newsletter-box {
+  margin: 48px 0 0;
+  padding: 28px 32px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+}
+
+.newsletter-title {
+  margin: 0 0 8px;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -.02em;
+}
+
+.newsletter-intro {
+  margin: 0 0 20px;
+  color: var(--muted);
+}
+
+.newsletter-note {
+  margin: 14px 0 0;
+  color: var(--muted);
+  font-size: 12px;
+}
+
+/* NEWSLETTER (popup: non blocca la lettura, niente overlay a tutto schermo) */
+.newsletter-popup[hidden] {
+  display: none;
+}
+
+.newsletter-popup {
+  position: fixed;
+  z-index: 40;
+  right: 24px;
+  bottom: 24px;
+  width: min(100% - 48px, 380px);
+  padding: 24px 28px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: var(--surface);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, .18);
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity .4s ease, transform .4s ease;
+}
+
+.newsletter-popup.is-open {
+  opacity: 1;
+  transform: none;
+}
+
+.newsletter-popup .newsletter-title {
+  font-size: 17px;
+  padding-right: 24px;
+}
+
+.newsletter-popup .newsletter-intro {
+  font-size: 14px;
+  margin-bottom: 16px;
+}
+
+.newsletter-popup-close {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  border: none;
+  background: none;
+  color: var(--muted);
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.newsletter-popup-close:hover {
+  color: var(--text);
+}
+
+@media (max-width: 600px) {
+  .newsletter-popup {
+    left: 16px;
+    right: 16px;
+    bottom: 16px;
+    width: auto;
+  }
+}
+
 /* CONTACT (pagina dedicata, form centrale) */
 .contact-page {
   padding-top: 0;

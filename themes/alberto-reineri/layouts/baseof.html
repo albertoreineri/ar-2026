@@ -36,5 +36,9 @@
 
   {{ partial "footer.html" . }}
 
+  {{ if and (eq .Type "blog") .IsPage }}
+    {{ partial "newsletter-popup.html" . }}
+  {{ end }}
+
 </body>
 </html>

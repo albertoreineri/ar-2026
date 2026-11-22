@@ -22,6 +22,8 @@ theme = 'alberto-reineri'
   # Chiave pubblica del sito Turnstile: la chiave segreta sta solo nelle impostazioni del form su Formspree
   turnstileSiteKey = '0x4AAAAAAFFhP1GU5j3iHxCL'
   googleAnalyticsId = 'G-9MQ20QPDEM'
+  # Username Buttondown per il box di iscrizione alla newsletter (endpoint pubblico, nessuna chiave richiesta)
+  buttondownUsername = 'albertoreineri'
 
 [permalinks]
   blog = "/:contentbasename/"

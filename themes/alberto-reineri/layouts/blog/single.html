@@ -24,6 +24,8 @@
   <div class="prose">
     {{ $content | safeHTML }}
   </div>
+
+  {{ partial "newsletter-box.html" . }}
 </section>
 
 {{ end }}

@@ -1,0 +1,30 @@
+{{/* Contenuto condiviso tra newsletter-box.html (fine articolo) e newsletter-popup.html. Chi include questo partial deve già aver verificato site.Params.buttondownUsername e passare un dict con "tag" (es. "blog-box", "blog-popup") per sapere da dove arriva ogni iscritto su Buttondown. */}}
+{{ $username := site.Params.buttondownUsername }}
+{{ $tag := .tag }}
+<h3 class="newsletter-title">{{ i18n "newsletter_title" }}</h3>
+<p class="newsletter-intro">{{ i18n "newsletter_intro" }}</p>
+
+<form
+  action="{{ printf "https://buttondown.com/api/emails/embed-subscribe/%s" $username }}"
+  method="post"
+  target="popupwindow"
+  onsubmit="window.open('{{ printf "https://buttondown.com/%s" $username }}', 'popupwindow')"
+  class="newsletter-form"
+>
+  <label class="contact-field">
+    <span>{{ i18n "form_email" }}</span>
+    <input type="email" name="email" required>
+  </label>
+  <input type="hidden" value="1" name="embed">
+  {{ with $tag }}<input type="hidden" name="tag" value="{{ . }}">{{ end }}
+
+  <div class="contact-form-row">
+    <label class="contact-privacy">
+      <input type="checkbox" required>
+      {{ i18n "form_privacy_accept" }} <a href="{{ printf "/privacy-policy/#%s" (i18n "newsletter_privacy_anchor") | relLangURL }}" target="_blank" rel="noopener">{{ i18n "form_privacy_policy" }}</a>
+    </label>
+    <button type="submit" class="contact-submit">{{ i18n "newsletter_submit" }}</button>
+  </div>
+</form>
+
+<p class="newsletter-note">{{ i18n "newsletter_note" }}</p>

@@ -43,6 +43,7 @@ We do not transfer your personal information to third parties without your conse
 - **Contact form**: messages sent through the site's contact form are transmitted via [Formspree](https://formspree.io/legal/privacy-policy), which forwards them to our email address.
 - **Spam protection**: the contact form uses [Cloudflare Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/) to tell people apart from bots. Turnstile is loaded only when the form is visible and collects technical data about the browser and device solely to check that the submission isn't automated.
 - **Analytics**: we use Google Analytics to understand how the site is used, only if you have given consent through the cookie banner. We require Google to use the transferred data only for the purpose for which it was transferred.
+- **Newsletter**: if you subscribe, your email address is handled by [Buttondown](https://buttondown.com/legal/privacy), the service I use to send it. You can unsubscribe at any time from the link in every email.
 - We may also disclose your personal information to: (1) comply with applicable laws, regulations or orders; (2) enforce agreements with us, including this policy; (3) respond to claims that use of the Service would violate the rights of third parties.
 
 ## 5. Retention of your information
@@ -84,3 +85,11 @@ You can also manage and delete cookies directly from your browser:
 - [Safari](https://support.apple.com/en-us/guide/safari/sfri11471/mac)
 - [Firefox](https://support.mozilla.org/en-US/kb/clear-cookies-and-site-data-firefox)
 - [Edge](https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
+
+## 10. Newsletter
+
+If you subscribe to the newsletter, we process your email address based on your **explicit consent** (GDPR Art. 6.1.a), given by ticking the dedicated checkbox when you sign up and then confirming via the link you receive by email (double opt-in).
+
+We use your email address only to send you the newsletter with the articles and projects I publish. It's handled by [Buttondown](https://buttondown.com/legal/privacy) (see also point 4).
+
+We keep your address for as long as you stay subscribed. You can withdraw consent and unsubscribe at any time, with no need to give a reason, from the link at the bottom of every email: unsubscribing is immediate and removes your address from the list.

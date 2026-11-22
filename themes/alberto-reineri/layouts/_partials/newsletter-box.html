@@ -1,0 +1,6 @@
+{{/* Box di iscrizione alla newsletter (Buttondown), a fine articolo. Si attiva solo se site.Params.buttondownUsername è impostato in hugo.toml. */}}
+{{ with site.Params.buttondownUsername }}
+<aside class="newsletter-box">
+  {{ partial "newsletter-fields.html" (dict "tag" "blog-box") }}
+</aside>
+{{ end }}

@@ -43,6 +43,7 @@ Non trasferiamo le tue informazioni personali a terzi senza il tuo consenso, sal
 - **Modulo di contatto**: i messaggi inviati tramite il modulo del sito vengono trasmessi tramite [Formspree](https://formspree.io/legal/privacy-policy), che li inoltra al nostro indirizzo email.
 - **Protezione anti-spam**: il modulo di contatto usa [Cloudflare Turnstile](https://www.cloudflare.com/turnstile-privacy-policy/) per distinguere le persone dai bot. Turnstile viene caricato solo quando il modulo è visibile e raccoglie dati tecnici sul browser e sul dispositivo al solo scopo di verificare che l'invio non sia automatico.
 - **Analytics**: usiamo Google Analytics per capire come viene utilizzato il sito, solo se hai dato il consenso tramite il banner cookie. A Google richiediamo di utilizzare i dati trasferiti solo per lo scopo per cui sono stati trasferiti.
+- **Newsletter**: se ti iscrivi, il tuo indirizzo email viene gestito da [Buttondown](https://buttondown.com/legal/privacy), il servizio che uso per inviarla. Puoi disiscriverti in qualsiasi momento dal link presente in ogni email.
 - Potremmo inoltre divulgare le tue informazioni personali per: (1) rispettare leggi, regolamenti o ordinanze applicabili; (2) far rispettare gli accordi con noi, inclusa questa informativa; (3) rispondere a rivendicazioni secondo cui l'uso del Servizio violerebbe i diritti di terzi.
 
 ## 5. Conservazione delle tue informazioni
@@ -84,3 +85,11 @@ Puoi inoltre gestire ed eliminare i cookie direttamente dal tuo browser:
 - [Safari](https://support.apple.com/it-it/guide/safari/sfri11471/mac)
 - [Firefox](https://support.mozilla.org/it/kb/Eliminare%20cookie)
 - [Edge](https://support.microsoft.com/it-it/microsoft-edge/eliminare-i-cookie-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09)
+
+## 10. Newsletter
+
+Se ti iscrivi alla newsletter, trattiamo il tuo indirizzo email sulla base del tuo **consenso esplicito** (art. 6.1.a GDPR), che dai spuntando l'apposita casella al momento dell'iscrizione e confermando poi tramite il link ricevuto via email (double opt-in).
+
+Usiamo il tuo indirizzo email solo per inviarti la newsletter con gli articoli e i progetti che pubblico. Il servizio che la gestisce è [Buttondown](https://buttondown.com/legal/privacy) (vedi anche il punto 4).
+
+Conserviamo il tuo indirizzo finché resti iscritto. Puoi revocare il consenso e disiscriverti in qualsiasi momento, senza bisogno di motivazione, dal link in fondo a ogni email: la disiscrizione è immediata e rimuove il tuo indirizzo dalla lista.

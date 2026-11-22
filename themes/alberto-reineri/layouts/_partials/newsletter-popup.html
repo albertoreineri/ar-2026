@@ -1,0 +1,7 @@
+{{/* Popup di iscrizione alla newsletter: compare dopo un po' di lettura o a metà pagina (vedi main.js), e se chiuso non si ripresenta per 30 giorni. Si attiva solo se site.Params.buttondownUsername è impostato in hugo.toml. */}}
+{{ with site.Params.buttondownUsername }}
+<div class="newsletter-popup" id="newsletterPopup" role="dialog" aria-label="{{ i18n "newsletter_title" }}" hidden>
+  <button type="button" class="newsletter-popup-close" aria-label="{{ i18n "newsletter_popup_close" }}">&times;</button>
+  {{ partial "newsletter-fields.html" (dict "tag" "blog-popup") }}
+</div>
+{{ end }}

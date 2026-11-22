@@ -59,6 +59,18 @@ other = "Message sent — I'll get back to you as soon as I can."
 other = "Something went wrong. Please try again or email me at info@albertoreineri.it."
 [form_captcha_wait]
 other = "Just a moment: I'm checking you're not a bot. Try again in a few seconds."
+[newsletter_title]
+other = "Subscribe to my newsletter"
+[newsletter_intro]
+other = "No spam, just the useful stuff: one email a month with what I write and build."
+[newsletter_submit]
+other = "Subscribe →"
+[newsletter_note]
+other = "Unsubscribe anytime."
+[newsletter_privacy_anchor]
+other = "10-newsletter"
+[newsletter_popup_close]
+other = "Close"
 [cookie_title]
 other = "I care about your privacy"
 [cookie_body]
