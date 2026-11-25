@@ -1,23 +1,25 @@
 ---
-title: "ScrollShame"
-seoTitle: "ScrollShame: the Chrome extension that catches you doomscrolling"
+title: "Scroll Guilt"
+seoTitle: "Scroll Guilt: the Chrome extension that catches you doomscrolling"
 description: "Free Chrome extension that calls you out, with growing irony, every time you open social media during work hours. No data collection."
 date: 2026-11-22
-translationKey: "project-scrollshame"
+translationKey: "project-scroll-guilt"
 projectType: "Chrome extension · Personal project"
 projectLinks:
   - label: "Install on Chrome ↗"
-    url: "https://chromewebstore.google.com/detail/scrollshame/mgdncpkoggbpoddllnimhdcbcjljnafb"
+    url: "https://chromewebstore.google.com/detail/mgdncpkoggbpoddllnimhdcbcjljnafb"
     external: true
   - label: "Privacy Policy"
-    url: "/en/scrollshame-privacy/"
-image: "img/projects/scrollshame.jpg"
+    url: "/en/scroll-guilt-privacy/"
+image: "img/projects/scroll-guilt.jpg"
 imageWidth: 1920
 imageHeight: 1049
-imageAlt: "ScrollShame in action on Facebook, Movement tone: a «Statue mode activated» popup nudging you to get up, with «You're right, I'm up» and «Keep going, who cares» buttons"
+imageAlt: "Scroll Guilt in action on Facebook, Movement tone: a «Statue mode activated» popup nudging you to get up, with «You're right, I'm up» and «Keep going, who cares» buttons"
+aliases:
+  - "/progetti/scrollshame/"
 ---
 
-ScrollShame is the Chrome extension that interrupts you — with growing irony — every time you open a social media site during work hours. The more you go back to it in the same day, the sharper the message gets: it starts with a gentle nudge and ends with a playful dig.
+Scroll Guilt is the Chrome extension that interrupts you — with growing irony — every time you open a social media site during work hours. The more you go back to it in the same day, the sharper the message gets: it starts with a gentle nudge and ends with a playful dig.
 
 - **Status**: published on the Chrome Web Store
 - **Built with**: Chrome Extension Manifest V3, vanilla JavaScript, Shadow DOM, `chrome.storage`
@@ -41,4 +43,4 @@ It's a Manifest V3 extension with a content script running on the supported soci
 
 ## Privacy
 
-The extension doesn't collect or transmit any data: everything stays local. Full details in the [privacy policy](/en/scrollshame-privacy/).
+The extension doesn't collect or transmit any data: everything stays local. Full details in the [privacy policy](/en/scroll-guilt-privacy/).

@@ -212,9 +212,9 @@ other = "Un foglio bianco nel browser, in stile macchina da scrivere. Font monos
 other = "Web app · Progetto personale"
 [project_watt2ride_desc]
 other = "Mi serviva una mappa per sapere dove ricaricare la e-bike, quindi me la sono costruita: dati OpenStreetMap che si aggiornano da soli ogni settimana, più preferiti, recensioni e punti segnalati dalla community. Mappa pubblica, account solo per contribuire. Ideata e sviluppata da me, in JavaScript senza framework."
-[project_scrollshame_meta]
+[project_scrollguilt_meta]
 other = "Estensione per Chrome · Progetto personale"
-[project_scrollshame_desc]
+[project_scrollguilt_desc]
 other = "Un'estensione gratuita per Chrome che ti richiama, con ironia crescente, ogni volta che apri un social durante l'orario di lavoro: 3 toni, fascia oraria personalizzabile, nessuna raccolta dati. Pubblicata sul Chrome Web Store."
 [project_stash_meta]
 other = "Web app · Open source"

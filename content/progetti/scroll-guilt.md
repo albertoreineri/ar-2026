@@ -1,23 +1,25 @@
 ---
-title: "ScrollShame"
-seoTitle: "ScrollShame: l'estensione Chrome che ti becca sui social"
+title: "Scroll Guilt"
+seoTitle: "Scroll Guilt: l'estensione Chrome che ti becca sui social"
 description: "Estensione gratuita per Chrome che ti richiama, con ironia crescente, ogni volta che apri un social durante l'orario di lavoro. Nessuna raccolta dati."
 date: 2026-11-22
-translationKey: "project-scrollshame"
+translationKey: "project-scroll-guilt"
 projectType: "Estensione per Chrome · Progetto personale"
 projectLinks:
   - label: "Installa su Chrome ↗"
-    url: "https://chromewebstore.google.com/detail/scrollshame/mgdncpkoggbpoddllnimhdcbcjljnafb"
+    url: "https://chromewebstore.google.com/detail/mgdncpkoggbpoddllnimhdcbcjljnafb"
     external: true
   - label: "Privacy Policy"
-    url: "/scrollshame-privacy/"
-image: "img/projects/scrollshame.jpg"
+    url: "/scroll-guilt-privacy/"
+image: "img/projects/scroll-guilt.jpg"
 imageWidth: 1920
 imageHeight: 1049
-imageAlt: "ScrollShame in azione su Facebook, tono Movimento: popup «Modalità statua attivata» con l'invito a alzarsi e i pulsanti «Hai ragione, mi alzo» e «Continua, tanto chi se ne frega»"
+imageAlt: "Scroll Guilt in azione su Facebook, tono Movimento: popup «Modalità statua attivata» con l'invito a alzarsi e i pulsanti «Hai ragione, mi alzo» e «Continua, tanto chi se ne frega»"
+aliases:
+  - "/progetti/scrollshame/"
 ---
 
-ScrollShame è l'estensione per Chrome che ti interrompe — con ironia crescente — ogni volta che apri un social durante l'orario di lavoro. Più ci torni nello stesso giorno, più il messaggio si fa pungente: si parte con un richiamo gentile e si finisce con una presa in giro scherzosa.
+Scroll Guilt è l'estensione per Chrome che ti interrompe — con ironia crescente — ogni volta che apri un social durante l'orario di lavoro. Più ci torni nello stesso giorno, più il messaggio si fa pungente: si parte con un richiamo gentile e si finisce con una presa in giro scherzosa.
 
 - **Stato**: pubblicata sul Chrome Web Store
 - **Costruita con**: Chrome Extension Manifest V3, JavaScript vanilla, Shadow DOM, `chrome.storage`
@@ -41,6 +43,4 @@ Il problema non è decidere di non aprire i social in orario di lavoro: è che l
 
 ## Privacy
 
-L'estensione non raccoglie né trasmette alcun dato: tutto resta in locale. Dettagli completi nella [privacy policy](/scrollshame-privacy/).
-
-
+L'estensione non raccoglie né trasmette alcun dato: tutto resta in locale. Dettagli completi nella [privacy policy](/scroll-guilt-privacy/).

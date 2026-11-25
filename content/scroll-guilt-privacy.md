@@ -1,12 +1,14 @@
 ---
-title: "ScrollShame — Privacy Policy"
+title: "Scroll Guilt — Privacy Policy"
 layout: "legal"
-description: "Informativa sulla privacy per l'estensione browser ScrollShame."
+description: "Informativa sulla privacy per l'estensione browser Scroll Guilt."
+aliases:
+  - "/scrollshame-privacy/"
 ---
 
 *Ultimo aggiornamento: 20 novembre 2026*
 
-ScrollShame è un'estensione gratuita per browser che ti ricorda di fare una breve pausa di movimento quando apri i social durante l'orario di lavoro.
+Scroll Guilt è un'estensione gratuita per browser che ti ricorda di fare una breve pausa di movimento quando apri i social durante l'orario di lavoro.
 
 ## Raccolta dati
 

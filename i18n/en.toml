@@ -212,9 +212,9 @@ other = "A blank sheet in the browser, in the style of a typewriter. Monospace t
 other = "Web app · Personal project"
 [project_watt2ride_desc]
 other = "I needed a map to know where to charge my e-bike, so I built one: OpenStreetMap data that refreshes itself every week, plus favourites, reviews and points suggested by the community. The map is public, and an account is only needed to contribute. Designed and built by me, in vanilla JavaScript, no framework."
-[project_scrollshame_meta]
+[project_scrollguilt_meta]
 other = "Chrome extension · Personal project"
-[project_scrollshame_desc]
+[project_scrollguilt_desc]
 other = "A free Chrome extension that calls you out, with growing irony, every time you open social media during work hours: 3 tones, customizable active hours, no data collection. Published on the Chrome Web Store."
 [project_stash_meta]
 other = "Web app · Open source"
